@@ -1,0 +1,10 @@
+{
+  "project": "The History Loom",
+  "dataset": "Britain Seed Dataset",
+  "scope": "Britain",
+  "startYear": 1066,
+  "endYear": 2025,
+  "initialLensYears": 80,
+  "lensCount": 12,
+  "note": "The 80-year division is a starter lens for exploration, not a claim that British history naturally falls into perfect 80-year chunks."
+}

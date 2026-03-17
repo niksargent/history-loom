@@ -1,0 +1,161 @@
+import { useState } from 'react'
+import { DetailPanel } from './components/DetailPanel'
+import { LoomCanvas } from './components/LoomCanvas'
+import { PressureLegend } from './components/PressureLegend'
+import { getCounterpartIds, getLoomDataset } from './lib/loom-data'
+
+function App() {
+  const [{ dataset, loadError }] = useState(() => {
+    try {
+      return { dataset: getLoomDataset(), loadError: null as string | null }
+    } catch (error) {
+      return {
+        dataset: null,
+        loadError: error instanceof Error ? error.message : 'Unknown dataset error.',
+      }
+    }
+  })
+  const [selectedPeriodId, setSelectedPeriodId] = useState(
+    dataset?.periods[dataset.periods.length - 1]?.id ?? '',
+  )
+  const [selectedPressureId, setSelectedPressureId] = useState<string | null>(null)
+  const [showPressureOverlay, setShowPressureOverlay] = useState(true)
+  const [showEchoes, setShowEchoes] = useState(false)
+  const [isDetailOpen, setIsDetailOpen] = useState(true)
+
+  if (!dataset || loadError) {
+    return (
+      <div className="min-h-screen bg-[color:var(--bg)] px-4 py-10 text-stone-100">
+        <main className="mx-auto max-w-3xl rounded-[2rem] border border-rose-300/20 bg-rose-300/8 p-8">
+          <p className="eyebrow">Application error</p>
+          <h1 className="font-display mt-3 text-4xl text-stone-50">
+            The History Loom could not load its dataset
+          </h1>
+          <p className="mt-4 text-base leading-7 text-stone-300">
+            The page stayed blank because the app failed before the first render.
+            The underlying error is shown below so it can be fixed directly.
+          </p>
+          <pre className="mt-6 overflow-x-auto rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-sm leading-6 text-rose-100">
+            {loadError ?? 'Dataset unavailable.'}
+          </pre>
+        </main>
+      </div>
+    )
+  }
+
+  const detail = dataset.selectedDetailsById[selectedPeriodId]
+  const echoCounterpartIds = showEchoes ? getCounterpartIds(detail) : new Set<string>()
+
+  return (
+    <div className="min-h-screen bg-[color:var(--bg)] text-stone-100">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(55,81,92,0.22),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(219,181,108,0.16),_transparent_30%),linear-gradient(180deg,rgba(14,17,18,0.96),rgba(8,10,11,1))]" />
+
+      <main className="mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
+        <header className="glass-panel rounded-[2rem] border border-white/10 px-6 py-6 md:px-8">
+          <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
+            <div className="max-w-4xl">
+              <p className="eyebrow">Not a timeline. A loom.</p>
+              <h1 className="font-display text-4xl leading-tight text-stone-50 md:text-6xl">
+                The History Loom
+              </h1>
+              <p className="mt-4 max-w-3xl text-base leading-7 text-stone-300 md:text-lg">
+                A prototype for reading Britain from {dataset.meta.startYear} to{' '}
+                {dataset.meta.endYear} as recurring structure: equal periods in
+                the foreground, pressure undercurrents beneath, and curated echoes
+                between distant eras.
+              </p>
+            </div>
+
+            <div className="grid gap-3 text-sm text-stone-300 md:grid-cols-3">
+              <div className="rounded-[1.4rem] border border-white/8 bg-white/4 px-4 py-4">
+                <p className="eyebrow">Lens</p>
+                <p className="mt-2 font-display text-2xl text-stone-100">
+                  {dataset.lens.label}
+                </p>
+                <p className="mt-2 leading-6 text-stone-400">
+                  {dataset.lens.periodCount} periods across {dataset.lens.spanLabel}
+                </p>
+              </div>
+              <div className="rounded-[1.4rem] border border-white/8 bg-white/4 px-4 py-4">
+                <p className="eyebrow">Dataset</p>
+                <p className="mt-2 font-display text-2xl text-stone-100">
+                  {dataset.meta.scope}
+                </p>
+                <p className="mt-2 leading-6 text-stone-400">{dataset.meta.dataset}</p>
+              </div>
+              <div className="rounded-[1.4rem] border border-white/8 bg-white/4 px-4 py-4">
+                <p className="eyebrow">Method</p>
+                <p className="mt-2 font-display text-2xl text-stone-100">Lens, not law</p>
+                <p className="mt-2 leading-6 text-stone-400">{dataset.lens.note}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => setShowPressureOverlay((current) => !current)}
+              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition ${
+                showPressureOverlay
+                  ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                  : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
+              }`}
+            >
+              {showPressureOverlay ? 'Pressure overlay on' : 'Pressure overlay off'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowEchoes((current) => !current)}
+              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition ${
+                showEchoes
+                  ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
+                  : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
+              }`}
+            >
+              {showEchoes ? 'Echo reveal on' : 'Echo reveal off'}
+            </button>
+          </div>
+        </header>
+
+        <div className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.35fr)_minmax(420px,0.8fr)] xl:items-start">
+          <div className="space-y-5">
+            <LoomCanvas
+              periods={dataset.periods}
+              overlaySeries={dataset.pressureOverlaySeries}
+              selectedPeriodId={selectedPeriodId}
+              selectedPressureId={selectedPressureId}
+              showPressureOverlay={showPressureOverlay}
+              echoCounterpartIds={echoCounterpartIds}
+              showEchoes={showEchoes}
+              onPeriodSelect={(periodId) => {
+                setSelectedPeriodId(periodId)
+                setIsDetailOpen(true)
+              }}
+              onPressureSelect={(pressureId) => {
+                setSelectedPressureId(pressureId)
+                setShowPressureOverlay(true)
+              }}
+            />
+
+            <PressureLegend
+              pressureSeries={dataset.pressureOverlaySeries}
+              selectedPressureId={selectedPressureId}
+              currentPeriodScores={detail.period.pressureScores}
+              onPressureSelect={setSelectedPressureId}
+            />
+          </div>
+
+          <DetailPanel
+            detail={detail}
+            isOpen={isDetailOpen}
+            showEchoes={showEchoes}
+            onToggleOpen={() => setIsDetailOpen((current) => !current)}
+            onToggleEchoes={() => setShowEchoes((current) => !current)}
+          />
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default App

@@ -1,0 +1,830 @@
+[
+  {
+    "id": "e01",
+    "title": "Norman Conquest",
+    "startYear": 1066,
+    "endYear": 1066,
+    "scope": "England",
+    "geography": "England",
+    "summary": "William of Normandy's victory reordered rulership, landholding, and aristocratic power.",
+    "type": "political",
+    "periodIds": [
+      "p01"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "eliteCompetition",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "elite replacement",
+      "castle building",
+      "new royal authority"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "centralised rule",
+      "cross-Channel aristocracy"
+    ],
+    "destroyedOrDisplaced": [
+      "Anglo-Saxon ruling elite"
+    ]
+  },
+  {
+    "id": "e02",
+    "title": "Domesday Book",
+    "startYear": 1085,
+    "endYear": 1086,
+    "scope": "England",
+    "geography": "England",
+    "summary": "A remarkably detailed survey of land and resources that strengthened fiscal and administrative knowledge.",
+    "type": "political",
+    "periodIds": [
+      "p01"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "better taxation",
+      "greater state legibility"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "administrative reach"
+    ],
+    "destroyedOrDisplaced": [
+      "informal local opacity"
+    ]
+  },
+  {
+    "id": "e03",
+    "title": "Becket Crisis",
+    "startYear": 1162,
+    "endYear": 1170,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Conflict between Henry II and Thomas Becket dramatized tension between royal and ecclesiastical authority.",
+    "type": "religious",
+    "periodIds": [
+      "p02"
+    ],
+    "pressureDrivers": [
+      "eliteCompetition",
+      "moralCertainty"
+    ],
+    "consequences": [
+      "debate over jurisdiction",
+      "martyr cult and political shock"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "clearer debate over legal authority"
+    ],
+    "destroyedOrDisplaced": [
+      "easy church-crown harmony"
+    ]
+  },
+  {
+    "id": "e04",
+    "title": "Magna Carta",
+    "startYear": 1215,
+    "endYear": 1215,
+    "scope": "England",
+    "geography": "England",
+    "summary": "A baronial settlement that became a foundational symbol of limiting arbitrary rule.",
+    "type": "political",
+    "periodIds": [
+      "p02"
+    ],
+    "pressureDrivers": [
+      "eliteCompetition",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "charter politics",
+      "rights language",
+      "repeated reissue"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "constitutional imagination"
+    ],
+    "destroyedOrDisplaced": [
+      "idea of entirely unconstrained kingship"
+    ]
+  },
+  {
+    "id": "e05",
+    "title": "Simon de Montfort's Parliament",
+    "startYear": 1265,
+    "endYear": 1265,
+    "scope": "England",
+    "geography": "England",
+    "summary": "An important step in the development of representative parliamentary politics.",
+    "type": "political",
+    "periodIds": [
+      "p03"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "broader representation precedent"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "parliamentary development"
+    ],
+    "destroyedOrDisplaced": [
+      "purely narrow elite bargaining"
+    ]
+  },
+  {
+    "id": "e06",
+    "title": "Model Parliament",
+    "startYear": 1295,
+    "endYear": 1295,
+    "scope": "England",
+    "geography": "England",
+    "summary": "A key moment in consolidating the representative shape of Parliament.",
+    "type": "political",
+    "periodIds": [
+      "p03"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "firmer representative taxation"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "durable parliamentary form"
+    ],
+    "destroyedOrDisplaced": [
+      "more ad hoc consultation"
+    ]
+  },
+  {
+    "id": "e07",
+    "title": "Black Death",
+    "startYear": 1348,
+    "endYear": 1350,
+    "scope": "Britain",
+    "geography": "England and Wales",
+    "summary": "Plague mortality transformed demography, labour relations, and social confidence.",
+    "type": "demographic",
+    "periodIds": [
+      "p04"
+    ],
+    "pressureDrivers": [
+      "ecologicalStrain",
+      "economicPrecarity"
+    ],
+    "consequences": [
+      "labour scarcity",
+      "mortality shock",
+      "social renegotiation"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "better bargaining for some workers"
+    ],
+    "destroyedOrDisplaced": [
+      "population balance",
+      "settled expectations"
+    ]
+  },
+  {
+    "id": "e08",
+    "title": "Peasants' Revolt",
+    "startYear": 1381,
+    "endYear": 1381,
+    "scope": "England",
+    "geography": "England",
+    "summary": "A major uprising revealing the explosive politics of tax, labour, and hierarchy after plague.",
+    "type": "social",
+    "periodIds": [
+      "p04"
+    ],
+    "pressureDrivers": [
+      "economicPrecarity",
+      "eliteCompetition",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "elite alarm",
+      "memory of popular resistance"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "political visibility from below"
+    ],
+    "destroyedOrDisplaced": [
+      "confidence in passive deference"
+    ]
+  },
+  {
+    "id": "e09",
+    "title": "Losses in France and political crisis",
+    "startYear": 1440,
+    "endYear": 1453,
+    "scope": "England",
+    "geography": "England/France",
+    "summary": "Military failure abroad intensified domestic weakness and elite blame.",
+    "type": "military",
+    "periodIds": [
+      "p05"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "eliteCompetition",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "prestige loss",
+      "succession tension"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "new alignments"
+    ],
+    "destroyedOrDisplaced": [
+      "confidence in Lancastrian rule"
+    ]
+  },
+  {
+    "id": "e10",
+    "title": "Wars of the Roses",
+    "startYear": 1455,
+    "endYear": 1487,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Dynastic conflict exposed the fragility of legitimacy and noble consensus.",
+    "type": "political",
+    "periodIds": [
+      "p05",
+      "p06"
+    ],
+    "pressureDrivers": [
+      "eliteCompetition",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "dynastic reset",
+      "greater fear of faction"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "Tudor consolidation"
+    ],
+    "destroyedOrDisplaced": [
+      "stable noble equilibrium"
+    ]
+  },
+  {
+    "id": "e11",
+    "title": "Act of Supremacy",
+    "startYear": 1534,
+    "endYear": 1534,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The English monarch was declared supreme head of the Church of England.",
+    "type": "religious",
+    "periodIds": [
+      "p06"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "national church",
+      "doctrinal and property upheaval"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "royal religious control"
+    ],
+    "destroyedOrDisplaced": [
+      "papal authority in England"
+    ]
+  },
+  {
+    "id": "e12",
+    "title": "Dissolution of the Monasteries",
+    "startYear": 1536,
+    "endYear": 1541,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Monastic houses were suppressed, redistributing wealth and reshaping local welfare and piety.",
+    "type": "religious",
+    "periodIds": [
+      "p06"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "economicPrecarity"
+    ],
+    "consequences": [
+      "land redistribution",
+      "social and devotional disruption"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "new elite property",
+      "stronger crown finances"
+    ],
+    "destroyedOrDisplaced": [
+      "monastic welfare networks"
+    ]
+  },
+  {
+    "id": "e13",
+    "title": "Elizabethan Religious Settlement",
+    "startYear": 1559,
+    "endYear": 1559,
+    "scope": "England",
+    "geography": "England",
+    "summary": "A Protestant settlement sought political stability while retaining coercive control.",
+    "type": "religious",
+    "periodIds": [
+      "p07"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "relative institutional stabilisation",
+      "ongoing confessional conflict"
+    ],
+    "scalesAffected": [
+      "personal",
+      "national"
+    ],
+    "madePossible": [
+      "durable Protestant state framework"
+    ],
+    "destroyedOrDisplaced": [
+      "hopes of easy confessional unity"
+    ]
+  },
+  {
+    "id": "e14",
+    "title": "Union of the Crowns",
+    "startYear": 1603,
+    "endYear": 1603,
+    "scope": "Britain",
+    "geography": "England and Scotland",
+    "summary": "James VI and I brought the English and Scottish crowns together under one monarch.",
+    "type": "political",
+    "periodIds": [
+      "p07"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "composite monarchy",
+      "new sovereignty tensions"
+    ],
+    "scalesAffected": [
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "later union horizons"
+    ],
+    "destroyedOrDisplaced": [
+      "older separation of royal households"
+    ]
+  },
+  {
+    "id": "e15",
+    "title": "English Civil Wars",
+    "startYear": 1642,
+    "endYear": 1651,
+    "scope": "Britain",
+    "geography": "England, Scotland, Ireland",
+    "summary": "War over sovereignty, religion, and authority shattered the old political settlement.",
+    "type": "military",
+    "periodIds": [
+      "p08"
+    ],
+    "pressureDrivers": [
+      "eliteCompetition",
+      "institutionalLegitimacy",
+      "moralCertainty",
+      "militarization"
+    ],
+    "consequences": [
+      "regicide",
+      "republican experiment",
+      "deep local disruption"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "new constitutional possibilities"
+    ],
+    "destroyedOrDisplaced": [
+      "sacred monarchy"
+    ]
+  },
+  {
+    "id": "e16",
+    "title": "Bill of Rights",
+    "startYear": 1689,
+    "endYear": 1689,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The post-1688 settlement firmly limited monarchy and strengthened parliamentary principles.",
+    "type": "political",
+    "periodIds": [
+      "p08"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "constitutional monarchy",
+      "parliamentary rights"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "more durable constitutional constraint"
+    ],
+    "destroyedOrDisplaced": [
+      "claims of absolute royal power"
+    ]
+  },
+  {
+    "id": "e17",
+    "title": "Acts of Union",
+    "startYear": 1707,
+    "endYear": 1707,
+    "scope": "Britain",
+    "geography": "England and Scotland",
+    "summary": "England and Scotland were united in the Kingdom of Great Britain.",
+    "type": "political",
+    "periodIds": [
+      "p09"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "publicHope"
+    ],
+    "consequences": [
+      "integrated state",
+      "shared fiscal-military framework"
+    ],
+    "scalesAffected": [
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "British imperial state"
+    ],
+    "destroyedOrDisplaced": [
+      "separate English and Scottish parliaments"
+    ]
+  },
+  {
+    "id": "e18",
+    "title": "Seven Years' War and imperial expansion",
+    "startYear": 1756,
+    "endYear": 1763,
+    "scope": "Britain",
+    "geography": "Global empire",
+    "summary": "Victory strengthened Britain's global reach while deepening debt and imperial entanglement.",
+    "type": "military",
+    "periodIds": [
+      "p09"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "publicHope"
+    ],
+    "consequences": [
+      "imperial expansion",
+      "fiscal strain"
+    ],
+    "scalesAffected": [
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "wider imperial dominance"
+    ],
+    "destroyedOrDisplaced": [
+      "earlier balance of imperial rivalry"
+    ]
+  },
+  {
+    "id": "e19",
+    "title": "First Reform Act",
+    "startYear": 1832,
+    "endYear": 1832,
+    "scope": "Britain",
+    "geography": "Britain",
+    "summary": "The antiquated electoral system was partly reworked, beginning a longer age of reform.",
+    "type": "political",
+    "periodIds": [
+      "p10"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "economicPrecarity",
+      "informationAcceleration"
+    ],
+    "consequences": [
+      "redistribution of seats",
+      "expanded electorate"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "further democratic reform"
+    ],
+    "destroyedOrDisplaced": [
+      "some rotten borough politics"
+    ]
+  },
+  {
+    "id": "e20",
+    "title": "Factory Act",
+    "startYear": 1833,
+    "endYear": 1833,
+    "scope": "Britain",
+    "geography": "Britain",
+    "summary": "The state began more direct regulation of industrial labour conditions, especially for children.",
+    "type": "social",
+    "periodIds": [
+      "p10"
+    ],
+    "pressureDrivers": [
+      "technologicalDisruption",
+      "economicPrecarity"
+    ],
+    "consequences": [
+      "labour regulation",
+      "new inspection powers"
+    ],
+    "scalesAffected": [
+      "personal",
+      "national"
+    ],
+    "madePossible": [
+      "social legislation"
+    ],
+    "destroyedOrDisplaced": [
+      "pure laissez-faire assumptions in some sectors"
+    ]
+  },
+  {
+    "id": "e21",
+    "title": "Third Reform Act",
+    "startYear": 1884,
+    "endYear": 1885,
+    "scope": "Britain",
+    "geography": "Britain",
+    "summary": "Voting rights widened substantially, deepening mass politics.",
+    "type": "political",
+    "periodIds": [
+      "p11"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "publicHope"
+    ],
+    "consequences": [
+      "broader franchise",
+      "larger electoral politics"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "mass democracy"
+    ],
+    "destroyedOrDisplaced": [
+      "narrower property-based franchise"
+    ]
+  },
+  {
+    "id": "e22",
+    "title": "First and Second World Wars",
+    "startYear": 1914,
+    "endYear": 1945,
+    "scope": "Britain",
+    "geography": "Britain and global war",
+    "summary": "Total war reshaped the economy, state power, citizenship, gender roles, and expectations of social protection.",
+    "type": "military",
+    "periodIds": [
+      "p11"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "technologicalDisruption",
+      "publicHope"
+    ],
+    "consequences": [
+      "mass mobilisation",
+      "state expansion",
+      "social trauma"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "welfare-state horizon",
+      "mass citizenship"
+    ],
+    "destroyedOrDisplaced": [
+      "limited-war assumptions",
+      "many imperial certainties"
+    ]
+  },
+  {
+    "id": "e23",
+    "title": "Creation of the NHS and welfare settlement",
+    "startYear": 1948,
+    "endYear": 1948,
+    "scope": "Britain",
+    "geography": "Britain",
+    "summary": "The postwar settlement institutionalised broad social protection and universal health care.",
+    "type": "social",
+    "periodIds": [
+      "p12"
+    ],
+    "pressureDrivers": [
+      "publicHope",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "health security",
+      "welfare citizenship"
+    ],
+    "scalesAffected": [
+      "personal",
+      "national"
+    ],
+    "madePossible": [
+      "universal health care",
+      "cradle-to-grave security expectations"
+    ],
+    "destroyedOrDisplaced": [
+      "older patchwork welfare dependence"
+    ]
+  },
+  {
+    "id": "e24",
+    "title": "Thatcher era reforms",
+    "startYear": 1979,
+    "endYear": 1990,
+    "scope": "Britain",
+    "geography": "Britain",
+    "summary": "Privatisation, deregulation, anti-union reforms, and market liberalisation reshaped the economy and state.",
+    "type": "economic",
+    "periodIds": [
+      "p12"
+    ],
+    "pressureDrivers": [
+      "economicPrecarity",
+      "individualAutonomy",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "deindustrialisation",
+      "asset ownership for some",
+      "regional divergence"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "market flexibility",
+      "new ownership patterns"
+    ],
+    "destroyedOrDisplaced": [
+      "postwar industrial settlement"
+    ]
+  },
+  {
+    "id": "e25",
+    "title": "Good Friday Agreement",
+    "startYear": 1998,
+    "endYear": 1998,
+    "scope": "United Kingdom",
+    "geography": "Northern Ireland",
+    "summary": "A power-sharing settlement largely ended the Troubles and created devolved institutions in Northern Ireland.",
+    "type": "political",
+    "periodIds": [
+      "p12"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "socialCohesion",
+      "publicHope"
+    ],
+    "consequences": [
+      "power-sharing",
+      "reduced violence",
+      "institutional fragility with renewed framework"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "new peace architecture"
+    ],
+    "destroyedOrDisplaced": [
+      "some assumptions of zero-sum sovereignty politics"
+    ]
+  },
+  {
+    "id": "e26",
+    "title": "Brexit and exit from the EU",
+    "startYear": 2016,
+    "endYear": 2020,
+    "scope": "United Kingdom",
+    "geography": "United Kingdom",
+    "summary": "The referendum and withdrawal from the EU exposed sovereignty conflict, regional difference, and long-running legitimacy strain.",
+    "type": "political",
+    "periodIds": [
+      "p12"
+    ],
+    "pressureDrivers": [
+      "institutionalLegitimacy",
+      "informationAcceleration",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "constitutional strain",
+      "new trade and regulatory framework",
+      "renewed union tensions"
+    ],
+    "scalesAffected": [
+      "personal",
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "restated sovereignty claims"
+    ],
+    "destroyedOrDisplaced": [
+      "the UK's previous EU settlement"
+    ]
+  }
+]

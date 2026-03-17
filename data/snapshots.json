@@ -1,0 +1,110 @@
+[
+  {
+    "id": "s01",
+    "periodId": "p01",
+    "title": "Peasant under new lordship",
+    "scale": "personal",
+    "summary": "A village household faces new dues, lordly justice, and a stronger castle presence after conquest.",
+    "dailyReality": "Work is seasonal, obligations are personal, and protection comes through hierarchy rather than choice.",
+    "sourcesOrRationale": "Interpretive snapshot based on conquest-era agrarian order and elite replacement."
+  },
+  {
+    "id": "s02",
+    "periodId": "p02",
+    "title": "A world of law and levy",
+    "scale": "local",
+    "summary": "A free or semi-free household feels more of the crown through courts, sheriffs, and demands for revenue.",
+    "dailyReality": "Life is still local, but written authority increasingly reaches into disputes and dues.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in legal and fiscal expansion under Angevin rule."
+  },
+  {
+    "id": "s03",
+    "periodId": "p03",
+    "title": "Order through custom",
+    "scale": "local",
+    "summary": "Parish, manor, and market shape an existence that feels tightly ranked yet more regularly governed.",
+    "dailyReality": "Institutions above are more stable, but opportunity remains narrow and hierarchy normal.",
+    "sourcesOrRationale": "Interpretive snapshot based on thirteenth-century consolidation of law and representative taxation."
+  },
+  {
+    "id": "s04",
+    "periodId": "p04",
+    "title": "After the plague",
+    "scale": "personal",
+    "summary": "A survivor enters a labour market transformed by death, shortage, and anxious attempts to restore order.",
+    "dailyReality": "Wages may rise, service terms may shift, but fear, grief, and coercive law remain close.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Black Death mortality and labour regulation."
+  },
+  {
+    "id": "s05",
+    "periodId": "p05",
+    "title": "Living under brittle legitimacy",
+    "scale": "local",
+    "summary": "The kingdom feels distant yet unstable as noble rivalries and weak kingship unsettle confidence.",
+    "dailyReality": "Patronage matters, taxation bites, and security depends heavily on who controls the locality.",
+    "sourcesOrRationale": "Interpretive snapshot based on fifteenth-century dynastic and noble conflict."
+  },
+  {
+    "id": "s06",
+    "periodId": "p06",
+    "title": "Parish after the break with Rome",
+    "scale": "local",
+    "summary": "Worship, charity, and communal memory shift abruptly as royal religious policy reaches into daily life.",
+    "dailyReality": "Old rituals disappear, new words and loyalties matter, and dissent can be dangerous.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in the English Reformation and dissolution."
+  },
+  {
+    "id": "s07",
+    "periodId": "p07",
+    "title": "A household in a hotter confessional age",
+    "scale": "personal",
+    "summary": "Belief is not private; sermons, neighbours, and rulers all matter to how safely a family lives.",
+    "dailyReality": "Work and family continue, but conscience and allegiance carry sharper risk.",
+    "sourcesOrRationale": "Interpretive snapshot based on late Tudor and early Stuart confessional conflict."
+  },
+  {
+    "id": "s08",
+    "periodId": "p08",
+    "title": "Civil war in the parish",
+    "scale": "local",
+    "summary": "National arguments over sovereignty and religion become immediate through troops, taxes, and divided loyalties.",
+    "dailyReality": "War is no abstraction; it arrives as requisition, fear, and argument in familiar places.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in the civil wars and print-politics era."
+  },
+  {
+    "id": "s09",
+    "periodId": "p09",
+    "title": "A commercialising town",
+    "scale": "local",
+    "summary": "Goods, credit, newspapers, and imperial links widen horizons for some while leaving poverty stubbornly present.",
+    "dailyReality": "Daily life is more connected to distant trade, but dependence and hierarchy remain strong.",
+    "sourcesOrRationale": "Interpretive snapshot based on eighteenth-century commerce and imperial growth."
+  },
+  {
+    "id": "s10",
+    "periodId": "p10",
+    "title": "Factory city life",
+    "scale": "personal",
+    "summary": "Industrial Britain offers wages, mobility, and political ferment at the cost of smoke, crowding, and insecurity.",
+    "dailyReality": "Time is disciplined by clock and machine, while reform, disease, and class organisation shape the street.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in industrialisation, urbanisation, and reform."
+  },
+  {
+    "id": "s11",
+    "periodId": "p11",
+    "title": "Citizen in total war",
+    "scale": "national",
+    "summary": "The ordinary person becomes part of a mass nation mobilised through work, media, rationing, and sacrifice.",
+    "dailyReality": "Politics, war, and family are fused; the state reaches deeply into everyday life.",
+    "sourcesOrRationale": "Interpretive snapshot based on late Victorian mass politics and the two world wars."
+  },
+  {
+    "id": "s12",
+    "periodId": "p12",
+    "title": "Postwar security, late-modern uncertainty",
+    "scale": "personal",
+    "summary": "Longer life, healthcare, education, migration, and consumer choice coexist with housing pressure, regional inequality, and fractured trust.",
+    "dailyReality": "Personal freedom is wider, but many institutions feel thinner and collective futures harder to imagine.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in welfare-state creation, deindustrialisation, devolution, digital media, and Brexit."
+  }
+]

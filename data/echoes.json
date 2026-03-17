@@ -1,0 +1,206 @@
+[
+  {
+    "id": "x01",
+    "sourcePeriodId": "p02",
+    "targetPeriodId": "p08",
+    "similarityLabel": "Ruler constrained by a new constitutional language",
+    "similarityReasons": [
+      "Both periods centre on conflict over the limits of sovereign power.",
+      "Both produce texts or settlements that outlive the immediate crisis."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "eliteCompetition",
+      "moralCertainty"
+    ],
+    "confidence": 0.86,
+    "notes": "Magna Carta and the 1688–89 settlement are not equivalent, but they rhyme as moments of imposed constitutional restraint."
+  },
+  {
+    "id": "x02",
+    "sourcePeriodId": "p04",
+    "targetPeriodId": "p10",
+    "similarityLabel": "Labour renegotiation after system shock",
+    "similarityReasons": [
+      "Both periods disrupt older labour bargains.",
+      "Both sharpen class tension and force new forms of regulation or resistance."
+    ],
+    "dimensions": [
+      "economicPrecarity",
+      "technologicalDisruption",
+      "socialCohesion"
+    ],
+    "confidence": 0.81,
+    "notes": "Plague shock and industrialisation are different causes with comparable bargaining consequences."
+  },
+  {
+    "id": "x03",
+    "sourcePeriodId": "p05",
+    "targetPeriodId": "p08",
+    "similarityLabel": "Legitimacy breakdown in the political centre",
+    "similarityReasons": [
+      "Both periods feature acute elite rivalry and weak consensus over rightful rule.",
+      "Both expose how quickly order frays when legitimacy fails."
+    ],
+    "dimensions": [
+      "eliteCompetition",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "confidence": 0.84,
+    "notes": "Dynastic crisis and civil war are different in scale but similar in structural brittleness."
+  },
+  {
+    "id": "x04",
+    "sourcePeriodId": "p06",
+    "targetPeriodId": "p12",
+    "similarityLabel": "A new information regime intensifies identity conflict",
+    "similarityReasons": [
+      "Print in the Reformation era and digital media in the modern era both accelerate conflict and alignment.",
+      "In both periods institutions struggle to contain narrative fragmentation."
+    ],
+    "dimensions": [
+      "informationAcceleration",
+      "moralCertainty",
+      "socialCohesion"
+    ],
+    "confidence": 0.73,
+    "notes": "This is a deliberately interpretive echo rather than a conventional textbook parallel."
+  },
+  {
+    "id": "x05",
+    "sourcePeriodId": "p07",
+    "targetPeriodId": "p12",
+    "similarityLabel": "Composite state under identity strain",
+    "similarityReasons": [
+      "Both periods feature tension between multiple national or confessional identities within one political frame.",
+      "Both show how sovereignty questions harden when belief and belonging diverge."
+    ],
+    "dimensions": [
+      "socialCohesion",
+      "institutionalLegitimacy",
+      "moralCertainty"
+    ],
+    "confidence": 0.78,
+    "notes": "Early Stuart composite monarchy and the contemporary union are distinct but comparably fragile in identity terms."
+  },
+  {
+    "id": "x06",
+    "sourcePeriodId": "p08",
+    "targetPeriodId": "p11",
+    "similarityLabel": "State capacity expands through conflict",
+    "similarityReasons": [
+      "Both periods use crisis to deepen the machinery of state power.",
+      "Both connect mobilisation with new expectations of citizenship."
+    ],
+    "dimensions": [
+      "militarization",
+      "institutionalLegitimacy",
+      "publicHope"
+    ],
+    "confidence": 0.77,
+    "notes": "The seventeenth-century fiscal state and twentieth-century total-war state differ in scale but share a pressure-response logic."
+  },
+  {
+    "id": "x07",
+    "sourcePeriodId": "p09",
+    "targetPeriodId": "p11",
+    "similarityLabel": "Confidence before overreach",
+    "similarityReasons": [
+      "Both periods combine strong state capacity with expansive global ambition.",
+      "Both carry moral and strategic blind spots beneath their confidence."
+    ],
+    "dimensions": [
+      "publicHope",
+      "institutionalLegitimacy",
+      "militarization"
+    ],
+    "confidence": 0.79,
+    "notes": "Eighteenth-century empire and late imperial Britain both pair prosperity with overstretch risk."
+  },
+  {
+    "id": "x08",
+    "sourcePeriodId": "p09",
+    "targetPeriodId": "p12",
+    "similarityLabel": "Integrated Britain under strain from its own expansion",
+    "similarityReasons": [
+      "Both periods are shaped by integration across wider systems—imperial or supranational/global.",
+      "Both generate backlash over who benefits and who belongs."
+    ],
+    "dimensions": [
+      "publicHope",
+      "inequality",
+      "socialCohesion"
+    ],
+    "confidence": 0.69,
+    "notes": "This echo is more exploratory, useful for the interface's comparison mode."
+  },
+  {
+    "id": "x09",
+    "sourcePeriodId": "p10",
+    "targetPeriodId": "p12",
+    "similarityLabel": "Acceleration without adaptation",
+    "similarityReasons": [
+      "Industrial and digital change both outrun institutions and social habits.",
+      "Both periods mix excitement, inequality, and disorientation."
+    ],
+    "dimensions": [
+      "technologicalDisruption",
+      "informationAcceleration",
+      "economicPrecarity"
+    ],
+    "confidence": 0.9,
+    "notes": "One of the strongest cross-era echoes in the starter set."
+  },
+  {
+    "id": "x10",
+    "sourcePeriodId": "p11",
+    "targetPeriodId": "p12",
+    "similarityLabel": "Mass citizenship with fraying shared story",
+    "similarityReasons": [
+      "Both periods depend on broad citizenship and state reach.",
+      "Both struggle to sustain common narrative across class, region, and identity divides."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "socialCohesion",
+      "publicHope"
+    ],
+    "confidence": 0.74,
+    "notes": "The arc from postwar solidarity to later fragmentation is intentionally visible here."
+  },
+  {
+    "id": "x11",
+    "sourcePeriodId": "p01",
+    "targetPeriodId": "p09",
+    "similarityLabel": "State-building through coercive integration",
+    "similarityReasons": [
+      "Both periods create more governable political orders through elite integration and concentrated power.",
+      "Both trade autonomy for capacity."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "militarization",
+      "socialCohesion"
+    ],
+    "confidence": 0.72,
+    "notes": "Conquest-state and union-fiscal state are not morally or structurally identical, but each strengthens rule through integration."
+  },
+  {
+    "id": "x12",
+    "sourcePeriodId": "p06",
+    "targetPeriodId": "p08",
+    "similarityLabel": "Religious rupture becomes constitutional change",
+    "similarityReasons": [
+      "Confessional conflict spills into the structure of rule.",
+      "Questions of ultimate authority become inseparable from governance."
+    ],
+    "dimensions": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "confidence": 0.82,
+    "notes": "Useful for tracing how belief intensifies political redesign."
+  }
+]

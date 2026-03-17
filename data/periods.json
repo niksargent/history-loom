@@ -1,0 +1,1133 @@
+[
+  {
+    "id": "p01",
+    "title": "Norman Consolidation",
+    "startYear": 1066,
+    "endYear": 1145,
+    "rangeLabel": "1066–1145",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Conquest, elite replacement, castle power, and administrative tightening remade the kingdom under a new ruling class.",
+    "dominantValues": [
+      "lordship",
+      "obedience",
+      "order",
+      "sacral kingship"
+    ],
+    "socialMood": [
+      "austerity",
+      "submission",
+      "reorganisation"
+    ],
+    "materialCondition": "Land, law, and military power concentrated around a new Norman elite.",
+    "institutionalCondition": "Royal administration sharpened, though local life remained overwhelmingly agrarian.",
+    "technologicalCondition": "Castle-building, record-keeping, and tighter feudal obligations expanded.",
+    "religiousPhilosophicalCondition": "Latin church culture deepened; reforming currents strengthened clerical order.",
+    "informationEnvironment": "Written record culture intensified, culminating in Domesday-style state knowledge.",
+    "cohesionLevel": 74,
+    "legitimacyLevel": 66,
+    "inequalityLevel": 58,
+    "dailyLife": "Village life remained harsh, local, and customary, but new lords altered rents, justice, and obligations.",
+    "labour": "Peasant labour and dues were heavy; military service and landholding were tightly bound.",
+    "familyHousehold": "Households were productive units under strong customary and lordly discipline.",
+    "insecurityExposure": "Raiding declined after consolidation, but coercion from conquest and rebellion was acute.",
+    "autonomyVsObligation": "Obligation dominated autonomy for most people.",
+    "opportunityVsPrecarity": "Opportunity was narrow; security depended on hierarchy and place.",
+    "senseOfFuture": "The future felt bounded by land, lord, and salvation.",
+    "emotionalClimate": "Subdued, disciplined, unequal.",
+    "whatEmerged": [
+      "castle society",
+      "royal bookkeeping",
+      "Norman ecclesiastical reform"
+    ],
+    "whatExpanded": [
+      "central royal justice",
+      "cross-Channel aristocratic networks"
+    ],
+    "newPossibilities": [
+      "more coherent administration",
+      "greater military concentration"
+    ],
+    "whatFaded": [
+      "Anglo-Saxon elite autonomy",
+      "older landholding patterns"
+    ],
+    "whatBroke": [
+      "local noble independence",
+      "older political settlements"
+    ],
+    "whatBecameHarder": [
+      "elite access to power outside Norman favour"
+    ],
+    "whatWasForgotten": [
+      "elements of pre-Conquest political culture"
+    ],
+    "pressureSummary": "State-building through conquest produced a more governable but harsher order.",
+    "releaseType": "consolidation",
+    "pressureScores": {
+      "inequality": 85,
+      "eliteCompetition": 55,
+      "institutionalLegitimacy": 60,
+      "socialCohesion": 45,
+      "technologicalDisruption": 25,
+      "informationAcceleration": 20,
+      "ecologicalStrain": 35,
+      "militarization": 75,
+      "moralCertainty": 80,
+      "publicHope": 40,
+      "individualAutonomy": 20,
+      "economicPrecarity": 70
+    },
+    "eventIds": [
+      "e01",
+      "e02"
+    ],
+    "snapshotIds": [
+      "s01"
+    ],
+    "echoIds": [
+      "x11"
+    ]
+  },
+  {
+    "id": "p02",
+    "title": "Angevin Reach and Charter Strain",
+    "startYear": 1146,
+    "endYear": 1225,
+    "rangeLabel": "1146–1225",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Royal reach expanded across a wider Angevin world, but extraction, law, and baronial resistance produced constitutional strain.",
+    "dominantValues": [
+      "authority",
+      "law",
+      "fealty",
+      "restraint-on-power"
+    ],
+    "socialMood": [
+      "restlessness",
+      "ambition",
+      "resentment"
+    ],
+    "materialCondition": "Royal finance and justice expanded, but burdens of rule sharpened conflict.",
+    "institutionalCondition": "The crown became more administratively capable but also more contested.",
+    "technologicalCondition": "Record systems, itinerant justice, and fiscal tools deepened state reach.",
+    "religiousPhilosophicalCondition": "The church remained central but conflict over authority sharpened.",
+    "informationEnvironment": "Written writs, charters, and legal instruments became more politically important.",
+    "cohesionLevel": 78,
+    "legitimacyLevel": 52,
+    "inequalityLevel": 54,
+    "dailyLife": "For ordinary people the reach of law increased, but so did the reach of extraction.",
+    "labour": "Agrarian labour still dominated, though monetisation slowly deepened.",
+    "familyHousehold": "Households remained local and customary, with inheritance and status tightly regulated.",
+    "insecurityExposure": "War taxation and noble conflict increased insecurity from above.",
+    "autonomyVsObligation": "Subjects gained some legal language, but dependence remained profound.",
+    "opportunityVsPrecarity": "Openings existed in trade and church careers, but most lives stayed fixed.",
+    "senseOfFuture": "The future felt more politically unstable yet more legally articulate.",
+    "emotionalClimate": "Energetic, strained, argumentative.",
+    "whatEmerged": [
+      "common law development",
+      "charter politics",
+      "stronger administrative monarchy"
+    ],
+    "whatExpanded": [
+      "legal consciousness",
+      "baronial bargaining"
+    ],
+    "newPossibilities": [
+      "appeals to rights and liberties",
+      "more formal political constraint"
+    ],
+    "whatFaded": [
+      "unquestioned royal discretion",
+      "older informal balances"
+    ],
+    "whatBroke": [
+      "trust between crown and magnates",
+      "easy legitimacy"
+    ],
+    "whatBecameHarder": [
+      "political calm"
+    ],
+    "whatWasForgotten": [
+      "assumptions of unconstrained kingship"
+    ],
+    "pressureSummary": "Administrative expansion pushed against elite tolerance and generated demands for restraint.",
+    "releaseType": "constraint",
+    "pressureScores": {
+      "inequality": 82,
+      "eliteCompetition": 72,
+      "institutionalLegitimacy": 48,
+      "socialCohesion": 42,
+      "technologicalDisruption": 22,
+      "informationAcceleration": 28,
+      "ecologicalStrain": 38,
+      "militarization": 68,
+      "moralCertainty": 78,
+      "publicHope": 44,
+      "individualAutonomy": 23,
+      "economicPrecarity": 68
+    },
+    "eventIds": [
+      "e03",
+      "e04"
+    ],
+    "snapshotIds": [
+      "s02"
+    ],
+    "echoIds": [
+      "x01"
+    ]
+  },
+  {
+    "id": "p03",
+    "title": "Charter, Parliament, and Plantagenet Order",
+    "startYear": 1226,
+    "endYear": 1305,
+    "rangeLabel": "1226–1305",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Monarchy, law, and representative institutions thickened together as the realm sought workable order after charter crisis.",
+    "dominantValues": [
+      "order",
+      "custom",
+      "representation",
+      "hierarchy"
+    ],
+    "socialMood": [
+      "rebalancing",
+      "caution",
+      "institutional confidence"
+    ],
+    "materialCondition": "Agrarian society remained unequal but somewhat more regularised in governance.",
+    "institutionalCondition": "Parliamentary forms and legal routines became more recognisable.",
+    "technologicalCondition": "Administrative literacy and taxation systems matured further.",
+    "religiousPhilosophicalCondition": "Religion structured public and personal life with high authority.",
+    "informationEnvironment": "Record culture widened among institutions even if literacy stayed narrow.",
+    "cohesionLevel": 70,
+    "legitimacyLevel": 62,
+    "inequalityLevel": 50,
+    "dailyLife": "Daily life was still local and agricultural, but the kingdom above it became more structured.",
+    "labour": "Manorial labour persisted alongside growing town and market activity.",
+    "familyHousehold": "Family life remained hierarchical, with kin, inheritance, and parish rhythms central.",
+    "insecurityExposure": "Famine and local hardship remained real, though state order was firmer.",
+    "autonomyVsObligation": "People lived within custom, but custom itself became more formalised.",
+    "opportunityVsPrecarity": "Market towns and clerical life offered some limited mobility.",
+    "senseOfFuture": "The future felt divinely ordered but not fully predictable.",
+    "emotionalClimate": "Ordered, pious, guarded.",
+    "whatEmerged": [
+      "parliamentary precedent",
+      "legal regularity",
+      "urban and mercantile growth"
+    ],
+    "whatExpanded": [
+      "representative taxation",
+      "administrative routine"
+    ],
+    "newPossibilities": [
+      "more durable state bargaining",
+      "clearer institutional memory"
+    ],
+    "whatFaded": [
+      "some local fluidity",
+      "older informal politics"
+    ],
+    "whatBroke": [
+      "easy separation between crown and community interests"
+    ],
+    "whatBecameHarder": [
+      "room outside formal jurisdiction"
+    ],
+    "whatWasForgotten": [
+      "older looser political forms"
+    ],
+    "pressureSummary": "Institutionalisation created more durable order while preserving hierarchy.",
+    "releaseType": "institutionalisation",
+    "pressureScores": {
+      "inequality": 80,
+      "eliteCompetition": 50,
+      "institutionalLegitimacy": 62,
+      "socialCohesion": 58,
+      "technologicalDisruption": 24,
+      "informationAcceleration": 30,
+      "ecologicalStrain": 44,
+      "militarization": 58,
+      "moralCertainty": 82,
+      "publicHope": 52,
+      "individualAutonomy": 25,
+      "economicPrecarity": 62
+    },
+    "eventIds": [
+      "e05",
+      "e06"
+    ],
+    "snapshotIds": [
+      "s03"
+    ],
+    "echoIds": []
+  },
+  {
+    "id": "p04",
+    "title": "War, Plague, and Social Upheaval",
+    "startYear": 1306,
+    "endYear": 1385,
+    "rangeLabel": "1306–1385",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Military campaigns, Black Death mortality, labour shortage, and revolt violently reset social bargaining.",
+    "dominantValues": [
+      "survival",
+      "duty",
+      "status",
+      "divine judgment"
+    ],
+    "socialMood": [
+      "shock",
+      "grief",
+      "opportunism"
+    ],
+    "materialCondition": "Population collapse altered wages, land use, and labour leverage.",
+    "institutionalCondition": "The state strained to fund war and contain social change.",
+    "technologicalCondition": "Military organisation and fiscal extraction intensified.",
+    "religiousPhilosophicalCondition": "Religion remained central but crisis invited anxiety and dissent.",
+    "informationEnvironment": "News still moved slowly, but upheaval travelled through rumour, sermon, and statute.",
+    "cohesionLevel": 68,
+    "legitimacyLevel": 40,
+    "inequalityLevel": 46,
+    "dailyLife": "Plague, price shifts, and labour scarcity transformed ordinary life more than elite theory could control.",
+    "labour": "Labour became scarcer and more negotiable after catastrophe.",
+    "familyHousehold": "Many households lost members; inheritance and service patterns shifted.",
+    "insecurityExposure": "Disease and war produced deep insecurity.",
+    "autonomyVsObligation": "Survivors sometimes gained bargaining power, but coercive law fought back.",
+    "opportunityVsPrecarity": "Some workers saw better terms; others faced repression.",
+    "senseOfFuture": "The future felt unstable, chastening, but unexpectedly open in places.",
+    "emotionalClimate": "Traumatised, volatile, improvisational.",
+    "whatEmerged": [
+      "higher bargaining power for some workers",
+      "shifts in landholding",
+      "sharper class consciousness"
+    ],
+    "whatExpanded": [
+      "wage negotiation",
+      "social mobility for survivors"
+    ],
+    "newPossibilities": [
+      "space for challenge from below",
+      "revaluation of labour"
+    ],
+    "whatFaded": [
+      "older population balance",
+      "stable feudal expectations"
+    ],
+    "whatBroke": [
+      "confidence in inherited order",
+      "demographic continuity"
+    ],
+    "whatBecameHarder": [
+      "ability of elites to freeze society in place"
+    ],
+    "whatWasForgotten": [
+      "some assumptions of fixed rank relations"
+    ],
+    "pressureSummary": "Catastrophe shattered demographic balance and forced renegotiation of labour and authority.",
+    "releaseType": "upheaval",
+    "pressureScores": {
+      "inequality": 72,
+      "eliteCompetition": 57,
+      "institutionalLegitimacy": 42,
+      "socialCohesion": 38,
+      "technologicalDisruption": 26,
+      "informationAcceleration": 32,
+      "ecologicalStrain": 65,
+      "militarization": 70,
+      "moralCertainty": 84,
+      "publicHope": 34,
+      "individualAutonomy": 38,
+      "economicPrecarity": 78
+    },
+    "eventIds": [
+      "e07",
+      "e08"
+    ],
+    "snapshotIds": [
+      "s04"
+    ],
+    "echoIds": [
+      "x02"
+    ]
+  },
+  {
+    "id": "p05",
+    "title": "Dynastic Crisis and State Formation",
+    "startYear": 1386,
+    "endYear": 1465,
+    "rangeLabel": "1386–1465",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Weak kingship, war fatigue, noble faction, and succession conflict destabilised rule even as state habits thickened.",
+    "dominantValues": [
+      "lineage",
+      "honour",
+      "order",
+      "loyalty"
+    ],
+    "socialMood": [
+      "anxiety",
+      "intrigue",
+      "weariness"
+    ],
+    "materialCondition": "Economic recovery was uneven; elite competition overshadowed wider life.",
+    "institutionalCondition": "Government institutions persisted, but legitimacy was fragile and personalised.",
+    "technologicalCondition": "Military demands remained important, though not transformative in daily technology.",
+    "religiousPhilosophicalCondition": "Religious orthodoxy still dominated public life.",
+    "informationEnvironment": "Political news circulated through court, church, and locality in uneven ways.",
+    "cohesionLevel": 60,
+    "legitimacyLevel": 35,
+    "inequalityLevel": 52,
+    "dailyLife": "For most people life remained local, but dynastic instability made the kingdom above them feel brittle.",
+    "labour": "Rural labour and town craft continued, with insecurity from taxation and disorder.",
+    "familyHousehold": "Households were disciplined by rank and obligation, but patronage mattered deeply.",
+    "insecurityExposure": "Local violence and elite feud could spill outward.",
+    "autonomyVsObligation": "Ordinary autonomy was limited; patronage networks were decisive.",
+    "opportunityVsPrecarity": "Openings existed in service and town life, but precarity remained high.",
+    "senseOfFuture": "The future felt contingent on succession and favour.",
+    "emotionalClimate": "Fractured, suspicious, brittle.",
+    "whatEmerged": [
+      "state routines surviving weak rulers",
+      "greater salience of succession politics"
+    ],
+    "whatExpanded": [
+      "noble coalition politics",
+      "regional power brokerage"
+    ],
+    "newPossibilities": [
+      "clearer awareness that legitimacy could fail"
+    ],
+    "whatFaded": [
+      "confidence in dynastic continuity",
+      "easy royal authority"
+    ],
+    "whatBroke": [
+      "stable elite consensus"
+    ],
+    "whatBecameHarder": [
+      "predictable succession"
+    ],
+    "whatWasForgotten": [
+      "illusions of effortless order"
+    ],
+    "pressureSummary": "Weak legitimacy and elite rivalry exposed how much order depended on accepted succession.",
+    "releaseType": "succession-crisis",
+    "pressureScores": {
+      "inequality": 74,
+      "eliteCompetition": 80,
+      "institutionalLegitimacy": 36,
+      "socialCohesion": 40,
+      "technologicalDisruption": 22,
+      "informationAcceleration": 28,
+      "ecologicalStrain": 40,
+      "militarization": 62,
+      "moralCertainty": 79,
+      "publicHope": 36,
+      "individualAutonomy": 28,
+      "economicPrecarity": 64
+    },
+    "eventIds": [
+      "e09",
+      "e10"
+    ],
+    "snapshotIds": [
+      "s05"
+    ],
+    "echoIds": [
+      "x03"
+    ]
+  },
+  {
+    "id": "p06",
+    "title": "Tudor Centralisation and Reformation",
+    "startYear": 1466,
+    "endYear": 1545,
+    "rangeLabel": "1466–1545",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Stronger monarchy, dynastic repair, administrative centralisation, and the break with Rome transformed crown, church, and obedience.",
+    "dominantValues": [
+      "order",
+      "dynasty",
+      "obedience",
+      "godly authority"
+    ],
+    "socialMood": [
+      "confidence",
+      "fear",
+      "rupture"
+    ],
+    "materialCondition": "Royal government became more assertive; wealth and office drew closer to the crown.",
+    "institutionalCondition": "Monarchy gained capacity and ideological reach.",
+    "technologicalCondition": "Print began to matter more; administration and naval power developed.",
+    "religiousPhilosophicalCondition": "The Reformation shattered old ecclesiastical unity and reordered belief and property.",
+    "informationEnvironment": "Print and proclamation widened the crown's ability to project doctrine and command.",
+    "cohesionLevel": 82,
+    "legitimacyLevel": 58,
+    "inequalityLevel": 55,
+    "dailyLife": "Ordinary life still revolved around parish, household, and work, but religious and political commands now shifted from above with greater force.",
+    "labour": "Agrarian and craft work dominated, though enclosure and monetisation stirred tension.",
+    "familyHousehold": "Households were disciplined and patriarchal; religion saturated daily rhythms.",
+    "insecurityExposure": "Rebellion and punishment could be severe where policy struck custom.",
+    "autonomyVsObligation": "Autonomy remained narrow, but some subjects gained room through service, trade, or print.",
+    "opportunityVsPrecarity": "New careers opened in administration, law, and reforming religion.",
+    "senseOfFuture": "The future felt more dynamic, but also more dangerous to dissenters.",
+    "emotionalClimate": "Assertive, disruptive, watchful.",
+    "whatEmerged": [
+      "stronger central monarchy",
+      "national church",
+      "expanded state messaging"
+    ],
+    "whatExpanded": [
+      "bureaucratic reach",
+      "royal supremacy"
+    ],
+    "newPossibilities": [
+      "new political and religious alignments",
+      "new elite opportunities"
+    ],
+    "whatFaded": [
+      "medieval church structures",
+      "older devotional continuity"
+    ],
+    "whatBroke": [
+      "religious unity",
+      "some local institutional autonomy"
+    ],
+    "whatBecameHarder": [
+      "stability of inherited worship"
+    ],
+    "whatWasForgotten": [
+      "much of the monastic world"
+    ],
+    "pressureSummary": "Centralisation and religious rupture created a more directed state while tearing up older moral worlds.",
+    "releaseType": "rupture",
+    "pressureScores": {
+      "inequality": 76,
+      "eliteCompetition": 62,
+      "institutionalLegitimacy": 58,
+      "socialCohesion": 52,
+      "technologicalDisruption": 35,
+      "informationAcceleration": 42,
+      "ecologicalStrain": 36,
+      "militarization": 58,
+      "moralCertainty": 90,
+      "publicHope": 54,
+      "individualAutonomy": 30,
+      "economicPrecarity": 60
+    },
+    "eventIds": [
+      "e10",
+      "e11",
+      "e12"
+    ],
+    "snapshotIds": [
+      "s06"
+    ],
+    "echoIds": [
+      "x04",
+      "x12"
+    ]
+  },
+  {
+    "id": "p07",
+    "title": "Religious Conflict and Composite Monarchy",
+    "startYear": 1546,
+    "endYear": 1625,
+    "rangeLabel": "1546–1625",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Confessional struggle, dynastic complexity, overseas expansion, and contested sovereignty defined a tense but creative age.",
+    "dominantValues": [
+      "belief",
+      "discipline",
+      "honour",
+      "national destiny"
+    ],
+    "socialMood": [
+      "zeal",
+      "tension",
+      "aspiration"
+    ],
+    "materialCondition": "Trade widened and elites benefited, but insecurity and uneven development persisted.",
+    "institutionalCondition": "The composite monarchy stretched governance across multiple kingdoms and confessions.",
+    "technologicalCondition": "Print, navigation, and military technologies mattered more; empire remained embryonic.",
+    "religiousPhilosophicalCondition": "Religious division remained politically explosive.",
+    "informationEnvironment": "Print controversy and sermon culture accelerated ideological conflict.",
+    "cohesionLevel": 76,
+    "legitimacyLevel": 44,
+    "inequalityLevel": 57,
+    "dailyLife": "Life for ordinary people mixed stronger moral discipline with expanding commercial horizons and acute fear of disorder.",
+    "labour": "Agriculture remained dominant, but commerce, seafaring, and urban trades grew.",
+    "familyHousehold": "Households were morally supervised more intensely; patriarchy remained strong.",
+    "insecurityExposure": "Threats came from poor harvests, persecution, and international rivalry.",
+    "autonomyVsObligation": "Conscience mattered more in theory, yet coercion around belief stayed intense.",
+    "opportunityVsPrecarity": "Trade and literacy opened new paths for some, though unevenly.",
+    "senseOfFuture": "The future felt contested between providence, monarchy, and opportunity.",
+    "emotionalClimate": "Charged, hopeful, combustible.",
+    "whatEmerged": [
+      "wider print public",
+      "overseas ventures",
+      "sharper national Protestant identity"
+    ],
+    "whatExpanded": [
+      "commercial ambition",
+      "imperial imagination"
+    ],
+    "newPossibilities": [
+      "new political languages",
+      "larger public argument"
+    ],
+    "whatFaded": [
+      "shared religious settlement",
+      "older local unanimity"
+    ],
+    "whatBroke": [
+      "quiet confessional coexistence"
+    ],
+    "whatBecameHarder": [
+      "room for private divergence"
+    ],
+    "whatWasForgotten": [
+      "some common religious habits"
+    ],
+    "pressureSummary": "Belief, monarchy, and expanding horizons interacted to make politics more ideological and unstable.",
+    "releaseType": "polarisation",
+    "pressureScores": {
+      "inequality": 77,
+      "eliteCompetition": 70,
+      "institutionalLegitimacy": 44,
+      "socialCohesion": 41,
+      "technologicalDisruption": 40,
+      "informationAcceleration": 55,
+      "ecologicalStrain": 37,
+      "militarization": 66,
+      "moralCertainty": 88,
+      "publicHope": 50,
+      "individualAutonomy": 34,
+      "economicPrecarity": 61
+    },
+    "eventIds": [
+      "e13",
+      "e14"
+    ],
+    "snapshotIds": [
+      "s07"
+    ],
+    "echoIds": [
+      "x05"
+    ]
+  },
+  {
+    "id": "p08",
+    "title": "Civil Wars, Revolution, and Settlement",
+    "startYear": 1626,
+    "endYear": 1705,
+    "rangeLabel": "1626–1705",
+    "scope": "Britain",
+    "geography": [
+      "England",
+      "British Isles"
+    ],
+    "summary": "Crown-Parliament conflict, civil war, regicide, republic, restoration, and the 1688–89 settlement reworked sovereignty and rights.",
+    "dominantValues": [
+      "liberty",
+      "order",
+      "confession",
+      "property"
+    ],
+    "socialMood": [
+      "ferment",
+      "fear",
+      "argument"
+    ],
+    "materialCondition": "War and taxation burdened many, but commercial society kept growing.",
+    "institutionalCondition": "The relationship between crown, parliament, army, and rights was radically contested then reset.",
+    "technologicalCondition": "Print culture, finance, and military organisation expanded sharply.",
+    "religiousPhilosophicalCondition": "Religious conflict remained intense, though settlement gradually narrowed some extremes.",
+    "informationEnvironment": "Pamphlets, petitions, and printed controversy transformed political communication.",
+    "cohesionLevel": 70,
+    "legitimacyLevel": 55,
+    "inequalityLevel": 60,
+    "dailyLife": "Ordinary people lived through a world in which politics and religion could erupt directly into local life.",
+    "labour": "War disruption hit labour, trade, and taxation, though commerce revived strongly later.",
+    "familyHousehold": "Households were politicised by preaching, allegiance, and military presence.",
+    "insecurityExposure": "Civil conflict brought direct insecurity to many communities.",
+    "autonomyVsObligation": "People spoke more in the language of rights and conscience, even if power stayed unequal.",
+    "opportunityVsPrecarity": "Some groups gained voice through print and petitioning.",
+    "senseOfFuture": "The future felt radically open, then newly rule-bound.",
+    "emotionalClimate": "Explosive, inventive, exhausted.",
+    "whatEmerged": [
+      "constitutional monarchy",
+      "party formation",
+      "financial state capacity"
+    ],
+    "whatExpanded": [
+      "public political argument",
+      "parliamentary supremacy"
+    ],
+    "newPossibilities": [
+      "durable constitutional constraint",
+      "new fiscal tools for power"
+    ],
+    "whatFaded": [
+      "ideas of sacred monarchy",
+      "some old certainties"
+    ],
+    "whatBroke": [
+      "trust in inherited political theology"
+    ],
+    "whatBecameHarder": [
+      "easy separation of religion and power"
+    ],
+    "whatWasForgotten": [
+      "the aura of unquestioned dynastic right"
+    ],
+    "pressureSummary": "Acute legitimacy conflict broke the old frame and yielded a more constitutional but more politicised order.",
+    "releaseType": "settlement",
+    "pressureScores": {
+      "inequality": 75,
+      "eliteCompetition": 85,
+      "institutionalLegitimacy": 32,
+      "socialCohesion": 33,
+      "technologicalDisruption": 46,
+      "informationAcceleration": 72,
+      "ecologicalStrain": 34,
+      "militarization": 82,
+      "moralCertainty": 86,
+      "publicHope": 42,
+      "individualAutonomy": 45,
+      "economicPrecarity": 58
+    },
+    "eventIds": [
+      "e15",
+      "e16"
+    ],
+    "snapshotIds": [
+      "s08"
+    ],
+    "echoIds": [
+      "x01",
+      "x03",
+      "x06",
+      "x12"
+    ]
+  },
+  {
+    "id": "p09",
+    "title": "Union, Empire, and Fiscal-Military Britain",
+    "startYear": 1706,
+    "endYear": 1785,
+    "rangeLabel": "1706–1785",
+    "scope": "Britain",
+    "geography": [
+      "Britain",
+      "British Isles"
+    ],
+    "summary": "Union with Scotland, expanding commerce, imperial war, and fiscal capacity made Britain richer, stronger, and more globally entangled.",
+    "dominantValues": [
+      "improvement",
+      "commerce",
+      "patriotism",
+      "discipline"
+    ],
+    "socialMood": [
+      "confidence",
+      "expansion",
+      "competition"
+    ],
+    "materialCondition": "Commercial growth accelerated, though gains were uneven and empire relied on coercion.",
+    "institutionalCondition": "The post-1688 settlement underwrote a more capable fiscal-military state.",
+    "technologicalCondition": "Finance, naval power, and early industrial changes increased state reach and global power.",
+    "religiousPhilosophicalCondition": "Religious conflict softened relative to the previous century, though exclusion persisted.",
+    "informationEnvironment": "Print culture widened public debate and associational life.",
+    "cohesionLevel": 58,
+    "legitimacyLevel": 67,
+    "inequalityLevel": 62,
+    "dailyLife": "Consumer goods, empire, and urban life expanded possibilities for some while extracting from colonies and the poor.",
+    "labour": "Agriculture, craft, trade, and naval labour all mattered in a more commercial society.",
+    "familyHousehold": "Households were still hierarchical, but consumption patterns began to shift.",
+    "insecurityExposure": "War and impressment brought risk; poor relief and local dependence remained crucial.",
+    "autonomyVsObligation": "Autonomy widened modestly for middling groups, less so for labourers and the colonised.",
+    "opportunityVsPrecarity": "Commerce and empire created openings, but precarity remained pervasive below.",
+    "senseOfFuture": "The future felt expansive, improvable, and imperial.",
+    "emotionalClimate": "Buoyant, competitive, self-confident.",
+    "whatEmerged": [
+      "British state integration",
+      "commercial public sphere",
+      "imperial scale"
+    ],
+    "whatExpanded": [
+      "financial power",
+      "consumer culture"
+    ],
+    "newPossibilities": [
+      "greater global reach",
+      "new wealth circuits"
+    ],
+    "whatFaded": [
+      "older local self-containment",
+      "some regional isolation"
+    ],
+    "whatBroke": [
+      "moral simplicity about power"
+    ],
+    "whatBecameHarder": [
+      "distance between domestic life and imperial consequence"
+    ],
+    "whatWasForgotten": [
+      "older non-imperial horizons"
+    ],
+    "pressureSummary": "Constitutional stability plus finance and war-making capacity produced expansion, wealth, and imperial entanglement.",
+    "releaseType": "expansion",
+    "pressureScores": {
+      "inequality": 78,
+      "eliteCompetition": 52,
+      "institutionalLegitimacy": 68,
+      "socialCohesion": 63,
+      "technologicalDisruption": 52,
+      "informationAcceleration": 60,
+      "ecologicalStrain": 39,
+      "militarization": 76,
+      "moralCertainty": 62,
+      "publicHope": 66,
+      "individualAutonomy": 48,
+      "economicPrecarity": 55
+    },
+    "eventIds": [
+      "e17",
+      "e18"
+    ],
+    "snapshotIds": [
+      "s09"
+    ],
+    "echoIds": [
+      "x07",
+      "x08",
+      "x11"
+    ]
+  },
+  {
+    "id": "p10",
+    "title": "Industry, Reform, and Urban Mass Britain",
+    "startYear": 1786,
+    "endYear": 1865,
+    "rangeLabel": "1786–1865",
+    "scope": "Britain",
+    "geography": [
+      "Britain",
+      "British Isles"
+    ],
+    "summary": "Industrialisation, urbanisation, social reform, and widening political pressure transformed work, class, and the scale of collective life.",
+    "dominantValues": [
+      "improvement",
+      "efficiency",
+      "respectability",
+      "reform"
+    ],
+    "socialMood": [
+      "acceleration",
+      "strain",
+      "possibility"
+    ],
+    "materialCondition": "Industrial growth created wealth but also crowding, insecurity, and social dislocation.",
+    "institutionalCondition": "The state slowly expanded regulation and representation in response to pressure.",
+    "technologicalCondition": "Industrial machinery, steam, rail, and print dramatically accelerated change.",
+    "religiousPhilosophicalCondition": "Religious belief remained strong but competed with new secular, radical, and scientific frames.",
+    "informationEnvironment": "Cheap print and faster transport widened the public sphere.",
+    "cohesionLevel": 64,
+    "legitimacyLevel": 50,
+    "inequalityLevel": 48,
+    "dailyLife": "For ordinary people this was a world of factories, towns, smoke, mobility, and unstable bargaining over dignity and survival.",
+    "labour": "Factory work, mines, transport, domestic service, and urban trades expanded rapidly.",
+    "familyHousehold": "Family life was pressured by wage labour, migration, and urban crowding.",
+    "insecurityExposure": "Insecurity from unemployment, disease, and injury remained high.",
+    "autonomyVsObligation": "Legal and political rights widened slowly, but discipline at work could be brutal.",
+    "opportunityVsPrecarity": "Some could rise through trade, literacy, or enterprise; many remained precarious.",
+    "senseOfFuture": "The future felt faster, richer, harsher, and newly collective.",
+    "emotionalClimate": "Energetic, dislocating, reformist.",
+    "whatEmerged": [
+      "industrial society",
+      "mass transport",
+      "modern urban life"
+    ],
+    "whatExpanded": [
+      "electoral reform pressure",
+      "social legislation"
+    ],
+    "newPossibilities": [
+      "new political participation",
+      "new forms of mobility"
+    ],
+    "whatFaded": [
+      "craft autonomy",
+      "older rhythms of work",
+      "many local worlds"
+    ],
+    "whatBroke": [
+      "rural rootedness",
+      "older social pacing"
+    ],
+    "whatBecameHarder": [
+      "protection from industrial volatility"
+    ],
+    "whatWasForgotten": [
+      "many traditional labour forms"
+    ],
+    "pressureSummary": "Technological acceleration and urban concentration produced both new power and deep social strain.",
+    "releaseType": "reform",
+    "pressureScores": {
+      "inequality": 83,
+      "eliteCompetition": 58,
+      "institutionalLegitimacy": 50,
+      "socialCohesion": 47,
+      "technologicalDisruption": 90,
+      "informationAcceleration": 74,
+      "ecologicalStrain": 52,
+      "militarization": 48,
+      "moralCertainty": 58,
+      "publicHope": 61,
+      "individualAutonomy": 55,
+      "economicPrecarity": 82
+    },
+    "eventIds": [
+      "e19",
+      "e20"
+    ],
+    "snapshotIds": [
+      "s10"
+    ],
+    "echoIds": [
+      "x02",
+      "x09"
+    ]
+  },
+  {
+    "id": "p11",
+    "title": "High Empire, Mass Democracy, and Total War",
+    "startYear": 1866,
+    "endYear": 1945,
+    "rangeLabel": "1866–1945",
+    "scope": "Britain",
+    "geography": [
+      "Britain",
+      "British Isles"
+    ],
+    "summary": "Britain reached imperial height, widened the franchise, endured labour conflict, and was transformed by two world wars and mass politics.",
+    "dominantValues": [
+      "nation",
+      "service",
+      "progress",
+      "sacrifice"
+    ],
+    "socialMood": [
+      "confidence",
+      "anxiety",
+      "mobilisation"
+    ],
+    "materialCondition": "Mass society expanded prosperity and participation unevenly, then war reorganised everything.",
+    "institutionalCondition": "The state became more democratic, bureaucratic, and capable of total mobilisation.",
+    "technologicalCondition": "Industry, communications, mass media, and mechanised warfare transformed collective life.",
+    "religiousPhilosophicalCondition": "Traditional Christianity weakened in public authority, though moral seriousness remained intense.",
+    "informationEnvironment": "National press, radio, and mass media bound politics and identity more tightly.",
+    "cohesionLevel": 46,
+    "legitimacyLevel": 57,
+    "inequalityLevel": 52,
+    "dailyLife": "Ordinary life became more urban, organised, politicised, and vulnerable to national emergencies on an unprecedented scale.",
+    "labour": "Industrial labour, clerical work, military service, and women’s paid work all reshaped expectations.",
+    "familyHousehold": "Families were smaller, more urban, and more exposed to national policy and war.",
+    "insecurityExposure": "Two world wars made insecurity total and intimate.",
+    "autonomyVsObligation": "Citizenship deepened, but so did state command over life.",
+    "opportunityVsPrecarity": "Education, franchise, and organisation created more voice, though class barriers persisted.",
+    "senseOfFuture": "The future felt grand, then shattered, then reconstructive.",
+    "emotionalClimate": "Expansive, anxious, sacrificial.",
+    "whatEmerged": [
+      "mass democracy",
+      "welfare-state expectation",
+      "national mobilisation capacity"
+    ],
+    "whatExpanded": [
+      "women's public roles",
+      "collective citizenship"
+    ],
+    "newPossibilities": [
+      "broader franchise",
+      "new social rights horizon"
+    ],
+    "whatFaded": [
+      "Victorian certainties",
+      "easy liberal optimism",
+      "imperial innocence"
+    ],
+    "whatBroke": [
+      "distance from state planning",
+      "confidence in permanent peace"
+    ],
+    "whatBecameHarder": [
+      "belief that war would remain limited"
+    ],
+    "whatWasForgotten": [
+      "much of the old social deference"
+    ],
+    "pressureSummary": "Mass politics and total war fused citizenship, sacrifice, and state capacity in new ways.",
+    "releaseType": "mobilisation",
+    "pressureScores": {
+      "inequality": 68,
+      "eliteCompetition": 54,
+      "institutionalLegitimacy": 58,
+      "socialCohesion": 51,
+      "technologicalDisruption": 84,
+      "informationAcceleration": 81,
+      "ecologicalStrain": 48,
+      "militarization": 95,
+      "moralCertainty": 64,
+      "publicHope": 46,
+      "individualAutonomy": 52,
+      "economicPrecarity": 63
+    },
+    "eventIds": [
+      "e21",
+      "e22"
+    ],
+    "snapshotIds": [
+      "s11"
+    ],
+    "echoIds": [
+      "x06",
+      "x07",
+      "x10"
+    ]
+  },
+  {
+    "id": "p12",
+    "title": "Welfare, Market Turn, and Fragmented Union",
+    "startYear": 1946,
+    "endYear": 2025,
+    "rangeLabel": "1946–2025",
+    "scope": "Britain",
+    "geography": [
+      "Britain",
+      "British Isles"
+    ],
+    "summary": "The welfare state, decolonisation, immigration, market liberalisation, deindustrialisation, devolution, digital change, and Brexit reshaped Britain’s social contract.",
+    "dominantValues": [
+      "security",
+      "choice",
+      "individualism",
+      "pluralism"
+    ],
+    "socialMood": [
+      "rebuilding",
+      "disenchantment",
+      "fragmentation"
+    ],
+    "materialCondition": "Postwar welfare and growth gave way to uneven regional fortunes, service economies, and recurring legitimacy strain.",
+    "institutionalCondition": "The state grew, retrenched, devolved, and struggled to hold a shared national story.",
+    "technologicalCondition": "Consumer technology, television, computing, and digital networks transformed work, politics, and attention.",
+    "religiousPhilosophicalCondition": "Religion lost public centrality while identity, rights, and value conflict became more plural.",
+    "informationEnvironment": "Broadcast media and then digital platforms accelerated information, conflict, and identity formation.",
+    "cohesionLevel": 52,
+    "legitimacyLevel": 42,
+    "inequalityLevel": 64,
+    "dailyLife": "Ordinary life gained health security, longer education, and consumer choice, but also experienced deindustrialisation, housing pressure, isolation, and political fragmentation.",
+    "labour": "Heavy industry shrank; services, care, logistics, and knowledge work grew, often precariously.",
+    "familyHousehold": "Households became smaller, more diverse, and more stretched by work, care, and housing costs.",
+    "insecurityExposure": "Wartime danger faded, but economic insecurity and cultural fragmentation rose.",
+    "autonomyVsObligation": "Personal autonomy expanded sharply, though many felt less held by common institutions.",
+    "opportunityVsPrecarity": "Higher education and new careers opened widely, but inequality of place and asset ownership hardened.",
+    "senseOfFuture": "The future felt improvable, then uncertain, then contested.",
+    "emotionalClimate": "Open, restless, divided.",
+    "whatEmerged": [
+      "NHS and welfare citizenship",
+      "postcolonial multicultural Britain",
+      "digital society",
+      "devolved governance"
+    ],
+    "whatExpanded": [
+      "consumer choice",
+      "rights language",
+      "personal autonomy"
+    ],
+    "newPossibilities": [
+      "health security",
+      "broader educational access",
+      "new identities and voices"
+    ],
+    "whatFaded": [
+      "empire",
+      "industrial communities",
+      "thicker shared narratives"
+    ],
+    "whatBroke": [
+      "old class settlements",
+      "many local industries",
+      "clearer national consensus"
+    ],
+    "whatBecameHarder": [
+      "predictable upward mobility",
+      "stable institutional trust"
+    ],
+    "whatWasForgotten": [
+      "much inherited deference and homogeneity"
+    ],
+    "pressureSummary": "Postwar inclusion, market restructuring, and identity pluralisation expanded freedom while weakening older solidarities.",
+    "releaseType": "fragmentation",
+    "pressureScores": {
+      "inequality": 79,
+      "eliteCompetition": 73,
+      "institutionalLegitimacy": 40,
+      "socialCohesion": 36,
+      "technologicalDisruption": 92,
+      "informationAcceleration": 98,
+      "ecologicalStrain": 72,
+      "militarization": 40,
+      "moralCertainty": 50,
+      "publicHope": 44,
+      "individualAutonomy": 86,
+      "economicPrecarity": 74
+    },
+    "eventIds": [
+      "e23",
+      "e24",
+      "e25",
+      "e26"
+    ],
+    "snapshotIds": [
+      "s12"
+    ],
+    "echoIds": [
+      "x04",
+      "x05",
+      "x08",
+      "x09",
+      "x10"
+    ]
+  }
+]
