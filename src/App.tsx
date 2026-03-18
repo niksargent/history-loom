@@ -8,6 +8,7 @@ import {
   getLoomDataset,
   getPressureOverlaySeriesById,
 } from './lib/loom-data'
+import type { DetailViewMode, LoomDensityMode } from './types/view'
 
 function App() {
   const [{ dataset, loadError }] = useState(() => {
@@ -27,6 +28,8 @@ function App() {
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
   const [showEchoes, setShowEchoes] = useState(false)
   const [isDetailOpen, setIsDetailOpen] = useState(true)
+  const [loomDensity, setLoomDensity] = useState<LoomDensityMode>('compact')
+  const [detailMode, setDetailMode] = useState<DetailViewMode>('guided')
   const [compareSourceId, setCompareSourceId] = useState<string | null>(null)
   const [compareTargetId, setCompareTargetId] = useState<string | null>(null)
   const [comparePicking, setComparePicking] = useState(false)
@@ -201,7 +204,9 @@ function App() {
               showPressureOverlay={showPressureOverlay}
               echoCounterpartIds={echoCounterpartIds}
               showEchoes={showEchoes}
+              density={loomDensity}
               onPeriodSelect={handlePeriodSelect}
+              onDensityChange={setLoomDensity}
               onPressureSelect={(pressureId) => {
                 setSelectedPressureId(pressureId)
                 setShowPressureOverlay(true)
@@ -224,10 +229,12 @@ function App() {
             selectedPressureSeries={selectedPressureSeries}
             comparePicking={comparePicking && compareAnchoredToSelected}
             compareActive={compareActive && compareAnchoredToSelected}
+            viewMode={detailMode}
             onToggleOpen={() => setIsDetailOpen((current) => !current)}
             onToggleEchoes={() => setShowEchoes((current) => !current)}
             onStartComparePick={handleStartComparePick}
             onCompareToPeriod={handleCompareToPeriod}
+            onViewModeChange={setDetailMode}
           />
         </div>
 

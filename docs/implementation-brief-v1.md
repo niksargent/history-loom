@@ -10,15 +10,19 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - Vite + React + TypeScript + Tailwind scaffold is in place
 - local JSON data loads through a typed normalization layer
 - the Loom overview renders the seeded 12-period Britain dataset
+- users can now select periods directly from the chart as well as from the period stack
+- the period stack now supports overview and expanded density modes
 - the detail panel shows gains, losses, events, snapshot, and derived multi-scale summaries
+- the detail panel now supports calm-read and full-read modes with collapsible lower sections
 - pressure overlays and curated echo reveal are implemented
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
 
 Current refinement focus:
 - deepen pressure-cascade storytelling further
-- improve content density and hierarchy in the detail flow
+- tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
 - strengthen compare insight highlighting so overlap and divergence are more legible at a glance
+- add motion and material polish so reveal states feel deliberate rather than static
 - refine geographic rendering, scaling, and contextual use of the map card
 - add a user-controlled compact view for structural-force cards
 - explore alternative intensity-display treatments and user-controlled reordering of structural forces, for example by intensity or by stress/stabiliser
@@ -32,10 +36,12 @@ Current refinement focus:
 
 The following interaction grammar is now established:
 - period selection through the Loom overview
+- direct period selection through the chart surface itself
 - pressure reading across the timeline and detail panel
 - echo reveal from a selected period
 - side-by-side period comparison
 - geographic orientation tied to the current selection
+- adjustable density in both the period stack and the detail panel
 
 ## What still needs design work
 
@@ -49,11 +55,12 @@ The next quality threshold is interpretive clarity, not feature count:
 ## Recommended next sequence
 
 1. finish compare polish
-2. strengthen the right-hand narrative flow
-3. refine structural-force controls and intensity presentation
-4. tune the geography card, including its eventual home in the product architecture
-5. complete accessibility and responsive cleanup
-6. only then add one post-MVP expansion feature
+2. refine structural-force controls and intensity presentation
+3. continue strengthening the right-hand narrative flow and copy economy
+4. add a motion/material pass
+5. tune the geography card, including its eventual home in the product architecture
+6. complete accessibility and responsive cleanup
+7. only then add one post-MVP expansion feature
 
 ## Product intent
 

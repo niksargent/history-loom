@@ -1,5 +1,5 @@
 import type { Period } from '../types/domain'
-import type { PressureOverlaySeries } from '../types/view'
+import type { LoomDensityMode, PressureOverlaySeries } from '../types/view'
 import { getReleaseLabel } from '../lib/loom-data'
 
 interface LoomCanvasProps {
@@ -13,7 +13,9 @@ interface LoomCanvasProps {
   showPressureOverlay: boolean
   echoCounterpartIds: Set<string>
   showEchoes: boolean
+  density: LoomDensityMode
   onPeriodSelect: (periodId: string) => void
+  onDensityChange: (density: LoomDensityMode) => void
   onPressureSelect: (pressureId: string | null) => void
 }
 
@@ -60,13 +62,16 @@ export function LoomCanvas({
   showPressureOverlay,
   echoCounterpartIds,
   showEchoes,
+  density,
   onPeriodSelect,
+  onDensityChange,
   onPressureSelect,
 }: LoomCanvasProps) {
   const selectedSeries =
     selectedPressureId !== null
       ? overlaySeries.find((series) => series.id === selectedPressureId) ?? null
       : null
+  const compactStack = density === 'compact'
 
   return (
     <section className="glass-panel overflow-hidden rounded-[2rem] border border-white/10">
@@ -129,6 +134,38 @@ export function LoomCanvas({
             )
           })}
         </div>
+
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
+          <p className="text-xs leading-6 text-stone-500">
+            {compactStack
+              ? 'Compact period stack keeps the long view visible while the active card stays slightly larger.'
+              : 'Expanded period stack gives each period more room for reading.'}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => onDensityChange('compact')}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                compactStack
+                  ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                  : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              Overview stack
+            </button>
+            <button
+              type="button"
+              onClick={() => onDensityChange('expanded')}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                density === 'expanded'
+                  ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                  : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              Expanded cards
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="relative px-4 pb-6 pt-6 md:px-8">
@@ -139,7 +176,7 @@ export function LoomCanvas({
           <div className="absolute inset-x-0 top-1/2 h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[22%] h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[78%] h-px bg-white/5" />
-          <div className="absolute inset-0">
+          <div className="pointer-events-none absolute inset-0">
             {periods.map((period, index) => {
               const left = `${(index / periods.length) * 100}%`
               const width = `${100 / periods.length}%`
@@ -175,9 +212,41 @@ export function LoomCanvas({
             })}
           </div>
 
+          <div className="absolute inset-0">
+            {periods.map((period, index) => {
+              const left = `${(index / periods.length) * 100}%`
+              const width = `${100 / periods.length}%`
+              const isSelected = period.id === selectedPeriodId
+              const isCompareTarget = period.id === compareTargetId
+              const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+
+              return (
+                <button
+                  key={`${period.id}-chart-hit`}
+                  type="button"
+                  onClick={() => onPeriodSelect(period.id)}
+                  aria-pressed={isSelected || isCompareTarget}
+                  aria-label={`Select ${period.title}`}
+                  className={`absolute bottom-0 top-0 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
+                    isSelected
+                      ? 'bg-amber-200/[0.03]'
+                      : isCompareTarget
+                        ? 'bg-rose-200/[0.025]'
+                        : isEcho
+                          ? 'bg-cyan-200/[0.02] hover:bg-cyan-200/[0.035]'
+                          : 'hover:bg-white/[0.035]'
+                  }`}
+                  style={{ left, width }}
+                >
+                  <span className="sr-only">{period.rangeLabel}</span>
+                </button>
+              )
+            })}
+          </div>
+
           <svg
             viewBox="0 0 1100 180"
-            className="absolute inset-0 h-full w-full"
+            className="pointer-events-none absolute inset-0 h-full w-full"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
@@ -206,21 +275,39 @@ export function LoomCanvas({
           </svg>
 
           <div className="absolute inset-x-4 bottom-4 grid grid-cols-6 gap-2 text-[10px] uppercase tracking-[0.28em] text-stone-500 md:grid-cols-12">
-            {periods.map((period) => (
-              <span key={period.id} className="truncate text-center">
+            {periods.map((period) => {
+              const isSelected = period.id === selectedPeriodId
+              const isCompareTarget = period.id === compareTargetId
+              const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+
+              return (
+                <span
+                  key={period.id}
+                  className={`truncate text-center transition ${
+                    isSelected
+                      ? 'text-amber-100'
+                      : isCompareTarget
+                        ? 'text-rose-200'
+                        : isEcho
+                          ? 'text-cyan-200'
+                          : ''
+                  }`}
+                >
                 {period.rangeLabel}
-              </span>
-            ))}
+                </span>
+              )
+            })}
           </div>
         </div>
 
-        <div className="mt-6 max-h-[30rem] overflow-y-auto pr-1">
+        <div className={`mt-6 overflow-y-auto pr-1 ${compactStack ? 'max-h-[40rem]' : 'max-h-[32rem]'}`}>
           <div className="grid gap-3">
             {periods.map((period) => {
               const isSelected = period.id === selectedPeriodId
               const isEcho = echoCounterpartIds.has(period.id)
               const showEchoState = showEchoes && isEcho
               const isCompareTarget = period.id === compareTargetId
+              const compactFocus = compactStack && (isSelected || isCompareTarget)
 
               return (
                 <button
@@ -228,7 +315,13 @@ export function LoomCanvas({
                   type="button"
                   onClick={() => onPeriodSelect(period.id)}
                   aria-pressed={isSelected || isCompareTarget}
-                  className={`group relative flex min-h-[13rem] flex-col rounded-[1.5rem] border px-4 py-4 text-left transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 md:px-5 ${
+                  className={`group relative flex flex-col overflow-hidden rounded-[1.5rem] border text-left transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
+                    compactStack
+                      ? compactFocus
+                        ? 'min-h-[10rem] px-4 py-4 md:px-5'
+                        : 'min-h-[8rem] px-4 py-3 md:px-4'
+                      : 'min-h-[13rem] px-4 py-4 md:px-5'
+                  } ${
                     isSelected
                       ? 'border-amber-300/65 bg-stone-950/90 shadow-[0_0_0_1px_rgba(251,191,36,0.12),0_24px_80px_rgba(0,0,0,0.35)]'
                       : isCompareTarget
@@ -254,31 +347,41 @@ export function LoomCanvas({
                     />
                   </div>
 
-                  <div className="relative mt-5 flex flex-1 flex-col gap-4 md:flex-row md:items-start">
+                  <div
+                    className={`relative flex flex-1 flex-col gap-4 md:flex-row md:items-start ${
+                      compactStack ? 'mt-4' : 'mt-5'
+                    }`}
+                  >
                     <div className="min-w-0 flex-1">
                       <h3 className="font-display text-xl leading-tight text-stone-100">
                         {period.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-6 text-stone-400">
+                      <p
+                        className={`text-sm leading-6 text-stone-400 ${
+                          compactStack ? 'mt-2 max-h-[3.7rem] overflow-hidden' : 'mt-3'
+                        }`}
+                      >
                         {period.summary}
                       </p>
                     </div>
 
-                    <div className="md:w-56 md:shrink-0">
+                    <div className={`md:shrink-0 ${compactStack ? 'md:w-48' : 'md:w-56'}`}>
                       <div className="flex flex-wrap gap-2 md:justify-end">
-                        {period.dominantValues.slice(0, 3).map((value) => (
+                        {period.dominantValues
+                          .slice(0, compactStack && !compactFocus ? 2 : 3)
+                          .map((value) => (
                           <span
                             key={value}
                             className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
                           >
                             {value}
                           </span>
-                        ))}
+                          ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative mt-auto pt-6">
+                  <div className={`relative mt-auto ${compactStack ? 'pt-4' : 'pt-6'}`}>
                     <div className="h-px bg-white/10" />
                     <div className="mt-4 flex items-center justify-between gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
                       <span>{getReleaseLabel(period.releaseType)}</span>
@@ -295,7 +398,7 @@ export function LoomCanvas({
                         Comparison period
                       </div>
                     ) : null}
-                    {showEchoState ? (
+                    {showEchoState && !isCompareTarget ? (
                       <div className="mt-3 rounded-2xl border border-cyan-200/15 bg-cyan-300/8 px-3 py-2 text-xs leading-5 text-cyan-100">
                         Echoes active
                       </div>

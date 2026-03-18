@@ -93,21 +93,24 @@ An initial frontend prototype now exists with:
 Implemented now:
 - core Loom surface
 - pressure overlay and inline thread pills
+- direct period selection from both the chart surface and the period-card stack
+- user-controlled period-card density with overview and expanded stack modes
+- user-controlled detail density with calm-read and full-read modes plus collapsible lower sections
 - pressure-emphasized detail flow with clearer narrative framing
 - geographic inset built from real topojson coastline data with product-level region highlights layered on top
 - echo reveal
 - side-by-side compare mode with explicit source/target color ownership and direct exit
 
 In progress:
-- tighter information density and hierarchy across the right-hand detail flow
+- tighter narrative interpretation and copy economy across the right-hand detail flow
 - compare UX polish, including clearer insight surfacing and calmer visual balance
 - geographic card tuning, including layout, scaling, and context behavior
-- stronger narrative interpretation in the detail panel rather than a simple stack of facts
 - user-controlled compact view for structural-force cards
 - ideation on alternative intensity displays and user-controlled structural-force ordering, for example by intensity or by stress/stabiliser
 - decision on whether geography belongs in the selected-period detail flow or at the dataset level when broader dataset expansion is defined
 - identify and remove UI phrases that read like internal memo rather than user-facing product language
 - clearer differentiation between buttons and passive data pills
+- motion and material polish so the interface feels calmer at rest and more alive when interacting
 - responsive refinement and accessibility polish
 
 Deferred:
@@ -122,11 +125,12 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. finish compare UX polish
-2. strengthen the right-hand panel as a more guided interpretive surface
-3. tune the geographic card now that it sits on real geometry
-4. complete accessibility and responsive refinement
-5. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+1. refine structural-force controls, including compact mode, ordering, and intensity treatment
+2. continue tightening compare UX and right-hand interpretive copy
+3. add a motion and material pass so overview, selection, and reveal states feel more organic
+4. tune the geographic card now that it sits on real geometry
+5. complete accessibility and responsive refinement
+6. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data

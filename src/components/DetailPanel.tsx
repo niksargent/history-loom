@@ -1,11 +1,341 @@
+import { useState, type ReactNode } from 'react'
 import { formatConfidence, sentenceCase, titleCaseLabel } from '../lib/format'
 import {
   buildGeographyInsetModel,
   buildPressureCascade,
   getScaleAccent,
 } from '../lib/loom-data'
-import type { PressureOverlaySeries, SelectedPeriodDetail } from '../types/view'
+import type {
+  DetailViewMode,
+  PressureOverlaySeries,
+  SelectedPeriodDetail,
+} from '../types/view'
 import { GeographyInset } from './GeographyInset'
+
+type DetailSectionId = 'shifts' | 'scales' | 'pressures' | 'echoes' | 'texture'
+
+function buildCollapsedSections(
+  viewMode: DetailViewMode,
+  showEchoes: boolean,
+): Record<DetailSectionId, boolean> {
+  if (viewMode === 'full') {
+    return {
+      shifts: false,
+      scales: false,
+      pressures: false,
+      echoes: false,
+      texture: false,
+    }
+  }
+
+  return {
+    shifts: false,
+    scales: false,
+    pressures: true,
+    echoes: !showEchoes,
+    texture: true,
+  }
+}
+
+interface SectionDisclosureProps {
+  eyebrow: string
+  title: string
+  summary: string
+  isCollapsed: boolean
+  onToggle: () => void
+  children: ReactNode
+}
+
+function SectionDisclosure({
+  eyebrow,
+  title,
+  summary,
+  isCollapsed,
+  onToggle,
+  children,
+}: SectionDisclosureProps) {
+  return (
+    <section>
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <p className="eyebrow">{eyebrow}</p>
+          <h3 className="mt-1 text-base text-stone-100">{title}</h3>
+          {isCollapsed ? (
+            <p className="mt-2 max-w-xl text-sm leading-6 text-stone-400">{summary}</p>
+          ) : null}
+        </div>
+        <button
+          type="button"
+          onClick={onToggle}
+          className="ui-action rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+        >
+          {isCollapsed ? 'Show' : 'Hide'}
+        </button>
+      </div>
+
+      {!isCollapsed ? <div className="mt-3">{children}</div> : null}
+    </section>
+  )
+}
+
+interface DetailSectionsProps {
+  detail: SelectedPeriodDetail
+  selectedPressureId: string | null
+  selectedPressureSeries: PressureOverlaySeries | null
+  pressureCascade: ReturnType<typeof buildPressureCascade>
+  showEchoes: boolean
+  viewMode: DetailViewMode
+  onCompareToPeriod: (periodId: string) => void
+}
+
+function DetailSections({
+  detail,
+  selectedPressureId,
+  selectedPressureSeries,
+  pressureCascade,
+  showEchoes,
+  viewMode,
+  onCompareToPeriod,
+}: DetailSectionsProps) {
+  const { period, events, snapshot, echoes, scaleSummaries, pressureSnapshots } = detail
+  const [collapsedSections, setCollapsedSections] = useState<Record<DetailSectionId, boolean>>(
+    () => buildCollapsedSections(viewMode, showEchoes),
+  )
+
+  function toggleSection(sectionId: DetailSectionId) {
+    setCollapsedSections((current) => ({
+      ...current,
+      [sectionId]: !current[sectionId],
+    }))
+  }
+
+  return (
+    <>
+      <SectionDisclosure
+        eyebrow="What shifted"
+        title="What emerged and what frayed"
+        summary={`${period.whatEmerged.concat(period.newPossibilities).slice(0, 5).length} gains in view, ${period.whatFaded.concat(period.whatBroke).slice(0, 5).length} losses in view.`}
+        isCollapsed={collapsedSections.shifts}
+        onToggle={() => toggleSection('shifts')}
+      >
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          <div className="rounded-[1.5rem] border border-emerald-200/10 bg-emerald-300/5 p-4">
+            <h3 className="text-sm uppercase tracking-[0.22em] text-emerald-200">
+              What emerged
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
+              {period.whatEmerged.concat(period.newPossibilities).slice(0, 5).map((item) => (
+                <li key={item}>{sentenceCase(item)}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[1.5rem] border border-rose-200/10 bg-rose-300/5 p-4">
+            <h3 className="text-sm uppercase tracking-[0.22em] text-rose-200">
+              What frayed
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
+              {period.whatFaded.concat(period.whatBroke).slice(0, 5).map((item) => (
+                <li key={item}>{sentenceCase(item)}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </SectionDisclosure>
+
+      <SectionDisclosure
+        eyebrow="Multi-scale read"
+        title="The same period across several scales"
+        summary={`${scaleSummaries.length} scale reads stay available here.`}
+        isCollapsed={collapsedSections.scales}
+        onToggle={() => toggleSection('scales')}
+      >
+        <div className="mt-3 grid gap-3 2xl:grid-cols-2">
+          {scaleSummaries.map((summary) => {
+            const scaleIsImpacted = pressureCascade?.impactedScales.includes(summary.scale)
+
+            return (
+              <div
+                key={summary.scale}
+                className={`rounded-[1.25rem] border p-4 ${
+                  scaleIsImpacted
+                    ? 'border-amber-300/16 bg-amber-300/6'
+                    : 'border-white/8 bg-white/4'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3
+                    className={`text-sm uppercase tracking-[0.22em] ${getScaleAccent(summary.scale)}`}
+                  >
+                    {titleCaseLabel(summary.scale)}
+                  </h3>
+                  <span className="text-xs text-stone-500">{summary.headline}</span>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-stone-300">{summary.body}</p>
+              </div>
+            )
+          })}
+        </div>
+      </SectionDisclosure>
+
+      <SectionDisclosure
+        eyebrow="Pressure summary"
+        title="Tracked forces in this period"
+        summary={
+          selectedPressureSeries
+            ? `${selectedPressureSeries.label} is in focus within ${pressureSnapshots.length} tracked forces.`
+            : `${pressureSnapshots.length} tracked forces shape this period.`
+        }
+        isCollapsed={collapsedSections.pressures}
+        onToggle={() => toggleSection('pressures')}
+      >
+        <div className="mt-3 grid gap-3">
+          {pressureSnapshots.map((pressure) => {
+            const isSelectedPressure = selectedPressureId === pressure.id
+
+            return (
+              <div key={pressure.id}>
+                <div className="flex items-center justify-between gap-3 text-sm text-stone-200">
+                  <span className={isSelectedPressure ? 'text-amber-100' : ''}>
+                    {pressure.label}
+                  </span>
+                  <span className="text-stone-400">{pressure.value}</span>
+                </div>
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/6">
+                  <div
+                    className={`h-full rounded-full ${
+                      pressure.polarity === 'stress'
+                        ? isSelectedPressure
+                          ? 'bg-amber-300'
+                          : 'bg-amber-300/85'
+                        : isSelectedPressure
+                          ? 'bg-cyan-300'
+                          : 'bg-cyan-300/85'
+                    }`}
+                    style={{ width: `${pressure.value}%` }}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        <p className="mt-4 text-sm leading-6 text-stone-400">{period.pressureSummary}</p>
+      </SectionDisclosure>
+
+      <SectionDisclosure
+        eyebrow="Echoes"
+        title="Cross-era structural rhymes"
+        summary={
+          echoes.length
+            ? `${echoes.length} curated echo${echoes.length === 1 ? '' : 'es'} connect this period to another era.`
+            : 'No curated echo pair is attached to this period yet.'
+        }
+        isCollapsed={collapsedSections.echoes}
+        onToggle={() => toggleSection('echoes')}
+      >
+        <div className="mt-3 grid gap-3">
+          {echoes.length ? (
+            echoes.map((echo) => (
+              <article
+                key={echo.link.id}
+                className={`rounded-[1.25rem] border p-4 ${
+                  showEchoes
+                    ? 'border-cyan-300/18 bg-cyan-300/6'
+                    : 'border-white/8 bg-white/4'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h4 className="text-sm uppercase tracking-[0.22em] text-cyan-100">
+                      {echo.counterpart.title}
+                    </h4>
+                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-500">
+                      {echo.counterpart.rangeLabel}
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
+                    {formatConfidence(echo.link.confidence)}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-stone-200">
+                  {echo.link.similarityLabel}
+                </p>
+                <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">
+                  {echo.link.similarityReasons.map((reason) => (
+                    <li key={reason}>{reason}</li>
+                  ))}
+                </ul>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={() => onCompareToPeriod(echo.counterpart.id)}
+                    className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
+                  >
+                    Compare these periods
+                  </button>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className="rounded-[1.25rem] border border-white/8 bg-white/4 p-4 text-sm leading-6 text-stone-400">
+              This period does not yet have a curated echo pair.
+            </div>
+          )}
+        </div>
+      </SectionDisclosure>
+
+      <SectionDisclosure
+        eyebrow="Events and lived texture"
+        title="Named events and daily life"
+        summary={`${events.length} event${events.length === 1 ? '' : 's'}${snapshot ? ' and one lived snapshot' : ''} anchor this period.`}
+        isCollapsed={collapsedSections.texture}
+        onToggle={() => toggleSection('texture')}
+      >
+        <div className="mt-3 grid gap-3">
+          {events.map((event) => {
+            const pressureMatch =
+              !selectedPressureId || event.pressureDrivers.includes(selectedPressureId)
+
+            return (
+              <article
+                key={event.id}
+                className={`rounded-[1.25rem] border p-4 ${
+                  selectedPressureId
+                    ? pressureMatch
+                      ? 'border-amber-300/16 bg-amber-300/6'
+                      : 'border-white/8 bg-white/2 opacity-70'
+                    : 'border-white/8 bg-white/4'
+                }`}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h4 className="text-sm uppercase tracking-[0.18em] text-stone-100">
+                    {event.title}
+                  </h4>
+                  <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
+                    {event.startYear === event.endYear
+                      ? event.startYear
+                      : `${event.startYear}-${event.endYear}`}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
+              </article>
+            )
+          })}
+
+          {snapshot ? (
+            <article className="rounded-[1.25rem] border border-amber-200/14 bg-amber-300/6 p-4">
+              <h4 className="text-sm uppercase tracking-[0.2em] text-amber-100">
+                {snapshot.title}
+              </h4>
+              <p className="mt-3 text-sm leading-6 text-stone-200">{snapshot.summary}</p>
+              <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.dailyReality}</p>
+            </article>
+          ) : null}
+        </div>
+      </SectionDisclosure>
+    </>
+  )
+}
 
 interface DetailPanelProps {
   detail: SelectedPeriodDetail
@@ -15,10 +345,12 @@ interface DetailPanelProps {
   selectedPressureSeries: PressureOverlaySeries | null
   comparePicking: boolean
   compareActive: boolean
+  viewMode: DetailViewMode
   onToggleOpen: () => void
   onToggleEchoes: () => void
   onStartComparePick: () => void
   onCompareToPeriod: (periodId: string) => void
+  onViewModeChange: (viewMode: DetailViewMode) => void
 }
 
 export function DetailPanel({
@@ -29,12 +361,14 @@ export function DetailPanel({
   selectedPressureSeries,
   comparePicking,
   compareActive,
+  viewMode,
   onToggleOpen,
   onToggleEchoes,
   onStartComparePick,
   onCompareToPeriod,
+  onViewModeChange,
 }: DetailPanelProps) {
-  const { period, events, snapshot, echoes, scaleSummaries, pressureSnapshots } = detail
+  const { period } = detail
   const pressureCascade = buildPressureCascade(detail, selectedPressureId)
   const geographyModel = buildGeographyInsetModel(
     Array.from(
@@ -86,25 +420,56 @@ export function DetailPanel({
             ))}
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={onStartComparePick}
-              className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
-            >
-              {compareActive ? 'Exit compare' : comparePicking ? 'Cancel compare' : 'Start compare'}
-            </button>
-            <button
-              type="button"
-              onClick={onToggleEchoes}
-              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
-                showEchoes
-                  ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
-                  : 'text-stone-300 hover:text-stone-100'
-              }`}
-            >
-              {showEchoes ? 'Hide echoes' : 'Reveal echoes'}
-            </button>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={onStartComparePick}
+                className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+              >
+                {compareActive
+                  ? 'Exit compare'
+                  : comparePicking
+                    ? 'Cancel compare'
+                    : 'Start compare'}
+              </button>
+              <button
+                type="button"
+                onClick={onToggleEchoes}
+                className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
+                  showEchoes
+                    ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
+                    : 'text-stone-300 hover:text-stone-100'
+                }`}
+              >
+                {showEchoes ? 'Hide echoes' : 'Reveal echoes'}
+              </button>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => onViewModeChange('guided')}
+                className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                  viewMode === 'guided'
+                    ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                    : 'text-stone-300 hover:text-stone-100'
+                }`}
+              >
+                Calm read
+              </button>
+              <button
+                type="button"
+                onClick={() => onViewModeChange('full')}
+                className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                  viewMode === 'full'
+                    ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                    : 'text-stone-300 hover:text-stone-100'
+                }`}
+              >
+                Full read
+              </button>
+            </div>
           </div>
 
           {comparePicking ? (
@@ -204,201 +569,16 @@ export function DetailPanel({
               </section>
             ) : null}
 
-            <section>
-              <p className="eyebrow">What shifted</p>
-              <div className="mt-3 grid gap-3 md:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-emerald-200/10 bg-emerald-300/5 p-4">
-                  <h3 className="text-sm uppercase tracking-[0.22em] text-emerald-200">
-                    What emerged
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
-                    {period.whatEmerged.concat(period.newPossibilities).slice(0, 5).map((item) => (
-                      <li key={item}>{sentenceCase(item)}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-[1.5rem] border border-rose-200/10 bg-rose-300/5 p-4">
-                  <h3 className="text-sm uppercase tracking-[0.22em] text-rose-200">
-                    What frayed
-                  </h3>
-                  <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
-                    {period.whatFaded.concat(period.whatBroke).slice(0, 5).map((item) => (
-                      <li key={item}>{sentenceCase(item)}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <p className="eyebrow">Multi-scale read</p>
-              <div className="mt-3 grid gap-3 2xl:grid-cols-2">
-                {scaleSummaries.map((summary) => {
-                  const scaleIsImpacted = pressureCascade?.impactedScales.includes(summary.scale)
-
-                  return (
-                    <div
-                      key={summary.scale}
-                      className={`rounded-[1.25rem] border p-4 ${
-                        scaleIsImpacted
-                          ? 'border-amber-300/16 bg-amber-300/6'
-                          : 'border-white/8 bg-white/4'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <h3
-                          className={`text-sm uppercase tracking-[0.22em] ${getScaleAccent(summary.scale)}`}
-                        >
-                          {titleCaseLabel(summary.scale)}
-                        </h3>
-                        <span className="text-xs text-stone-500">{summary.headline}</span>
-                      </div>
-                      <p className="mt-3 text-sm leading-6 text-stone-300">{summary.body}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            </section>
-
-            <section>
-              <p className="eyebrow">Pressure summary</p>
-              <div className="mt-3 grid gap-3">
-                {pressureSnapshots.map((pressure) => {
-                  const isSelectedPressure = selectedPressureId === pressure.id
-
-                  return (
-                    <div key={pressure.id}>
-                      <div className="flex items-center justify-between gap-3 text-sm text-stone-200">
-                        <span className={isSelectedPressure ? 'text-amber-100' : ''}>
-                          {pressure.label}
-                        </span>
-                        <span className="text-stone-400">{pressure.value}</span>
-                      </div>
-                      <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/6">
-                        <div
-                          className={`h-full rounded-full ${
-                            pressure.polarity === 'stress'
-                              ? isSelectedPressure
-                                ? 'bg-amber-300'
-                                : 'bg-amber-300/85'
-                              : isSelectedPressure
-                                ? 'bg-cyan-300'
-                                : 'bg-cyan-300/85'
-                          }`}
-                          style={{ width: `${pressure.value}%` }}
-                        />
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-              <p className="mt-4 text-sm leading-6 text-stone-400">{period.pressureSummary}</p>
-            </section>
-
-            <section>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="eyebrow">Echoes</p>
-                  <h3 className="text-base text-stone-100">Cross-era structural rhymes</h3>
-                </div>
-              </div>
-
-              <div className="mt-3 grid gap-3">
-                {echoes.length ? (
-                  echoes.map((echo) => (
-                    <article
-                      key={echo.link.id}
-                      className={`rounded-[1.25rem] border p-4 ${
-                        showEchoes
-                          ? 'border-cyan-300/18 bg-cyan-300/6'
-                          : 'border-white/8 bg-white/4'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h4 className="text-sm uppercase tracking-[0.22em] text-cyan-100">
-                            {echo.counterpart.title}
-                          </h4>
-                          <p className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-500">
-                            {echo.counterpart.rangeLabel}
-                          </p>
-                        </div>
-                        <span className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
-                          {formatConfidence(echo.link.confidence)}
-                        </span>
-                      </div>
-
-                      <p className="mt-3 text-sm leading-6 text-stone-200">
-                        {echo.link.similarityLabel}
-                      </p>
-                      <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">
-                        {echo.link.similarityReasons.map((reason) => (
-                          <li key={reason}>{reason}</li>
-                        ))}
-                      </ul>
-                      <div className="mt-4">
-                        <button
-                          type="button"
-                          onClick={() => onCompareToPeriod(echo.counterpart.id)}
-                          className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
-                        >
-                          Compare these periods
-                        </button>
-                      </div>
-                    </article>
-                  ))
-                ) : (
-                  <div className="rounded-[1.25rem] border border-white/8 bg-white/4 p-4 text-sm leading-6 text-stone-400">
-                    This period does not yet have a curated echo pair.
-                  </div>
-                )}
-              </div>
-            </section>
-
-            <section>
-              <p className="eyebrow">Events and lived texture</p>
-              <div className="mt-3 grid gap-3">
-                {events.map((event) => {
-                  const pressureMatch =
-                    !selectedPressureId || event.pressureDrivers.includes(selectedPressureId)
-
-                  return (
-                    <article
-                      key={event.id}
-                      className={`rounded-[1.25rem] border p-4 ${
-                        selectedPressureId
-                          ? pressureMatch
-                            ? 'border-amber-300/16 bg-amber-300/6'
-                            : 'border-white/8 bg-white/2 opacity-70'
-                          : 'border-white/8 bg-white/4'
-                      }`}
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <h4 className="text-sm uppercase tracking-[0.18em] text-stone-100">
-                          {event.title}
-                        </h4>
-                        <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
-                          {event.startYear === event.endYear
-                            ? event.startYear
-                            : `${event.startYear}-${event.endYear}`}
-                        </span>
-                      </div>
-                      <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
-                    </article>
-                  )
-                })}
-
-                {snapshot ? (
-                  <article className="rounded-[1.25rem] border border-amber-200/14 bg-amber-300/6 p-4">
-                    <h4 className="text-sm uppercase tracking-[0.2em] text-amber-100">
-                      {snapshot.title}
-                    </h4>
-                    <p className="mt-3 text-sm leading-6 text-stone-200">{snapshot.summary}</p>
-                    <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.dailyReality}</p>
-                  </article>
-                ) : null}
-              </div>
-            </section>
+            <DetailSections
+              key={`${period.id}:${viewMode}:${showEchoes ? 'echoes' : 'quiet'}`}
+              detail={detail}
+              selectedPressureId={selectedPressureId}
+              selectedPressureSeries={selectedPressureSeries}
+              pressureCascade={pressureCascade}
+              showEchoes={showEchoes}
+              viewMode={viewMode}
+              onCompareToPeriod={onCompareToPeriod}
+            />
           </div>
         ) : null}
       </div>

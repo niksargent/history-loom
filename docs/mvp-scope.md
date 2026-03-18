@@ -41,12 +41,15 @@ For the first MVP:
 Implemented in the current prototype:
 - timeline overview
 - period selection
+- direct chart-based period selection
 - pressure overlay
 - echo reveal
 - gains/losses detail
 - multi-scale summary
 - geographic inset
 - compare mode with overlay presentation and source/target ownership
+- overview and expanded density modes for the period stack
+- calm-read and full-read density modes for the right-hand panel, with collapsible lower sections
 
 Still not implemented:
 - real selectable alternate lenses backed by data
@@ -95,17 +98,20 @@ The MVP succeeds if a new user can, within a short session:
 The next quality threshold is not more features but clearer interpretation:
 - the compare view should make overlap, difference, and curated echo reasons scan immediately
 - the geographic inset should feel like a calm, informative locator that gives Britain visual priority
-- the right-hand detail story should read as a guided interpretation, not only a stack of facts
+- the right-hand detail story should keep shifting from stacked information toward guided interpretation
 - structural-force cards should support a compact user-controlled mode
 - structural-force intensity may need a different visual language and user-controlled ordering options
 - buttons should read clearly as actions and not blur into passive data pills
+- overview and detail density controls should feel elegant rather than merely functional
+- motion and material should help stage attention rather than adding ambient noise
 - all internal-memo style UI phrases should be identified and removed
 
 ## Recommended next steps
 
 1. finish compare UX polish
-2. improve the interpretive quality of the right-hand panel
-3. refine structural-force card density, ordering, and intensity treatment
-4. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
-5. complete accessibility and responsive refinement
-6. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+2. refine structural-force card density, ordering, and intensity treatment
+3. continue improving the interpretive quality and copy economy of the right-hand panel
+4. add a motion/material pass that supports overview, selection, and reveal states
+5. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
+6. complete accessibility and responsive refinement
+7. defer post-MVP expansion features until the existing MVP interactions feel fully coherent

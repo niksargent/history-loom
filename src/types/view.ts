@@ -18,6 +18,10 @@ export interface LensDefinition {
   note: string
 }
 
+export type LoomDensityMode = 'compact' | 'expanded'
+
+export type DetailViewMode = 'guided' | 'full'
+
 export interface ScaleSummary {
   scale: Scale
   headline: string
