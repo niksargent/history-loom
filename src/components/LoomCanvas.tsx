@@ -285,7 +285,7 @@ export function LoomCanvas({
                       <span>
                         {isCompareTarget
                           ? compareActive
-                            ? 'paired for compare'
+                            ? 'in comparison'
                             : 'chosen for compare'
                           : `${period.echoIds.length} echoes`}
                       </span>

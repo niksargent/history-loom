@@ -68,7 +68,7 @@ export function DetailPanel({
             <button
               type="button"
               onClick={onToggleOpen}
-              className="rounded-full border border-white/10 px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:border-white/20 hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+              className="ui-action rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
             >
               {isOpen ? 'Collapse' : 'Expand'}
             </button>
@@ -90,17 +90,17 @@ export function DetailPanel({
             <button
               type="button"
               onClick={onStartComparePick}
-              className="rounded-full border border-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:border-white/20 hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+              className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
             >
               {compareActive ? 'Exit compare' : comparePicking ? 'Cancel compare' : 'Start compare'}
             </button>
             <button
               type="button"
               onClick={onToggleEchoes}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
                 showEchoes
                   ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
-                  : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
+                  : 'text-stone-300 hover:text-stone-100'
               }`}
             >
               {showEchoes ? 'Hide echoes' : 'Reveal echoes'}
@@ -109,13 +109,13 @@ export function DetailPanel({
 
           {comparePicking ? (
             <p className="mt-4 text-sm leading-6 text-amber-100/90">
-              Compare is waiting for a second period. The selected amber period stays fixed as the source.
+              Choose another period to compare with this one.
             </p>
           ) : null}
 
           {compareActive ? (
             <p className="mt-4 text-sm leading-6 text-rose-100/85">
-              Compare is open. The paired period appears in rose and the side-by-side view floats above the main canvas.
+              Comparing with the rose-marked period.
             </p>
           ) : null}
         </div>
@@ -146,8 +146,8 @@ export function DetailPanel({
                   <p className="mt-3 text-sm leading-6 text-stone-200">
                     {period.title} carries this force at {pressureCascade.value}/100.
                     {pressureCascade.matchedEvents.length
-                      ? ` In the current seed data it surfaces directly through ${pressureCascade.matchedEvents.length} linked event${pressureCascade.matchedEvents.length === 1 ? '' : 's'} and most clearly touches ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
-                      : ' The period score is present, but the current seed data does not yet tie this force to a specific event chain.'}
+                      ? ` It surfaces most clearly through ${pressureCascade.matchedEvents.length} linked event${pressureCascade.matchedEvents.length === 1 ? '' : 's'} and is felt most strongly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
+                      : ' Here it acts more as background pressure than as a single named turning point.'}
                   </p>
                 </div>
 
@@ -174,7 +174,7 @@ export function DetailPanel({
                     ))
                   ) : (
                     <span className="text-sm leading-6 text-stone-400">
-                      No explicit event links for this pressure in the current seed data.
+                      No single event here is tagged to this force.
                     </span>
                   )}
                 </div>
@@ -340,7 +340,7 @@ export function DetailPanel({
                         <button
                           type="button"
                           onClick={() => onCompareToPeriod(echo.counterpart.id)}
-                          className="rounded-full border border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:border-cyan-200/35 hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
+                          className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
                         >
                           Compare these periods
                         </button>
@@ -349,7 +349,7 @@ export function DetailPanel({
                   ))
                 ) : (
                   <div className="rounded-[1.25rem] border border-white/8 bg-white/4 p-4 text-sm leading-6 text-stone-400">
-                    This period does not yet have a curated echo pair in the seed data.
+                    This period does not yet have a curated echo pair.
                   </div>
                 )}
               </div>

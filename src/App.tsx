@@ -166,24 +166,24 @@ function App() {
             <button
               type="button"
               onClick={() => setShowPressureOverlay((current) => !current)}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
                 showPressureOverlay
                   ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
-                  : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
+                  : 'text-stone-300 hover:text-stone-100'
               }`}
             >
-              {showPressureOverlay ? 'Pressure overlay on' : 'Pressure overlay off'}
+              {showPressureOverlay ? 'Hide pressure lines' : 'Show pressure lines'}
             </button>
             <button
               type="button"
               onClick={() => setShowEchoes((current) => !current)}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
                 showEchoes
                   ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
-                  : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
+                  : 'text-stone-300 hover:text-stone-100'
               }`}
             >
-              {showEchoes ? 'Echo reveal on' : 'Echo reveal off'}
+              {showEchoes ? 'Hide echoes' : 'Show echoes'}
             </button>
           </div>
         </header>

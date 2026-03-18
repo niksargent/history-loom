@@ -206,11 +206,11 @@ export function ComparePanel({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/72 px-4 py-6 backdrop-blur-sm md:px-6"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[rgba(5,7,8,0.84)] px-4 py-6 backdrop-blur-[18px] md:px-6"
       onClick={onClose}
     >
       <section
-        className="glass-panel mx-auto w-full max-w-[1460px] rounded-[2rem] border border-white/10 p-5 md:p-7"
+        className="glass-panel mx-auto w-full max-w-[1460px] rounded-[2rem] border border-white/8 p-5 md:p-7"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -225,7 +225,7 @@ export function ComparePanel({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition hover:border-white/20 hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+            className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
           >
             Exit compare
           </button>
@@ -252,10 +252,12 @@ export function ComparePanel({
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="eyebrow">Reading cues</p>
-              <h3 className="mt-2 text-lg text-stone-100">What to notice first</h3>
+              <h3 className="mt-2 text-lg text-stone-100">Look for recurring structure</h3>
             </div>
             <div className="text-sm leading-6 text-stone-400">
-              {echoLink ? 'This pair already has a curated echo connection.' : 'This is a manual comparison rather than a seeded echo pair.'}
+              {echoLink
+                ? 'This pair already has a curated echo connection.'
+                : 'These periods are being compared directly.'}
             </div>
           </div>
 
@@ -273,7 +275,7 @@ export function ComparePanel({
                     </span>
                   ))
                 ) : (
-                  <span className="text-sm leading-6 text-stone-500">No direct overlap in dominant-value tags.</span>
+                  <span className="text-sm leading-6 text-stone-500">Different values lead each period.</span>
                 )}
               </div>
             </article>
@@ -291,7 +293,7 @@ export function ComparePanel({
                     </span>
                   ))
                 ) : (
-                  <span className="text-sm leading-6 text-stone-500">The social mood reads differently across the two periods.</span>
+                  <span className="text-sm leading-6 text-stone-500">The mood shifts sharply between the two periods.</span>
                 )}
               </div>
             </article>
@@ -309,7 +311,7 @@ export function ComparePanel({
                     </span>
                   ))
                 ) : (
-                  <span className="text-sm leading-6 text-stone-500">Their strongest pressure signatures are not the same.</span>
+                  <span className="text-sm leading-6 text-stone-500">Different forces dominate each period.</span>
                 )}
               </div>
             </article>
@@ -353,12 +355,11 @@ export function ComparePanel({
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <p className="eyebrow">{section.title}</p>
-                    <h3 className="mt-2 text-lg text-stone-100">{section.title} side by side</h3>
                   </div>
                   <div className="text-sm leading-6 text-stone-400">
                     {section.overlap.length
-                      ? `${section.overlap.length} overlapping signals`
-                      : 'Difference carries most of the signal here'}
+                      ? `${section.overlap.length} shared elements`
+                      : 'These periods pull in different directions here.'}
                   </div>
                 </div>
 
@@ -369,7 +370,7 @@ export function ComparePanel({
                         key={`${section.title}-overlap-${item}`}
                         className="rounded-full border border-white/10 bg-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-200"
                       >
-                        Shared: {sentenceCase(item)}
+                        {sentenceCase(item)}
                       </span>
                     ))}
                   </div>
@@ -396,7 +397,7 @@ export function ComparePanel({
                           </span>
                         ))
                       ) : (
-                        <span className="text-sm leading-6 text-stone-400">This side is mostly defined by the overlap.</span>
+                        <span className="text-sm leading-6 text-stone-400">Mostly shared with the other period.</span>
                       )}
                     </div>
                   </article>
@@ -421,7 +422,7 @@ export function ComparePanel({
                           </span>
                         ))
                       ) : (
-                        <span className="text-sm leading-6 text-stone-400">This side is mostly defined by the overlap.</span>
+                        <span className="text-sm leading-6 text-stone-400">Mostly shared with the other period.</span>
                       )}
                     </div>
                   </article>
