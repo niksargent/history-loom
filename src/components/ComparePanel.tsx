@@ -10,6 +10,7 @@ interface ComparePanelProps {
 }
 
 type Tone = 'source' | 'target'
+type BucketTone = Tone | 'shared'
 
 const toneStyles: Record<
   Tone,
@@ -38,6 +39,32 @@ const toneStyles: Record<
     mutedPanel: 'border-rose-200/10 bg-rose-300/4',
     line: 'bg-rose-300/85',
   },
+}
+
+function bucketShellClass(tone: BucketTone) {
+  if (tone === 'shared') {
+    return 'border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
+  }
+
+  return toneStyles[tone].mutedPanel
+}
+
+function bucketPillClass(tone: BucketTone) {
+  if (tone === 'shared') {
+    return 'border-white/10 bg-white/8 text-stone-200'
+  }
+
+  return tone === 'source'
+    ? 'border-amber-300/18 bg-amber-300/8 text-amber-100'
+    : 'border-rose-300/18 bg-rose-300/8 text-rose-100'
+}
+
+function bucketLabelClass(tone: BucketTone) {
+  if (tone === 'shared') {
+    return 'text-stone-300'
+  }
+
+  return toneStyles[tone].accent
 }
 
 function pressureValue(model: ComparePanelModel['source'], pressureId: string | null) {
@@ -72,7 +99,7 @@ function findEchoReason(model: ComparePanelModel) {
   )
 }
 
-function CompareColumn({
+function CompareSummaryCard({
   title,
   detail,
   tone,
@@ -102,9 +129,9 @@ function CompareColumn({
           </p>
           <h3 className="font-display mt-2 text-2xl text-stone-100">{detail.period.title}</h3>
         </div>
-        <div className="text-right text-xs uppercase tracking-[0.18em] text-stone-500">
+        <div className="grid gap-2 text-right text-xs uppercase tracking-[0.18em] text-stone-500">
           <p>{detail.events.length} events</p>
-          <p className="mt-2">{detail.echoes.length} echoes</p>
+          <p>{detail.echoes.length} echoes</p>
         </div>
       </div>
 
@@ -128,17 +155,140 @@ function CompareColumn({
         </div>
       ) : null}
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        {detail.period.dominantValues.slice(0, 4).map((value) => (
-          <span
-            key={`${detail.period.id}-${value}`}
-            className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${styles.badge}`}
-          >
-            {sentenceCase(value)}
-          </span>
-        ))}
+    </article>
+  )
+}
+
+function CompareBucket({
+  label,
+  tone,
+  items,
+  emptyLabel,
+}: {
+  label: string
+  tone: BucketTone
+  items: string[]
+  emptyLabel: string
+}) {
+  return (
+    <article className={`rounded-[1.25rem] border p-4 ${bucketShellClass(tone)}`}>
+      <p className={`text-[10px] uppercase tracking-[0.22em] ${bucketLabelClass(tone)}`}>
+        {label}
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {items.length ? (
+          items.slice(0, 7).map((item) => (
+            <span
+              key={`${label}-${item}`}
+              className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${bucketPillClass(tone)}`}
+            >
+              {sentenceCase(item)}
+            </span>
+          ))
+        ) : (
+          <span className="text-sm leading-6 text-stone-500">{emptyLabel}</span>
+        )}
       </div>
     </article>
+  )
+}
+
+function CompareMatrixSection({
+  title,
+  overlap,
+  sourceOnly,
+  targetOnly,
+}: {
+  title: string
+  overlap: string[]
+  sourceOnly: string[]
+  targetOnly: string[]
+}) {
+  return (
+    <section className="relative overflow-hidden rounded-[1.5rem] border border-white/6 bg-black/18 p-5">
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,191,36,0.05),transparent_34%,transparent_66%,rgba(251,113,133,0.05))]" />
+      <div className="relative flex flex-wrap items-center justify-between gap-4">
+        <p className="eyebrow">{title}</p>
+        <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
+          {overlap.length ? `${overlap.length} shared motifs` : 'Contrast stands out here'}
+        </span>
+      </div>
+
+      <div className="relative mt-4 grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)_minmax(0,1fr)]">
+        <CompareBucket
+          label="Source"
+          tone="source"
+          items={sourceOnly}
+          emptyLabel="Most of the pattern is shared here."
+        />
+        <CompareBucket
+          label="Shared"
+          tone="shared"
+          items={overlap}
+          emptyLabel="No direct rhyme is called out here."
+        />
+        <CompareBucket
+          label="Comparison"
+          tone="target"
+          items={targetOnly}
+          emptyLabel="Most of the pattern is shared here."
+        />
+      </div>
+    </section>
+  )
+}
+
+function EventColumn({
+  title,
+  detail,
+  tone,
+  selectedPressureId,
+}: {
+  title: string
+  detail: ComparePanelModel['source']
+  tone: Tone
+  selectedPressureId: string | null
+}) {
+  const styles = toneStyles[tone]
+
+  return (
+    <section className={`rounded-[1.5rem] border p-5 ${styles.shell}`}>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="eyebrow">{title}</p>
+          <h3 className={`mt-2 text-lg ${styles.accent}`}>{detail.period.title}</h3>
+        </div>
+        <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
+          {detail.period.rangeLabel}
+        </span>
+      </div>
+
+      <div className="mt-4 grid gap-3">
+        {detail.events.map((event) => {
+          const matchesActivePressure =
+            !selectedPressureId || event.pressureDrivers.includes(selectedPressureId)
+
+          return (
+            <article
+              key={`${detail.period.id}-${event.id}`}
+              className={`rounded-[1.25rem] border p-4 transition ${
+                matchesActivePressure ? styles.panel : 'border-white/8 bg-black/15 opacity-70'
+              }`}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h4 className="text-sm uppercase tracking-[0.16em] text-stone-100">
+                  {event.title}
+                </h4>
+                <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
+                  {formatYears(event.startYear, event.endYear)}
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
+            </article>
+          )
+        })}
+      </div>
+    </section>
   )
 }
 
@@ -162,20 +312,32 @@ export function ComparePanel({
   const comparisonSections = [
     {
       title: 'Dominant values',
-      source: model.source.period.dominantValues,
-      target: model.target.period.dominantValues,
+      sourceOnly: difference(
+        model.source.period.dominantValues,
+        model.target.period.dominantValues,
+      ),
+      targetOnly: difference(
+        model.target.period.dominantValues,
+        model.source.period.dominantValues,
+      ),
       overlap: sharedValues,
     },
     {
       title: 'Social mood',
-      source: model.source.period.socialMood,
-      target: model.target.period.socialMood,
+      sourceOnly: difference(model.source.period.socialMood, model.target.period.socialMood),
+      targetOnly: difference(model.target.period.socialMood, model.source.period.socialMood),
       overlap: sharedMood,
     },
     {
       title: 'What emerged',
-      source: model.source.period.whatEmerged.concat(model.source.period.newPossibilities).slice(0, 6),
-      target: model.target.period.whatEmerged.concat(model.target.period.newPossibilities).slice(0, 6),
+      sourceOnly: difference(
+        model.source.period.whatEmerged.concat(model.source.period.newPossibilities).slice(0, 6),
+        model.target.period.whatEmerged.concat(model.target.period.newPossibilities).slice(0, 6),
+      ),
+      targetOnly: difference(
+        model.target.period.whatEmerged.concat(model.target.period.newPossibilities).slice(0, 6),
+        model.source.period.whatEmerged.concat(model.source.period.newPossibilities).slice(0, 6),
+      ),
       overlap: intersect(
         model.source.period.whatEmerged.concat(model.source.period.newPossibilities),
         model.target.period.whatEmerged.concat(model.target.period.newPossibilities),
@@ -183,8 +345,14 @@ export function ComparePanel({
     },
     {
       title: 'What frayed',
-      source: model.source.period.whatFaded.concat(model.source.period.whatBroke).slice(0, 6),
-      target: model.target.period.whatFaded.concat(model.target.period.whatBroke).slice(0, 6),
+      sourceOnly: difference(
+        model.source.period.whatFaded.concat(model.source.period.whatBroke).slice(0, 6),
+        model.target.period.whatFaded.concat(model.target.period.whatBroke).slice(0, 6),
+      ),
+      targetOnly: difference(
+        model.target.period.whatFaded.concat(model.target.period.whatBroke).slice(0, 6),
+        model.source.period.whatFaded.concat(model.source.period.whatBroke).slice(0, 6),
+      ),
       overlap: intersect(
         model.source.period.whatFaded.concat(model.source.period.whatBroke),
         model.target.period.whatFaded.concat(model.target.period.whatBroke),
@@ -210,111 +378,81 @@ export function ComparePanel({
       onClick={onClose}
     >
       <section
-        className="glass-panel mx-auto w-full max-w-[1460px] rounded-[2rem] border border-white/8 p-5 md:p-7"
+        className="glass-panel relative mx-auto w-full max-w-[1460px] overflow-hidden rounded-[2rem] border border-white/8 p-5 md:p-7"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="max-w-3xl">
-            <p className="eyebrow">Compare periods</p>
-            <h2 className="font-display text-3xl text-stone-100 md:text-4xl">Structural comparison</h2>
-            <p className="mt-3 text-sm leading-6 text-stone-300">
-              Amber marks the source period. Rose marks the comparison period.
-            </p>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(219,181,108,0.08),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(251,113,133,0.06),_transparent_32%)]" />
+
+        <div className="relative">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="max-w-3xl">
+              <p className="eyebrow">Compare periods</p>
+              <h2 className="font-display text-3xl text-stone-100 md:text-4xl">
+                Structural comparison
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-stone-300">
+                Amber is the period you started from. Rose is the period opened against it.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
+            >
+              Exit compare
+            </button>
           </div>
 
-          <button
-            type="button"
-            onClick={onClose}
-            className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
-          >
-            Exit compare
-          </button>
-        </div>
-
-        <div className="mt-6 grid gap-4 xl:grid-cols-2">
-          <CompareColumn
-            title="Source period"
-            detail={model.source}
-            tone="source"
-            selectedPressureId={selectedPressureId}
-            selectedPressureLabel={selectedPressureLabel}
-          />
-          <CompareColumn
-            title="Comparison period"
-            detail={model.target}
-            tone="target"
-            selectedPressureId={selectedPressureId}
-            selectedPressureLabel={selectedPressureLabel}
-          />
-        </div>
+          <div className="mt-6 grid gap-4 xl:grid-cols-2">
+            <CompareSummaryCard
+              title="Source period"
+              detail={model.source}
+              tone="source"
+              selectedPressureId={selectedPressureId}
+              selectedPressureLabel={selectedPressureLabel}
+            />
+            <CompareSummaryCard
+              title="Comparison period"
+              detail={model.target}
+              tone="target"
+              selectedPressureId={selectedPressureId}
+              selectedPressureLabel={selectedPressureLabel}
+            />
+          </div>
 
         <section className="mt-6 rounded-[1.5rem] border border-white/6 bg-black/18 p-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="eyebrow">Reading cues</p>
-              <h3 className="mt-2 text-lg text-stone-100">Look for recurring structure</h3>
+              <p className="eyebrow">Shared structure</p>
+              <h3 className="mt-2 text-lg text-stone-100">Where the two periods rhyme</h3>
             </div>
             <div className="text-sm leading-6 text-stone-400">
               {echoLink
                 ? 'This pair already has a curated echo connection.'
-                : 'These periods are being compared directly.'}
+                : 'This is a direct comparison between two selected periods.'}
             </div>
           </div>
 
           <div className="mt-4 grid gap-3 lg:grid-cols-3">
-            <article className="rounded-[1.25rem] border border-white/6 bg-black/24 p-4">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-stone-400">Shared values</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {sharedValues.length ? (
-                  sharedValues.slice(0, 4).map((value) => (
-                    <span
-                      key={`shared-value-${value}`}
-                      className="rounded-full border border-amber-300/18 bg-amber-300/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-amber-100"
-                    >
-                      {sentenceCase(value)}
-                    </span>
-                  ))
-                ) : (
-                  <span className="text-sm leading-6 text-stone-500">Different values lead each period.</span>
-                )}
-              </div>
-            </article>
-
-            <article className="rounded-[1.25rem] border border-white/6 bg-black/24 p-4">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-stone-400">Shared mood</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {sharedMood.length ? (
-                  sharedMood.slice(0, 4).map((mood) => (
-                    <span
-                      key={`shared-mood-${mood}`}
-                      className="rounded-full border border-rose-300/18 bg-rose-300/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-rose-100"
-                    >
-                      {sentenceCase(mood)}
-                    </span>
-                  ))
-                ) : (
-                  <span className="text-sm leading-6 text-stone-500">The mood shifts sharply between the two periods.</span>
-                )}
-              </div>
-            </article>
-
-            <article className="rounded-[1.25rem] border border-white/6 bg-black/24 p-4">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-stone-400">Pressure overlap</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {sharedPressures.length ? (
-                  sharedPressures.slice(0, 4).map((pressure) => (
-                    <span
-                      key={`shared-pressure-${pressure}`}
-                      className="rounded-full border border-cyan-300/18 bg-cyan-300/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-cyan-100"
-                    >
-                      {pressure}
-                    </span>
-                  ))
-                ) : (
-                  <span className="text-sm leading-6 text-stone-500">Different forces dominate each period.</span>
-                )}
-              </div>
-            </article>
+            <CompareBucket
+              label="Shared values"
+              tone="shared"
+              items={sharedValues}
+              emptyLabel="Different values lead each period."
+            />
+            <CompareBucket
+              label="Shared mood"
+              tone="shared"
+              items={sharedMood}
+              emptyLabel="The mood shifts sharply between them."
+            />
+            <CompareBucket
+              label="Shared pressures"
+              tone="shared"
+              items={sharedPressures}
+              emptyLabel="Different forces dominate each period."
+            />
           </div>
 
           {echoLink ? (
@@ -343,142 +481,31 @@ export function ComparePanel({
         </section>
 
         <div className="mt-6 grid gap-4">
-          {comparisonSections.map((section) => {
-            const sourceOnly = difference(section.source, section.target)
-            const targetOnly = difference(section.target, section.source)
-
-            return (
-              <section
-                key={section.title}
-                className="rounded-[1.5rem] border border-white/6 bg-black/18 p-5"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <p className="eyebrow">{section.title}</p>
-                  </div>
-                  <div className="text-sm leading-6 text-stone-400">
-                    {section.overlap.length
-                      ? `${section.overlap.length} shared elements`
-                      : 'These periods pull in different directions here.'}
-                  </div>
-                </div>
-
-                {section.overlap.length ? (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {section.overlap.slice(0, 5).map((item) => (
-                      <span
-                        key={`${section.title}-overlap-${item}`}
-                        className="rounded-full border border-white/10 bg-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-200"
-                      >
-                        {sentenceCase(item)}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                  <article className={`rounded-[1.25rem] border p-4 ${toneStyles.source.mutedPanel}`}>
-                    <div className="flex items-center justify-between gap-3">
-                      <h4 className={`text-sm uppercase tracking-[0.18em] ${toneStyles.source.accent}`}>
-                        {model.source.period.title}
-                      </h4>
-                      <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                        {formatYears(model.source.period.startYear, model.source.period.endYear)}
-                      </span>
-                    </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {sourceOnly.length ? (
-                        sourceOnly.slice(0, 6).map((item) => (
-                          <span
-                            key={`${section.title}-source-${item}`}
-                            className="rounded-full border border-amber-300/18 bg-amber-300/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-amber-100"
-                          >
-                            {sentenceCase(item)}
-                          </span>
-                        ))
-                      ) : (
-                        <span className="text-sm leading-6 text-stone-400">Mostly shared with the other period.</span>
-                      )}
-                    </div>
-                  </article>
-
-                  <article className={`rounded-[1.25rem] border p-4 ${toneStyles.target.mutedPanel}`}>
-                    <div className="flex items-center justify-between gap-3">
-                      <h4 className={`text-sm uppercase tracking-[0.18em] ${toneStyles.target.accent}`}>
-                        {model.target.period.title}
-                      </h4>
-                      <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                        {formatYears(model.target.period.startYear, model.target.period.endYear)}
-                      </span>
-                    </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {targetOnly.length ? (
-                        targetOnly.slice(0, 6).map((item) => (
-                          <span
-                            key={`${section.title}-target-${item}`}
-                            className="rounded-full border border-rose-300/18 bg-rose-300/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-rose-100"
-                          >
-                            {sentenceCase(item)}
-                          </span>
-                        ))
-                      ) : (
-                        <span className="text-sm leading-6 text-stone-400">Mostly shared with the other period.</span>
-                      )}
-                    </div>
-                  </article>
-                </div>
-              </section>
-            )
-          })}
+          {comparisonSections.map((section) => (
+            <CompareMatrixSection
+              key={section.title}
+              title={section.title}
+              overlap={section.overlap}
+              sourceOnly={section.sourceOnly}
+              targetOnly={section.targetOnly}
+            />
+          ))}
         </div>
 
         <div className="mt-6 grid gap-4 xl:grid-cols-2">
-          {[
-            { tone: 'source' as const, title: 'Source events', detail: model.source },
-            { tone: 'target' as const, title: 'Comparison events', detail: model.target },
-          ].map(({ tone, title, detail }) => {
-            const styles = toneStyles[tone]
-
-            return (
-              <section key={`${title}-${detail.period.id}`} className={`rounded-[1.5rem] border p-5 ${styles.shell}`}>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="eyebrow">{title}</p>
-                    <h3 className={`mt-2 text-lg ${styles.accent}`}>{detail.period.title}</h3>
-                  </div>
-                  <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
-                    {detail.period.rangeLabel}
-                  </span>
-                </div>
-
-                <div className="mt-4 grid gap-3">
-                  {detail.events.map((event) => {
-                    const matchesActivePressure =
-                      !selectedPressureId || event.pressureDrivers.includes(selectedPressureId)
-
-                    return (
-                      <article
-                        key={`${detail.period.id}-${event.id}`}
-                        className={`rounded-[1.25rem] border p-4 transition ${
-                          matchesActivePressure ? styles.panel : 'border-white/8 bg-black/15 opacity-70'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <h4 className="text-sm uppercase tracking-[0.16em] text-stone-100">
-                            {event.title}
-                          </h4>
-                          <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                            {formatYears(event.startYear, event.endYear)}
-                          </span>
-                        </div>
-                        <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
-                      </article>
-                    )
-                  })}
-                </div>
-              </section>
-            )
-          })}
+          <EventColumn
+            title="Source events"
+            detail={model.source}
+            tone="source"
+            selectedPressureId={selectedPressureId}
+          />
+          <EventColumn
+            title="Comparison events"
+            detail={model.target}
+            tone="target"
+            selectedPressureId={selectedPressureId}
+          />
+        </div>
         </div>
       </section>
     </div>
