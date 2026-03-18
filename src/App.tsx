@@ -216,6 +216,7 @@ function App() {
             <PressureLegend
               pressureSeries={dataset.pressureOverlaySeries}
               selectedPressureId={selectedPressureId}
+              currentPeriodId={detail.period.id}
               currentPeriodScores={detail.period.pressureScores}
               onPressureSelect={setSelectedPressureId}
             />

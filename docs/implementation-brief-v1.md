@@ -14,6 +14,9 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - the period stack now supports overview and expanded density modes
 - the detail panel shows gains, losses, events, snapshot, and derived multi-scale summaries
 - the detail panel now supports calm-read and full-read modes with collapsible lower sections
+- the structural-force panel now supports compact and expanded card density
+- structural forces can now be reordered by selected-period intensity, role, or label
+- structural-force intensity is now shown with segmented bands and mini traces instead of a single flat bar
 - pressure overlays and curated echo reveal are implemented
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
@@ -24,8 +27,7 @@ Current refinement focus:
 - strengthen compare insight highlighting so overlap and divergence are more legible at a glance
 - add motion and material polish so reveal states feel deliberate rather than static
 - refine geographic rendering, scaling, and contextual use of the map card
-- add a user-controlled compact view for structural-force cards
-- explore alternative intensity-display treatments and user-controlled reordering of structural forces, for example by intensity or by stress/stabiliser
+- decide whether the new segmented/trace intensity treatment is the lasting visual language for structural forces or only an interim step
 - decide whether geography should remain period-bound in the detail panel or move toward a dataset-level home when multiple datasets or expansion views exist
 - identify all UI copy that reads like internal memo and replace it with user-facing language
 - differentiate interactive buttons from passive data pills more consistently
@@ -42,6 +44,7 @@ The following interaction grammar is now established:
 - side-by-side period comparison
 - geographic orientation tied to the current selection
 - adjustable density in both the period stack and the detail panel
+- adjustable density and ordering in the structural-force panel
 
 ## What still needs design work
 
@@ -55,12 +58,11 @@ The next quality threshold is interpretive clarity, not feature count:
 ## Recommended next sequence
 
 1. finish compare polish
-2. refine structural-force controls and intensity presentation
-3. continue strengthening the right-hand narrative flow and copy economy
-4. add a motion/material pass
-5. tune the geography card, including its eventual home in the product architecture
-6. complete accessibility and responsive cleanup
-7. only then add one post-MVP expansion feature
+2. continue strengthening the right-hand narrative flow and copy economy
+3. add a motion/material pass
+4. tune the geography card, including its eventual home in the product architecture
+5. complete accessibility and responsive cleanup
+6. only then add one post-MVP expansion feature
 
 ## Product intent
 
