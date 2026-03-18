@@ -80,28 +80,67 @@ Build the first-pass prototype for **Concept 1 — The Loom** using the seed dat
 
 ## Current status
 
+The project is now at a **late-MVP prototype** stage.
+
 An initial frontend prototype now exists with:
 - React + TypeScript + Tailwind app scaffold
 - local JSON-driven period, pressure, event, snapshot, and echo loading
 - Loom overview with selectable periods
 - pressure overlay and pressure selection
-- right-hand detail panel with gains, losses, events, echo reveal, and multi-scale summaries
+- right-hand detail panel with gains, losses, events, echo reveal, multi-scale summaries, pressure-cascade reading, and a geographic inset
+- compare mode that can be launched from echo links or by choosing a second period, now surfaced as an overlay rather than a below-the-fold panel
 
-Current UX refinement priorities:
-- make period cards beneath the Loom readable in a horizontal card format
-- use more of the right-side panel's vertical space
-- show active structural-force controls directly above the Loom
-- keep polishing responsiveness and information hierarchy
+Implemented now:
+- core Loom surface
+- pressure overlay and inline thread pills
+- pressure-emphasized detail flow with clearer narrative framing
+- geographic inset built from real topojson coastline data with product-level region highlights layered on top
+- echo reveal
+- side-by-side compare mode with explicit source/target color ownership and direct exit
+
+In progress:
+- tighter information density and hierarchy across the right-hand detail flow
+- compare UX polish, including clearer insight surfacing and calmer visual balance
+- geographic card tuning, including layout, scaling, and context behavior
+- stronger narrative interpretation in the detail panel rather than a simple stack of facts
+- user-controlled compact view for structural-force cards
+- ideation on alternative intensity displays and user-controlled structural-force ordering, for example by intensity or by stress/stabiliser
+- decision on whether geography belongs in the selected-period detail flow or at the dataset level when broader dataset expansion is defined
+- identify and remove UI phrases that read like internal memo rather than user-facing product language
+- clearer differentiation between buttons and passive data pills
+- responsive refinement and accessibility polish
+
+Deferred:
+- true alternate lenses
+- thematic filters
+- guided paths
+- saved states
+- quotes
+- custom lenses
+- advanced similarity engine
+
+## What next
+
+The next delivery sequence should be:
+1. finish compare UX polish
+2. strengthen the right-hand panel as a more guided interpretive surface
+3. tune the geographic card now that it sits on real geometry
+4. complete accessibility and responsive refinement
+5. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+
+What should not happen yet:
+- do not add multi-lens UI without real alternate-lens data
+- do not add advanced echo scoring while curated echoes are still being refined
+- do not expand surface area faster than the current interaction design is being clarified
 
 ## Geographic orientation idea
 
 Add a lightweight map mode or map inset that answers: **where are we studying?**
 
-Useful first version:
-- a small Britain / British Isles map in the header or detail panel
-- highlighted geography for the selected period or event
-- subtle labels for England, Scotland, Wales, Ireland, Britain, and wider imperial/global scope when relevant
-- event-level emphasis when geography narrows to places like Northern Ireland or England and Scotland
+Current first version:
+- a compact Britain / British Isles inset in the detail panel
+- highlighted geography for the selected period, with additional event geography pulled in when a pressure cascade is active
+- labels for England, Scotland, Wales, Ireland, Britain, and wider/global context where relevant
 
 Why it matters:
 - grounds the abstract structural view in actual territory

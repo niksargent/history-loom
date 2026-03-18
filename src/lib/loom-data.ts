@@ -14,13 +14,16 @@ import type {
   Scale,
 } from '../types/domain'
 import type {
+  GeographyInsetModel,
   EchoRevealModel,
   LensDefinition,
   LoomDataset,
+  PressureCascadeModel,
   PressureOverlaySeries,
   PressureSnapshot,
   ScaleSummary,
   SelectedPeriodDetail,
+  GeoRegionId,
 } from '../types/view'
 import { clamp, formatYearRange, sentenceCase, titleCaseLabel } from './format'
 
@@ -337,4 +340,109 @@ export function getPressureLabel(pressureId: string): string {
   const pressure = pressureById[pressureId]
 
   return pressure?.label ?? titleCaseLabel(pressureId)
+}
+
+export function getPressureOverlaySeriesById(pressureId: string) {
+  return getLoomDataset().pressureOverlaySeries.find((series) => series.id === pressureId) ?? null
+}
+
+export function inferGeographyRegions(labels: string[]): GeoRegionId[] {
+  const normalized = labels.join(' | ').toLowerCase()
+  const regions = new Set<GeoRegionId>()
+
+  if (
+    normalized.includes('british isles') ||
+    normalized.includes('england, scotland, ireland')
+  ) {
+    regions.add('british-isles')
+  }
+
+  if (
+    normalized.includes('britain') ||
+    normalized.includes('united kingdom') ||
+    normalized.includes('england and scotland')
+  ) {
+    regions.add('britain')
+  }
+
+  if (normalized.includes('england')) {
+    regions.add('england')
+  }
+
+  if (normalized.includes('scotland')) {
+    regions.add('scotland')
+  }
+
+  if (normalized.includes('wales')) {
+    regions.add('wales')
+  }
+
+  if (normalized.includes('northern ireland')) {
+    regions.add('northern-ireland')
+  }
+
+  if (normalized.includes('ireland')) {
+    regions.add('ireland')
+  }
+
+  if (normalized.includes('france')) {
+    regions.add('france')
+  }
+
+  if (normalized.includes('eu') || normalized.includes('europe')) {
+    regions.add('europe')
+  }
+
+  if (normalized.includes('global') || normalized.includes('empire')) {
+    regions.add('global')
+  }
+
+  return Array.from(regions)
+}
+
+export function buildGeographyInsetModel(
+  labels: string[],
+  contextLabel: string,
+): GeographyInsetModel {
+  return {
+    labels,
+    highlightedRegions: inferGeographyRegions(labels),
+    contextLabel,
+  }
+}
+
+export function buildPressureCascade(
+  detail: SelectedPeriodDetail,
+  pressureId: string | null,
+): PressureCascadeModel | null {
+  if (!pressureId) {
+    return null
+  }
+
+  const overlaySeries = getPressureOverlaySeriesById(pressureId)
+
+  if (!overlaySeries) {
+    return null
+  }
+
+  const matchedEvents = detail.events.filter((event) =>
+    event.pressureDrivers.includes(pressureId),
+  )
+  const impactedScales = Array.from(
+    new Set(matchedEvents.flatMap((event) => event.scalesAffected)),
+  )
+  const geographyLabels = Array.from(
+    new Set(matchedEvents.map((event) => event.geography).filter(Boolean)),
+  )
+
+  return {
+    pressureId,
+    label: overlaySeries.label,
+    description: overlaySeries.description,
+    value: detail.period.pressureScores[pressureId] ?? 0,
+    polarity: overlaySeries.polarity,
+    matchedEvents,
+    impactedScales,
+    geographyLabels,
+  }
 }

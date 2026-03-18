@@ -24,6 +24,18 @@ export interface ScaleSummary {
   body: string
 }
 
+export type GeoRegionId =
+  | 'england'
+  | 'scotland'
+  | 'wales'
+  | 'northern-ireland'
+  | 'ireland'
+  | 'britain'
+  | 'british-isles'
+  | 'france'
+  | 'europe'
+  | 'global'
+
 export interface PressurePoint {
   periodId: string
   label: string
@@ -55,6 +67,28 @@ export interface PressureSnapshot {
   description: string
 }
 
+export interface GeographyInsetModel {
+  labels: string[]
+  highlightedRegions: GeoRegionId[]
+  contextLabel: string
+}
+
+export interface PressureCascadeModel {
+  pressureId: string
+  label: string
+  description: string
+  value: number
+  polarity: PressurePolarity
+  matchedEvents: Event[]
+  impactedScales: Scale[]
+  geographyLabels: string[]
+}
+
+export interface ComparePanelModel {
+  source: SelectedPeriodDetail
+  target: SelectedPeriodDetail
+}
+
 export interface SelectedPeriodDetail {
   period: Period
   events: Event[]
@@ -72,4 +106,3 @@ export interface LoomDataset {
   selectedDetailsById: Record<string, SelectedPeriodDetail>
   pressureOverlaySeries: PressureOverlaySeries[]
 }
-

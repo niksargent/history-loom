@@ -36,6 +36,25 @@ For the first MVP:
 - at least one echo interaction
 - multi-scale summary for selected period
 
+## Current implementation note
+
+Implemented in the current prototype:
+- timeline overview
+- period selection
+- pressure overlay
+- echo reveal
+- gains/losses detail
+- multi-scale summary
+- geographic inset
+- compare mode with overlay presentation and source/target ownership
+
+Still not implemented:
+- real selectable alternate lenses backed by data
+
+Current stage:
+- the prototype is now late-MVP rather than early exploratory scaffolding
+- the remaining work is primarily design, clarity, and quality refinement rather than basic feature plumbing
+
 ## 5. Should-have features
 - side-by-side compare mode
 - thematic filters
@@ -70,3 +89,23 @@ The MVP succeeds if a new user can, within a short session:
 - explain one pressure-driven historical pattern
 - identify one gain/loss tension in an era
 - use the echo feature to compare two periods
+
+## Current UX note
+
+The next quality threshold is not more features but clearer interpretation:
+- the compare view should make overlap, difference, and curated echo reasons scan immediately
+- the geographic inset should feel like a calm, informative locator that gives Britain visual priority
+- the right-hand detail story should read as a guided interpretation, not only a stack of facts
+- structural-force cards should support a compact user-controlled mode
+- structural-force intensity may need a different visual language and user-controlled ordering options
+- buttons should read clearly as actions and not blur into passive data pills
+- all internal-memo style UI phrases should be identified and removed
+
+## Recommended next steps
+
+1. finish compare UX polish
+2. improve the interpretive quality of the right-hand panel
+3. refine structural-force card density, ordering, and intensity treatment
+4. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
+5. complete accessibility and responsive refinement
+6. defer post-MVP expansion features until the existing MVP interactions feel fully coherent

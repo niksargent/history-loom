@@ -6,18 +6,54 @@ Build the first-pass interactive prototype for **Concept 1 — The Loom**.
 
 ## Current implementation status
 
-The first interactive prototype now exists in code:
+The first interactive prototype now exists in code and has moved beyond proof-of-concept into a late-MVP prototype:
 - Vite + React + TypeScript + Tailwind scaffold is in place
 - local JSON data loads through a typed normalization layer
 - the Loom overview renders the seeded 12-period Britain dataset
 - the detail panel shows gains, losses, events, snapshot, and derived multi-scale summaries
 - pressure overlays and curated echo reveal are implemented
+- a geographic inset built on real topojson geometry is implemented in the detail flow
+- compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
 
 Current refinement focus:
-- improve card readability under the Loom
-- use more of the right-hand panel's viewport height
-- make structural-force context visible directly above the chart
-- continue tightening information density and layout balance
+- deepen pressure-cascade storytelling further
+- improve content density and hierarchy in the detail flow
+- strengthen compare insight highlighting so overlap and divergence are more legible at a glance
+- refine geographic rendering, scaling, and contextual use of the map card
+- add a user-controlled compact view for structural-force cards
+- explore alternative intensity-display treatments and user-controlled reordering of structural forces, for example by intensity or by stress/stabiliser
+- decide whether geography should remain period-bound in the detail panel or move toward a dataset-level home when multiple datasets or expansion views exist
+- identify all UI copy that reads like internal memo and replace it with user-facing language
+- differentiate interactive buttons from passive data pills more consistently
+- continue responsive and accessibility polish
+- keep docs aligned with the real implementation state
+
+## What is solid
+
+The following interaction grammar is now established:
+- period selection through the Loom overview
+- pressure reading across the timeline and detail panel
+- echo reveal from a selected period
+- side-by-side period comparison
+- geographic orientation tied to the current selection
+
+## What still needs design work
+
+The next quality threshold is interpretive clarity, not feature count:
+- compare needs another UX pass so similarities, differences, and seeded echo logic are more obvious at first glance
+- the detail panel should feel more like guided historical reading and less like a structured dossier
+- the geography card should keep improving now that it is using real geometry rather than placeholder art
+- structural-force controls should become more legible and more user-directable without increasing clutter
+- UI copy and control language should be audited so the interface stops sounding like an internal design note
+
+## Recommended next sequence
+
+1. finish compare polish
+2. strengthen the right-hand narrative flow
+3. refine structural-force controls and intensity presentation
+4. tune the geography card, including its eventual home in the product architecture
+5. complete accessibility and responsive cleanup
+6. only then add one post-MVP expansion feature
 
 ## Product intent
 

@@ -36,6 +36,11 @@ button {
   font: inherit;
 }
 
+button:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.45);
+  outline-offset: 2px;
+}
+
 .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.03em;

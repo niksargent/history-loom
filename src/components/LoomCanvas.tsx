@@ -7,6 +7,9 @@ interface LoomCanvasProps {
   overlaySeries: PressureOverlaySeries[]
   selectedPeriodId: string
   selectedPressureId: string | null
+  comparePicking: boolean
+  compareTargetId: string | null
+  compareActive: boolean
   showPressureOverlay: boolean
   echoCounterpartIds: Set<string>
   showEchoes: boolean
@@ -51,6 +54,9 @@ export function LoomCanvas({
   overlaySeries,
   selectedPeriodId,
   selectedPressureId,
+  comparePicking,
+  compareTargetId,
+  compareActive,
   showPressureOverlay,
   echoCounterpartIds,
   showEchoes,
@@ -84,11 +90,17 @@ export function LoomCanvas({
           </div>
         </div>
 
+        {comparePicking ? (
+          <div className="mt-4 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50">
+            Compare is ready. The amber card is your source period. Choose a second period to open the side-by-side view.
+          </div>
+        ) : null}
+
         <div className="mt-5 flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => onPressureSelect(null)}
-            className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition ${
+            className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-200/40 ${
               selectedPressureId === null
                 ? 'border-stone-200/30 bg-white/10 text-stone-100'
                 : 'border-white/10 text-stone-400 hover:border-white/20 hover:text-stone-200'
@@ -104,7 +116,7 @@ export function LoomCanvas({
                 key={series.id}
                 type="button"
                 onClick={() => onPressureSelect(series.id)}
-                className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition ${
+                className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/40 ${
                   isSelected
                     ? series.polarity === 'stress'
                       ? 'border-amber-300/45 bg-amber-300/10 text-amber-100'
@@ -127,6 +139,41 @@ export function LoomCanvas({
           <div className="absolute inset-x-0 top-1/2 h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[22%] h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[78%] h-px bg-white/5" />
+          <div className="absolute inset-0">
+            {periods.map((period, index) => {
+              const left = `${(index / periods.length) * 100}%`
+              const width = `${100 / periods.length}%`
+              const isSelected = period.id === selectedPeriodId
+              const isCompareTarget = period.id === compareTargetId
+              const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+
+              return (
+                <div
+                  key={period.id}
+                  className={`absolute bottom-0 top-0 transition-opacity duration-300 ${
+                    isSelected
+                      ? 'bg-amber-300/10 opacity-100'
+                      : isCompareTarget
+                        ? 'bg-rose-300/8 opacity-100'
+                      : isEcho
+                        ? 'bg-cyan-300/5 opacity-100'
+                        : 'opacity-0'
+                  }`}
+                  style={{ left, width }}
+                >
+                  {isSelected ? (
+                    <div className="absolute inset-y-3 left-1/2 w-px -translate-x-1/2 bg-amber-200/45 shadow-[0_0_18px_rgba(252,211,77,0.22)]" />
+                  ) : null}
+                  {isCompareTarget ? (
+                    <div className="absolute inset-y-5 left-1/2 w-px -translate-x-1/2 bg-rose-200/35 [background-image:linear-gradient(to_bottom,rgba(254,205,211,0.72)_0_45%,transparent_45%_100%)] [background-size:1px_12px] bg-repeat-y" />
+                  ) : null}
+                  {isEcho ? (
+                    <div className="absolute inset-y-6 left-1/2 w-px -translate-x-1/2 bg-cyan-200/30 [background-image:linear-gradient(to_bottom,rgba(165,243,252,0.75)_0_40%,transparent_40%_100%)] [background-size:1px_10px] bg-repeat-y" />
+                  ) : null}
+                </div>
+              )
+            })}
+          </div>
 
           <svg
             viewBox="0 0 1100 180"
@@ -167,21 +214,25 @@ export function LoomCanvas({
           </div>
         </div>
 
-        <div className="mt-6 max-h-[28rem] overflow-y-auto pr-1">
-          <div className="grid gap-3 xl:grid-cols-2">
+        <div className="mt-6 max-h-[30rem] overflow-y-auto pr-1">
+          <div className="grid gap-3">
             {periods.map((period) => {
               const isSelected = period.id === selectedPeriodId
               const isEcho = echoCounterpartIds.has(period.id)
               const showEchoState = showEchoes && isEcho
+              const isCompareTarget = period.id === compareTargetId
 
               return (
                 <button
                   key={period.id}
                   type="button"
                   onClick={() => onPeriodSelect(period.id)}
-                  className={`group relative flex min-h-[13.5rem] flex-col rounded-[1.5rem] border px-4 py-4 text-left transition duration-300 ${
+                  aria-pressed={isSelected || isCompareTarget}
+                  className={`group relative flex min-h-[13rem] flex-col rounded-[1.5rem] border px-4 py-4 text-left transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 md:px-5 ${
                     isSelected
                       ? 'border-amber-300/65 bg-stone-950/90 shadow-[0_0_0_1px_rgba(251,191,36,0.12),0_24px_80px_rgba(0,0,0,0.35)]'
+                      : isCompareTarget
+                        ? 'border-rose-300/40 bg-rose-300/7'
                       : showEchoState
                         ? 'border-cyan-300/45 bg-cyan-500/5'
                         : 'border-white/8 bg-white/4 hover:border-white/16 hover:bg-white/7'
@@ -194,6 +245,8 @@ export function LoomCanvas({
                       className={`h-2.5 w-2.5 rounded-full ${
                         isSelected
                           ? 'bg-amber-300 shadow-[0_0_18px_rgba(252,211,77,0.65)]'
+                          : isCompareTarget
+                            ? 'bg-rose-200 shadow-[0_0_16px_rgba(254,205,211,0.4)]'
                           : showEchoState
                             ? 'bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.45)]'
                             : 'bg-white/20'
@@ -201,7 +254,7 @@ export function LoomCanvas({
                     />
                   </div>
 
-                  <div className="relative mt-5 flex flex-1 gap-4">
+                  <div className="relative mt-5 flex flex-1 flex-col gap-4 md:flex-row md:items-start">
                     <div className="min-w-0 flex-1">
                       <h3 className="font-display text-xl leading-tight text-stone-100">
                         {period.title}
@@ -211,8 +264,8 @@ export function LoomCanvas({
                       </p>
                     </div>
 
-                    <div className="hidden w-40 shrink-0 xl:block">
-                      <div className="flex flex-wrap justify-end gap-2">
+                    <div className="md:w-56 md:shrink-0">
+                      <div className="flex flex-wrap gap-2 md:justify-end">
                         {period.dominantValues.slice(0, 3).map((value) => (
                           <span
                             key={value}
@@ -229,8 +282,19 @@ export function LoomCanvas({
                     <div className="h-px bg-white/10" />
                     <div className="mt-4 flex items-center justify-between gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
                       <span>{getReleaseLabel(period.releaseType)}</span>
-                      <span>{period.echoIds.length} echoes</span>
+                      <span>
+                        {isCompareTarget
+                          ? compareActive
+                            ? 'paired for compare'
+                            : 'chosen for compare'
+                          : `${period.echoIds.length} echoes`}
+                      </span>
                     </div>
+                    {isCompareTarget ? (
+                      <div className="mt-3 rounded-2xl border border-rose-200/15 bg-rose-300/8 px-3 py-2 text-xs leading-5 text-rose-100">
+                        Comparison period
+                      </div>
+                    ) : null}
                     {showEchoState ? (
                       <div className="mt-3 rounded-2xl border border-cyan-200/15 bg-cyan-300/8 px-3 py-2 text-xs leading-5 text-cyan-100">
                         Echoes active

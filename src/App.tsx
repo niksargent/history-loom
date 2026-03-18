@@ -1,8 +1,13 @@
 import { useState } from 'react'
+import { ComparePanel } from './components/ComparePanel'
 import { DetailPanel } from './components/DetailPanel'
 import { LoomCanvas } from './components/LoomCanvas'
 import { PressureLegend } from './components/PressureLegend'
-import { getCounterpartIds, getLoomDataset } from './lib/loom-data'
+import {
+  getCounterpartIds,
+  getLoomDataset,
+  getPressureOverlaySeriesById,
+} from './lib/loom-data'
 
 function App() {
   const [{ dataset, loadError }] = useState(() => {
@@ -22,6 +27,9 @@ function App() {
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
   const [showEchoes, setShowEchoes] = useState(false)
   const [isDetailOpen, setIsDetailOpen] = useState(true)
+  const [compareSourceId, setCompareSourceId] = useState<string | null>(null)
+  const [compareTargetId, setCompareTargetId] = useState<string | null>(null)
+  const [comparePicking, setComparePicking] = useState(false)
 
   if (!dataset || loadError) {
     return (
@@ -44,7 +52,70 @@ function App() {
   }
 
   const detail = dataset.selectedDetailsById[selectedPeriodId]
+  const compareSourceDetail = compareSourceId
+    ? dataset.selectedDetailsById[compareSourceId]
+    : null
+  const compareDetail =
+    compareSourceId && compareTargetId && compareTargetId !== compareSourceId
+      ? dataset.selectedDetailsById[compareTargetId]
+      : null
   const echoCounterpartIds = showEchoes ? getCounterpartIds(detail) : new Set<string>()
+  const selectedPressureSeries = selectedPressureId
+    ? getPressureOverlaySeriesById(selectedPressureId)
+    : null
+  const compareAnchoredToSelected = compareSourceId === selectedPeriodId
+  const compareActive = Boolean(compareSourceDetail && compareDetail)
+
+  function clearCompare() {
+    setCompareSourceId(null)
+    setCompareTargetId(null)
+    setComparePicking(false)
+  }
+
+  function handleStartComparePick() {
+    if (compareAnchoredToSelected && (comparePicking || compareActive)) {
+      clearCompare()
+      return
+    }
+
+    setCompareSourceId(selectedPeriodId)
+    setCompareTargetId(null)
+    setComparePicking(true)
+    setIsDetailOpen(true)
+  }
+
+  function handleCompareToPeriod(periodId: string) {
+    if (periodId === selectedPeriodId) {
+      return
+    }
+
+    setCompareSourceId(selectedPeriodId)
+    setCompareTargetId(periodId)
+    setComparePicking(false)
+    setIsDetailOpen(true)
+  }
+
+  function handlePeriodSelect(periodId: string) {
+    const activeCompareSourceId = compareSourceId ?? selectedPeriodId
+
+    if (comparePicking) {
+      if (periodId === activeCompareSourceId) {
+        return
+      }
+
+      setCompareSourceId(activeCompareSourceId)
+      setCompareTargetId(periodId)
+      setComparePicking(false)
+      setIsDetailOpen(true)
+      return
+    }
+
+    setSelectedPeriodId(periodId)
+    if (periodId === compareSourceId || periodId === compareTargetId) {
+      clearCompare()
+    }
+    setIsDetailOpen(true)
+  }
 
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-stone-100">
@@ -95,7 +166,7 @@ function App() {
             <button
               type="button"
               onClick={() => setShowPressureOverlay((current) => !current)}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition ${
+              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
                 showPressureOverlay
                   ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
                   : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
@@ -106,7 +177,7 @@ function App() {
             <button
               type="button"
               onClick={() => setShowEchoes((current) => !current)}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition ${
+              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
                 showEchoes
                   ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
                   : 'border-white/10 text-stone-300 hover:border-white/20 hover:text-stone-100'
@@ -124,13 +195,13 @@ function App() {
               overlaySeries={dataset.pressureOverlaySeries}
               selectedPeriodId={selectedPeriodId}
               selectedPressureId={selectedPressureId}
+              comparePicking={comparePicking}
+              compareTargetId={compareTargetId}
+              compareActive={compareActive}
               showPressureOverlay={showPressureOverlay}
               echoCounterpartIds={echoCounterpartIds}
               showEchoes={showEchoes}
-              onPeriodSelect={(periodId) => {
-                setSelectedPeriodId(periodId)
-                setIsDetailOpen(true)
-              }}
+              onPeriodSelect={handlePeriodSelect}
               onPressureSelect={(pressureId) => {
                 setSelectedPressureId(pressureId)
                 setShowPressureOverlay(true)
@@ -149,10 +220,25 @@ function App() {
             detail={detail}
             isOpen={isDetailOpen}
             showEchoes={showEchoes}
+            selectedPressureId={selectedPressureId}
+            selectedPressureSeries={selectedPressureSeries}
+            comparePicking={comparePicking && compareAnchoredToSelected}
+            compareActive={compareActive && compareAnchoredToSelected}
             onToggleOpen={() => setIsDetailOpen((current) => !current)}
             onToggleEchoes={() => setShowEchoes((current) => !current)}
+            onStartComparePick={handleStartComparePick}
+            onCompareToPeriod={handleCompareToPeriod}
           />
         </div>
+
+        {compareSourceDetail && compareDetail ? (
+          <ComparePanel
+            model={{ source: compareSourceDetail, target: compareDetail }}
+            selectedPressureId={selectedPressureId}
+            selectedPressureLabel={selectedPressureSeries?.label ?? null}
+            onClose={clearCompare}
+          />
+        ) : null}
       </main>
     </div>
   )
