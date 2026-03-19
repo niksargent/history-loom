@@ -48,6 +48,7 @@ Implemented in the current prototype:
 - direct chart-based period selection
 - pressure overlay
 - echo reveal
+- question-led, force-led, and pattern-led entry paths in the header
 - gains/losses detail
 - multi-scale summary
 - geographic inset
@@ -61,6 +62,7 @@ Implemented in the current prototype:
 - segmented and traced structural-force intensity display
 - a first motion/material pass across surfaces, overlays, and selection states
 - cleaner compare/detail copy with less internal memo language
+- a more data-led opening surface with live current-focus context and a compact visual summary strip
 
 Still not implemented in the current MVP branch:
 - alternate lenses and lens-selection UI, which are explicitly deferred below
@@ -107,8 +109,10 @@ The MVP succeeds if a new user can, within a short session:
 ## Current UX note
 
 The next quality threshold is not more features but clearer interpretation:
-- the opening screen should invite exploration through strong questions, not only through controls and framing copy
-- the compare view should make overlap, difference, and curated echo reasons scan immediately
+- the opening screen should keep shifting from header copy toward a true exhibit front door
+- echo discovery should feel less like reveal state and more like a navigable route through history
+- interpretive uplift should come from intelligent framing and stronger visual analysis, not from adding more explanatory prose
+- compare changes should now be incremental and only where they improve clarity without disturbing a working experience
 - the geographic inset is implemented, but further tuning and placement work is paused pending product discussion
 - the right-hand detail story should keep shifting from stacked information toward guided interpretation
 - structural-force intensity still needs a final visual language decision, even after the current compact/order/trace treatment
@@ -119,12 +123,14 @@ The next quality threshold is not more features but clearer interpretation:
 
 ## Recommended next steps
 
-1. add question-led entry points and improve the top-of-page framing
-2. finish compare UX polish
-3. continue improving the interpretive quality and copy economy of the right-hand panel
-4. complete accessibility and responsive refinement
-5. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
-6. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+1. refine the top-of-page front door around questions, forces, and patterns
+2. refine echo journeys so structural rhymes become a more compelling exploration path
+3. improve interpretive quality and visual analysis where it gives a clear uplift to non-historian users
+4. define the first Britain data-expansion plan and the product behaviors it should unlock
+5. make only targeted compare clarity improvements where needed
+6. address only critical accessibility and responsive issues
+7. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
+8. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
 
 ## Deferred from future versions
 

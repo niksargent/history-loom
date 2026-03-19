@@ -105,6 +105,7 @@ An initial frontend prototype now exists with:
 
 Implemented now:
 - core Loom surface
+- tabbed question-led, force-led, and pattern-led entry points in the top header
 - pressure overlay and inline thread pills
 - direct period selection from both the chart surface and the period-card stack
 - user-controlled period-card density with overview and expanded stack modes
@@ -120,12 +121,13 @@ Implemented now:
 - compare insight cards that surface shared pull, main separation, and pressure relationship
 - deeper material treatment and restrained reveal/glow motion across the Loom, detail panel, and compare overlay
 - cleaner compare/detail copy, with less internal-memo language and clearer source/comparison/shared reading
+- a denser, more data-led top section with live current-focus context and a compact visual summary strip
 
 In progress:
-- question-led entry points that help non-historians enter through themes and problems rather than chronology alone
-- top-of-page redesign so the opening view earns its space and frames the experience more compellingly
+- echo-journey refinement so curated rhymes feel like a path through the dataset rather than a reveal state
 - tighter narrative interpretation and copy economy across the right-hand detail flow
-- compare UX polish, including clearer insight surfacing and calmer visual balance
+- more intelligent interpretive framing where it materially improves discovery for non-historians
+- compare UX polish only where it improves clarity without reopening the overall design direction
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
 - further ideation on whether structural-force intensity should stay segmented/trace-based or move toward a more bespoke visual language
 - decision on whether geography belongs in the selected-period detail flow or at the dataset level when broader dataset expansion is defined
@@ -148,11 +150,14 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. add question-led entry points and improve the top-of-page experience
-2. finish the last compare UX clarity pass and tighten the remaining right-hand copy
-3. complete accessibility and responsive refinement
-4. discuss geography before doing any further tuning or placement changes
-5. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+1. refine the top-of-page entry surface so users can begin through questions, forces, and patterns without being hit by a wall of explanation
+2. make echo journeys feel more navigable and sequential
+3. strengthen interpretive framing where it produces a clear uplift, especially for first-time and non-historian users
+4. define the first data-expansion plan for the Britain dataset so the next wave of content unlocks stronger thematic and reasoning experiences
+5. keep compare changes limited to high-value clarity improvements rather than redesigning a working surface
+6. address only critical accessibility and responsive issues
+7. discuss geography before doing any further tuning or placement changes
+8. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data
