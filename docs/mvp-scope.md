@@ -11,6 +11,11 @@ The MVP should demonstrate that users can:
 - discover gains and losses
 - find at least one cross-era echo
 
+The intended audience is not only history specialists.
+The MVP should also work as:
+- a premium web exhibit
+- a public thinking tool for curious non-historians
+
 ## 2. Historical scope
 
 Use:
@@ -102,6 +107,7 @@ The MVP succeeds if a new user can, within a short session:
 ## Current UX note
 
 The next quality threshold is not more features but clearer interpretation:
+- the opening screen should invite exploration through strong questions, not only through controls and framing copy
 - the compare view should make overlap, difference, and curated echo reasons scan immediately
 - the geographic inset is implemented, but further tuning and placement work is paused pending product discussion
 - the right-hand detail story should keep shifting from stacked information toward guided interpretation
@@ -113,11 +119,12 @@ The next quality threshold is not more features but clearer interpretation:
 
 ## Recommended next steps
 
-1. finish compare UX polish
-2. continue improving the interpretive quality and copy economy of the right-hand panel
-3. complete accessibility and responsive refinement
-4. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
-5. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+1. add question-led entry points and improve the top-of-page framing
+2. finish compare UX polish
+3. continue improving the interpretive quality and copy economy of the right-hand panel
+4. complete accessibility and responsive refinement
+5. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
+6. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
 
 ## Deferred from future versions
 

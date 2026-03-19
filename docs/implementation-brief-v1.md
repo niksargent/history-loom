@@ -4,6 +4,12 @@
 
 Build the first-pass interactive prototype for **Concept 1 — The Loom**.
 
+The product direction is now clearer:
+- a premium interactive exhibit for the web
+- a public thinking tool for non-historians
+
+It should use historical reasoning and data analysis to sharpen the experience, but not feel like a research dashboard.
+
 ## Current implementation status
 
 The first interactive prototype now exists in code and has moved beyond proof-of-concept into a late-MVP prototype:
@@ -26,6 +32,8 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - compare and detail copy have been tightened so the interface sounds less like an internal memo
 
 Current refinement focus:
+- replace passive top-of-page framing with a stronger question-led entry surface
+- use the large header area to invite exploration rather than explain the interface at length
 - deepen pressure-cascade storytelling further
 - tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
 - strengthen compare insight highlighting so overlap and divergence are more legible at a glance
@@ -55,17 +63,19 @@ The following interaction grammar is now established:
 The next quality threshold is interpretive clarity, not feature count:
 - compare needs another UX pass so similarities, differences, and seeded echo logic are more obvious at first glance
 - the detail panel should feel more like guided historical reading and less like a structured dossier
+- the opening screen should help users begin with a question, not just with the layout
 - the geography card should not be changed further until its role and placement are discussed
 - structural-force controls should become more legible and more user-directable without increasing clutter
 - UI copy and control language should be audited so the interface stops sounding like an internal design note
 
 ## Recommended next sequence
 
-1. finish compare polish
-2. continue strengthening the right-hand narrative flow and copy economy
-3. complete accessibility and responsive cleanup
-4. discuss geography before further map tuning or placement changes
-5. only then add one post-MVP expansion feature
+1. add question-led entry points and improve the top-of-page framing
+2. finish compare polish
+3. continue strengthening the right-hand narrative flow and copy economy
+4. complete accessibility and responsive cleanup
+5. discuss geography before further map tuning or placement changes
+6. only then add one post-MVP expansion feature
 
 ## Product intent
 

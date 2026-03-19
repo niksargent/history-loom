@@ -26,6 +26,19 @@ The experience should help users:
 - explore history at personal, local, national, and global scales
 - discover what emerged and what was lost in each era
 
+## Product direction
+
+The product is leaning toward two complementary identities:
+- a premium interactive exhibit published on the web
+- a public thinking tool for curious non-historians
+
+It should feel closer to intelligent edutainment than to a research console, while still drawing on strong historical reasoning and data analysis where they improve clarity.
+
+That means:
+- visualisations should do as much explanatory work as possible
+- the interface should invite exploration through compelling questions, not only through controls
+- the product should remain intellectually serious without becoming academic or over-explained
+
 ## Initial product shape
 
 The recommended first build is:
@@ -109,6 +122,8 @@ Implemented now:
 - cleaner compare/detail copy, with less internal-memo language and clearer source/comparison/shared reading
 
 In progress:
+- question-led entry points that help non-historians enter through themes and problems rather than chronology alone
+- top-of-page redesign so the opening view earns its space and frames the experience more compellingly
 - tighter narrative interpretation and copy economy across the right-hand detail flow
 - compare UX polish, including clearer insight surfacing and calmer visual balance
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
@@ -133,10 +148,11 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. finish the last compare UX clarity pass and tighten the remaining right-hand copy
-2. complete accessibility and responsive refinement
-3. discuss geography before doing any further tuning or placement changes
-4. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+1. add question-led entry points and improve the top-of-page experience
+2. finish the last compare UX clarity pass and tighten the remaining right-hand copy
+3. complete accessibility and responsive refinement
+4. discuss geography before doing any further tuning or placement changes
+5. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data
