@@ -14,12 +14,14 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - the period stack now supports overview and expanded density modes
 - the detail panel shows gains, losses, events, snapshot, and derived multi-scale summaries
 - the detail panel now supports calm-read and full-read modes with collapsible lower sections
+- the detail panel now opens with a top-level interpretive reading of the selected period
 - the structural-force panel now supports compact and expanded card density
 - structural forces can now be reordered by selected-period intensity, role, or label
 - structural-force intensity is now shown with segmented bands and mini traces instead of a single flat bar
 - pressure overlays and curated echo reveal are implemented
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
+- compare mode now includes an interpretive insight strip for overlap, separation, and pressure relationship
 - a first motion/material pass is now in place, with deeper surfaces, stronger compare staging, and restrained reveal/glow behavior
 - compare and detail copy have been tightened so the interface sounds less like an internal memo
 
@@ -28,7 +30,7 @@ Current refinement focus:
 - tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
 - strengthen compare insight highlighting so overlap and divergence are more legible at a glance
 - finish the motion and material polish so reveal states feel deliberate rather than static
-- refine geographic rendering, scaling, and contextual use of the map card
+- geography is implemented, but further rendering, scaling, and placement work is postponed until product discussion
 - decide whether the new segmented/trace intensity treatment is the lasting visual language for structural forces or only an interim step
 - decide whether geography should remain period-bound in the detail panel or move toward a dataset-level home when multiple datasets or expansion views exist
 - identify all UI copy that reads like internal memo and replace it with user-facing language
@@ -53,7 +55,7 @@ The following interaction grammar is now established:
 The next quality threshold is interpretive clarity, not feature count:
 - compare needs another UX pass so similarities, differences, and seeded echo logic are more obvious at first glance
 - the detail panel should feel more like guided historical reading and less like a structured dossier
-- the geography card should keep improving now that it is using real geometry rather than placeholder art
+- the geography card should not be changed further until its role and placement are discussed
 - structural-force controls should become more legible and more user-directable without increasing clutter
 - UI copy and control language should be audited so the interface stops sounding like an internal design note
 
@@ -61,8 +63,8 @@ The next quality threshold is interpretive clarity, not feature count:
 
 1. finish compare polish
 2. continue strengthening the right-hand narrative flow and copy economy
-3. tune the geography card, including its eventual home in the product architecture
-4. complete accessibility and responsive cleanup
+3. complete accessibility and responsive cleanup
+4. discuss geography before further map tuning or placement changes
 5. only then add one post-MVP expansion feature
 
 ## Product intent
@@ -80,14 +82,18 @@ This is an elegant interactive history overview that shows equal-duration histor
 - stacked or folded equal-duration period blocks
 - subtle pressure ribbons behind or through the periods
 - right-hand detail panel for selected period
-- minimal top controls for lens selection and view toggles
+- minimal top controls for view toggles and pressure/echo visibility
 
 ## Required interactions
-- select a cycle lens
 - click a period block to open detail
 - show values, mood, gains, losses, key events, and human snapshot in detail panel
 - toggle pressure overlay visibility
 - trigger a basic echo reveal for the selected period
+
+## Deferred from later versions
+- selectable lens length
+- cycle-lens selection UI
+- alternate lenses backed by real data
 
 ## Visual requirements
 - dark premium aesthetic

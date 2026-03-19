@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import { sentenceCase } from '../lib/format'
 import type { ComparePanelModel } from '../types/view'
 
@@ -126,6 +126,44 @@ function buildReadingLine(
   }
 
   return `${signals.join(', ')} hold the strongest overlap here.`
+}
+
+function strongestOverlapSection(
+  sections: Array<{ title: string; overlap: string[] }>,
+) {
+  return [...sections].sort((left, right) => right.overlap.length - left.overlap.length)[0] ?? null
+}
+
+function strongestDifferenceSection(
+  sections: Array<{ title: string; sourceOnly: string[]; targetOnly: string[] }>,
+) {
+  return (
+    [...sections].sort(
+      (left, right) =>
+        right.sourceOnly.length +
+        right.targetOnly.length -
+        (left.sourceOnly.length + left.targetOnly.length),
+    )[0] ?? null
+  )
+}
+
+function InsightCard({
+  label,
+  body,
+  tone = 'shared',
+}: {
+  label: string
+  body: string
+  tone?: BucketTone
+}) {
+  return (
+    <article className={`surface-depth rounded-[1.25rem] border p-4 ${bucketShellClass(tone)}`}>
+      <p className={`text-[10px] uppercase tracking-[0.22em] ${bucketLabelClass(tone)}`}>
+        {label}
+      </p>
+      <p className="mt-3 text-sm leading-6 text-stone-200">{body}</p>
+    </article>
+  )
 }
 
 function CompareSummaryCard({
@@ -259,7 +297,9 @@ function CompareMatrixSection({
       <div className="relative flex flex-wrap items-center justify-between gap-4">
         <p className="eyebrow">{title}</p>
         <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
-          {overlap.length ? `${overlap.length} shared motifs` : 'Difference is stronger here'}
+          {overlap.length
+            ? `${overlap.length} shared motif${overlap.length === 1 ? '' : 's'}`
+            : 'Difference is stronger here'}
         </span>
       </div>
 
@@ -349,6 +389,8 @@ export function ComparePanel({
   selectedPressureLabel,
   onClose,
 }: ComparePanelProps) {
+  const titleId = useId()
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const sharedValues = intersect(
     model.source.period.dominantValues,
     model.target.period.dominantValues,
@@ -368,7 +410,7 @@ export function ComparePanel({
   )
   const comparisonSections = [
     {
-      title: 'Dominant values',
+      title: 'Values',
       sourceOnly: difference(
         model.source.period.dominantValues,
         model.target.period.dominantValues,
@@ -380,13 +422,13 @@ export function ComparePanel({
       overlap: sharedValues,
     },
     {
-      title: 'Social mood',
+      title: 'Mood',
       sourceOnly: difference(model.source.period.socialMood, model.target.period.socialMood),
       targetOnly: difference(model.target.period.socialMood, model.source.period.socialMood),
       overlap: sharedMood,
     },
     {
-      title: 'What emerged',
+      title: 'Emergence',
       sourceOnly: difference(
         model.source.period.whatEmerged.concat(model.source.period.newPossibilities).slice(0, 6),
         model.target.period.whatEmerged.concat(model.target.period.newPossibilities).slice(0, 6),
@@ -401,7 +443,7 @@ export function ComparePanel({
       ),
     },
     {
-      title: 'What frayed',
+      title: 'Fraying',
       sourceOnly: difference(
         model.source.period.whatFaded.concat(model.source.period.whatBroke).slice(0, 6),
         model.target.period.whatFaded.concat(model.target.period.whatBroke).slice(0, 6),
@@ -416,8 +458,29 @@ export function ComparePanel({
       ),
     },
   ]
+  const leadingOverlap = strongestOverlapSection(comparisonSections)
+  const leadingDifference = strongestDifferenceSection(comparisonSections)
+  const sourcePressureValue = pressureValue(model.source, selectedPressureId)
+  const targetPressureValue = pressureValue(model.target, selectedPressureId)
+  const pressureInsight =
+    selectedPressureId && sourcePressureValue !== null && targetPressureValue !== null
+      ? sourcePressureValue === targetPressureValue
+        ? `${selectedPressureLabel ?? selectedPressureId} sits at the same intensity in both periods.`
+        : `${selectedPressureLabel ?? selectedPressureId} runs ${Math.abs(
+            sourcePressureValue - targetPressureValue,
+          )} points higher in ${
+            sourcePressureValue > targetPressureValue
+              ? model.source.period.title
+              : model.target.period.title
+          }.`
+      : echoLink
+        ? 'This pairing already has a curated echo link, so the comparison is tracing an existing rhyme.'
+        : 'No single pressure is in focus, so this reading stays structural rather than force-specific.'
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
     function handleKeydown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         onClose()
@@ -425,8 +488,12 @@ export function ComparePanel({
     }
 
     window.addEventListener('keydown', handleKeydown)
+    closeButtonRef.current?.focus()
 
-    return () => window.removeEventListener('keydown', handleKeydown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeydown)
+    }
   }, [onClose])
 
   return (
@@ -436,6 +503,9 @@ export function ComparePanel({
     >
       <section
         className="glass-panel surface-depth reveal-up relative mx-auto w-full max-w-[1460px] overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-5 md:p-7"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
         onClick={(event) => event.stopPropagation()}
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(219,181,108,0.08),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(251,113,133,0.06),_transparent_32%)]" />
@@ -444,7 +514,10 @@ export function ComparePanel({
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="max-w-3xl">
               <p className="eyebrow">Compare periods</p>
-              <h2 className="font-display text-3xl text-stone-100 md:text-4xl">
+              <h2
+                id={titleId}
+                className="font-display text-3xl text-stone-100 md:text-4xl"
+              >
                 Structural comparison
               </h2>
               <p className="mt-3 text-sm leading-6 text-stone-300">
@@ -453,6 +526,7 @@ export function ComparePanel({
             </div>
 
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={onClose}
               className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
@@ -476,6 +550,28 @@ export function ComparePanel({
               selectedPressureId={selectedPressureId}
               selectedPressureLabel={selectedPressureLabel}
             />
+          </div>
+
+          <div className="mt-6 grid gap-3 xl:grid-cols-3">
+            <InsightCard
+              label="Shared pull"
+              tone="shared"
+              body={
+                leadingOverlap && leadingOverlap.overlap.length
+                  ? `${leadingOverlap.title} carries the clearest overlap between the two periods.`
+                  : 'The strongest rhyme here sits in the overall shape more than in repeated labels.'
+              }
+            />
+            <InsightCard
+              label="Main separation"
+              tone="target"
+              body={
+                leadingDifference
+                  ? `${leadingDifference.title} carries the sharpest difference between the two periods.`
+                  : 'The differences are distributed rather than concentrated in one category.'
+              }
+            />
+            <InsightCard label="Pressure relationship" tone="source" body={pressureInsight} />
           </div>
 
         <section className="surface-depth reveal-up reveal-delay-2 mt-6 rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/18 p-5">

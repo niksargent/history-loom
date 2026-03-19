@@ -29,7 +29,6 @@ For the first MVP:
 ## 4. Must-have features
 - timeline overview
 - equal-duration period blocks
-- selectable lens length
 - period detail panel
 - gains vs losses view
 - basic pressure overlay
@@ -48,6 +47,8 @@ Implemented in the current prototype:
 - multi-scale summary
 - geographic inset
 - compare mode with overlay presentation and source/target ownership
+- top-of-panel interpretive period reading
+- compare insight cards for overlap, separation, and pressure relationship
 - overview and expanded density modes for the period stack
 - calm-read and full-read density modes for the right-hand panel, with collapsible lower sections
 - compact and expanded density modes for structural-force cards
@@ -56,8 +57,8 @@ Implemented in the current prototype:
 - a first motion/material pass across surfaces, overlays, and selection states
 - cleaner compare/detail copy with less internal memo language
 
-Still not implemented:
-- real selectable alternate lenses backed by data
+Still not implemented in the current MVP branch:
+- alternate lenses and lens-selection UI, which are explicitly deferred below
 
 Current stage:
 - the prototype is now late-MVP rather than early exploratory scaffolding
@@ -102,7 +103,7 @@ The MVP succeeds if a new user can, within a short session:
 
 The next quality threshold is not more features but clearer interpretation:
 - the compare view should make overlap, difference, and curated echo reasons scan immediately
-- the geographic inset should feel like a calm, informative locator that gives Britain visual priority
+- the geographic inset is implemented, but further tuning and placement work is paused pending product discussion
 - the right-hand detail story should keep shifting from stacked information toward guided interpretation
 - structural-force intensity still needs a final visual language decision, even after the current compact/order/trace treatment
 - buttons should read clearly as actions and not blur into passive data pills
@@ -114,6 +115,12 @@ The next quality threshold is not more features but clearer interpretation:
 
 1. finish compare UX polish
 2. continue improving the interpretive quality and copy economy of the right-hand panel
-3. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
-4. complete accessibility and responsive refinement
+3. complete accessibility and responsive refinement
+4. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
 5. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+
+## Deferred from future versions
+
+- selectable lens length
+- cycle-lens selection UI
+- alternate lenses backed by real data

@@ -4,6 +4,7 @@ import {
   buildGeographyInsetModel,
   buildPressureCascade,
   getScaleAccent,
+  getReleaseLabel,
 } from '../lib/loom-data'
 import type { Scale } from '../types/domain'
 import type {
@@ -57,6 +58,28 @@ function getScaleShellClass(scale: Scale, isImpacted: boolean) {
   }
 }
 
+function buildPeriodReading(
+  detail: SelectedPeriodDetail,
+  selectedPressureSeries: PressureOverlaySeries | null,
+) {
+  const valueLead = detail.period.dominantValues
+    .slice(0, 2)
+    .map((value) => sentenceCase(value))
+    .join(' and ')
+  const moodLead = detail.period.socialMood
+    .slice(0, 2)
+    .map((mood) => sentenceCase(mood))
+    .join(' / ')
+  const leadPressure = selectedPressureSeries?.label ?? detail.pressureSnapshots[0]?.label ?? null
+  const releaseLabel = getReleaseLabel(detail.period.releaseType).toLowerCase()
+
+  if (leadPressure) {
+    return `${detail.period.title} reads as a ${releaseLabel} period: ${valueLead || 'its leading values'} sit near the surface, the mood leans ${moodLead || 'mixed'}, and the strongest pressure gathers around ${leadPressure.toLowerCase()}.`
+  }
+
+  return `${detail.period.title} reads as a ${releaseLabel} period shaped by ${valueLead || 'its dominant values'}, with a public mood of ${moodLead || 'mixed feeling'}.`
+}
+
 interface SectionDisclosureProps {
   eyebrow: string
   title: string
@@ -87,6 +110,7 @@ function SectionDisclosure({
         <button
           type="button"
           onClick={onToggle}
+          aria-expanded={!isCollapsed}
           className="ui-action rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
         >
           {isCollapsed ? 'Show' : 'Hide'}
@@ -389,6 +413,9 @@ export function DetailPanel({
 }: DetailPanelProps) {
   const { period } = detail
   const pressureCascade = buildPressureCascade(detail, selectedPressureId)
+  const periodReading = buildPeriodReading(detail, selectedPressureSeries)
+  const leadPressureChipLabel =
+    selectedPressureSeries?.label ?? detail.pressureSnapshots[0]?.label ?? null
   const geographyModel = buildGeographyInsetModel(
     Array.from(
       new Set(
@@ -421,6 +448,7 @@ export function DetailPanel({
             <button
               type="button"
               onClick={onToggleOpen}
+              aria-expanded={isOpen}
               className="ui-action rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
             >
               {isOpen ? 'Collapse' : 'Expand'}
@@ -506,6 +534,21 @@ export function DetailPanel({
 
         {isOpen ? (
           <div className="flex-1 space-y-7 overflow-y-auto px-6 py-6 md:px-7">
+            <section className="surface-depth reveal-up rounded-[1.5rem] border border-[rgba(214,211,209,0.08)] p-4">
+              <p className="eyebrow">Reading this period</p>
+              <p className="mt-3 text-sm leading-6 text-stone-200">{periodReading}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-300">
+                  {getReleaseLabel(period.releaseType)}
+                </span>
+                {leadPressureChipLabel ? (
+                  <span className="rounded-full border border-[rgba(243,177,91,0.18)] bg-[rgba(243,177,91,0.08)] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-amber-100">
+                    Lead pressure: {leadPressureChipLabel}
+                  </span>
+                ) : null}
+              </div>
+            </section>
+
             <GeographyInset model={geographyModel} />
 
             {pressureCascade && selectedPressureSeries ? (
