@@ -20,12 +20,14 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - pressure overlays and curated echo reveal are implemented
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
+- a first motion/material pass is now in place, with deeper surfaces, stronger compare staging, and restrained reveal/glow behavior
+- compare and detail copy have been tightened so the interface sounds less like an internal memo
 
 Current refinement focus:
 - deepen pressure-cascade storytelling further
 - tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
 - strengthen compare insight highlighting so overlap and divergence are more legible at a glance
-- add motion and material polish so reveal states feel deliberate rather than static
+- finish the motion and material polish so reveal states feel deliberate rather than static
 - refine geographic rendering, scaling, and contextual use of the map card
 - decide whether the new segmented/trace intensity treatment is the lasting visual language for structural forces or only an interim step
 - decide whether geography should remain period-bound in the detail panel or move toward a dataset-level home when multiple datasets or expansion views exist
@@ -59,10 +61,9 @@ The next quality threshold is interpretive clarity, not feature count:
 
 1. finish compare polish
 2. continue strengthening the right-hand narrative flow and copy economy
-3. add a motion/material pass
-4. tune the geography card, including its eventual home in the product architecture
-5. complete accessibility and responsive cleanup
-6. only then add one post-MVP expansion feature
+3. tune the geography card, including its eventual home in the product architecture
+4. complete accessibility and responsive cleanup
+5. only then add one post-MVP expansion feature
 
 ## Product intent
 

@@ -56,8 +56,8 @@ function getIntensitySegments(value: number) {
 
 function getPolarityChipClass(polarity: PressurePolarity) {
   return polarity === 'stress'
-    ? 'bg-amber-300/10 text-amber-200'
-    : 'bg-cyan-300/10 text-cyan-200'
+    ? 'border border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.08)] text-amber-100'
+    : 'border border-[rgba(121,219,194,0.16)] bg-[rgba(121,219,194,0.08)] text-cyan-100'
 }
 
 function getPolarityTone(polarity: PressurePolarity) {
@@ -66,15 +66,21 @@ function getPolarityTone(polarity: PressurePolarity) {
         stroke: '#f3b15b',
         dot: '#fcd34d',
         fill: 'bg-amber-300/85',
-        shell: 'border-amber-300/10 bg-amber-300/6',
+        shell: 'border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.06)]',
         text: 'text-amber-100',
+        card: 'border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.035)] hover:border-[rgba(243,177,91,0.26)] hover:bg-[rgba(243,177,91,0.055)]',
+        selectedCard:
+          'border-[rgba(243,177,91,0.36)] bg-[rgba(243,177,91,0.08)] shadow-[0_18px_60px_rgba(0,0,0,0.25)]',
       }
     : {
         stroke: '#79dbc2',
         dot: '#79dbc2',
         fill: 'bg-cyan-300/85',
-        shell: 'border-cyan-300/10 bg-cyan-300/6',
+        shell: 'border-[rgba(121,219,194,0.16)] bg-[rgba(121,219,194,0.06)]',
         text: 'text-cyan-100',
+        card: 'border-[rgba(121,219,194,0.16)] bg-[rgba(121,219,194,0.035)] hover:border-[rgba(121,219,194,0.26)] hover:bg-[rgba(121,219,194,0.055)]',
+        selectedCard:
+          'border-[rgba(121,219,194,0.34)] bg-[rgba(121,219,194,0.08)] shadow-[0_18px_60px_rgba(0,0,0,0.25)]',
       }
 }
 
@@ -120,7 +126,7 @@ export function PressureLegend({
   const sortedSeries = sortPressureSeries(pressureSeries, currentPeriodScores, orderMode)
 
   return (
-    <section className="glass-panel rounded-[2rem] border border-white/10 p-6 md:p-8">
+    <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="eyebrow">Pressure Field</p>
@@ -201,13 +207,14 @@ export function PressureLegend({
 
       <div
         className={`mt-5 grid gap-3 ${
-          compactMode ? 'md:grid-cols-2 xl:grid-cols-4' : 'md:grid-cols-2 xl:grid-cols-3'
+          compactMode ? 'md:grid-cols-3 xl:grid-cols-4' : 'md:grid-cols-2 xl:grid-cols-3'
         }`}
       >
         {sortedSeries.map((series) => {
           const isSelected = selectedPressureId === series.id
           const currentValue = currentPeriodScores[series.id] ?? 0
           const tone = getPolarityTone(series.polarity)
+          const showTrace = !compactMode
           const selectedPointIndex = series.points.findIndex(
             (point) => point.periodId === currentPeriodId,
           )
@@ -224,16 +231,14 @@ export function PressureLegend({
               type="button"
               onClick={() => onPressureSelect(series.id)}
               className={`rounded-[1.25rem] border text-left transition duration-300 ${
-                compactMode ? 'px-4 py-3' : 'px-4 py-4'
+                compactMode ? 'px-3.5 py-3' : 'px-4 py-4'
               } ${
-                isSelected
-                  ? 'border-amber-300/55 bg-amber-300/7 shadow-[0_18px_60px_rgba(0,0,0,0.25)]'
-                  : 'border-white/6 bg-black/16 hover:border-white/12 hover:bg-white/5'
+                isSelected ? tone.selectedCard : tone.card
               }`}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <h3 className="text-sm font-medium tracking-[0.02em] text-stone-100">
+                  <h3 className={`font-medium tracking-[0.02em] text-stone-100 ${compactMode ? 'text-[13px]' : 'text-sm'}`}>
                     {series.label}
                   </h3>
                   {compactMode ? (
@@ -275,33 +280,35 @@ export function PressureLegend({
                   ))}
                 </div>
 
-                <div className="mt-3 overflow-hidden rounded-full border border-white/8 bg-black/20 px-2 py-2">
-                  <svg
-                    viewBox={`0 0 ${sparklineWidth} ${sparklineHeight}`}
-                    className="h-8 w-full"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d={buildSparklinePath(series.points, sparklineWidth, sparklineHeight - 2)}
-                      fill="none"
-                      stroke={tone.stroke}
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {selectedPoint ? (
-                      <circle
-                        cx={selectedPointIndex * xStep}
-                        cy={(sparklineHeight - 2) - selectedPoint.normalized * (sparklineHeight - 2)}
-                        r="3.4"
-                        fill={tone.dot}
-                        stroke="rgba(12, 14, 16, 0.95)"
-                        strokeWidth="1.4"
+                {showTrace ? (
+                  <div className="mt-3 overflow-hidden rounded-full border border-[rgba(214,211,209,0.08)] bg-black/20 px-2 py-2">
+                    <svg
+                      viewBox={`0 0 ${sparklineWidth} ${sparklineHeight}`}
+                      className="h-8 w-full"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d={buildSparklinePath(series.points, sparklineWidth, sparklineHeight - 2)}
+                        fill="none"
+                        stroke={tone.stroke}
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
-                    ) : null}
-                  </svg>
-                </div>
+                      {selectedPoint ? (
+                        <circle
+                          cx={selectedPointIndex * xStep}
+                          cy={(sparklineHeight - 2) - selectedPoint.normalized * (sparklineHeight - 2)}
+                          r="3.4"
+                          fill={tone.dot}
+                          stroke="rgba(12, 14, 16, 0.95)"
+                          strokeWidth="1.4"
+                        />
+                      ) : null}
+                    </svg>
+                  </div>
+                ) : null}
               </div>
 
               <div
@@ -309,9 +316,11 @@ export function PressureLegend({
                   compactMode ? 'mt-3' : 'mt-4'
                 }`}
               >
-                <span className="rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-300">
-                  {series.category}
-                </span>
+                {!compactMode ? (
+                  <span className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-300">
+                    {series.category}
+                  </span>
+                ) : null}
                 <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
                   Peaks in {series.peaks.length} period{series.peaks.length === 1 ? '' : 's'}
                 </span>

@@ -74,8 +74,8 @@ export function LoomCanvas({
   const compactStack = density === 'compact'
 
   return (
-    <section className="glass-panel overflow-hidden rounded-[2rem] border border-white/10">
-      <div className="border-b border-white/10 px-6 py-4 md:px-8">
+    <section className="glass-panel reveal-up overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)]">
+      <div className="border-b border-[rgba(214,211,209,0.08)] px-6 py-4 md:px-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="eyebrow">The Loom</p>
@@ -96,8 +96,8 @@ export function LoomCanvas({
         </div>
 
         {comparePicking ? (
-          <div className="mt-4 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50">
-            Compare is ready. The amber card is your source period. Choose a second period to open the side-by-side view.
+          <div className="surface-depth reveal-up reveal-delay-1 mt-4 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50">
+            Compare is ready. Amber marks the period you started from. Choose the second period directly on the Loom.
           </div>
         ) : null}
 
@@ -138,7 +138,7 @@ export function LoomCanvas({
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
           <p className="text-xs leading-6 text-stone-500">
             {compactStack
-              ? 'Compact period stack keeps the long view visible while the active card stays slightly larger.'
+              ? 'Compact period stack reduces unselected cards to date and title while the active card opens wider.'
               : 'Expanded period stack gives each period more room for reading.'}
           </p>
           <div className="flex flex-wrap gap-2">
@@ -171,7 +171,7 @@ export function LoomCanvas({
       <div className="relative px-4 pb-6 pt-6 md:px-8">
         <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,_rgba(219,181,108,0.16),_transparent_60%)]" />
 
-        <div className="relative h-48 rounded-[1.5rem] border border-white/6 bg-black/20 px-4 py-4 md:h-56">
+        <div className="surface-depth relative h-48 rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/20 px-4 py-4 md:h-56">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[length:8.333%_100%]" />
           <div className="absolute inset-x-0 top-1/2 h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[22%] h-px bg-white/5" />
@@ -189,11 +189,11 @@ export function LoomCanvas({
                   key={period.id}
                   className={`absolute bottom-0 top-0 transition-opacity duration-300 ${
                     isSelected
-                      ? 'bg-amber-300/10 opacity-100'
+                      ? 'loom-band-active bg-amber-300/10 opacity-100'
                       : isCompareTarget
-                        ? 'bg-rose-300/8 opacity-100'
+                        ? 'loom-band-target bg-rose-300/8 opacity-100'
                       : isEcho
-                        ? 'bg-cyan-300/5 opacity-100'
+                        ? 'loom-band-echo bg-cyan-300/5 opacity-100'
                         : 'opacity-0'
                   }`}
                   style={{ left, width }}
@@ -285,7 +285,7 @@ export function LoomCanvas({
                   key={period.id}
                   className={`truncate text-center transition ${
                     isSelected
-                      ? 'text-amber-100'
+                      ? 'text-amber-100 drop-shadow-[0_0_10px_rgba(252,211,77,0.28)]'
                       : isCompareTarget
                         ? 'text-rose-200'
                         : isEcho
@@ -308,6 +308,7 @@ export function LoomCanvas({
               const showEchoState = showEchoes && isEcho
               const isCompareTarget = period.id === compareTargetId
               const compactFocus = compactStack && (isSelected || isCompareTarget)
+              const compactPreview = compactStack && !compactFocus
 
               return (
                 <button
@@ -319,17 +320,17 @@ export function LoomCanvas({
                     compactStack
                       ? compactFocus
                         ? 'min-h-[10rem] px-4 py-4 md:px-5'
-                        : 'min-h-[8rem] px-4 py-3 md:px-4'
+                        : 'min-h-[5.75rem] px-4 py-3 md:px-4'
                       : 'min-h-[13rem] px-4 py-4 md:px-5'
-                  } ${
-                    isSelected
-                      ? 'border-amber-300/65 bg-stone-950/90 shadow-[0_0_0_1px_rgba(251,191,36,0.12),0_24px_80px_rgba(0,0,0,0.35)]'
-                      : isCompareTarget
-                        ? 'border-rose-300/40 bg-rose-300/7'
-                      : showEchoState
-                        ? 'border-cyan-300/45 bg-cyan-500/5'
-                        : 'border-white/8 bg-white/4 hover:border-white/16 hover:bg-white/7'
-                  }`}
+                    } ${
+                      isSelected
+                      ? 'surface-depth border-amber-300/65 bg-stone-950/90 shadow-[0_0_0_1px_rgba(251,191,36,0.12),0_24px_80px_rgba(0,0,0,0.35)]'
+                        : isCompareTarget
+                          ? 'surface-depth border-[rgba(251,113,133,0.32)] bg-[rgba(251,113,133,0.08)]'
+                        : showEchoState
+                          ? 'surface-depth border-[rgba(121,219,194,0.28)] bg-[rgba(121,219,194,0.05)]'
+                          : 'border-[rgba(214,211,209,0.08)] bg-white/4 hover:border-[rgba(214,211,209,0.14)] hover:bg-white/6'
+                    }`}
                 >
                   <div className="absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%)] opacity-60" />
                   <div className="relative flex items-start justify-between gap-3">
@@ -348,62 +349,74 @@ export function LoomCanvas({
                   </div>
 
                   <div
-                    className={`relative flex flex-1 flex-col gap-4 md:flex-row md:items-start ${
-                      compactStack ? 'mt-4' : 'mt-5'
+                    className={`relative flex flex-1 ${
+                      compactPreview
+                        ? 'mt-3 items-center justify-between gap-4'
+                        : `flex-col gap-4 md:flex-row md:items-start ${compactStack ? 'mt-4' : 'mt-5'}`
                     }`}
                   >
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-display text-xl leading-tight text-stone-100">
-                        {period.title}
-                      </h3>
-                      <p
-                        className={`text-sm leading-6 text-stone-400 ${
-                          compactStack ? 'mt-2 max-h-[3.7rem] overflow-hidden' : 'mt-3'
+                      <h3
+                        className={`font-display leading-tight text-stone-100 ${
+                          compactPreview ? 'text-lg' : 'text-xl'
                         }`}
                       >
-                        {period.summary}
-                      </p>
+                        {period.title}
+                      </h3>
+                      {!compactPreview ? (
+                        <p
+                          className={`text-sm leading-6 text-stone-400 ${
+                            compactStack ? 'mt-2 max-h-[3.7rem] overflow-hidden' : 'mt-3'
+                          }`}
+                        >
+                          {period.summary}
+                        </p>
+                      ) : null}
                     </div>
 
-                    <div className={`md:shrink-0 ${compactStack ? 'md:w-48' : 'md:w-56'}`}>
-                      <div className="flex flex-wrap gap-2 md:justify-end">
-                        {period.dominantValues
-                          .slice(0, compactStack && !compactFocus ? 2 : 3)
-                          .map((value) => (
-                          <span
-                            key={value}
-                            className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
-                          >
-                            {value}
-                          </span>
-                          ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`relative mt-auto ${compactStack ? 'pt-4' : 'pt-6'}`}>
-                    <div className="h-px bg-white/10" />
-                    <div className="mt-4 flex items-center justify-between gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
-                      <span>{getReleaseLabel(period.releaseType)}</span>
-                      <span>
-                        {isCompareTarget
-                          ? compareActive
-                            ? 'in comparison'
-                            : 'chosen for compare'
-                          : `${period.echoIds.length} echoes`}
-                      </span>
-                    </div>
-                    {isCompareTarget ? (
-                      <div className="mt-3 rounded-2xl border border-rose-200/15 bg-rose-300/8 px-3 py-2 text-xs leading-5 text-rose-100">
-                        Comparison period
-                      </div>
-                    ) : null}
-                    {showEchoState && !isCompareTarget ? (
-                      <div className="mt-3 rounded-2xl border border-cyan-200/15 bg-cyan-300/8 px-3 py-2 text-xs leading-5 text-cyan-100">
-                        Echoes active
+                    {!compactPreview ? (
+                      <div className={`md:shrink-0 ${compactStack ? 'md:w-48' : 'md:w-56'}`}>
+                        <div className="flex flex-wrap gap-2 md:justify-end">
+                          {period.dominantValues
+                            .slice(0, compactStack && !compactFocus ? 2 : 3)
+                            .map((value) => (
+                              <span
+                                key={value}
+                                className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
+                              >
+                                {value}
+                              </span>
+                            ))}
+                        </div>
                       </div>
                     ) : null}
                   </div>
+
+                  {!compactPreview ? (
+                    <div className={`relative mt-auto ${compactStack ? 'pt-4' : 'pt-6'}`}>
+                      <div className="h-px bg-white/10" />
+                      <div className="mt-4 flex items-center justify-between gap-2 text-xs uppercase tracking-[0.18em] text-stone-500">
+                        <span>{getReleaseLabel(period.releaseType)}</span>
+                        <span>
+                          {isCompareTarget
+                            ? compareActive
+                              ? 'in comparison'
+                              : 'chosen for compare'
+                            : `${period.echoIds.length} echoes`}
+                        </span>
+                      </div>
+                      {isCompareTarget ? (
+                        <div className="mt-3 rounded-2xl border border-[rgba(251,113,133,0.18)] bg-[rgba(251,113,133,0.08)] px-3 py-2 text-xs leading-5 text-rose-100">
+                          Comparison period
+                        </div>
+                      ) : null}
+                      {showEchoState && !isCompareTarget ? (
+                        <div className="mt-3 rounded-2xl border border-[rgba(121,219,194,0.18)] bg-[rgba(121,219,194,0.08)] px-3 py-2 text-xs leading-5 text-cyan-100">
+                          Echoes active
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </button>
               )
             })}

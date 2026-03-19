@@ -103,6 +103,8 @@ Implemented now:
 - geographic inset built from real topojson coastline data with product-level region highlights layered on top
 - echo reveal
 - side-by-side compare mode with explicit source/target color ownership and direct exit
+- deeper material treatment and restrained reveal/glow motion across the Loom, detail panel, and compare overlay
+- cleaner compare/detail copy, with less internal-memo language and clearer source/shared/rose reading
 
 In progress:
 - tighter narrative interpretation and copy economy across the right-hand detail flow
@@ -112,7 +114,7 @@ In progress:
 - decision on whether geography belongs in the selected-period detail flow or at the dataset level when broader dataset expansion is defined
 - identify and remove UI phrases that read like internal memo rather than user-facing product language
 - clearer differentiation between buttons and passive data pills
-- motion and material polish so the interface feels calmer at rest and more alive when interacting
+- finish the motion and material pass so the interface feels calmer at rest and more alive when interacting
 - responsive refinement and accessibility polish
 
 Deferred:
@@ -127,11 +129,10 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. continue tightening compare UX and right-hand interpretive copy
-2. add a motion and material pass so overview, selection, and reveal states feel more organic
-3. tune the geographic card now that it sits on real geometry and decide its long-term home
-4. complete accessibility and responsive refinement
-5. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+1. finish the last compare UX clarity pass and tighten the remaining right-hand copy
+2. tune the geographic card now that it sits on real geometry and decide its long-term home
+3. complete accessibility and responsive refinement
+4. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data

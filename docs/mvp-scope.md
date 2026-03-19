@@ -53,6 +53,8 @@ Implemented in the current prototype:
 - compact and expanded density modes for structural-force cards
 - structural-force ordering by selected-period intensity, role, or label
 - segmented and traced structural-force intensity display
+- a first motion/material pass across surfaces, overlays, and selection states
+- cleaner compare/detail copy with less internal memo language
 
 Still not implemented:
 - real selectable alternate lenses backed by data
@@ -105,14 +107,13 @@ The next quality threshold is not more features but clearer interpretation:
 - structural-force intensity still needs a final visual language decision, even after the current compact/order/trace treatment
 - buttons should read clearly as actions and not blur into passive data pills
 - overview and detail density controls should feel elegant rather than merely functional
-- motion and material should help stage attention rather than adding ambient noise
+- motion and material should keep staging attention rather than becoming ambient noise
 - all internal-memo style UI phrases should be identified and removed
 
 ## Recommended next steps
 
 1. finish compare UX polish
 2. continue improving the interpretive quality and copy economy of the right-hand panel
-3. add a motion/material pass that supports overview, selection, and reveal states
-4. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
-5. complete accessibility and responsive refinement
-6. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+3. decide whether geography belongs in the period detail flow or at the dataset level as the product expands
+4. complete accessibility and responsive refinement
+5. defer post-MVP expansion features until the existing MVP interactions feel fully coherent

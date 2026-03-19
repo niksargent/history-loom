@@ -5,6 +5,7 @@ import {
   buildPressureCascade,
   getScaleAccent,
 } from '../lib/loom-data'
+import type { Scale } from '../types/domain'
 import type {
   DetailViewMode,
   PressureOverlaySeries,
@@ -37,6 +38,25 @@ function buildCollapsedSections(
   }
 }
 
+function getScaleShellClass(scale: Scale, isImpacted: boolean) {
+  if (isImpacted) {
+    return 'border-[rgba(243,177,91,0.18)] bg-[rgba(243,177,91,0.06)]'
+  }
+
+  switch (scale) {
+    case 'personal':
+      return 'border-[rgba(243,177,91,0.14)] bg-[rgba(243,177,91,0.035)]'
+    case 'local':
+      return 'border-[rgba(121,219,194,0.14)] bg-[rgba(121,219,194,0.035)]'
+    case 'national':
+      return 'border-[rgba(251,113,133,0.14)] bg-[rgba(251,113,133,0.035)]'
+    case 'global':
+      return 'border-[rgba(163,230,53,0.16)] bg-[rgba(163,230,53,0.035)]'
+    default:
+      return 'border-[rgba(214,211,209,0.08)] bg-white/4'
+  }
+}
+
 interface SectionDisclosureProps {
   eyebrow: string
   title: string
@@ -55,7 +75,7 @@ function SectionDisclosure({
   children,
 }: SectionDisclosureProps) {
   return (
-    <section>
+    <section className="reveal-up">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <p className="eyebrow">{eyebrow}</p>
@@ -149,18 +169,17 @@ function DetailSections({
         isCollapsed={collapsedSections.scales}
         onToggle={() => toggleSection('scales')}
       >
-        <div className="mt-3 grid gap-3 2xl:grid-cols-2">
+              <div className="mt-3 grid gap-3 2xl:grid-cols-2">
           {scaleSummaries.map((summary) => {
             const scaleIsImpacted = pressureCascade?.impactedScales.includes(summary.scale)
 
             return (
               <div
                 key={summary.scale}
-                className={`rounded-[1.25rem] border p-4 ${
-                  scaleIsImpacted
-                    ? 'border-amber-300/16 bg-amber-300/6'
-                    : 'border-white/8 bg-white/4'
-                }`}
+                className={`rounded-[1.25rem] border p-4 ${getScaleShellClass(
+                  summary.scale,
+                  Boolean(scaleIsImpacted),
+                )}`}
               >
                 <div className="flex items-center justify-between gap-3">
                   <h3
@@ -385,7 +404,7 @@ export function DetailPanel({
 
   return (
     <aside
-      className={`glass-panel overflow-hidden rounded-[2rem] border border-white/10 transition duration-300 xl:sticky xl:top-5 xl:h-[calc(100vh-2.5rem)] ${
+      className={`glass-panel reveal-up overflow-hidden rounded-[2rem] border border-white/10 transition duration-300 xl:sticky xl:top-5 xl:h-[calc(100vh-2.5rem)] ${
         isOpen ? 'opacity-100' : 'opacity-85'
       }`}
     >
@@ -474,13 +493,13 @@ export function DetailPanel({
 
           {comparePicking ? (
             <p className="mt-4 text-sm leading-6 text-amber-100/90">
-              Choose another period to compare with this one.
+              Choose the second period on the Loom.
             </p>
           ) : null}
 
           {compareActive ? (
             <p className="mt-4 text-sm leading-6 text-rose-100/85">
-              Comparing with the rose-marked period.
+              Comparison stays open with the rose-marked period.
             </p>
           ) : null}
         </div>
@@ -490,7 +509,7 @@ export function DetailPanel({
             <GeographyInset model={geographyModel} />
 
             {pressureCascade && selectedPressureSeries ? (
-              <section className="rounded-[1.5rem] border border-amber-300/14 bg-amber-300/7 p-4">
+              <section className="surface-depth reveal-up reveal-delay-1 rounded-[1.5rem] border border-amber-300/14 bg-amber-300/7 p-4">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="eyebrow">Pressure cascade</p>
@@ -504,15 +523,15 @@ export function DetailPanel({
                   </span>
                 </div>
 
-                <div className="mt-4 rounded-[1.25rem] border border-white/10 bg-black/20 p-4">
+                <div className="surface-depth mt-4 rounded-[1.25rem] border border-white/10 bg-black/20 p-4">
                   <p className="text-[10px] uppercase tracking-[0.22em] text-amber-100">
                     Reading this period through {pressureCascade.label.toLowerCase()}
                   </p>
                   <p className="mt-3 text-sm leading-6 text-stone-200">
-                    {period.title} carries this force at {pressureCascade.value}/100.
+                    {period.title} feels this force at {pressureCascade.value}/100.
                     {pressureCascade.matchedEvents.length
-                      ? ` It surfaces most clearly through ${pressureCascade.matchedEvents.length} linked event${pressureCascade.matchedEvents.length === 1 ? '' : 's'} and is felt most strongly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
-                      : ' Here it acts more as background pressure than as a single named turning point.'}
+                      ? ` It gathers around ${pressureCascade.matchedEvents.length} named event${pressureCascade.matchedEvents.length === 1 ? '' : 's'} and reads most strongly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
+                      : ' Here it shapes the climate of the period more than one named turning point.'}
                   </p>
                 </div>
 
@@ -539,7 +558,7 @@ export function DetailPanel({
                     ))
                   ) : (
                     <span className="text-sm leading-6 text-stone-400">
-                      No single event here is tagged to this force.
+                      No named event in this period is tagged directly to this force.
                     </span>
                   )}
                 </div>

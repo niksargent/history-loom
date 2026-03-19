@@ -24,26 +24,26 @@ const toneStyles: Record<
   }
 > = {
   source: {
-    shell: 'border-amber-300/20 bg-amber-300/7',
-    badge: 'border-amber-300/25 bg-amber-300/12 text-amber-100',
+    shell: 'border-[rgba(243,177,91,0.28)] bg-[rgba(243,177,91,0.07)]',
+    badge: 'border-[rgba(243,177,91,0.24)] bg-[rgba(243,177,91,0.12)] text-amber-100',
     accent: 'text-amber-100',
-    panel: 'border-amber-300/12 bg-black/18',
-    mutedPanel: 'border-amber-200/10 bg-amber-300/4',
+    panel: 'border-[rgba(243,177,91,0.18)] bg-black/18',
+    mutedPanel: 'border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.05)]',
     line: 'bg-amber-300/85',
   },
   target: {
-    shell: 'border-rose-200/14 bg-rose-300/4',
-    badge: 'border-rose-200/18 bg-rose-300/8 text-rose-100',
+    shell: 'border-[rgba(251,113,133,0.28)] bg-[rgba(251,113,133,0.08)]',
+    badge: 'border-[rgba(251,113,133,0.22)] bg-[rgba(251,113,133,0.12)] text-rose-100',
     accent: 'text-rose-100',
-    panel: 'border-rose-200/10 bg-black/18',
-    mutedPanel: 'border-rose-200/10 bg-rose-300/4',
-    line: 'bg-rose-300/85',
+    panel: 'border-[rgba(251,113,133,0.18)] bg-black/18',
+    mutedPanel: 'border-[rgba(251,113,133,0.16)] bg-[rgba(251,113,133,0.05)]',
+    line: 'bg-[rgba(251,113,133,0.82)]',
   },
 }
 
 function bucketShellClass(tone: BucketTone) {
   if (tone === 'shared') {
-    return 'border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
+    return 'border-[rgba(214,211,209,0.08)] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))]'
   }
 
   return toneStyles[tone].mutedPanel
@@ -51,7 +51,7 @@ function bucketShellClass(tone: BucketTone) {
 
 function bucketPillClass(tone: BucketTone) {
   if (tone === 'shared') {
-    return 'border-white/10 bg-white/8 text-stone-200'
+    return 'border-[rgba(214,211,209,0.08)] bg-white/7 text-stone-200'
   }
 
   return tone === 'source'
@@ -99,6 +99,35 @@ function findEchoReason(model: ComparePanelModel) {
   )
 }
 
+function buildReadingLine(
+  sharedValues: string[],
+  sharedMood: string[],
+  sharedPressures: string[],
+  hasCuratedEcho: boolean,
+) {
+  const signals: string[] = []
+
+  if (sharedValues.length) {
+    signals.push(`${sharedValues.length} shared value${sharedValues.length === 1 ? '' : 's'}`)
+  }
+
+  if (sharedMood.length) {
+    signals.push(`${sharedMood.length} shared mood cue${sharedMood.length === 1 ? '' : 's'}`)
+  }
+
+  if (sharedPressures.length) {
+    signals.push(`${sharedPressures.length} shared pressure${sharedPressures.length === 1 ? '' : 's'}`)
+  }
+
+  if (!signals.length) {
+    return hasCuratedEcho
+      ? 'The rhyme sits more in the overall structure than in repeated labels.'
+      : 'This pairing is useful because the differences are strong and visible.'
+  }
+
+  return `${signals.join(', ')} hold the strongest overlap here.`
+}
+
 function CompareSummaryCard({
   title,
   detail,
@@ -116,7 +145,7 @@ function CompareSummaryCard({
   const activePressureValue = pressureValue(detail, selectedPressureId)
 
   return (
-    <article className={`rounded-[1.65rem] border p-5 ${styles.shell}`}>
+    <article className={`surface-depth reveal-up reveal-delay-1 rounded-[1.65rem] border p-5 ${styles.shell}`}>
       <div className="flex items-start justify-between gap-4">
         <div>
           <span
@@ -137,8 +166,27 @@ function CompareSummaryCard({
 
       <p className="mt-4 text-sm leading-6 text-stone-300">{detail.period.summary}</p>
 
+      <div className="mt-4 flex flex-wrap gap-2">
+        {detail.period.dominantValues.slice(0, 2).map((value) => (
+          <span
+            key={`${detail.period.id}-${value}`}
+            className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${styles.badge}`}
+          >
+            {sentenceCase(value)}
+          </span>
+        ))}
+        {detail.period.socialMood.slice(0, 1).map((mood) => (
+          <span
+            key={`${detail.period.id}-${mood}`}
+            className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-200"
+          >
+            {sentenceCase(mood)}
+          </span>
+        ))}
+      </div>
+
       {selectedPressureId && activePressureValue !== null ? (
-        <div className={`mt-5 rounded-[1.25rem] border p-4 ${styles.panel}`}>
+        <div className={`surface-depth mt-5 rounded-[1.25rem] border p-4 ${styles.panel}`}>
           <p className={`text-[10px] uppercase tracking-[0.22em] ${styles.accent}`}>
             Active pressure
           </p>
@@ -171,7 +219,7 @@ function CompareBucket({
   emptyLabel: string
 }) {
   return (
-    <article className={`rounded-[1.25rem] border p-4 ${bucketShellClass(tone)}`}>
+    <article className={`surface-depth rounded-[1.25rem] border p-4 ${bucketShellClass(tone)}`}>
       <p className={`text-[10px] uppercase tracking-[0.22em] ${bucketLabelClass(tone)}`}>
         {label}
       </p>
@@ -205,33 +253,34 @@ function CompareMatrixSection({
   targetOnly: string[]
 }) {
   return (
-    <section className="relative overflow-hidden rounded-[1.5rem] border border-white/6 bg-black/18 p-5">
+    <section className="surface-depth reveal-up reveal-delay-3 relative overflow-hidden rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/18 p-5">
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,191,36,0.05),transparent_34%,transparent_66%,rgba(251,113,133,0.05))]" />
+      <div className="absolute inset-y-5 left-1/2 hidden w-px -translate-x-1/2 bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.18),rgba(255,255,255,0))] xl:block" />
       <div className="relative flex flex-wrap items-center justify-between gap-4">
         <p className="eyebrow">{title}</p>
         <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
-          {overlap.length ? `${overlap.length} shared motifs` : 'Contrast stands out here'}
+          {overlap.length ? `${overlap.length} shared motifs` : 'Difference is stronger here'}
         </span>
       </div>
 
       <div className="relative mt-4 grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)_minmax(0,1fr)]">
         <CompareBucket
-          label="Source"
+          label="Source period"
           tone="source"
           items={sourceOnly}
-          emptyLabel="Most of the pattern is shared here."
+          emptyLabel="Little sits only on this side."
         />
         <CompareBucket
           label="Shared"
           tone="shared"
           items={overlap}
-          emptyLabel="No direct rhyme is called out here."
+          emptyLabel="No clear overlap in this category."
         />
         <CompareBucket
-          label="Comparison"
+          label="Comparison period"
           tone="target"
           items={targetOnly}
-          emptyLabel="Most of the pattern is shared here."
+          emptyLabel="Little sits only on this side."
         />
       </div>
     </section>
@@ -252,7 +301,7 @@ function EventColumn({
   const styles = toneStyles[tone]
 
   return (
-    <section className={`rounded-[1.5rem] border p-5 ${styles.shell}`}>
+    <section className={`surface-depth reveal-up reveal-delay-4 rounded-[1.5rem] border p-5 ${styles.shell}`}>
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="eyebrow">{title}</p>
@@ -272,7 +321,9 @@ function EventColumn({
             <article
               key={`${detail.period.id}-${event.id}`}
               className={`rounded-[1.25rem] border p-4 transition ${
-                matchesActivePressure ? styles.panel : 'border-white/8 bg-black/15 opacity-70'
+                matchesActivePressure
+                  ? styles.panel
+                  : 'border-[rgba(214,211,209,0.08)] bg-black/15 opacity-70'
               }`}
             >
               <div className="flex items-center justify-between gap-3">
@@ -309,6 +360,12 @@ export function ComparePanel({
     )
     .map((pressure) => pressure.label)
   const echoLink = findEchoReason(model)
+  const readingLine = buildReadingLine(
+    sharedValues,
+    sharedMood,
+    sharedPressures,
+    Boolean(echoLink),
+  )
   const comparisonSections = [
     {
       title: 'Dominant values',
@@ -374,11 +431,11 @@ export function ComparePanel({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-[rgba(5,7,8,0.84)] px-4 py-6 backdrop-blur-[18px] md:px-6"
+      className="compare-backdrop fixed inset-0 z-50 overflow-y-auto px-4 py-6 md:px-6"
       onClick={onClose}
     >
       <section
-        className="glass-panel relative mx-auto w-full max-w-[1460px] overflow-hidden rounded-[2rem] border border-white/8 p-5 md:p-7"
+        className="glass-panel surface-depth reveal-up relative mx-auto w-full max-w-[1460px] overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-5 md:p-7"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(219,181,108,0.08),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(251,113,133,0.06),_transparent_32%)]" />
@@ -391,7 +448,7 @@ export function ComparePanel({
                 Structural comparison
               </h2>
               <p className="mt-3 text-sm leading-6 text-stone-300">
-                Amber is the period you started from. Rose is the period opened against it.
+                Amber marks the period you started from. Rose marks the period opened beside it.
               </p>
             </div>
 
@@ -421,17 +478,18 @@ export function ComparePanel({
             />
           </div>
 
-        <section className="mt-6 rounded-[1.5rem] border border-white/6 bg-black/18 p-5">
+        <section className="surface-depth reveal-up reveal-delay-2 mt-6 rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/18 p-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <p className="eyebrow">Shared structure</p>
-              <h3 className="mt-2 text-lg text-stone-100">Where the two periods rhyme</h3>
-            </div>
-            <div className="text-sm leading-6 text-stone-400">
-              {echoLink
-                ? 'This pair already has a curated echo connection.'
-                : 'This is a direct comparison between two selected periods.'}
-            </div>
+            <h3 className="font-display text-2xl text-stone-100">Where the two periods rhyme</h3>
+            {echoLink ? (
+              <span className="rounded-full border border-[rgba(121,219,194,0.18)] bg-[rgba(121,219,194,0.08)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-cyan-100">
+                Curated echo
+              </span>
+            ) : null}
+          </div>
+
+          <div className="mt-4 rounded-[1.25rem] border border-[rgba(214,211,209,0.08)] bg-white/5 px-4 py-3 text-sm leading-6 text-stone-300">
+            {readingLine}
           </div>
 
           <div className="mt-4 grid gap-3 lg:grid-cols-3">
@@ -456,7 +514,7 @@ export function ComparePanel({
           </div>
 
           {echoLink ? (
-            <article className="mt-4 rounded-[1.25rem] border border-cyan-300/16 bg-cyan-300/7 p-4">
+            <article className="surface-depth mt-4 rounded-[1.25rem] border border-cyan-300/16 bg-cyan-300/7 p-4">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.22em] text-cyan-100">Curated echo</p>
@@ -494,13 +552,13 @@ export function ComparePanel({
 
         <div className="mt-6 grid gap-4 xl:grid-cols-2">
           <EventColumn
-            title="Source events"
+            title="Named events"
             detail={model.source}
             tone="source"
             selectedPressureId={selectedPressureId}
           />
           <EventColumn
-            title="Comparison events"
+            title="Named events"
             detail={model.target}
             tone="target"
             selectedPressureId={selectedPressureId}
