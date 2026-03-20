@@ -128,7 +128,10 @@ interface DetailSectionsProps {
   selectedPressureSeries: PressureOverlaySeries | null
   pressureCascade: ReturnType<typeof buildPressureCascade>
   showEchoes: boolean
+  activeEchoLinkId: string | null
   viewMode: DetailViewMode
+  onFocusEcho: (echoId: string) => void
+  onFollowEcho: (periodId: string) => void
   onCompareToPeriod: (periodId: string) => void
 }
 
@@ -138,10 +141,15 @@ function DetailSections({
   selectedPressureSeries,
   pressureCascade,
   showEchoes,
+  activeEchoLinkId,
   viewMode,
+  onFocusEcho,
+  onFollowEcho,
   onCompareToPeriod,
 }: DetailSectionsProps) {
   const { period, events, snapshot, echoes, scaleSummaries, pressureSnapshots } = detail
+  const activeEcho =
+    echoes.find((echo) => echo.link.id === activeEchoLinkId) ?? echoes[0] ?? null
   const [collapsedSections, setCollapsedSections] = useState<Record<DetailSectionId, boolean>>(
     () => buildCollapsedSections(viewMode, showEchoes),
   )
@@ -265,11 +273,11 @@ function DetailSections({
       </SectionDisclosure>
 
       <SectionDisclosure
-        eyebrow="Echoes"
-        title="Cross-era structural rhymes"
+        eyebrow="Echo journey"
+        title="Follow the rhyme"
         summary={
           echoes.length
-            ? `${echoes.length} curated echo${echoes.length === 1 ? '' : 'es'} connect this period to another era.`
+            ? `${echoes.length} curated echo${echoes.length === 1 ? '' : 'es'} open outward from this period.`
             : 'No curated echo pair is attached to this period yet.'
         }
         isCollapsed={collapsedSections.echoes}
@@ -277,48 +285,88 @@ function DetailSections({
       >
         <div className="mt-3 grid gap-3">
           {echoes.length ? (
-            echoes.map((echo) => (
-              <article
-                key={echo.link.id}
-                className={`rounded-[1.25rem] border p-4 ${
-                  showEchoes
-                    ? 'border-cyan-300/18 bg-cyan-300/6'
-                    : 'border-white/8 bg-white/4'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h4 className="text-sm uppercase tracking-[0.22em] text-cyan-100">
-                      {echo.counterpart.title}
-                    </h4>
-                    <p className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-500">
-                      {echo.counterpart.rangeLabel}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
-                    {formatConfidence(echo.link.confidence)}
-                  </span>
-                </div>
+            <>
+              <div className="flex flex-wrap gap-2">
+                {echoes.map((echo) => {
+                  const isActiveEcho = activeEcho?.link.id === echo.link.id
 
-                <p className="mt-3 text-sm leading-6 text-stone-200">
-                  {echo.link.similarityLabel}
-                </p>
-                <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">
-                  {echo.link.similarityReasons.map((reason) => (
-                    <li key={reason}>{reason}</li>
-                  ))}
-                </ul>
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    onClick={() => onCompareToPeriod(echo.counterpart.id)}
-                    className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
-                  >
-                    Compare these periods
-                  </button>
-                </div>
-              </article>
-            ))
+                  return (
+                    <button
+                      key={echo.link.id}
+                      type="button"
+                      onClick={() => onFocusEcho(echo.link.id)}
+                      className={`rounded-full border px-3 py-2 text-left text-[10px] uppercase tracking-[0.18em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
+                        isActiveEcho
+                          ? 'border-cyan-300/30 bg-cyan-300/10 text-cyan-100'
+                          : 'border-white/10 bg-white/4 text-stone-300 hover:border-white/20 hover:text-stone-100'
+                      }`}
+                    >
+                      {echo.counterpart.title}
+                    </button>
+                  )
+                })}
+              </div>
+
+              {activeEcho ? (
+                <article
+                  className={`rounded-[1.25rem] border p-4 ${
+                    showEchoes
+                      ? 'border-cyan-300/18 bg-cyan-300/6'
+                      : 'border-white/8 bg-white/4'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="eyebrow">Next echo</p>
+                      <h4 className="mt-2 text-sm uppercase tracking-[0.22em] text-cyan-100">
+                        {activeEcho.counterpart.title}
+                      </h4>
+                      <p className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-500">
+                        {activeEcho.counterpart.rangeLabel}
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
+                      {formatConfidence(activeEcho.link.confidence)}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-sm leading-6 text-stone-200">
+                    {activeEcho.link.similarityLabel}
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">
+                    {activeEcho.link.similarityReasons.map((reason) => (
+                      <li key={reason}>{reason}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {activeEcho.link.dimensions.map((dimension) => (
+                      <span
+                        key={dimension}
+                        className="rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
+                      >
+                        {titleCaseLabel(dimension)}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => onFollowEcho(activeEcho.counterpart.id)}
+                      className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
+                    >
+                      Jump to echoed period
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onCompareToPeriod(activeEcho.counterpart.id)}
+                      className="ui-action rounded-full border-cyan-300/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-cyan-200/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
+                    >
+                      Compare the pair
+                    </button>
+                  </div>
+                </article>
+              ) : null}
+            </>
           ) : (
             <div className="rounded-[1.25rem] border border-white/8 bg-white/4 p-4 text-sm leading-6 text-stone-400">
               This period does not yet have a curated echo pair.
@@ -388,9 +436,12 @@ interface DetailPanelProps {
   selectedPressureSeries: PressureOverlaySeries | null
   comparePicking: boolean
   compareActive: boolean
+  activeEchoLinkId: string | null
   viewMode: DetailViewMode
   onToggleOpen: () => void
   onToggleEchoes: () => void
+  onFocusEcho: (echoId: string) => void
+  onFollowEcho: (periodId: string) => void
   onStartComparePick: () => void
   onCompareToPeriod: (periodId: string) => void
   onViewModeChange: (viewMode: DetailViewMode) => void
@@ -404,9 +455,12 @@ export function DetailPanel({
   selectedPressureSeries,
   comparePicking,
   compareActive,
+  activeEchoLinkId,
   viewMode,
   onToggleOpen,
   onToggleEchoes,
+  onFocusEcho,
+  onFollowEcho,
   onStartComparePick,
   onCompareToPeriod,
   onViewModeChange,
@@ -638,7 +692,10 @@ export function DetailPanel({
               selectedPressureSeries={selectedPressureSeries}
               pressureCascade={pressureCascade}
               showEchoes={showEchoes}
+              activeEchoLinkId={activeEchoLinkId}
               viewMode={viewMode}
+              onFocusEcho={onFocusEcho}
+              onFollowEcho={onFollowEcho}
               onCompareToPeriod={onCompareToPeriod}
             />
           </div>

@@ -28,13 +28,13 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
 - compare mode now includes an interpretive insight strip for overlap, separation, and pressure relationship
+- echoes now support a more explicit route through the dataset, with focused counterpart selection plus jump and compare actions
 - a first motion/material pass is now in place, with deeper surfaces, stronger compare staging, and restrained reveal/glow behavior
 - compare and detail copy have been tightened so the interface sounds less like an internal memo
 - a tabbed question-led, force-led, and pattern-led entry surface is now implemented in the top header
 - the opening section now carries live current-focus context plus a compact visual summary strip instead of large static metadata cards
 
 Current refinement focus:
-- make curated echoes feel more like a navigable journey through the dataset
 - deepen pressure-cascade storytelling further
 - tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
 - strengthen interpretive cues where they materially improve discovery for non-historians
@@ -73,13 +73,12 @@ The next quality threshold is interpretive clarity, not feature count:
 
 ## Recommended next sequence
 
-1. refine echo journeys so users can move through structural rhymes more fluidly
-2. improve interpretive framing where it produces a clear user-facing uplift
-3. define the first Britain data-expansion plan and the user experiences it should unlock
-4. keep compare work to targeted clarity improvements only
-5. address only critical accessibility and responsive issues
-6. discuss geography before further map tuning or placement changes
-7. only then add one post-MVP expansion feature
+1. improve interpretive framing where it produces a clear user-facing uplift
+2. define the first Britain data-expansion plan and the user experiences it should unlock
+3. keep compare work to targeted clarity improvements only
+4. address only critical accessibility and responsive issues
+5. discuss geography before further map tuning or placement changes
+6. only then add one post-MVP expansion feature
 
 ## Product intent
 

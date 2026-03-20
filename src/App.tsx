@@ -30,6 +30,7 @@ function App() {
   const [selectedPressureId, setSelectedPressureId] = useState<string | null>(null)
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
   const [showEchoes, setShowEchoes] = useState(false)
+  const [activeEchoLinkId, setActiveEchoLinkId] = useState<string | null>(null)
   const [isDetailOpen, setIsDetailOpen] = useState(true)
   const [loomDensity, setLoomDensity] = useState<LoomDensityMode>('compact')
   const [detailMode, setDetailMode] = useState<DetailViewMode>('guided')
@@ -70,6 +71,9 @@ function App() {
   const selectedPressureSeries = selectedPressureId
     ? getPressureOverlaySeriesById(selectedPressureId)
     : null
+  const activeEcho =
+    detail.echoes.find((echo) => echo.link.id === activeEchoLinkId) ?? detail.echoes[0] ?? null
+  const activeEchoCounterpartId = showEchoes ? activeEcho?.counterpart.id ?? null : null
   const compareAnchoredToSelected = compareSourceId === selectedPeriodId
   const compareActive = Boolean(compareSourceDetail && compareDetail)
   const uniqueEchoCount = new Set(
@@ -291,6 +295,7 @@ function App() {
     }
 
     setSelectedPeriodId(periodId)
+    setActiveEchoLinkId(null)
     if (periodId === compareSourceId || periodId === compareTargetId) {
       clearCompare()
     }
@@ -307,6 +312,7 @@ function App() {
     setSelectedPressureId(pressureId)
     setShowPressureOverlay(true)
     setShowEchoes(revealEchoes)
+    setActiveEchoLinkId(null)
     setLoomDensity('compact')
     setDetailMode('guided')
     setIsDetailOpen(true)
@@ -321,8 +327,23 @@ function App() {
     setSelectedPressureId(pressureId)
     setShowPressureOverlay(true)
     setShowEchoes(false)
+    setActiveEchoLinkId(null)
     setLoomDensity('compact')
     setDetailMode('guided')
+    setIsDetailOpen(true)
+  }
+
+  function handleFocusEcho(echoId: string) {
+    setShowEchoes(true)
+    setActiveEchoLinkId(echoId)
+    setIsDetailOpen(true)
+  }
+
+  function handleFollowEcho(periodId: string) {
+    clearCompare()
+    setSelectedPeriodId(periodId)
+    setShowEchoes(true)
+    setActiveEchoLinkId(null)
     setIsDetailOpen(true)
   }
 
@@ -639,6 +660,7 @@ function App() {
               compareActive={compareActive}
               showPressureOverlay={showPressureOverlay}
               echoCounterpartIds={echoCounterpartIds}
+              activeEchoCounterpartId={activeEchoCounterpartId}
               showEchoes={showEchoes}
               density={loomDensity}
               onPeriodSelect={handlePeriodSelect}
@@ -666,9 +688,12 @@ function App() {
             selectedPressureSeries={selectedPressureSeries}
             comparePicking={comparePicking && compareAnchoredToSelected}
             compareActive={compareActive && compareAnchoredToSelected}
+            activeEchoLinkId={activeEchoLinkId}
             viewMode={detailMode}
             onToggleOpen={() => setIsDetailOpen((current) => !current)}
             onToggleEchoes={() => setShowEchoes((current) => !current)}
+            onFocusEcho={handleFocusEcho}
+            onFollowEcho={handleFollowEcho}
             onStartComparePick={handleStartComparePick}
             onCompareToPeriod={handleCompareToPeriod}
             onViewModeChange={setDetailMode}

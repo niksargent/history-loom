@@ -12,6 +12,7 @@ interface LoomCanvasProps {
   compareActive: boolean
   showPressureOverlay: boolean
   echoCounterpartIds: Set<string>
+  activeEchoCounterpartId: string | null
   showEchoes: boolean
   density: LoomDensityMode
   onPeriodSelect: (periodId: string) => void
@@ -61,6 +62,7 @@ export function LoomCanvas({
   compareActive,
   showPressureOverlay,
   echoCounterpartIds,
+  activeEchoCounterpartId,
   showEchoes,
   density,
   onPeriodSelect,
@@ -183,6 +185,7 @@ export function LoomCanvas({
               const isSelected = period.id === selectedPeriodId
               const isCompareTarget = period.id === compareTargetId
               const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+              const isActiveEcho = showEchoes && period.id === activeEchoCounterpartId
 
               return (
                 <div
@@ -192,6 +195,8 @@ export function LoomCanvas({
                       ? 'loom-band-active bg-amber-300/10 opacity-100'
                       : isCompareTarget
                         ? 'loom-band-target bg-rose-300/8 opacity-100'
+                      : isActiveEcho
+                        ? 'loom-band-echo-active bg-cyan-300/9 opacity-100'
                       : isEcho
                         ? 'loom-band-echo bg-cyan-300/5 opacity-100'
                         : 'opacity-0'
@@ -207,6 +212,9 @@ export function LoomCanvas({
                   {isEcho ? (
                     <div className="absolute inset-y-6 left-1/2 w-px -translate-x-1/2 bg-cyan-200/30 [background-image:linear-gradient(to_bottom,rgba(165,243,252,0.75)_0_40%,transparent_40%_100%)] [background-size:1px_10px] bg-repeat-y" />
                   ) : null}
+                  {isActiveEcho ? (
+                    <div className="absolute inset-y-4 left-1/2 w-px -translate-x-1/2 bg-cyan-100/55 shadow-[0_0_16px_rgba(103,232,249,0.25)]" />
+                  ) : null}
                 </div>
               )
             })}
@@ -219,6 +227,7 @@ export function LoomCanvas({
               const isSelected = period.id === selectedPeriodId
               const isCompareTarget = period.id === compareTargetId
               const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+              const isActiveEcho = showEchoes && period.id === activeEchoCounterpartId
 
               return (
                 <button
@@ -232,6 +241,8 @@ export function LoomCanvas({
                       ? 'bg-amber-200/[0.03]'
                       : isCompareTarget
                         ? 'bg-rose-200/[0.025]'
+                        : isActiveEcho
+                          ? 'bg-cyan-200/[0.05] hover:bg-cyan-200/[0.07]'
                         : isEcho
                           ? 'bg-cyan-200/[0.02] hover:bg-cyan-200/[0.035]'
                           : 'hover:bg-white/[0.035]'
@@ -279,6 +290,7 @@ export function LoomCanvas({
               const isSelected = period.id === selectedPeriodId
               const isCompareTarget = period.id === compareTargetId
               const isEcho = showEchoes && echoCounterpartIds.has(period.id)
+              const isActiveEcho = showEchoes && period.id === activeEchoCounterpartId
 
               return (
                 <span
@@ -288,6 +300,8 @@ export function LoomCanvas({
                       ? 'text-amber-100 drop-shadow-[0_0_10px_rgba(252,211,77,0.28)]'
                       : isCompareTarget
                         ? 'text-rose-200'
+                        : isActiveEcho
+                          ? 'text-cyan-100 drop-shadow-[0_0_10px_rgba(103,232,249,0.22)]'
                         : isEcho
                           ? 'text-cyan-200'
                           : ''
@@ -307,6 +321,7 @@ export function LoomCanvas({
               const isEcho = echoCounterpartIds.has(period.id)
               const showEchoState = showEchoes && isEcho
               const isCompareTarget = period.id === compareTargetId
+              const isActiveEcho = showEchoes && period.id === activeEchoCounterpartId
               const compactFocus = compactStack && (isSelected || isCompareTarget)
               const compactPreview = compactStack && !compactFocus
 
@@ -327,6 +342,8 @@ export function LoomCanvas({
                       ? 'surface-depth border-amber-300/65 bg-stone-950/90 shadow-[0_0_0_1px_rgba(251,191,36,0.12),0_24px_80px_rgba(0,0,0,0.35)]'
                         : isCompareTarget
                           ? 'surface-depth border-[rgba(251,113,133,0.32)] bg-[rgba(251,113,133,0.08)]'
+                        : isActiveEcho
+                          ? 'surface-depth border-[rgba(103,232,249,0.36)] bg-[rgba(103,232,249,0.08)]'
                         : showEchoState
                           ? 'surface-depth border-[rgba(121,219,194,0.28)] bg-[rgba(121,219,194,0.05)]'
                           : 'border-[rgba(214,211,209,0.08)] bg-white/4 hover:border-[rgba(214,211,209,0.14)] hover:bg-white/6'
@@ -341,6 +358,8 @@ export function LoomCanvas({
                           ? 'bg-amber-300 shadow-[0_0_18px_rgba(252,211,77,0.65)]'
                           : isCompareTarget
                             ? 'bg-rose-200 shadow-[0_0_16px_rgba(254,205,211,0.4)]'
+                          : isActiveEcho
+                            ? 'bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.55)]'
                           : showEchoState
                             ? 'bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.45)]'
                             : 'bg-white/20'
@@ -410,7 +429,12 @@ export function LoomCanvas({
                           Comparison period
                         </div>
                       ) : null}
-                      {showEchoState && !isCompareTarget ? (
+                      {isActiveEcho && !isCompareTarget ? (
+                        <div className="mt-3 rounded-2xl border border-[rgba(103,232,249,0.22)] bg-[rgba(103,232,249,0.08)] px-3 py-2 text-xs leading-5 text-cyan-50">
+                          Echo in focus
+                        </div>
+                      ) : null}
+                      {showEchoState && !isCompareTarget && !isActiveEcho ? (
                         <div className="mt-3 rounded-2xl border border-[rgba(121,219,194,0.18)] bg-[rgba(121,219,194,0.08)] px-3 py-2 text-xs leading-5 text-cyan-100">
                           Echoes active
                         </div>

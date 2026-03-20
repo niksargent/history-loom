@@ -48,6 +48,7 @@ Implemented in the current prototype:
 - direct chart-based period selection
 - pressure overlay
 - echo reveal
+- focused echo journey actions for selecting, following, and comparing a rhyme
 - question-led, force-led, and pattern-led entry paths in the header
 - gains/losses detail
 - multi-scale summary
@@ -110,7 +111,6 @@ The MVP succeeds if a new user can, within a short session:
 
 The next quality threshold is not more features but clearer interpretation:
 - the opening screen should keep shifting from header copy toward a true exhibit front door
-- echo discovery should feel less like reveal state and more like a navigable route through history
 - interpretive uplift should come from intelligent framing and stronger visual analysis, not from adding more explanatory prose
 - compare changes should now be incremental and only where they improve clarity without disturbing a working experience
 - the geographic inset is implemented, but further tuning and placement work is paused pending product discussion
@@ -124,13 +124,12 @@ The next quality threshold is not more features but clearer interpretation:
 ## Recommended next steps
 
 1. refine the top-of-page front door around questions, forces, and patterns
-2. refine echo journeys so structural rhymes become a more compelling exploration path
-3. improve interpretive quality and visual analysis where it gives a clear uplift to non-historian users
-4. define the first Britain data-expansion plan and the product behaviors it should unlock
-5. make only targeted compare clarity improvements where needed
-6. address only critical accessibility and responsive issues
-7. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
-8. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+2. improve interpretive quality and visual analysis where it gives a clear uplift to non-historian users
+3. define the first Britain data-expansion plan and the product behaviors it should unlock
+4. make only targeted compare clarity improvements where needed
+5. address only critical accessibility and responsive issues
+6. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
+7. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
 
 ## Deferred from future versions
 

@@ -117,6 +117,7 @@ Implemented now:
 - richer structural-force intensity treatment using segmented bands and mini traces
 - geographic inset built from real topojson coastline data with product-level region highlights layered on top
 - echo reveal
+- focused echo journey flow with counterpart selection, jump-to-period, and compare actions
 - side-by-side compare mode with explicit source/target color ownership and direct exit
 - compare insight cards that surface shared pull, main separation, and pressure relationship
 - deeper material treatment and restrained reveal/glow motion across the Loom, detail panel, and compare overlay
@@ -124,7 +125,6 @@ Implemented now:
 - a denser, more data-led top section with live current-focus context and a compact visual summary strip
 
 In progress:
-- echo-journey refinement so curated rhymes feel like a path through the dataset rather than a reveal state
 - tighter narrative interpretation and copy economy across the right-hand detail flow
 - more intelligent interpretive framing where it materially improves discovery for non-historians
 - compare UX polish only where it improves clarity without reopening the overall design direction
@@ -151,13 +151,12 @@ Deferred:
 
 The next delivery sequence should be:
 1. refine the top-of-page entry surface so users can begin through questions, forces, and patterns without being hit by a wall of explanation
-2. make echo journeys feel more navigable and sequential
-3. strengthen interpretive framing where it produces a clear uplift, especially for first-time and non-historian users
-4. define the first data-expansion plan for the Britain dataset so the next wave of content unlocks stronger thematic and reasoning experiences
-5. keep compare changes limited to high-value clarity improvements rather than redesigning a working surface
-6. address only critical accessibility and responsive issues
-7. discuss geography before doing any further tuning or placement changes
-8. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+2. strengthen interpretive framing where it produces a clear uplift, especially for first-time and non-historian users
+3. define the first data-expansion plan for the Britain dataset so the next wave of content unlocks stronger thematic and reasoning experiences
+4. keep compare changes limited to high-value clarity improvements rather than redesigning a working surface
+5. address only critical accessibility and responsive issues
+6. discuss geography before doing any further tuning or placement changes
+7. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data
