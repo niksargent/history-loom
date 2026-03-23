@@ -29,6 +29,8 @@ export interface ScaleSummary {
 }
 
 export type GeoRegionId =
+  | 'united-states'
+  | 'north-america'
   | 'england'
   | 'scotland'
   | 'wales'

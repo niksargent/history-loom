@@ -33,12 +33,19 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - compare and detail copy have been tightened so the interface sounds less like an internal memo
 - a tabbed question-led, force-led, and pattern-led entry surface is now implemented in the top header
 - the opening section now carries live current-focus context plus a compact visual summary strip instead of large static metadata cards
+- the app now supports minimum dataset switching between Britain and the USA seed dataset
+- the USA dataset now has a first usable draft baseline with an 8-era civic lens, 22 anchor events, 7 draft echoes, and 8 snapshots
+- the next approved USA content move is a lived-voice layer built as an accessibility companion to the snapshot model
+- the USA snapshot model now supports optional lived-voice fields and renders them in the detail panel when present
+- the Britain snapshot model now also carries lived-voice fields and renders them in the detail panel
+- the next review should now be a full UI pass using the installed `frontend-skill`
 
 Current refinement focus:
 - pause broad UI polishing and treat the current interface as good enough for the next phase
-- move effort into Britain v2 data expansion and repeatable research operations
-- improve pressure-to-event linkage, thematic coverage, echo density, and authored multi-scale texture
-- define how dataset maturity, registry metadata, and future multi-dataset behavior should work
+- keep Britain in selective validation mode
+- move effort into USA comparative validation, accessibility, and repeatable research operations
+- hold off on more structural expansion unless lived use reveals real weak spots
+- keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
 - keep geography implemented but paused pending product discussion
 - reserve future UI work for higher-value exhibit refinements such as motion, animation, progressive reveal, and staging
 
@@ -69,8 +76,8 @@ The next quality threshold is interpretive clarity, not feature count:
 
 1. execute the Britain v2 data-expansion plan
 2. establish the repeatable authoring workflow and review process
-3. define dataset registry and maturity mechanics for future datasets
-4. deepen Britain before attempting alternate lenses or a second dataset
+3. strengthen USA readability and validate draft additions
+4. delay cross-dataset compare until Britain and USA are both mature enough
 5. discuss geography before further map tuning or placement changes
 6. only then add one post-MVP expansion feature
 

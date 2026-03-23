@@ -1,0 +1,79 @@
+{
+  "datasetId": "united-states-1776-2025",
+  "phase": "usable-enrichment",
+  "completed": [
+    {
+      "id": "usa-task-01",
+      "label": "Source-backed seed layer created",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-02",
+      "label": "Live app loading for USA dataset",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-03",
+      "label": "First targeted event-enrichment pass",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-04",
+      "label": "Recount pressure grounding after usable-enrichment pass",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-05",
+      "label": "Selective ecological-strain grounding",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-06",
+      "label": "First targeted echo-enrichment pass",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-07",
+      "label": "Validation review of USA draft additions",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-08",
+      "label": "Snapshot plain-language uplift",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-09",
+      "label": "Reassess weak or exploratory USA echoes after lived use in the tool",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-10",
+      "label": "Decide whether the next accessibility gain should be a lived-voice layer",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-11",
+      "label": "Plan how a lived-voice layer would fit the current schema and detail flow",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-12",
+      "label": "Implement the USA lived-voice layer as optional snapshot fields",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-13",
+      "label": "Backfill the lived-voice layer into Britain after the USA version is complete",
+      "status": "done"
+    }
+  ],
+  "next": [
+    {
+      "id": "usa-task-14",
+      "label": "Run a top-to-bottom UI review with frontend-skill after USA and Britain lived-voice layers are in place",
+      "priority": "high",
+      "reason": "The right moment for the next full UI review is after the richer human-content layer is visible in the live interface."
+    }
+  ]
+}

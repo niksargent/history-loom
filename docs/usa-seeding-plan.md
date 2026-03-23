@@ -56,9 +56,26 @@ The first USA seeding pass should produce:
 - a first pressure-grounding map
 - a first snapshot strategy
 
-The first two deliverables now exist:
+The planning deliverables now exist:
 - [usa-periodization-proposal.md](./usa-periodization-proposal.md)
 - [usa-initial-seed-candidates.md](./usa-initial-seed-candidates.md)
-
-The first snapshot direction is also now defined:
 - [usa-snapshot-strategy.md](./usa-snapshot-strategy.md)
+- [usa-pressure-grounding-map.md](./usa-pressure-grounding-map.md)
+
+The first draft seed files also now exist under:
+- `data/usa/meta.json`
+- `data/usa/periods.json`
+- `data/usa/events.json`
+- `data/usa/pressures.json`
+- `data/usa/echoes.json`
+- `data/usa/snapshots.json`
+
+These files are:
+- source-backed at the event-anchor level
+- interpretive at the period, snapshot, pressure-score, and echo-comparison level
+- draft runtime content, now app-wired, but not yet canonical
+
+The current phase is:
+- `usable-enrichment`
+
+That means the work has moved from first seeding into a bounded pass that strengthens thin periods and pressure grounding without reopening the entire dataset.

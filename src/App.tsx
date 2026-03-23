@@ -4,26 +4,170 @@ import { DetailPanel } from './components/DetailPanel'
 import { LoomCanvas } from './components/LoomCanvas'
 import { PressureLegend } from './components/PressureLegend'
 import {
+  getDatasetRegistry,
   getCounterpartIds,
   getLoomDataset,
   getPressureOverlaySeriesById,
 } from './lib/loom-data'
+import type { LoomDataset, PressureSnapshot } from './types/view'
 import type { DetailViewMode, LoomDensityMode } from './types/view'
 
 type EntryTab = 'question' | 'force' | 'pattern'
 type EntryTone = 'amber' | 'cyan'
 
-function App() {
-  const [{ dataset, loadError }] = useState(() => {
-    try {
-      return { dataset: getLoomDataset(), loadError: null as string | null }
-    } catch (error) {
-      return {
-        dataset: null,
-        loadError: error instanceof Error ? error.message : 'Unknown dataset error.',
-      }
+function loadDatasetState(datasetId: string) {
+  try {
+    return {
+      datasetId,
+      dataset: getLoomDataset(datasetId),
+      loadError: null as string | null,
     }
-  })
+  } catch (error) {
+    return {
+      datasetId,
+      dataset: null,
+      loadError: error instanceof Error ? error.message : 'Unknown dataset error.',
+    }
+  }
+}
+
+function strongestPressure(
+  snapshots: PressureSnapshot[],
+  polarity: 'stress' | 'stabiliser',
+) {
+  return snapshots.find((pressure) => pressure.polarity === polarity) ?? null
+}
+
+function pickPeakPeriodId(dataset: LoomDataset, pressureId: string) {
+  return (
+    dataset.pressureOverlaySeries.find((series) => series.id === pressureId)?.peaks[0] ??
+    dataset.periods[dataset.periods.length - 1]?.id ??
+    ''
+  )
+}
+
+function buildQuestionEntries(dataset: LoomDataset) {
+  const details = Object.values(dataset.selectedDetailsById)
+  const lowestLegitimacy = [...details].sort(
+    (left, right) => left.period.legitimacyLevel - right.period.legitimacyLevel,
+  )[0]
+  const highestTech = [...details].sort(
+    (left, right) =>
+      (right.period.pressureScores.technologicalDisruption ?? 0) -
+      (left.period.pressureScores.technologicalDisruption ?? 0),
+  )[0]
+  const echoRich = [...details].sort((left, right) => right.echoes.length - left.echoes.length)[0]
+  const highestHope = [...details].sort(
+    (left, right) =>
+      (right.period.pressureScores.publicHope ?? 0) -
+      (left.period.pressureScores.publicHope ?? 0),
+  )[0]
+
+  return [
+    {
+      id: 'brittle-order',
+      title: 'When does order start to feel brittle?',
+      body: 'Jump to a low-legitimacy period and trace the stabiliser that begins to fail.',
+      periodId: lowestLegitimacy?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'institutionalLegitimacy',
+      showEchoes: false,
+      tone: 'amber' as const,
+    },
+    {
+      id: 'technology-strain',
+      title: 'What happens when technology outruns society?',
+      body: 'Open the most technologically disruptive period and trace the strain directly.',
+      periodId: highestTech?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'technologicalDisruption',
+      showEchoes: false,
+      tone: 'cyan' as const,
+    },
+    {
+      id: 'rhyming-eras',
+      title: 'Which distant eras feel strangely alike?',
+      body: 'Start from the most echo-rich period and let the structural links light up.',
+      periodId: echoRich?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: null,
+      showEchoes: true,
+      tone: 'cyan' as const,
+    },
+    {
+      id: 'hope-and-order',
+      title: 'When does hope reinforce order?',
+      body: 'Move into the highest-hope period and trace the stabilising forces together.',
+      periodId: highestHope?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'publicHope',
+      showEchoes: false,
+      tone: 'amber' as const,
+    },
+  ]
+}
+
+function buildPatternEntries(dataset: LoomDataset) {
+  const details = Object.values(dataset.selectedDetailsById)
+  const brittle = [...details].sort(
+    (left, right) => left.period.legitimacyLevel - right.period.legitimacyLevel,
+  )[0]
+  const shock = [...details].sort(
+    (left, right) =>
+      (right.period.pressureScores.economicPrecarity ?? 0) -
+      (left.period.pressureScores.economicPrecarity ?? 0),
+  )[0]
+  const rhyme = [...details].sort((left, right) => right.echoes.length - left.echoes.length)[0]
+  const settlement = [...details].sort(
+    (left, right) =>
+      (right.period.pressureScores.institutionalLegitimacy ?? 0) +
+        (right.period.pressureScores.publicHope ?? 0) -
+      ((left.period.pressureScores.institutionalLegitimacy ?? 0) +
+        (left.period.pressureScores.publicHope ?? 0)),
+  )[0]
+
+  return [
+    {
+      id: 'pattern-brittle',
+      title: 'Brittle order',
+      body: 'Accepted rule starts to thin out and the centre begins to wobble.',
+      periodId: brittle?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'institutionalLegitimacy',
+      showEchoes: false,
+      tone: 'amber' as const,
+    },
+    {
+      id: 'pattern-shock',
+      title: 'System shock',
+      body: 'Heavy change rewrites labour, security, and the social bargain.',
+      periodId: shock?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'economicPrecarity',
+      showEchoes: false,
+      tone: 'amber' as const,
+    },
+    {
+      id: 'pattern-rhyme',
+      title: 'Deep rhyme',
+      body: 'A structurally resonant era with strong curated echoes into another time.',
+      periodId: rhyme?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: null,
+      showEchoes: true,
+      tone: 'cyan' as const,
+    },
+    {
+      id: 'pattern-settlement',
+      title: 'Renewed settlement',
+      body: 'Hope and legitimacy rise together and steady the wider field.',
+      periodId: settlement?.period.id ?? dataset.periods[0]?.id ?? '',
+      pressureId: 'institutionalLegitimacy',
+      showEchoes: false,
+      tone: 'cyan' as const,
+    },
+  ]
+}
+
+function App() {
+  const datasetRegistry = getDatasetRegistry()
+  const defaultDatasetId = datasetRegistry[0]?.id ?? 'britain-1066-2025'
+  const [{ datasetId, dataset, loadError }, setDatasetState] = useState(() =>
+    loadDatasetState(defaultDatasetId),
+  )
   const [selectedPeriodId, setSelectedPeriodId] = useState(
     dataset?.periods[dataset.periods.length - 1]?.id ?? '',
   )
@@ -38,6 +182,31 @@ function App() {
   const [compareSourceId, setCompareSourceId] = useState<string | null>(null)
   const [compareTargetId, setCompareTargetId] = useState<string | null>(null)
   const [comparePicking, setComparePicking] = useState(false)
+
+  function handleDatasetChange(nextDatasetId: string) {
+    const nextState = loadDatasetState(nextDatasetId)
+    setDatasetState(nextState)
+
+    if (!nextState.dataset) {
+      return
+    }
+
+    const nextDataset = nextState.dataset
+    const nextPeriodId = nextDataset.periods[nextDataset.periods.length - 1]?.id ?? ''
+
+    setSelectedPeriodId(nextPeriodId)
+    setSelectedPressureId(null)
+    setShowPressureOverlay(true)
+    setShowEchoes(false)
+    setActiveEchoLinkId(null)
+    setIsDetailOpen(true)
+    setLoomDensity('compact')
+    setDetailMode('guided')
+    setEntryTab('question')
+    setCompareSourceId(null)
+    setCompareTargetId(null)
+    setComparePicking(false)
+  }
 
   if (!dataset || loadError) {
     return (
@@ -69,7 +238,7 @@ function App() {
       : null
   const echoCounterpartIds = showEchoes ? getCounterpartIds(detail) : new Set<string>()
   const selectedPressureSeries = selectedPressureId
-    ? getPressureOverlaySeriesById(selectedPressureId)
+    ? getPressureOverlaySeriesById(selectedPressureId, datasetId)
     : null
   const activeEcho =
     detail.echoes.find((echo) => echo.link.id === activeEchoLinkId) ?? detail.echoes[0] ?? null
@@ -81,10 +250,8 @@ function App() {
       item.echoes.map((echo) => echo.link.id),
     ),
   ).size
-  const dominantStress =
-    detail.pressureSnapshots.find((pressure) => pressure.polarity === 'stress') ?? null
-  const dominantStabiliser =
-    detail.pressureSnapshots.find((pressure) => pressure.polarity === 'stabiliser') ?? null
+  const dominantStress = strongestPressure(detail.pressureSnapshots, 'stress')
+  const dominantStabiliser = strongestPressure(detail.pressureSnapshots, 'stabiliser')
   const stressSnapshots = detail.pressureSnapshots.filter(
     (pressure) => pressure.polarity === 'stress',
   )
@@ -128,48 +295,7 @@ function App() {
         : showPressureOverlay
           ? 'Pressure lines are visible.'
           : 'Overview view.'
-  const questionEntries = [
-    {
-      id: 'brittle-order',
-      label: 'Question',
-      title: 'When does order start to feel brittle?',
-      body: 'Jump to a low-legitimacy period and trace the stabiliser that begins to fail.',
-      periodId: 'p08',
-      pressureId: 'institutionalLegitimacy',
-      showEchoes: false,
-      tone: 'amber',
-    },
-    {
-      id: 'technology-strain',
-      label: 'Question',
-      title: 'What happens when technology outruns society?',
-      body: 'Open the late modern period and follow technological disruption at full force.',
-      periodId: 'p12',
-      pressureId: 'technologicalDisruption',
-      showEchoes: false,
-      tone: 'cyan',
-    },
-    {
-      id: 'rhyming-eras',
-      label: 'Question',
-      title: 'Which distant eras feel strangely alike?',
-      body: 'Start from a period rich in curated echoes and let the structural links light up.',
-      periodId: 'p12',
-      pressureId: null,
-      showEchoes: true,
-      tone: 'cyan',
-    },
-    {
-      id: 'hope-and-order',
-      label: 'Question',
-      title: 'When does hope reinforce order?',
-      body: 'Move into a higher-cohesion, higher-hope period and trace the stabilising forces together.',
-      periodId: 'p09',
-      pressureId: 'publicHope',
-      showEchoes: false,
-      tone: 'amber',
-    },
-  ] as const
+  const questionEntries = buildQuestionEntries(dataset)
   const forceEntries = [
     {
       id: 'institutionalLegitimacy',
@@ -196,44 +322,7 @@ function App() {
       tone: 'cyan',
     },
   ] as const
-  const patternEntries = [
-    {
-      id: 'pattern-brittle',
-      title: 'Brittle order',
-      body: 'Accepted rule starts to thin out and the centre begins to wobble.',
-      periodId: 'p08',
-      pressureId: 'institutionalLegitimacy',
-      showEchoes: false,
-      tone: 'amber',
-    },
-    {
-      id: 'pattern-shock',
-      title: 'System shock',
-      body: 'Heavy change rewrites labour, security, and the social bargain.',
-      periodId: 'p10',
-      pressureId: 'economicPrecarity',
-      showEchoes: false,
-      tone: 'amber',
-    },
-    {
-      id: 'pattern-rhyme',
-      title: 'Deep rhyme',
-      body: 'A structurally resonant era with strong curated echoes into another time.',
-      periodId: 'p12',
-      pressureId: null,
-      showEchoes: true,
-      tone: 'cyan',
-    },
-    {
-      id: 'pattern-settlement',
-      title: 'Renewed settlement',
-      body: 'Hope and legitimacy rise together and steady the wider field.',
-      periodId: 'p09',
-      pressureId: 'institutionalLegitimacy',
-      showEchoes: false,
-      tone: 'cyan',
-    },
-  ] as const
+  const patternEntries = buildPatternEntries(dataset)
   const entryTabs = [
     { id: 'question', label: 'Question' },
     { id: 'force', label: 'Force' },
@@ -319,8 +408,11 @@ function App() {
   }
 
   function handleForceEntry(pressureId: string) {
-    const pressure = dataset?.pressureOverlaySeries.find((series) => series.id === pressureId)
-    const periodId = pressure?.peaks[0] ?? selectedPeriodId
+    if (!dataset) {
+      return
+    }
+
+    const periodId = pickPeakPeriodId(dataset, pressureId) || selectedPeriodId
 
     clearCompare()
     setSelectedPeriodId(periodId)
@@ -363,15 +455,30 @@ function App() {
                 Does history repeat itself, or do pressures, moods, and institutions only rhyme?
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-7 text-stone-300 md:text-lg">
-                A visualisation of Britain from {dataset.meta.startYear} to{' '}
-                {dataset.meta.endYear} as recurring structure: equal periods in the
-                foreground, pressure undercurrents beneath, and curated echoes between
-                distant eras.
+                A visualisation of {dataset.meta.scope} from {dataset.meta.startYear} to{' '}
+                {dataset.meta.endYear} as recurring structure: periods in the foreground,
+                pressure undercurrents beneath, and curated echoes between distant eras.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
                   <p className="eyebrow">Field</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {datasetRegistry.map((entry) => (
+                      <button
+                        key={entry.id}
+                        type="button"
+                        onClick={() => handleDatasetChange(entry.id)}
+                        className={`ui-action rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] transition ${
+                          datasetId === entry.id
+                            ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                            : 'text-stone-300 hover:text-stone-100'
+                        }`}
+                      >
+                        {entry.scope}
+                      </button>
+                    ))}
+                  </div>
                   <div className="mt-3 grid grid-cols-2 gap-3">
                     <div>
                       <p className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
@@ -681,6 +788,7 @@ function App() {
           </div>
 
           <DetailPanel
+            datasetId={datasetId}
             detail={detail}
             isOpen={isDetailOpen}
             showEchoes={showEchoes}

@@ -420,6 +420,22 @@ function DetailSections({
               </h4>
               <p className="mt-3 text-sm leading-6 text-stone-200">{snapshot.summary}</p>
               <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.dailyReality}</p>
+              {snapshot.response ? (
+                <div className="mt-4 rounded-[1rem] border border-white/8 bg-black/15 p-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="eyebrow">Lived voice</span>
+                    {snapshot.speakerFrame ? (
+                      <span className="rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300">
+                        {snapshot.speakerFrame}
+                      </span>
+                    ) : null}
+                  </div>
+                  {snapshot.prompt ? (
+                    <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.prompt}</p>
+                  ) : null}
+                  <p className="mt-3 text-sm leading-6 text-stone-100">{snapshot.response}</p>
+                </div>
+              ) : null}
             </article>
           ) : null}
         </div>
@@ -429,6 +445,7 @@ function DetailSections({
 }
 
 interface DetailPanelProps {
+  datasetId: string
   detail: SelectedPeriodDetail
   isOpen: boolean
   showEchoes: boolean
@@ -448,6 +465,7 @@ interface DetailPanelProps {
 }
 
 export function DetailPanel({
+  datasetId,
   detail,
   isOpen,
   showEchoes,
@@ -466,7 +484,7 @@ export function DetailPanel({
   onViewModeChange,
 }: DetailPanelProps) {
   const { period } = detail
-  const pressureCascade = buildPressureCascade(detail, selectedPressureId)
+  const pressureCascade = buildPressureCascade(detail, selectedPressureId, datasetId)
   const periodReading = buildPeriodReading(detail, selectedPressureSeries)
   const leadPressureChipLabel =
     selectedPressureSeries?.label ?? detail.pressureSnapshots[0]?.label ?? null
@@ -481,6 +499,9 @@ export function DetailPanel({
     pressureCascade
       ? `${pressureCascade.label} through ${period.title}`
       : `${period.title} in place`,
+  )
+  const supportsInsetMap = !geographyModel.highlightedRegions.some(
+    (region) => region === 'united-states' || region === 'north-america',
   )
 
   return (
@@ -603,7 +624,7 @@ export function DetailPanel({
               </div>
             </section>
 
-            <GeographyInset model={geographyModel} />
+            {supportsInsetMap ? <GeographyInset model={geographyModel} /> : null}
 
             {pressureCascade && selectedPressureSeries ? (
               <section className="surface-depth reveal-up reveal-delay-1 rounded-[1.5rem] border border-amber-300/14 bg-amber-300/7 p-4">

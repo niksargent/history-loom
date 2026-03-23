@@ -1,10 +1,18 @@
+import datasetsJson from '../../data/datasets.json'
 import echoesJson from '../../data/echoes.json'
 import eventsJson from '../../data/events.json'
 import metaJson from '../../data/meta.json'
 import periodsJson from '../../data/periods.json'
 import pressuresJson from '../../data/pressures.json'
 import snapshotsJson from '../../data/snapshots.json'
+import usaEchoesJson from '../../data/usa/echoes.json'
+import usaEventsJson from '../../data/usa/events.json'
+import usaMetaJson from '../../data/usa/meta.json'
+import usaPeriodsJson from '../../data/usa/periods.json'
+import usaPressuresJson from '../../data/usa/pressures.json'
+import usaSnapshotsJson from '../../data/usa/snapshots.json'
 import type {
+  DatasetRegistryEntry,
   EchoLink,
   Event,
   HumanSnapshot,
@@ -79,7 +87,7 @@ function deriveScaleSummaries(
   const localHeadline = `Local worlds in ${period.rangeLabel}`
   const nationalHeadline = `${period.title} as a political order`
   const globalHeadline = hasGlobalEvent
-    ? 'Britain in wider systems'
+    ? `${period.scope} in wider systems`
     : 'Outer horizons of the period'
 
   return [
@@ -262,20 +270,56 @@ function buildSelectedDetails(
   }, {})
 }
 
-let cachedDataset: LoomDataset | null = null
-let cachedPressureById: Record<string, PressureSeries> | null = null
+const cachedDatasets: Record<string, LoomDataset> = {}
+const cachedPressureByDatasetId: Record<string, Record<string, PressureSeries>> = {}
 
-export function getLoomDataset(): LoomDataset {
-  if (cachedDataset) {
-    return cachedDataset
+const datasetRegistry = datasetsJson as DatasetRegistryEntry[]
+
+const rawDatasets: Record<
+  string,
+  {
+    meta: Meta
+    periods: Period[]
+    events: Event[]
+    pressures: PressureSeries[]
+    echoes: EchoLink[]
+    snapshots: HumanSnapshot[]
+  }
+> = {
+  'britain-1066-2025': {
+    meta: metaJson as Meta,
+    periods: periodsJson as Period[],
+    events: eventsJson as Event[],
+    pressures: pressuresJson as PressureSeries[],
+    echoes: echoesJson as EchoLink[],
+    snapshots: snapshotsJson as HumanSnapshot[],
+  },
+  'united-states-1776-2025': {
+    meta: usaMetaJson as Meta,
+    periods: usaPeriodsJson as Period[],
+    events: usaEventsJson as Event[],
+    pressures: usaPressuresJson as PressureSeries[],
+    echoes: usaEchoesJson as EchoLink[],
+    snapshots: usaSnapshotsJson as HumanSnapshot[],
+  },
+}
+
+export function getDatasetRegistry(): DatasetRegistryEntry[] {
+  return datasetRegistry
+}
+
+export function getLoomDataset(datasetId = 'britain-1066-2025'): LoomDataset {
+  if (cachedDatasets[datasetId]) {
+    return cachedDatasets[datasetId]
   }
 
-  const meta = metaJson as Meta
-  const periods = periodsJson as Period[]
-  const events = eventsJson as Event[]
-  const pressures = pressuresJson as PressureSeries[]
-  const echoes = echoesJson as EchoLink[]
-  const snapshots = snapshotsJson as HumanSnapshot[]
+  const rawDataset = rawDatasets[datasetId]
+
+  if (!rawDataset) {
+    throw new Error(`Unknown dataset "${datasetId}".`)
+  }
+
+  const { meta, periods, events, pressures, echoes, snapshots } = rawDataset
 
   validateDataset(periods, events, pressures, echoes, snapshots)
 
@@ -285,16 +329,22 @@ export function getLoomDataset(): LoomDataset {
   const snapshotsById = toRecord(snapshots)
 
   const lens: LensDefinition = {
-    id: `${meta.scope.toLowerCase()}-${meta.initialLensYears}-year-lens`,
-    label: `${meta.initialLensYears}-year civic lens`,
+    id:
+      meta.initialLensYears > 0
+        ? `${meta.scope.toLowerCase()}-${meta.initialLensYears}-year-lens`
+        : `${meta.scope.toLowerCase()}-${meta.lensCount}-era-lens`,
+    label:
+      meta.initialLensYears > 0
+        ? `${meta.initialLensYears}-year civic lens`
+        : `${meta.lensCount}-era civic lens`,
     years: meta.initialLensYears,
     periodCount: meta.lensCount,
     spanLabel: formatYearRange(meta.startYear, meta.endYear),
     note: meta.note,
   }
 
-  cachedPressureById = pressuresById
-  cachedDataset = {
+  cachedPressureByDatasetId[datasetId] = pressuresById
+  cachedDatasets[datasetId] = {
     meta,
     lens,
     periods,
@@ -309,7 +359,7 @@ export function getLoomDataset(): LoomDataset {
     ),
   }
 
-  return cachedDataset
+  return cachedDatasets[datasetId]
 }
 
 export function getCounterpartIds(detail: SelectedPeriodDetail): Set<string> {
@@ -335,20 +385,38 @@ export function getReleaseLabel(releaseType: string): string {
   return sentenceCase(releaseType.replace(/-/g, ' '))
 }
 
-export function getPressureLabel(pressureId: string): string {
-  const pressureById = cachedPressureById ?? toRecord(getLoomDataset().pressures)
+export function getPressureLabel(
+  pressureId: string,
+  datasetId = 'britain-1066-2025',
+): string {
+  const pressureById =
+    cachedPressureByDatasetId[datasetId] ?? toRecord(getLoomDataset(datasetId).pressures)
   const pressure = pressureById[pressureId]
 
   return pressure?.label ?? titleCaseLabel(pressureId)
 }
 
-export function getPressureOverlaySeriesById(pressureId: string) {
-  return getLoomDataset().pressureOverlaySeries.find((series) => series.id === pressureId) ?? null
+export function getPressureOverlaySeriesById(
+  pressureId: string,
+  datasetId = 'britain-1066-2025',
+) {
+  return (
+    getLoomDataset(datasetId).pressureOverlaySeries.find((series) => series.id === pressureId) ??
+    null
+  )
 }
 
 export function inferGeographyRegions(labels: string[]): GeoRegionId[] {
   const normalized = labels.join(' | ').toLowerCase()
   const regions = new Set<GeoRegionId>()
+
+  if (normalized.includes('united states')) {
+    regions.add('united-states')
+  }
+
+  if (normalized.includes('north america')) {
+    regions.add('north-america')
+  }
 
   if (
     normalized.includes('british isles') ||
@@ -414,12 +482,13 @@ export function buildGeographyInsetModel(
 export function buildPressureCascade(
   detail: SelectedPeriodDetail,
   pressureId: string | null,
+  datasetId = 'britain-1066-2025',
 ): PressureCascadeModel | null {
   if (!pressureId) {
     return null
   }
 
-  const overlaySeries = getPressureOverlaySeriesById(pressureId)
+  const overlaySeries = getPressureOverlaySeriesById(pressureId, datasetId)
 
   if (!overlaySeries) {
     return null

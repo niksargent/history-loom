@@ -107,6 +107,10 @@ export interface HumanSnapshot {
   scale: Scale
   summary: string
   dailyReality: string
+  voiceMode?: 'personal' | 'street-level' | 'household' | 'worker' | 'civic'
+  speakerFrame?: string
+  prompt?: string
+  response?: string
   sourcesOrRationale: string
 }
 

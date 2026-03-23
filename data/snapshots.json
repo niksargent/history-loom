@@ -6,6 +6,10 @@
     "scale": "personal",
     "summary": "A village household faces new dues, lordly justice, and a stronger castle presence after conquest.",
     "dailyReality": "Work is seasonal, obligations are personal, and protection comes through hierarchy rather than choice.",
+    "voiceMode": "household",
+    "speakerFrame": "A village household after conquest",
+    "prompt": "What changes first for ordinary people after a conquest?",
+    "response": "New rulers mean new dues, new demands, and new people claiming authority over your life. You still work the land, but the balance of fear and power has changed.",
     "sourcesOrRationale": "Interpretive snapshot based on conquest-era agrarian order and elite replacement."
   },
   {
@@ -15,6 +19,10 @@
     "scale": "local",
     "summary": "A free or semi-free household feels more of the crown through courts, sheriffs, and demands for revenue.",
     "dailyReality": "Life is still local, but written authority increasingly reaches into disputes and dues.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A household living under stronger royal reach",
+    "prompt": "How does stronger government feel on the ground?",
+    "response": "The king is still far away, but his rules arrive more often through officials, courts, and payments. Local life still matters most, yet it no longer feels untouched by power from above.",
     "sourcesOrRationale": "Interpretive snapshot grounded in legal and fiscal expansion under Angevin rule."
   },
   {
@@ -24,6 +32,10 @@
     "scale": "local",
     "summary": "Parish, manor, and market shape an existence that feels tightly ranked yet more regularly governed.",
     "dailyReality": "Institutions above are more stable, but opportunity remains narrow and hierarchy normal.",
+    "voiceMode": "civic",
+    "speakerFrame": "Someone living in a more settled but tightly ranked order",
+    "prompt": "What does stability feel like when hierarchy is normal?",
+    "response": "Life can feel more regular and predictable, but that does not mean it feels free. Order is real, yet so are rank, limits, and the sense that your place is mostly decided for you.",
     "sourcesOrRationale": "Interpretive snapshot based on thirteenth-century consolidation of law and representative taxation."
   },
   {
@@ -33,6 +45,10 @@
     "scale": "personal",
     "summary": "A survivor enters a labour market transformed by death, shortage, and anxious attempts to restore order.",
     "dailyReality": "Wages may rise, service terms may shift, but fear, grief, and coercive law remain close.",
+    "voiceMode": "worker",
+    "speakerFrame": "A survivor in a labour market changed by plague",
+    "prompt": "What does daily life feel like after mass death?",
+    "response": "There may be more room to bargain than before, but the loss is everywhere. Fear, grief, and attempts to force the old order back into place shape the choices people can make.",
     "sourcesOrRationale": "Interpretive snapshot grounded in Black Death mortality and labour regulation."
   },
   {
@@ -42,6 +58,10 @@
     "scale": "local",
     "summary": "The kingdom feels distant yet unstable as noble rivalries and weak kingship unsettle confidence.",
     "dailyReality": "Patronage matters, taxation bites, and security depends heavily on who controls the locality.",
+    "voiceMode": "street-level",
+    "speakerFrame": "Someone living where authority feels weak and unstable",
+    "prompt": "How does a brittle kingdom feel in everyday life?",
+    "response": "You notice uncertainty before you understand politics. Safety depends on local power, and confidence in the wider realm feels thin because nobody seems fully in control.",
     "sourcesOrRationale": "Interpretive snapshot based on fifteenth-century dynastic and noble conflict."
   },
   {
@@ -51,6 +71,10 @@
     "scale": "local",
     "summary": "Worship, charity, and communal memory shift abruptly as royal religious policy reaches into daily life.",
     "dailyReality": "Old rituals disappear, new words and loyalties matter, and dissent can be dangerous.",
+    "voiceMode": "household",
+    "speakerFrame": "A parish household living through religious change",
+    "prompt": "What does religious upheaval feel like to ordinary people?",
+    "response": "The changes do not stay in books or courts. They enter worship, memory, and local life, making familiar practices feel uncertain and public loyalty more dangerous to get wrong.",
     "sourcesOrRationale": "Interpretive snapshot grounded in the English Reformation and dissolution."
   },
   {
@@ -60,6 +84,10 @@
     "scale": "personal",
     "summary": "Belief is not private; sermons, neighbours, and rulers all matter to how safely a family lives.",
     "dailyReality": "Work and family continue, but conscience and allegiance carry sharper risk.",
+    "voiceMode": "personal",
+    "speakerFrame": "A family navigating a more dangerous religious climate",
+    "prompt": "How does sharper confessional conflict change ordinary life?",
+    "response": "You still work, worship, and raise a family, but belief no longer feels like a quiet matter. The wrong words, loyalties, or neighbours can bring real danger into everyday life.",
     "sourcesOrRationale": "Interpretive snapshot based on late Tudor and early Stuart confessional conflict."
   },
   {
@@ -69,6 +97,10 @@
     "scale": "local",
     "summary": "National arguments over sovereignty and religion become immediate through troops, taxes, and divided loyalties.",
     "dailyReality": "War is no abstraction; it arrives as requisition, fear, and argument in familiar places.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A parish caught inside civil war",
+    "prompt": "What happens when national crisis enters local life?",
+    "response": "The quarrels of rulers stop feeling distant very quickly. Soldiers, demands, fear, and divided loyalties show up at the level of homes, roads, and familiar faces.",
     "sourcesOrRationale": "Interpretive snapshot grounded in the civil wars and print-politics era."
   },
   {
@@ -78,6 +110,10 @@
     "scale": "local",
     "summary": "Goods, credit, newspapers, and imperial links widen horizons for some while leaving poverty stubbornly present.",
     "dailyReality": "Daily life is more connected to distant trade, but dependence and hierarchy remain strong.",
+    "voiceMode": "worker",
+    "speakerFrame": "Someone living in a town pulled into wider trade",
+    "prompt": "How does a more commercial world feel to ordinary people?",
+    "response": "The world seems bigger because goods, news, and money move more quickly. But wider connections do not remove inequality; they often make dependence and hierarchy feel even more embedded.",
     "sourcesOrRationale": "Interpretive snapshot based on eighteenth-century commerce and imperial growth."
   },
   {
@@ -87,6 +123,10 @@
     "scale": "personal",
     "summary": "Industrial Britain offers wages, mobility, and political ferment at the cost of smoke, crowding, and insecurity.",
     "dailyReality": "Time is disciplined by clock and machine, while reform, disease, and class organisation shape the street.",
+    "voiceMode": "worker",
+    "speakerFrame": "A worker in industrial Britain",
+    "prompt": "What does industrial progress feel like in daily life?",
+    "response": "There is more movement, more work, and more change than before, but also more smoke, crowding, and pressure. The machine and the clock shape life as much as the family or the parish once did.",
     "sourcesOrRationale": "Interpretive snapshot grounded in industrialisation, urbanisation, and reform."
   },
   {
@@ -96,6 +136,10 @@
     "scale": "national",
     "summary": "The ordinary person becomes part of a mass nation mobilised through work, media, rationing, and sacrifice.",
     "dailyReality": "Politics, war, and family are fused; the state reaches deeply into everyday life.",
+    "voiceMode": "civic",
+    "speakerFrame": "A citizen living through mass mobilization",
+    "prompt": "How does total war change ordinary life?",
+    "response": "War reaches into almost everything: work, food, family, and information. The state feels far larger because survival, sacrifice, and national purpose all become part of daily routine.",
     "sourcesOrRationale": "Interpretive snapshot based on late Victorian mass politics and the two world wars."
   },
   {
@@ -105,6 +149,10 @@
     "scale": "personal",
     "summary": "Longer life, healthcare, education, migration, and consumer choice coexist with housing pressure, regional inequality, and fractured trust.",
     "dailyReality": "Personal freedom is wider, but many institutions feel thinner and collective futures harder to imagine.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A person living with more choice but less shared confidence",
+    "prompt": "What does late-modern Britain feel like in everyday terms?",
+    "response": "There is more choice and more freedom in some parts of life, but also more strain, mistrust, and uncertainty about where the country is heading. Institutions still matter, yet they often feel thinner than the promises made around them.",
     "sourcesOrRationale": "Interpretive snapshot grounded in welfare-state creation, deindustrialisation, devolution, digital media, and Brexit."
   }
 ]

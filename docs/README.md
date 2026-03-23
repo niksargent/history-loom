@@ -78,9 +78,13 @@ history-loom/
     britain-v2-validation-review.md
     usa-dataset-charter.md
     usa-seeding-plan.md
+    usa-v1-gap-audit.md
+    usa-v1-validation-review.md
+    usa-lived-voice-layer.md
     usa-periodization-proposal.md
     usa-initial-seed-candidates.md
     usa-snapshot-strategy.md
+    usa-pressure-grounding-map.md
     dataset-authoring-workflow.md
     multi-dataset-strategy.md
     research-notes.md
@@ -89,6 +93,13 @@ history-loom/
     themes.json
     geographies.json
     validation-registry.json
+    usa/
+      meta.json
+      periods.json
+      events.json
+      pressures.json
+      echoes.json
+      snapshots.json
     periods.json
     pressures.json
     echoes.json
@@ -139,11 +150,17 @@ Implemented now:
 - deeper material treatment and restrained reveal/glow motion across the Loom, detail panel, and compare overlay
 - cleaner compare/detail copy, with less internal-memo language and clearer source/comparison/shared reading
 - a denser, more data-led top section with live current-focus context and a compact visual summary strip
+- dataset registry and minimum dataset switching between Britain and the USA seed dataset
+- source-backed USA seed files with an 8-era civic lens, 22 draft anchor events, draft echoes, and snapshots
+- USA lived-voice content now exists as optional snapshot fields and renders in the detail panel
+- Britain lived-voice content now exists as optional snapshot fields and renders in the detail panel
 
 In progress:
-- Britain v2 data expansion planning and scaffolding
+- Britain selective validation rather than open-ended expansion
 - repeatable research and collation workflow for future datasets
-- multi-dataset mechanics and maturity model
+- USA dataset has reached a first usable draft baseline with a first plain-language snapshot uplift completed
+- the USA lived-voice / vox-pop style content pass is now implemented
+- the Britain lived-voice / vox-pop style content pass is now implemented
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
 - future UI refinement, if revisited later, should focus on motion, animation, progressive reveal, and exhibit staging rather than broad layout change
 
@@ -163,12 +180,12 @@ Deferred:
 
 The next delivery sequence should be:
 1. treat Britain as template dataset 1 rather than an active expansion target
-2. begin the USA dataset 2 charter and source-backed seeding pass
-3. define dataset maturity levels, registry mechanics, and the minimum dataset-switching support
-4. keep Britain in selective validation mode rather than open-ended enrichment
+2. run a top-to-bottom UI review using the installed `frontend-skill`
+3. keep Britain in selective validation mode rather than open-ended enrichment
+4. hold cross-dataset compare until both datasets are mature enough to support it honestly
 5. keep UI work paused except for clear breakages or later exhibit-grade refinement
 6. discuss geography before doing any further tuning or placement changes
-7. only then choose the next product expansion, most likely USA dataset onboarding, thematic filtering, or guided narrative
+7. only then choose the next product expansion, most likely France chartering, thematic filtering, or guided narrative
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect
@@ -178,6 +195,8 @@ One future content direction should remain visible:
 - the product needs a more accessible, more human narrative layer for younger and non-specialist audiences
 - a likely answer is a `vox pop` or street-voice panel in the detail area, answering questions like `how are things affecting you?` and `what is everyday life like?` in clear, plain language
 - the goal is not just to show structure, but to make the structure felt
+- that lived-voice layer should be implemented for USA first and then Britain
+- once both datasets have it, the next full product pass should be a top-to-bottom UI review using the installed `frontend-skill`
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data

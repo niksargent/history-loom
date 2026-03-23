@@ -1,0 +1,93 @@
+[
+  {
+    "id": "us-x01",
+    "sourcePeriodId": "us-p01",
+    "targetPeriodId": "us-p06",
+    "similarityLabel": "Founding promises reopened through rights expansion",
+    "similarityReasons": [
+      "Both periods return to the question of who the republic is actually for.",
+      "Both turn abstract rights language into a more urgent institutional test."
+    ],
+    "dimensions": ["institutionalLegitimacy", "individualAutonomy", "publicHope"],
+    "confidence": 0.82,
+    "notes": "The civil-rights era does not replicate the founding, but it reopens the founding settlement by forcing rights claims into fuller practice."
+  },
+  {
+    "id": "us-x02",
+    "sourcePeriodId": "us-p03",
+    "targetPeriodId": "us-p06",
+    "similarityLabel": "Citizenship remade through federal intervention",
+    "similarityReasons": [
+      "Both periods deepen federal power in order to redefine civic membership.",
+      "Both expose how rights expansion depends on enforcement, not ideals alone."
+    ],
+    "dimensions": ["institutionalLegitimacy", "inequality", "individualAutonomy"],
+    "confidence": 0.85,
+    "notes": "Reconstruction and civil-rights enforcement differ in form and violence, but both hinge on the federal state taking a stronger role in making citizenship real."
+  },
+  {
+    "id": "us-x03",
+    "sourcePeriodId": "us-p04",
+    "targetPeriodId": "us-p07",
+    "similarityLabel": "Concentrated power outpaces democratic trust",
+    "similarityReasons": [
+      "Both periods combine economic concentration with a struggle to restore legitimacy through reform or realignment.",
+      "Both widen the gap between national scale and ordinary political confidence."
+    ],
+    "dimensions": ["inequality", "institutionalLegitimacy", "economicPrecarity"],
+    "confidence": 0.73,
+    "notes": "The Gilded/Progressive and late-20th-century orders are not alike in composition, but each asks whether democracy can keep up with concentrated systems."
+  },
+  {
+    "id": "us-x04",
+    "sourcePeriodId": "us-p05",
+    "targetPeriodId": "us-p08",
+    "similarityLabel": "Shared emergency expands the state, then changes what people expect from it",
+    "similarityReasons": [
+      "Both periods enlarge federal reach through crisis.",
+      "Both leave behind a more permanent relationship between security and national administration."
+    ],
+    "dimensions": ["militarization", "institutionalLegitimacy", "publicHope"],
+    "confidence": 0.7,
+    "notes": "The New Deal/World War era and post-9/11 era are morally and politically distinct, but each normalizes a bigger federal role after emergency."
+  },
+  {
+    "id": "us-x05",
+    "sourcePeriodId": "us-p02",
+    "targetPeriodId": "us-p08",
+    "similarityLabel": "Expansionary confidence curdles into harder internal fracture",
+    "similarityReasons": [
+      "Both periods are shaped by national scale, moral mission, and widening internal contradiction.",
+      "Both show how expansion can intensify unresolved conflicts instead of dissolving them."
+    ],
+    "dimensions": ["institutionalLegitimacy", "socialCohesion", "informationAcceleration"],
+    "confidence": 0.64,
+    "notes": "This is a more exploratory echo. Early expansion and the platform-era republic differ sharply, but each links national ambition to deepening internal division."
+  },
+  {
+    "id": "us-x06",
+    "sourcePeriodId": "us-p01",
+    "targetPeriodId": "us-p03",
+    "similarityLabel": "Founding contradictions return as constitutional rupture",
+    "similarityReasons": [
+      "Both periods force the republic to define whether its universal claims can survive exclusionary practice.",
+      "Both make legitimacy depend on whether constitutional principle can be defended in moments of existential strain."
+    ],
+    "dimensions": ["institutionalLegitimacy", "inequality", "militarization"],
+    "confidence": 0.78,
+    "notes": "This is not repetition in form. It is a structural return: unresolved founding contradictions reappear as war, emancipation, and constitutional crisis."
+  },
+  {
+    "id": "us-x07",
+    "sourcePeriodId": "us-p05",
+    "targetPeriodId": "us-p06",
+    "similarityLabel": "A stronger federal state widens what citizenship expects",
+    "similarityReasons": [
+      "Both periods enlarge the practical role of the national government in ordinary life.",
+      "Both turn state legitimacy into a platform for broader claims about security, rights, and belonging."
+    ],
+    "dimensions": ["institutionalLegitimacy", "publicHope", "socialCohesion"],
+    "confidence": 0.74,
+    "notes": "The New Deal/war era and the postwar/civil-rights era differ in moral center, but each leaves citizens expecting more from federal power than earlier periods did."
+  }
+]

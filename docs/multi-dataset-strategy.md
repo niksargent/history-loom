@@ -113,6 +113,11 @@ Minimum required mechanics:
 - graceful handling of different dataset maturity levels
 - support for dataset-specific period counts and, if needed later, non-equal historical durations
 
+Status:
+- these minimum mechanics are now implemented for Britain and the USA seed dataset
+- true cross-dataset compare is still intentionally deferred
+- geography handling is still dataset-asymmetric and remains under discussion
+
 Not required immediately:
 - cross-dataset compare
 - multi-lens UI for every dataset

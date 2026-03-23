@@ -1,0 +1,10 @@
+{
+  "project": "The History Loom",
+  "dataset": "USA Seed Dataset",
+  "scope": "United States",
+  "startYear": 1776,
+  "endYear": 2025,
+  "initialLensYears": 0,
+  "lensCount": 8,
+  "note": "The USA seed uses an 8-era civic lens with uneven historical durations. The zero value is a compatibility placeholder until the multi-dataset loader supports non-equal lenses directly."
+}

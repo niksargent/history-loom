@@ -164,7 +164,15 @@ HumanSnapshot represents lived experience at one or more scales.
 - `scale`
 - `summary`
 - `dailyReality`
+- `voiceMode` (optional)
+- `speakerFrame` (optional)
+- `prompt` (optional)
+- `response` (optional)
 - `sourcesOrRationale`
+
+### Notes
+
+The optional lived-voice fields support a more accessible, more human reading layer without requiring a separate top-level content file.
 
 ---
 

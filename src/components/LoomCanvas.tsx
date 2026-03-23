@@ -82,7 +82,7 @@ export function LoomCanvas({
           <div>
             <p className="eyebrow">The Loom</p>
             <h2 className="font-display text-2xl text-stone-100 md:text-3xl">
-              Equal periods, visible pressure, curated echoes
+              Periods, visible pressure, curated echoes
             </h2>
           </div>
           <div className="max-w-xl text-sm leading-6 text-stone-400">
@@ -92,7 +92,7 @@ export function LoomCanvas({
                 {selectedSeries.description}
               </>
             ) : (
-              <>Select a pressure to trace one force across all 12 periods.</>
+              <>Select a pressure to trace one force across the whole field.</>
             )}
           </div>
         </div>
@@ -174,7 +174,10 @@ export function LoomCanvas({
         <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,_rgba(219,181,108,0.16),_transparent_60%)]" />
 
         <div className="surface-depth relative h-48 rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/20 px-4 py-4 md:h-56">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[length:8.333%_100%]" />
+          <div
+            className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)]"
+            style={{ backgroundSize: `${100 / Math.max(periods.length, 1)}% 100%` }}
+          />
           <div className="absolute inset-x-0 top-1/2 h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[22%] h-px bg-white/5" />
           <div className="absolute inset-x-0 top-[78%] h-px bg-white/5" />
@@ -285,7 +288,10 @@ export function LoomCanvas({
             ))}
           </svg>
 
-          <div className="absolute inset-x-4 bottom-4 grid grid-cols-6 gap-2 text-[10px] uppercase tracking-[0.28em] text-stone-500 md:grid-cols-12">
+          <div
+            className="absolute inset-x-4 bottom-4 grid gap-2 text-[10px] uppercase tracking-[0.28em] text-stone-500"
+            style={{ gridTemplateColumns: `repeat(${periods.length}, minmax(0, 1fr))` }}
+          >
             {periods.map((period) => {
               const isSelected = period.id === selectedPeriodId
               const isCompareTarget = period.id === compareTargetId

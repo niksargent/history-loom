@@ -97,6 +97,30 @@
         "status": "source_backed_draft",
         "provenance": "web_researched_and_model_authored",
         "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      },
+      {
+        "id": "us-e19",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during USA usable-enrichment to ground dispossession and state expansion in the early republic; still pending fuller validation review."
+      },
+      {
+        "id": "us-e20",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during USA usable-enrichment to ground the neoliberal turn and labour-order break more explicitly; still pending fuller validation review."
+      },
+      {
+        "id": "us-e21",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during USA usable-enrichment to ground ecological strain and late-system shock in the contemporary era; still pending fuller validation review."
+      },
+      {
+        "id": "us-e22",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during USA usable-enrichment to ground ecological strain inside the Depression-era field; still pending fuller validation review."
       }
     ],
     "echoes": [
@@ -141,26 +165,48 @@
         "status": "draft_candidate",
         "provenance": "model_authored_structural_comparison",
         "reason": "Added during Britain v2 echo enrichment from existing period structure; requires later validation against a stricter comparative review."
+      },
+      {
+        "id": "us-x06",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during USA usable-enrichment from existing period structure; requires later validation against a stricter comparative review."
+      },
+      {
+        "id": "us-x07",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during USA usable-enrichment from existing period structure; requires later validation against a stricter comparative review."
       }
     ]
   },
   "datasetSeeding": {
     "united-states-1776-2025": {
-      "status": "source_backed_planning_in_progress",
+      "status": "first_usable_draft_baseline_reached",
       "defaultLensProposal": "usa-civic-8-era",
       "planningArtifacts": [
         "docs/usa-dataset-charter.md",
         "docs/usa-seeding-plan.md",
         "docs/usa-periodization-proposal.md",
         "docs/usa-initial-seed-candidates.md",
-        "docs/usa-snapshot-strategy.md"
+        "docs/usa-snapshot-strategy.md",
+        "docs/usa-pressure-grounding-map.md"
+      ],
+      "seedFiles": [
+        "data/usa/meta.json",
+        "data/usa/periods.json",
+        "data/usa/events.json",
+        "data/usa/pressures.json",
+        "data/usa/echoes.json",
+        "data/usa/snapshots.json"
       ],
       "sourceClasses": [
         "National Archives founding and milestone documents",
         "Library of Congress U.S. History Primary Source Timeline",
         "Britannica U.S. history event overviews for post-1968 turning points"
       ],
-      "guardrail": "No USA runtime content should be treated as canonical until the first seed layer is created from source-backed candidates and then reviewed."
+      "guardrail": "No USA runtime content should be treated as canonical until source-backed seed additions and later validation review have been completed.",
+      "seedLayerStatus": "runtime draft seed is live in the app; first usable-enrichment and validation-review pass are complete"
     }
   }
 }
