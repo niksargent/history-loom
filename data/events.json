@@ -14,7 +14,8 @@
     "pressureDrivers": [
       "militarization",
       "eliteCompetition",
-      "institutionalLegitimacy"
+      "institutionalLegitimacy",
+      "inequality"
     ],
     "consequences": [
       "elite replacement",
@@ -32,6 +33,14 @@
     ],
     "destroyedOrDisplaced": [
       "Anglo-Saxon ruling elite"
+    ],
+    "themeIds": [
+      "war",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -62,6 +71,13 @@
     ],
     "destroyedOrDisplaced": [
       "informal local opacity"
+    ],
+    "themeIds": [
+      "order",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -92,6 +108,14 @@
     ],
     "destroyedOrDisplaced": [
       "easy church-crown harmony"
+    ],
+    "themeIds": [
+      "belief",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -123,6 +147,14 @@
     ],
     "destroyedOrDisplaced": [
       "idea of entirely unconstrained kingship"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "reform",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -152,6 +184,14 @@
     ],
     "destroyedOrDisplaced": [
       "purely narrow elite bargaining"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "reform",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -180,6 +220,14 @@
     ],
     "destroyedOrDisplaced": [
       "more ad hoc consultation"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "reform",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -214,6 +262,14 @@
     "destroyedOrDisplaced": [
       "population balance",
       "settled expectations"
+    ],
+    "themeIds": [
+      "labour",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england",
+      "wales"
     ]
   },
   {
@@ -231,7 +287,8 @@
     "pressureDrivers": [
       "economicPrecarity",
       "eliteCompetition",
-      "institutionalLegitimacy"
+      "institutionalLegitimacy",
+      "inequality"
     ],
     "consequences": [
       "elite alarm",
@@ -246,6 +303,14 @@
     ],
     "destroyedOrDisplaced": [
       "confidence in passive deference"
+    ],
+    "themeIds": [
+      "labour",
+      "inequality",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -277,6 +342,15 @@
     ],
     "destroyedOrDisplaced": [
       "confidence in Lancastrian rule"
+    ],
+    "themeIds": [
+      "war",
+      "legitimacy",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england",
+      "france"
     ]
   },
   {
@@ -308,6 +382,14 @@
     ],
     "destroyedOrDisplaced": [
       "stable noble equilibrium"
+    ],
+    "themeIds": [
+      "war",
+      "legitimacy",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -341,6 +423,14 @@
     ],
     "destroyedOrDisplaced": [
       "papal authority in England"
+    ],
+    "themeIds": [
+      "belief",
+      "legitimacy",
+      "reform"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -357,7 +447,8 @@
     ],
     "pressureDrivers": [
       "institutionalLegitimacy",
-      "economicPrecarity"
+      "economicPrecarity",
+      "inequality"
     ],
     "consequences": [
       "land redistribution",
@@ -373,6 +464,14 @@
     ],
     "destroyedOrDisplaced": [
       "monastic welfare networks"
+    ],
+    "themeIds": [
+      "belief",
+      "reform",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -404,6 +503,14 @@
     ],
     "destroyedOrDisplaced": [
       "hopes of easy confessional unity"
+    ],
+    "themeIds": [
+      "belief",
+      "order",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -434,6 +541,16 @@
     ],
     "destroyedOrDisplaced": [
       "older separation of royal households"
+    ],
+    "themeIds": [
+      "identity",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england",
+      "scotland",
+      "britain"
     ]
   },
   {
@@ -452,7 +569,9 @@
       "eliteCompetition",
       "institutionalLegitimacy",
       "moralCertainty",
-      "militarization"
+      "militarization",
+      "informationAcceleration",
+      "socialCohesion"
     ],
     "consequences": [
       "regicide",
@@ -469,6 +588,18 @@
     ],
     "destroyedOrDisplaced": [
       "sacred monarchy"
+    ],
+    "themeIds": [
+      "war",
+      "belief",
+      "legitimacy",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england",
+      "scotland",
+      "ireland",
+      "british-isles"
     ]
   },
   {
@@ -499,6 +630,14 @@
     ],
     "destroyedOrDisplaced": [
       "claims of absolute royal power"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "reform",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
     ]
   },
   {
@@ -515,7 +654,8 @@
     ],
     "pressureDrivers": [
       "institutionalLegitimacy",
-      "publicHope"
+      "publicHope",
+      "socialCohesion"
     ],
     "consequences": [
       "integrated state",
@@ -530,6 +670,16 @@
     ],
     "destroyedOrDisplaced": [
       "separate English and Scottish parliaments"
+    ],
+    "themeIds": [
+      "identity",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england",
+      "scotland",
+      "britain"
     ]
   },
   {
@@ -561,6 +711,15 @@
     ],
     "destroyedOrDisplaced": [
       "earlier balance of imperial rivalry"
+    ],
+    "themeIds": [
+      "war",
+      "empire",
+      "order"
+    ],
+    "geographyIds": [
+      "britain",
+      "global"
     ]
   },
   {
@@ -578,7 +737,9 @@
     "pressureDrivers": [
       "institutionalLegitimacy",
       "economicPrecarity",
-      "informationAcceleration"
+      "informationAcceleration",
+      "inequality",
+      "individualAutonomy"
     ],
     "consequences": [
       "redistribution of seats",
@@ -592,6 +753,14 @@
     ],
     "destroyedOrDisplaced": [
       "some rotten borough politics"
+    ],
+    "themeIds": [
+      "reform",
+      "legitimacy",
+      "inequality"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -608,7 +777,8 @@
     ],
     "pressureDrivers": [
       "technologicalDisruption",
-      "economicPrecarity"
+      "economicPrecarity",
+      "inequality"
     ],
     "consequences": [
       "labour regulation",
@@ -623,6 +793,15 @@
     ],
     "destroyedOrDisplaced": [
       "pure laissez-faire assumptions in some sectors"
+    ],
+    "themeIds": [
+      "technology",
+      "labour",
+      "reform",
+      "inequality"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -639,7 +818,9 @@
     ],
     "pressureDrivers": [
       "institutionalLegitimacy",
-      "publicHope"
+      "publicHope",
+      "inequality",
+      "individualAutonomy"
     ],
     "consequences": [
       "broader franchise",
@@ -653,6 +834,14 @@
     ],
     "destroyedOrDisplaced": [
       "narrower property-based franchise"
+    ],
+    "themeIds": [
+      "reform",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -670,7 +859,8 @@
     "pressureDrivers": [
       "militarization",
       "technologicalDisruption",
-      "publicHope"
+      "publicHope",
+      "socialCohesion"
     ],
     "consequences": [
       "mass mobilisation",
@@ -690,6 +880,15 @@
     "destroyedOrDisplaced": [
       "limited-war assumptions",
       "many imperial certainties"
+    ],
+    "themeIds": [
+      "war",
+      "technology",
+      "empire"
+    ],
+    "geographyIds": [
+      "britain",
+      "global"
     ]
   },
   {
@@ -706,7 +905,8 @@
     ],
     "pressureDrivers": [
       "publicHope",
-      "institutionalLegitimacy"
+      "institutionalLegitimacy",
+      "inequality"
     ],
     "consequences": [
       "health security",
@@ -722,6 +922,15 @@
     ],
     "destroyedOrDisplaced": [
       "older patchwork welfare dependence"
+    ],
+    "themeIds": [
+      "reform",
+      "legitimacy",
+      "labour",
+      "order"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -739,7 +948,8 @@
     "pressureDrivers": [
       "economicPrecarity",
       "individualAutonomy",
-      "institutionalLegitimacy"
+      "institutionalLegitimacy",
+      "inequality"
     ],
     "consequences": [
       "deindustrialisation",
@@ -757,6 +967,14 @@
     ],
     "destroyedOrDisplaced": [
       "postwar industrial settlement"
+    ],
+    "themeIds": [
+      "reform",
+      "inequality",
+      "labour"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -791,6 +1009,15 @@
     ],
     "destroyedOrDisplaced": [
       "some assumptions of zero-sum sovereignty politics"
+    ],
+    "themeIds": [
+      "identity",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "northern-ireland",
+      "britain"
     ]
   },
   {
@@ -825,6 +1052,611 @@
     ],
     "destroyedOrDisplaced": [
       "the UK's previous EU settlement"
+    ],
+    "themeIds": [
+      "identity",
+      "information",
+      "legitimacy",
+      "fracture"
+    ],
+    "geographyIds": [
+      "united-kingdom",
+      "britain",
+      "europe"
     ]
+  },
+  {
+    "id": "e27",
+    "title": "Expulsion of the Jews from England",
+    "startYear": 1290,
+    "endYear": 1290,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Edward I expelled England's Jewish communities, binding fiscal extraction, confessional exclusion, and a harsher social hierarchy into the political order.",
+    "type": "social",
+    "periodIds": [
+      "p03"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "inequality",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "expulsion",
+      "asset seizure and debt rearrangement",
+      "harder confessional exclusion"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "short-term political and fiscal consolidation"
+    ],
+    "destroyedOrDisplaced": [
+      "Jewish communal life in medieval England"
+    ],
+    "themeIds": [
+      "belief",
+      "inequality",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e28",
+    "title": "Spanish Armada",
+    "startYear": 1588,
+    "endYear": 1588,
+    "scope": "England",
+    "geography": "England and Europe",
+    "summary": "The failed Spanish Armada sharpened Protestant state identity, intensified military preparation, and reinforced England's sense of being locked in a confessional struggle.",
+    "type": "military",
+    "periodIds": [
+      "p07"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "moralCertainty",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "stronger Protestant identity",
+      "naval prestige",
+      "continued fiscal-military pressure"
+    ],
+    "scalesAffected": [
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "greater confidence in maritime defence"
+    ],
+    "destroyedOrDisplaced": [
+      "the prospect of easy confessional settlement with Catholic Europe"
+    ],
+    "themeIds": [
+      "war",
+      "belief",
+      "identity"
+    ],
+    "geographyIds": [
+      "england",
+      "europe"
+    ]
+  },
+  {
+    "id": "e29",
+    "title": "Plantation of Ulster",
+    "startYear": 1609,
+    "endYear": 1610,
+    "scope": "Composite Monarchy",
+    "geography": "Ireland and Britain",
+    "summary": "State-backed plantation reordered land, settlement, and power in Ulster, turning confessional difference and hierarchy into a more durable political fault line.",
+    "type": "social",
+    "periodIds": [
+      "p07"
+    ],
+    "pressureDrivers": [
+      "inequality",
+      "socialCohesion",
+      "militarization",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "settler colonial order",
+      "land transfer",
+      "harder confessional division"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "stronger crown-backed settlement in Ulster"
+    ],
+    "destroyedOrDisplaced": [
+      "older landholding balances and local trust"
+    ],
+    "themeIds": [
+      "identity",
+      "inequality",
+      "fracture"
+    ],
+    "geographyIds": [
+      "ireland",
+      "britain"
+    ]
+  },
+  {
+    "id": "e30",
+    "title": "Harrying of the North",
+    "startYear": 1069,
+    "endYear": 1070,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The crown's brutal suppression in the north fused conquest, punitive destruction, and a harsher social order into the early Norman state.",
+    "type": "military",
+    "periodIds": [
+      "p01"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "economicPrecarity",
+      "inequality",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "regional devastation",
+      "elite intimidation",
+      "deeper coercive rule"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "firmer royal control"
+    ],
+    "destroyedOrDisplaced": [
+      "regional autonomy and material security in the north"
+    ],
+    "themeIds": [
+      "war",
+      "order",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e31",
+    "title": "Anselm and the Investiture Conflict",
+    "startYear": 1093,
+    "endYear": 1107,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Conflict over appointment, obedience, and ecclesiastical authority exposed how tightly kingship and sacred order were bound together in the new regime.",
+    "type": "religious",
+    "periodIds": [
+      "p01"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "clearer church-crown boundaries",
+      "renewed clerical authority",
+      "continued royal negotiation with sacred legitimacy"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "a more negotiated settlement between crown and church"
+    ],
+    "destroyedOrDisplaced": [
+      "easy fusion of royal will and clerical obedience"
+    ],
+    "themeIds": [
+      "belief",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e32",
+    "title": "Crusading Taxation and Richard's Ransom",
+    "startYear": 1188,
+    "endYear": 1194,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Heavy taxation for crusade and ransom intensified extraction from below and sharpened resentment at a more expensive martial kingship.",
+    "type": "economic",
+    "periodIds": [
+      "p02"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "economicPrecarity",
+      "inequality"
+    ],
+    "consequences": [
+      "heavier fiscal pressure",
+      "resentment of royal extraction",
+      "greater linkage between war and taxation"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "stronger revenue machinery"
+    ],
+    "destroyedOrDisplaced": [
+      "some tolerance for exceptional royal demands"
+    ],
+    "themeIds": [
+      "war",
+      "inequality",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e33",
+    "title": "Papal Interdict and John's Submission",
+    "startYear": 1208,
+    "endYear": 1213,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The papal interdict and John's eventual submission exposed the vulnerability of royal legitimacy when sacred and political authority collided.",
+    "type": "religious",
+    "periodIds": [
+      "p02"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "eliteCompetition"
+    ],
+    "consequences": [
+      "humiliation of the crown",
+      "reframed legitimacy",
+      "wider dissatisfaction before Magna Carta"
+    ],
+    "scalesAffected": [
+      "national"
+    ],
+    "madePossible": [
+      "temporary settlement with Rome"
+    ],
+    "destroyedOrDisplaced": [
+      "the image of unconstrained royal authority"
+    ],
+    "themeIds": [
+      "belief",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e34",
+    "title": "Oldcastle Rebellion and Anti-Heresy Repression",
+    "startYear": 1414,
+    "endYear": 1414,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The failed rising associated with Lollardy reinforced the link between political order and religious conformity in a period already anxious about loyalty.",
+    "type": "religious",
+    "periodIds": [
+      "p05"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "harder anti-heresy enforcement",
+      "narrower space for dissent",
+      "stronger fusion of order and orthodoxy"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "firmer repression of religious opposition"
+    ],
+    "destroyedOrDisplaced": [
+      "some tolerance for heterodox reform currents"
+    ],
+    "themeIds": [
+      "belief",
+      "order",
+      "fracture"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e35",
+    "title": "Jack Cade's Rebellion",
+    "startYear": 1450,
+    "endYear": 1450,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Popular revolt against corruption, misrule, and material strain revealed how elite failure and social grievance were beginning to converge.",
+    "type": "social",
+    "periodIds": [
+      "p05"
+    ],
+    "pressureDrivers": [
+      "economicPrecarity",
+      "inequality",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "rebel occupation of London",
+      "deeper fear of disorder",
+      "clearer exposure of regime weakness"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "sharper articulation of grievance against misrule"
+    ],
+    "destroyedOrDisplaced": [
+      "confidence in stable political settlement"
+    ],
+    "themeIds": [
+      "inequality",
+      "fracture",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england"
+    ]
+  },
+  {
+    "id": "e36",
+    "title": "Crécy campaign and capture of Calais",
+    "startYear": 1346,
+    "endYear": 1347,
+    "scope": "England and France",
+    "geography": "England/France",
+    "summary": "Edward III's campaign brought victory at Crécy and the capture of Calais, tying military success to heavy fiscal strain and a longer war footing.",
+    "type": "military",
+    "periodIds": [
+      "p04"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "economicPrecarity",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "longer war commitment",
+      "higher fiscal pressure",
+      "a durable English foothold at Calais"
+    ],
+    "scalesAffected": [
+      "national",
+      "global"
+    ],
+    "madePossible": [
+      "stronger military prestige",
+      "a continental base for future campaigns"
+    ],
+    "destroyedOrDisplaced": [
+      "any easy hope of a cheap or short war"
+    ],
+    "themeIds": [
+      "war",
+      "order",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england",
+      "france"
+    ],
+    "sourcesOrRationale": "Based on Britannica entries on Edward III, the Hundred Years' War, and the Battle of Crécy."
+  },
+  {
+    "id": "e37",
+    "title": "Statute of Labourers",
+    "startYear": 1351,
+    "endYear": 1351,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The crown tried to hold wages down and restrict labour movement after the Black Death, turning post-plague scarcity into a sharper struggle over work, status, and coercion.",
+    "type": "economic",
+    "periodIds": [
+      "p04"
+    ],
+    "pressureDrivers": [
+      "economicPrecarity",
+      "inequality",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "wage controls",
+      "labour regulation",
+      "deeper resentment among workers and tenants"
+    ],
+    "scalesAffected": [
+      "personal",
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "stronger legal enforcement of labour hierarchy"
+    ],
+    "destroyedOrDisplaced": [
+      "some of the bargaining power created by labour scarcity"
+    ],
+    "themeIds": [
+      "labour",
+      "inequality",
+      "order"
+    ],
+    "geographyIds": [
+      "england"
+    ],
+    "sourcesOrRationale": "Based on the Statute of Labourers text via Britannica/Avalon and The National Archives overview."
+  },
+  {
+    "id": "e38",
+    "title": "Statutes of Provisors and Praemunire",
+    "startYear": 1351,
+    "endYear": 1353,
+    "scope": "England",
+    "geography": "England",
+    "summary": "Legislation against papal appointments and appeals to Rome reflected hostility to outside clerical authority and reinforced a harder link between political order and religious control.",
+    "type": "religious",
+    "periodIds": [
+      "p04"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy"
+    ],
+    "consequences": [
+      "greater royal control over patronage disputes",
+      "stronger anti-papal posture",
+      "narrower room for external ecclesiastical influence"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "more national control over church appointments and legal appeals"
+    ],
+    "destroyedOrDisplaced": [
+      "some scope for papal intervention in English church affairs"
+    ],
+    "themeIds": [
+      "belief",
+      "order",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england"
+    ],
+    "sourcesOrRationale": "Based on Britannica entries on Edward III and the Statute of Provisors."
+  },
+  {
+    "id": "e39",
+    "title": "Conquest of Wales and Statute of Wales",
+    "startYear": 1277,
+    "endYear": 1284,
+    "scope": "England and Wales",
+    "geography": "England and Wales",
+    "summary": "Edward I's Welsh campaigns and the subsequent Statute of Wales bound military conquest to administrative integration, extending English crown power through castles, shires, and direct rule.",
+    "type": "military",
+    "periodIds": [
+      "p03"
+    ],
+    "pressureDrivers": [
+      "militarization",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "destruction of an independent Welsh principality",
+      "stronger English administrative control in Wales",
+      "longer-term tension around conquest and incorporation"
+    ],
+    "scalesAffected": [
+      "local",
+      "national"
+    ],
+    "madePossible": [
+      "deeper territorial integration under the English crown",
+      "a stronger castle-backed frontier state"
+    ],
+    "destroyedOrDisplaced": [
+      "the remaining autonomy of native Welsh princely rule"
+    ],
+    "themeIds": [
+      "war",
+      "identity",
+      "order",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england",
+      "wales",
+      "britain"
+    ],
+    "sourcesOrRationale": "Based on Britannica's coverage of Edward I's Welsh campaigns, the Treaty of Conway, and the Statute of Wales."
+  },
+  {
+    "id": "e40",
+    "title": "Gunpowder Plot",
+    "startYear": 1605,
+    "endYear": 1605,
+    "scope": "England",
+    "geography": "England",
+    "summary": "The failed attempt to destroy king and Parliament turned confessional fear into harder state suspicion, sharpening anti-Catholic identity and loyalty politics under James I.",
+    "type": "political",
+    "periodIds": [
+      "p07"
+    ],
+    "pressureDrivers": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "consequences": [
+      "harsher anti-Catholic suspicion",
+      "stronger public rituals of Protestant loyalty",
+      "deeper anxiety about conspiracy and internal enemies"
+    ],
+    "scalesAffected": [
+      "personal",
+      "national"
+    ],
+    "madePossible": [
+      "more durable association between Protestant identity and state loyalty"
+    ],
+    "destroyedOrDisplaced": [
+      "hopes that James I would settle confessional tension quietly"
+    ],
+    "themeIds": [
+      "belief",
+      "identity",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england",
+      "britain"
+    ],
+    "sourcesOrRationale": "Based on Britannica's Gunpowder Plot entry and UK Parliament's overview of the plot and its aftermath."
   }
 ]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "england",
+    "label": "England",
+    "kind": "nation"
+  },
+  {
+    "id": "scotland",
+    "label": "Scotland",
+    "kind": "nation"
+  },
+  {
+    "id": "wales",
+    "label": "Wales",
+    "kind": "nation"
+  },
+  {
+    "id": "northern-ireland",
+    "label": "Northern Ireland",
+    "kind": "nation"
+  },
+  {
+    "id": "ireland",
+    "label": "Ireland",
+    "kind": "island"
+  },
+  {
+    "id": "britain",
+    "label": "Britain",
+    "kind": "macro-region"
+  },
+  {
+    "id": "british-isles",
+    "label": "British Isles",
+    "kind": "archipelago"
+  },
+  {
+    "id": "united-kingdom",
+    "label": "United Kingdom",
+    "kind": "state"
+  },
+  {
+    "id": "france",
+    "label": "France",
+    "kind": "nation"
+  },
+  {
+    "id": "europe",
+    "label": "Europe",
+    "kind": "continent"
+  },
+  {
+    "id": "north-america",
+    "label": "North America",
+    "kind": "continent"
+  },
+  {
+    "id": "united-states",
+    "label": "United States",
+    "kind": "state"
+  },
+  {
+    "id": "global",
+    "label": "Global",
+    "kind": "world"
+  }
+]

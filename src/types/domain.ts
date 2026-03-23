@@ -47,6 +47,8 @@ export interface Period {
   whatBroke: string[]
   whatBecameHarder: string[]
   whatWasForgotten: string[]
+  themeIds?: string[]
+  geographyIds?: string[]
   pressureSummary: string
   releaseType: string
   pressureScores: Record<string, number>
@@ -70,6 +72,9 @@ export interface Event {
   scalesAffected: Scale[]
   madePossible: string[]
   destroyedOrDisplaced: string[]
+  themeIds?: string[]
+  geographyIds?: string[]
+  sourcesOrRationale?: string
 }
 
 export interface PressureSeries {
@@ -105,3 +110,29 @@ export interface HumanSnapshot {
   sourcesOrRationale: string
 }
 
+export interface Theme {
+  id: string
+  label: string
+  description: string
+}
+
+export interface Geography {
+  id: string
+  label: string
+  kind: string
+}
+
+export interface DatasetRegistryEntry {
+  id: string
+  label: string
+  scope: string
+  startYear: number
+  endYear: number
+  status: string
+  currentPriority: string
+  defaultLensId: string
+  availableLensIds: string[]
+  supportedThemeIds: string[]
+  supportedGeographyIds: string[]
+  notes: string
+}

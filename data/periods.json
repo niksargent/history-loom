@@ -83,13 +83,26 @@
     },
     "eventIds": [
       "e01",
-      "e02"
+      "e02",
+      "e30",
+      "e31"
     ],
     "snapshotIds": [
       "s01"
     ],
     "echoIds": [
-      "x11"
+      "x11",
+      "x16"
+    ],
+    "themeIds": [
+      "order",
+      "legitimacy",
+      "inequality",
+      "war"
+    ],
+    "geographyIds": [
+      "england",
+      "british-isles"
     ]
   },
   {
@@ -176,13 +189,26 @@
     },
     "eventIds": [
       "e03",
-      "e04"
+      "e04",
+      "e32",
+      "e33"
     ],
     "snapshotIds": [
       "s02"
     ],
     "echoIds": [
-      "x01"
+      "x01",
+      "x14"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "order",
+      "belief",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england",
+      "british-isles"
     ]
   },
   {
@@ -268,12 +294,27 @@
     },
     "eventIds": [
       "e05",
-      "e06"
+      "e06",
+      "e27",
+      "e39"
     ],
     "snapshotIds": [
       "s03"
     ],
-    "echoIds": []
+    "echoIds": [
+      "x13",
+      "x18"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "order",
+      "reform",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england",
+      "british-isles"
+    ]
   },
   {
     "id": "p04",
@@ -359,13 +400,27 @@
     },
     "eventIds": [
       "e07",
-      "e08"
+      "e08",
+      "e36",
+      "e37",
+      "e38"
     ],
     "snapshotIds": [
       "s04"
     ],
     "echoIds": [
-      "x02"
+      "x02",
+      "x19"
+    ],
+    "themeIds": [
+      "fracture",
+      "labour",
+      "war",
+      "inequality"
+    ],
+    "geographyIds": [
+      "england",
+      "british-isles"
     ]
   },
   {
@@ -449,13 +504,26 @@
     },
     "eventIds": [
       "e09",
-      "e10"
+      "e10",
+      "e34",
+      "e35"
     ],
     "snapshotIds": [
       "s05"
     ],
     "echoIds": [
-      "x03"
+      "x03",
+      "x15"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "fracture",
+      "war",
+      "order"
+    ],
+    "geographyIds": [
+      "england",
+      "british-isles"
     ]
   },
   {
@@ -550,7 +618,18 @@
     ],
     "echoIds": [
       "x04",
-      "x12"
+      "x12",
+      "x18"
+    ],
+    "themeIds": [
+      "belief",
+      "reform",
+      "legitimacy",
+      "order"
+    ],
+    "geographyIds": [
+      "england",
+      "britain"
     ]
   },
   {
@@ -636,13 +715,28 @@
     },
     "eventIds": [
       "e13",
-      "e14"
+      "e14",
+      "e28",
+      "e29",
+      "e40"
     ],
     "snapshotIds": [
       "s07"
     ],
     "echoIds": [
-      "x05"
+      "x05",
+      "x17"
+    ],
+    "themeIds": [
+      "belief",
+      "identity",
+      "fracture",
+      "legitimacy"
+    ],
+    "geographyIds": [
+      "england",
+      "scotland",
+      "britain"
     ]
   },
   {
@@ -737,7 +831,21 @@
       "x01",
       "x03",
       "x06",
-      "x12"
+      "x12",
+      "x17",
+      "x19"
+    ],
+    "themeIds": [
+      "legitimacy",
+      "fracture",
+      "war",
+      "reform"
+    ],
+    "geographyIds": [
+      "england",
+      "scotland",
+      "ireland",
+      "british-isles"
     ]
   },
   {
@@ -831,7 +939,18 @@
     "echoIds": [
       "x07",
       "x08",
-      "x11"
+      "x11",
+      "x13"
+    ],
+    "themeIds": [
+      "order",
+      "empire",
+      "legitimacy",
+      "war"
+    ],
+    "geographyIds": [
+      "britain",
+      "global"
     ]
   },
   {
@@ -926,7 +1045,17 @@
     ],
     "echoIds": [
       "x02",
-      "x09"
+      "x09",
+      "x14"
+    ],
+    "themeIds": [
+      "technology",
+      "labour",
+      "reform",
+      "inequality"
+    ],
+    "geographyIds": [
+      "britain"
     ]
   },
   {
@@ -1023,6 +1152,16 @@
       "x06",
       "x07",
       "x10"
+    ],
+    "themeIds": [
+      "war",
+      "empire",
+      "legitimacy",
+      "technology"
+    ],
+    "geographyIds": [
+      "britain",
+      "global"
     ]
   },
   {
@@ -1127,7 +1266,20 @@
       "x05",
       "x08",
       "x09",
-      "x10"
+      "x10",
+      "x15"
+    ],
+    "themeIds": [
+      "information",
+      "identity",
+      "inequality",
+      "reform",
+      "technology"
+    ],
+    "geographyIds": [
+      "united-kingdom",
+      "britain",
+      "europe"
     ]
   }
 ]

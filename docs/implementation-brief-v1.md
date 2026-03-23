@@ -35,18 +35,12 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - the opening section now carries live current-focus context plus a compact visual summary strip instead of large static metadata cards
 
 Current refinement focus:
-- deepen pressure-cascade storytelling further
-- tighten the remaining copy so the detail flow reads as guided interpretation rather than product notes
-- strengthen interpretive cues where they materially improve discovery for non-historians
-- keep compare changes limited to clarity improvements rather than reopening its overall design direction
-- finish the motion and material polish so reveal states feel deliberate rather than static
-- geography is implemented, but further rendering, scaling, and placement work is postponed until product discussion
-- decide whether the new segmented/trace intensity treatment is the lasting visual language for structural forces or only an interim step
-- decide whether geography should remain period-bound in the detail panel or move toward a dataset-level home when multiple datasets or expansion views exist
-- identify all UI copy that reads like internal memo and replace it with user-facing language
-- differentiate interactive buttons from passive data pills more consistently
-- continue responsive and accessibility polish
-- keep docs aligned with the real implementation state
+- pause broad UI polishing and treat the current interface as good enough for the next phase
+- move effort into Britain v2 data expansion and repeatable research operations
+- improve pressure-to-event linkage, thematic coverage, echo density, and authored multi-scale texture
+- define how dataset maturity, registry metadata, and future multi-dataset behavior should work
+- keep geography implemented but paused pending product discussion
+- reserve future UI work for higher-value exhibit refinements such as motion, animation, progressive reveal, and staging
 
 ## What is solid
 
@@ -73,10 +67,10 @@ The next quality threshold is interpretive clarity, not feature count:
 
 ## Recommended next sequence
 
-1. improve interpretive framing where it produces a clear user-facing uplift
-2. define the first Britain data-expansion plan and the user experiences it should unlock
-3. keep compare work to targeted clarity improvements only
-4. address only critical accessibility and responsive issues
+1. execute the Britain v2 data-expansion plan
+2. establish the repeatable authoring workflow and review process
+3. define dataset registry and maturity mechanics for future datasets
+4. deepen Britain before attempting alternate lenses or a second dataset
 5. discuss geography before further map tuning or placement changes
 6. only then add one post-MVP expansion feature
 

@@ -1,0 +1,70 @@
+{
+  "datasetId": "britain-1066-2025",
+  "phase": "britain-v2",
+  "priorityPeriods": {
+    "tier1": [],
+    "tier1_5": [
+      "p01",
+      "p03",
+      "p04",
+      "p07"
+    ],
+    "tier2": [
+      "p02",
+      "p05",
+      "p06",
+      "p11"
+    ],
+    "tier3": [
+      "p08",
+      "p09",
+      "p10",
+      "p12"
+    ]
+  },
+  "priorityPressures": {
+    "immediate": [
+      "inequality",
+      "technologicalDisruption",
+      "informationAcceleration"
+    ],
+    "next": [
+      "socialCohesion",
+      "moralCertainty",
+      "ecologicalStrain",
+      "individualAutonomy"
+    ]
+  },
+  "workPackages": [
+    {
+      "id": "event-enrichment-tier1",
+      "label": "Event enrichment for Tier 1 periods",
+      "status": "completed",
+      "notes": "The first event gap-filling pass is complete. p01 remains on the watchlist, but current density and coverage do not justify another source-backed event as an immediate priority."
+    },
+    {
+      "id": "repair-inequality-grounding",
+      "label": "Repair missing inequality grounding",
+      "status": "in_progress",
+      "notes": "First pass continues. Inequality now appears in 14 events, informationAcceleration in 3, and socialCohesion in 11. The remaining weak pressures are now most clearly technologicalDisruption, ecologicalStrain, individualAutonomy, and publicHope."
+    },
+    {
+      "id": "echo-density-thin-periods",
+      "label": "Increase echo density for thin periods",
+      "status": "completed",
+      "notes": "p01, p03, p04, and p07 have all now been lifted to 2 echoes. No single period is critically isolated; further echo work should now be selective rather than gap-filling."
+    },
+    {
+      "id": "normalize-themes-and-geographies",
+      "label": "Normalize themes and geographies",
+      "status": "completed",
+      "notes": "First pass complete. Theme and geography ids now exist on current periods and events."
+    }
+  ],
+  "highReasoningSteps": [
+    "pressure-grounding-strategy",
+    "echo-expansion",
+    "theme-assignment",
+    "validation-boundary"
+  ]
+}

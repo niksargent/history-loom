@@ -11,6 +11,9 @@ The UI should be driven by a structured historical schema, not hard-coded copy. 
 - echoes
 - themes
 - multi-scale lived experience
+- normalized geography
+- repeatable dataset expansion
+- future multi-dataset support
 
 ## 2. Core objects
 - Period
@@ -19,6 +22,8 @@ The UI should be driven by a structured historical schema, not hard-coded copy. 
 - EchoLink
 - Theme
 - HumanSnapshot
+- Geography
+- DatasetRegistryEntry
 
 ---
 
@@ -72,11 +77,17 @@ A Period is the main historical unit shown in the interface.
 - `eventIds` (array)
 - `snapshotIds` (array)
 - `echoIds` (array)
+- `themeIds` (optional array)
+- `geographyIds` (optional array)
 
 ### Pressure fields
 - `pressureScores` (object keyed by pressure id)
 - `pressureSummary`
 - `releaseType`
+
+### Optional internal fields
+- `authoringNotes`
+- `confidenceNotes`
 
 ---
 
@@ -99,6 +110,9 @@ An Event is a specific moment, process, crisis, reform, invention, war, cultural
 - `scalesAffected` (array: personal/local/national/global)
 - `madePossible` (array)
 - `destroyedOrDisplaced` (array)
+- `themeIds` (optional array)
+- `geographyIds` (optional array)
+- `sourcesOrRationale` (optional internal note)
 
 ---
 
@@ -154,7 +168,49 @@ HumanSnapshot represents lived experience at one or more scales.
 
 ---
 
-## 8. MVP minimum schema
+## 8. Theme object
+
+Theme is a controlled vocabulary item used across periods and events.
+
+### Fields
+- `id`
+- `label`
+- `description`
+
+---
+
+## 9. Geography object
+
+Geography is a normalized place or region used for repeatable mapping and future cross-dataset comparison.
+
+### Fields
+- `id`
+- `label`
+- `kind`
+
+---
+
+## 10. DatasetRegistryEntry object
+
+DatasetRegistryEntry records what a dataset is, how mature it is, and what it currently supports.
+
+### Fields
+- `id`
+- `label`
+- `scope`
+- `startYear`
+- `endYear`
+- `status`
+- `currentPriority`
+- `defaultLensId`
+- `availableLensIds`
+- `supportedThemeIds`
+- `supportedGeographyIds`
+- `notes`
+
+---
+
+## 11. MVP minimum schema
 
 For MVP, each Period should include at least:
 - id
@@ -170,3 +226,15 @@ For MVP, each Period should include at least:
 - eventIds
 - one human snapshot summary
 - one or more echo links
+
+## 12. Britain v2 additions
+
+The Britain v2 expansion phase should add:
+- a controlled theme file
+- a normalized geography file
+- a dataset registry file
+- optional theme and geography ids on periods and events
+- stronger internal rationale fields where curation complexity is high
+
+The UI does not need to expose all of these immediately.
+The goal is to make research and future dataset growth repeatable.

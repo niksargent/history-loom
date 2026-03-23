@@ -70,7 +70,8 @@ Still not implemented in the current MVP branch:
 
 Current stage:
 - the prototype is now late-MVP rather than early exploratory scaffolding
-- the remaining work is primarily design, clarity, and quality refinement rather than basic feature plumbing
+- the UI is good enough to freeze for now outside of obvious breakages
+- the next phase is data expansion and content-system maturity rather than more interface work
 
 ## 5. Should-have features
 - side-by-side compare mode
@@ -80,6 +81,7 @@ Current stage:
 
 ## 6. Could-have features
 - quotes
+- plain-language `vox pop` cards in the detail panel so non-specialist users can understand how a period feels in everyday life
 - ambient sound
 - saved states
 - user-defined custom lenses
@@ -107,29 +109,23 @@ The MVP succeeds if a new user can, within a short session:
 - identify one gain/loss tension in an era
 - use the echo feature to compare two periods
 
-## Current UX note
+## Current product note
 
-The next quality threshold is not more features but clearer interpretation:
-- the opening screen should keep shifting from header copy toward a true exhibit front door
-- interpretive uplift should come from intelligent framing and stronger visual analysis, not from adding more explanatory prose
-- compare changes should now be incremental and only where they improve clarity without disturbing a working experience
-- the geographic inset is implemented, but further tuning and placement work is paused pending product discussion
-- the right-hand detail story should keep shifting from stacked information toward guided interpretation
-- structural-force intensity still needs a final visual language decision, even after the current compact/order/trace treatment
-- buttons should read clearly as actions and not blur into passive data pills
-- overview and detail density controls should feel elegant rather than merely functional
-- motion and material should keep staging attention rather than becoming ambient noise
-- all internal-memo style UI phrases should be identified and removed
+The next quality threshold is not more interface surface but richer data:
+- the UI should now be treated as stable enough for Britain v2 content work
+- further UI refinement, if revisited later, should focus on motion, animation, progressive reveal, and exhibit staging
+- Britain needs deeper event density, better pressure-event linkage, richer echoes, stronger thematic tagging, and more authored lived texture
+- a future accessible narrative layer should be considered, such as `vox pop` responses in plain language for younger and non-specialist audiences
+- the geographic inset is implemented, but further tuning and placement work remain paused pending product discussion
 
 ## Recommended next steps
 
-1. refine the top-of-page front door around questions, forces, and patterns
-2. improve interpretive quality and visual analysis where it gives a clear uplift to non-historian users
-3. define the first Britain data-expansion plan and the product behaviors it should unlock
-4. make only targeted compare clarity improvements where needed
-5. address only critical accessibility and responsive issues
-6. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
-7. defer post-MVP expansion features until the existing MVP interactions feel fully coherent
+1. execute the Britain v2 data-expansion plan
+2. establish a repeatable research and collation workflow
+3. define dataset maturity and multi-dataset mechanics
+4. deepen Britain before adding alternate lenses or a second dataset
+5. discuss whether geography belongs in the period detail flow or at the dataset level as the product expands
+6. defer post-MVP expansion features until the Britain dataset is materially richer
 
 ## Deferred from future versions
 

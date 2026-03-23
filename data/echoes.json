@@ -202,5 +202,124 @@
     ],
     "confidence": 0.82,
     "notes": "Useful for tracing how belief intensifies political redesign."
+  },
+  {
+    "id": "x13",
+    "sourcePeriodId": "p03",
+    "targetPeriodId": "p09",
+    "similarityLabel": "Representative institutions deepen inside a still-hierarchical order",
+    "similarityReasons": [
+      "Both periods strengthen negotiated or parliamentary forms without dissolving elite dominance.",
+      "Both pair growing state capacity with unequal social structure and a more durable governing settlement."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "inequality",
+      "militarization"
+    ],
+    "confidence": 0.71,
+    "notes": "The rhyme is structural rather than moral: both periods widen political form while preserving hierarchy."
+  },
+  {
+    "id": "x14",
+    "sourcePeriodId": "p02",
+    "targetPeriodId": "p10",
+    "similarityLabel": "Reform language grows out of strain in an unequal order",
+    "similarityReasons": [
+      "Both periods force concessions after existing arrangements push too hard on the social bargain.",
+      "Both create reform languages that outlast the immediate crisis without ending hierarchy or extraction."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "inequality",
+      "economicPrecarity"
+    ],
+    "confidence": 0.66,
+    "notes": "Magna Carta and nineteenth-century reform are very different events, but each becomes a durable language of constraint within a still-unequal order."
+  },
+  {
+    "id": "x15",
+    "sourcePeriodId": "p05",
+    "targetPeriodId": "p12",
+    "similarityLabel": "Weak centre, hardening factions, and legitimacy decay",
+    "similarityReasons": [
+      "Both periods expose how quickly order frays when the political centre loses authority and faction hardens.",
+      "Both combine elite rivalry with wider mistrust, making settlement feel temporary and brittle."
+    ],
+    "dimensions": [
+      "eliteCompetition",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "confidence": 0.68,
+    "notes": "Dynastic crisis and contemporary fragmentation are not alike in form, but they rhyme as periods of a weak centre and unstable consensus."
+  },
+  {
+    "id": "x16",
+    "sourcePeriodId": "p01",
+    "targetPeriodId": "p06",
+    "similarityLabel": "Refounded rule hardens through coercive centralisation",
+    "similarityReasons": [
+      "Both periods consolidate a stronger crown by remaking elite obedience and tightening the bond between political order and sacral authority.",
+      "Both turn disruption into a more governable but harsher settlement, with wider administrative reach and less room outside the centre."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "moralCertainty",
+      "militarization"
+    ],
+    "confidence": 0.74,
+    "notes": "Norman consolidation and Tudor centralisation are different refoundings, but each strengthens rule through obedience, administrative reach, and a harder ideological frame."
+  },
+  {
+    "id": "x17",
+    "sourcePeriodId": "p07",
+    "targetPeriodId": "p08",
+    "similarityLabel": "Confessional strain spills into a sovereignty crisis",
+    "similarityReasons": [
+      "Both periods bind questions of belief to questions of rule, making political loyalty inseparable from confessional alignment.",
+      "Both show how a composite or contested monarchy becomes unstable when identity conflict, elite rivalry, and legitimacy strain reinforce each other."
+    ],
+    "dimensions": [
+      "moralCertainty",
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ],
+    "confidence": 0.79,
+    "notes": "This sits close to the boundary between adjacent development and echo, but it is still useful as a structural rhyme: the tensions of the late Tudor and early Stuart world tip into the legitimacy crisis of the civil-war era."
+  },
+  {
+    "id": "x18",
+    "sourcePeriodId": "p03",
+    "targetPeriodId": "p06",
+    "similarityLabel": "Order thickens as institutions deepen without dissolving hierarchy",
+    "similarityReasons": [
+      "Both periods strengthen the machinery of rule by making law, administration, and authority more regular and more central, while preserving a strongly unequal social order.",
+      "Both widen the state's reach in ways that feel constructive from above but more restrictive from below, reducing the amount of life left outside formal jurisdiction."
+    ],
+    "dimensions": [
+      "institutionalLegitimacy",
+      "inequality",
+      "moralCertainty"
+    ],
+    "confidence": 0.72,
+    "notes": "Plantagenet institutionalisation and Tudor centralisation are not equivalent, especially because the Reformation makes p06 far more disruptive, but they rhyme as periods in which the state becomes denser, more durable, and more intrusive without ceasing to be hierarchical."
+  },
+  {
+    "id": "x19",
+    "sourcePeriodId": "p04",
+    "targetPeriodId": "p08",
+    "similarityLabel": "Collective shock turns inherited authority into an open question",
+    "similarityReasons": [
+      "Both periods bring war, fear, and moral certainty directly into ordinary life, making older structures of authority feel breakable rather than fixed.",
+      "Both transform crisis from an elite problem into a wider social upheaval, leaving behind a settlement that is more argued over and less taken for granted."
+    ],
+    "dimensions": [
+      "militarization",
+      "institutionalLegitimacy",
+      "moralCertainty"
+    ],
+    "confidence": 0.68,
+    "notes": "Plague-era upheaval and the civil-war century are not the same kind of crisis, but each period turns severe collective shock into a renegotiation of authority and social obedience."
   }
 ]

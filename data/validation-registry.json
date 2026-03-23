@@ -1,0 +1,166 @@
+{
+  "policy": {
+    "mode": "safeguarded-enrichment",
+    "canonicalBoundary": "No new event or echo should be treated as fully validated unless it is either already in the original seed dataset or has passed a later source-backed research review.",
+    "stopCondition": "If the next useful addition depends on a specific factual claim or nuanced structural comparison that cannot be defended confidently from stable knowledge, move it to research instead of writing it as canonical truth.",
+    "allowedNow": [
+      "schema normalization",
+      "theme and geography tagging",
+      "gap audits",
+      "priority queue refinement",
+      "high-confidence retagging of existing seed content",
+      "draft candidate additions marked for validation"
+    ]
+  },
+  "draftCandidates": {
+    "events": [
+      {
+        "id": "e27",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e28",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e29",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e30",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e31",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e32",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e33",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e34",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e35",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "e36",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      },
+      {
+        "id": "e37",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      },
+      {
+        "id": "e38",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      },
+      {
+        "id": "e39",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      },
+      {
+        "id": "e40",
+        "status": "source_backed_draft",
+        "provenance": "web_researched_and_model_authored",
+        "reason": "Added during Britain v2 research-gated enrichment using source-backed synthesis; still pending fuller validation review."
+      }
+    ],
+    "echoes": [
+      {
+        "id": "x13",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "x14",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "x15",
+        "status": "draft_candidate",
+        "provenance": "model_authored",
+        "reason": "Added during Britain v2 structural enrichment; requires later source-backed validation."
+      },
+      {
+        "id": "x16",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during Britain v2 echo enrichment from existing period structure; requires later validation against a stricter comparative review."
+      },
+      {
+        "id": "x17",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during Britain v2 echo enrichment from existing period structure; requires later validation against a stricter comparative review."
+      },
+      {
+        "id": "x18",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during Britain v2 echo enrichment from existing period structure; requires later validation against a stricter comparative review."
+      },
+      {
+        "id": "x19",
+        "status": "draft_candidate",
+        "provenance": "model_authored_structural_comparison",
+        "reason": "Added during Britain v2 echo enrichment from existing period structure; requires later validation against a stricter comparative review."
+      }
+    ]
+  },
+  "datasetSeeding": {
+    "united-states-1776-2025": {
+      "status": "source_backed_planning_in_progress",
+      "defaultLensProposal": "usa-civic-8-era",
+      "planningArtifacts": [
+        "docs/usa-dataset-charter.md",
+        "docs/usa-seeding-plan.md",
+        "docs/usa-periodization-proposal.md",
+        "docs/usa-initial-seed-candidates.md",
+        "docs/usa-snapshot-strategy.md"
+      ],
+      "sourceClasses": [
+        "National Archives founding and milestone documents",
+        "Library of Congress U.S. History Primary Source Timeline",
+        "Britannica U.S. history event overviews for post-1968 turning points"
+      ],
+      "guardrail": "No USA runtime content should be treated as canonical until the first seed layer is created from source-backed candidates and then reviewed."
+    }
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "britain-1066-2025",
+    "label": "Britain, 1066-2025",
+    "scope": "Britain",
+    "startYear": 1066,
+    "endYear": 2025,
+    "status": "usable",
+    "currentPriority": "britain-v2-gap-audit-and-enrichment",
+    "defaultLensId": "britain-80-year-civic",
+    "availableLensIds": [
+      "britain-80-year-civic"
+    ],
+    "supportedThemeIds": [
+      "legitimacy",
+      "order",
+      "fracture",
+      "technology",
+      "labour",
+      "belief",
+      "identity",
+      "inequality",
+      "reform",
+      "empire",
+      "war",
+      "information"
+    ],
+    "supportedGeographyIds": [
+      "england",
+      "scotland",
+      "wales",
+      "northern-ireland",
+      "ireland",
+      "britain",
+      "british-isles",
+      "europe",
+      "global"
+    ],
+    "notes": "Current active dataset. UI is stable enough; next phase is data density, thematic coverage, and stronger linkage."
+  },
+  {
+    "id": "united-states-1776-2025",
+    "label": "United States, 1776-2025",
+    "scope": "United States",
+    "startYear": 1776,
+    "endYear": 2025,
+    "status": "seeding",
+    "currentPriority": "source-backed-periodization-and-anchor-events",
+    "defaultLensId": "usa-civic-8-era",
+    "availableLensIds": [
+      "usa-civic-8-era"
+    ],
+    "supportedThemeIds": [
+      "legitimacy",
+      "order",
+      "fracture",
+      "technology",
+      "labour",
+      "belief",
+      "identity",
+      "inequality",
+      "reform",
+      "empire",
+      "war",
+      "information"
+    ],
+    "supportedGeographyIds": [
+      "united-states",
+      "north-america",
+      "global"
+    ],
+    "notes": "Chosen as dataset 2. Source-backed seeding is now in progress, beginning with an 8-era civic lens proposal and a first anchor-event shortlist."
+  }
+]

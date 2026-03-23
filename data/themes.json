@@ -1,0 +1,62 @@
+[
+  {
+    "id": "legitimacy",
+    "label": "Legitimacy",
+    "description": "How accepted and rightful institutions are felt to be."
+  },
+  {
+    "id": "order",
+    "label": "Order",
+    "description": "How stability, discipline, and governability are maintained."
+  },
+  {
+    "id": "fracture",
+    "label": "Fracture",
+    "description": "Moments when cohesion, settlement, or continuity begins to split."
+  },
+  {
+    "id": "technology",
+    "label": "Technology",
+    "description": "The role of tools, systems, and technical acceleration in reshaping life."
+  },
+  {
+    "id": "labour",
+    "label": "Labour",
+    "description": "How work, bargaining power, and material survival are structured."
+  },
+  {
+    "id": "belief",
+    "label": "Belief",
+    "description": "The role of religion, ideology, and moral certainty."
+  },
+  {
+    "id": "identity",
+    "label": "Identity",
+    "description": "The making and contestation of belonging, sovereignty, and collective selfhood."
+  },
+  {
+    "id": "inequality",
+    "label": "Inequality",
+    "description": "The concentration of power, wealth, and advantage."
+  },
+  {
+    "id": "reform",
+    "label": "Reform",
+    "description": "Attempts to redesign systems before or after breakdown."
+  },
+  {
+    "id": "empire",
+    "label": "Empire",
+    "description": "External projection, imperial integration, and imperial strain."
+  },
+  {
+    "id": "war",
+    "label": "War",
+    "description": "The military shaping of society, institutions, and daily life."
+  },
+  {
+    "id": "information",
+    "label": "Information",
+    "description": "The speed and reach of narrative, persuasion, and communication."
+  }
+]

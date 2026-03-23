@@ -1,0 +1,145 @@
+VERSION 1: WITH ELEVENLABS-STYLE MARKUP
+
+[medium pace]
+[warm, reflective, intellectually engaged]
+
+Welcome to The History Loom.
+
+[pause]
+
+This is not a conventional timeline. It is a way of looking at history as structure.
+
+Instead of asking only, “what happened, and when?”, it asks a deeper question:
+
+[slight emphasis]
+Do pressures, moods, institutions, and ways of life recur across time?
+
+[pause]
+
+At the top of the experience, you can enter in different ways.
+You can start with a question, like when order begins to feel brittle.
+You can start with a force, like institutional legitimacy, technological disruption, or public hope.
+Or you can start with a pattern, such as brittle order, system shock, or renewed settlement.
+
+[pause]
+
+Each path opens the same historical field from a different angle.
+In this case, Britain from 1066 to 2025, divided into twelve equal periods.
+
+[pause]
+
+In the center is the Loom itself.
+Each block is a period.
+Across the background run the structural forces: pressures that rise and fall across centuries.
+
+You can click directly on any period to select it.
+When you do, the right-hand panel opens a richer reading of that era:
+its values,
+its mood,
+what emerged,
+what frayed,
+the events that anchor it,
+and a multi-scale read, from lived experience up to the level of the state and the wider world.
+
+[pause]
+
+This is where the tool becomes more than a display of dates.
+It begins to show that history is not just a sequence of events.
+It is also a changing arrangement of stress, hope, hierarchy, cohesion, legitimacy, conflict, and adaptation.
+
+[pause]
+
+If you turn to the structural-force panel, you can sort and inspect those forces directly.
+You can see which ones are strongest in the selected period, whether they act more as stressors or stabilisers, and how they behave across the full span of the dataset.
+
+[pause]
+
+Then there is the echo system.
+This is one of the most powerful parts of the experience.
+
+An echo is not a claim that two eras are identical.
+It is a claim that they rhyme.
+That they share a structural resemblance.
+
+When echoes are revealed, the tool highlights related periods across the Loom.
+You can follow a rhyme from one era into another, inspect why the connection exists, and then jump directly to the echoed period.
+
+[pause]
+
+And if you want to press further, you can compare the pair.
+That opens a structural comparison between two periods, side by side.
+Not just what happened in each, but how they align or diverge in values, pressure, emergence, loss, and institutional character.
+
+[pause]
+
+So the experience is doing several things at once.
+It helps you move from overview to detail.
+From chronology to causation.
+From isolated periods to recurring patterns.
+
+[pause]
+
+And that brings us back to the central question.
+
+[slight emphasis]
+Does history repeat itself?
+
+[pause]
+
+The History Loom does not answer that with a slogan.
+It lets you test the idea.
+
+Sometimes the answer feels like no.
+Sometimes it feels like yes.
+But very often, the more interesting answer is that history does not repeat exactly.
+
+[slight emphasis]
+It rhymes.
+
+[pause]
+
+And once you start seeing those rhymes, history becomes less like a list of disconnected events, and more like a living pattern that can be explored, questioned, and understood.
+
+
+VERSION 2: PLAIN TEXT
+
+Welcome to The History Loom.
+
+This is not a conventional timeline. It is a way of looking at history as structure.
+
+Instead of asking only, “what happened, and when?”, it asks a deeper question:
+Do pressures, moods, institutions, and ways of life recur across time?
+
+At the top of the experience, you can enter in different ways. You can start with a question, like when order begins to feel brittle. You can start with a force, like institutional legitimacy, technological disruption, or public hope. Or you can start with a pattern, such as brittle order, system shock, or renewed settlement.
+
+Each path opens the same historical field from a different angle. In this case, Britain from 1066 to 2025, divided into twelve equal periods.
+
+In the center is the Loom itself. Each block is a period. Across the background run the structural forces: pressures that rise and fall across centuries.
+
+You can click directly on any period to select it. When you do, the right-hand panel opens a richer reading of that era: its values, its mood, what emerged, what frayed, the events that anchor it, and a multi-scale read, from lived experience up to the level of the state and the wider world.
+
+This is where the tool becomes more than a display of dates. It begins to show that history is not just a sequence of events. It is also a changing arrangement of stress, hope, hierarchy, cohesion, legitimacy, conflict, and adaptation.
+
+If you turn to the structural-force panel, you can sort and inspect those forces directly. You can see which ones are strongest in the selected period, whether they act more as stressors or stabilisers, and how they behave across the full span of the dataset.
+
+Then there is the echo system. This is one of the most powerful parts of the experience.
+
+An echo is not a claim that two eras are identical. It is a claim that they rhyme. That they share a structural resemblance.
+
+When echoes are revealed, the tool highlights related periods across the Loom. You can follow a rhyme from one era into another, inspect why the connection exists, and then jump directly to the echoed period.
+
+And if you want to press further, you can compare the pair. That opens a structural comparison between two periods, side by side. Not just what happened in each, but how they align or diverge in values, pressure, emergence, loss, and institutional character.
+
+So the experience is doing several things at once. It helps you move from overview to detail. From chronology to causation. From isolated periods to recurring patterns.
+
+And that brings us back to the central question.
+
+Does history repeat itself?
+
+The History Loom does not answer that with a slogan. It lets you test the idea.
+
+Sometimes the answer feels like no. Sometimes it feels like yes. But very often, the more interesting answer is that history does not repeat exactly.
+
+It rhymes.
+
+And once you start seeing those rhymes, history becomes less like a list of disconnected events, and more like a living pattern that can be explored, questioned, and understood.

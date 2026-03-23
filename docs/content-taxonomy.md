@@ -6,6 +6,8 @@ This document defines the conceptual categories used throughout the experience.
 
 The taxonomy gives the product a consistent way to describe eras beyond raw events. It ensures periods can be compared using the same language.
 
+It should also be stable enough to travel to future datasets, so labels should avoid being so local or Britain-specific that they cannot be reused elsewhere.
+
 ## 2. Primary taxonomy groups
 
 ### A. Values
@@ -139,7 +141,25 @@ Examples:
 - post-trauma renewal
 - acceleration without adaptation
 
-## 7. Gain/loss framing
+## 7. Britain v2 controlled themes
+
+The current Britain v2 theme set is:
+- legitimacy
+- order
+- fracture
+- technology
+- labour
+- belief
+- identity
+- inequality
+- reform
+- empire
+- war
+- information
+
+This list is intended as a reusable starting vocabulary for future datasets.
+
+## 8. Gain/loss framing
 
 Each period should support a paired framing:
 

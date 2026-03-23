@@ -71,8 +71,24 @@ history-loom/
     design-language.md
     mvp-scope.md
     implementation-brief-v1.md
+    britain-v2-data-expansion.md
+    britain-template-closeout-checklist.md
+    britain-template-freeze-decision.md
+    britain-v2-maturity-review.md
+    britain-v2-validation-review.md
+    usa-dataset-charter.md
+    usa-seeding-plan.md
+    usa-periodization-proposal.md
+    usa-initial-seed-candidates.md
+    usa-snapshot-strategy.md
+    dataset-authoring-workflow.md
+    multi-dataset-strategy.md
     research-notes.md
   data/
+    datasets.json
+    themes.json
+    geographies.json
+    validation-registry.json
     periods.json
     pressures.json
     echoes.json
@@ -125,16 +141,11 @@ Implemented now:
 - a denser, more data-led top section with live current-focus context and a compact visual summary strip
 
 In progress:
-- tighter narrative interpretation and copy economy across the right-hand detail flow
-- more intelligent interpretive framing where it materially improves discovery for non-historians
-- compare UX polish only where it improves clarity without reopening the overall design direction
+- Britain v2 data expansion planning and scaffolding
+- repeatable research and collation workflow for future datasets
+- multi-dataset mechanics and maturity model
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
-- further ideation on whether structural-force intensity should stay segmented/trace-based or move toward a more bespoke visual language
-- decision on whether geography belongs in the selected-period detail flow or at the dataset level when broader dataset expansion is defined
-- identify and remove UI phrases that read like internal memo rather than user-facing product language
-- clearer differentiation between buttons and passive data pills
-- finish the motion and material pass so the interface feels calmer at rest and more alive when interacting
-- responsive refinement and accessibility polish
+- future UI refinement, if revisited later, should focus on motion, animation, progressive reveal, and exhibit staging rather than broad layout change
 
 Deferred:
 - selectable lens length
@@ -142,6 +153,7 @@ Deferred:
 - true alternate lenses
 - thematic filters
 - guided paths
+- accessible lived-voice or `vox pop` cards in the detail pane to explain periods in plain language through imagined first-person street-level responses
 - saved states
 - quotes
 - custom lenses
@@ -150,13 +162,22 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. refine the top-of-page entry surface so users can begin through questions, forces, and patterns without being hit by a wall of explanation
-2. strengthen interpretive framing where it produces a clear uplift, especially for first-time and non-historian users
-3. define the first data-expansion plan for the Britain dataset so the next wave of content unlocks stronger thematic and reasoning experiences
-4. keep compare changes limited to high-value clarity improvements rather than redesigning a working surface
-5. address only critical accessibility and responsive issues
+1. treat Britain as template dataset 1 rather than an active expansion target
+2. begin the USA dataset 2 charter and source-backed seeding pass
+3. define dataset maturity levels, registry mechanics, and the minimum dataset-switching support
+4. keep Britain in selective validation mode rather than open-ended enrichment
+5. keep UI work paused except for clear breakages or later exhibit-grade refinement
 6. discuss geography before doing any further tuning or placement changes
-7. only then choose the first true post-MVP expansion, most likely thematic filtering or guided narrative
+7. only then choose the next product expansion, most likely USA dataset onboarding, thematic filtering, or guided narrative
+
+The important change is this:
+- Britain should no longer be treated as a project to perfect
+- Britain should now be treated as the first reusable dataset template
+
+One future content direction should remain visible:
+- the product needs a more accessible, more human narrative layer for younger and non-specialist audiences
+- a likely answer is a `vox pop` or street-voice panel in the detail area, answering questions like `how are things affecting you?` and `what is everyday life like?` in clear, plain language
+- the goal is not just to show structure, but to make the structure felt
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data
