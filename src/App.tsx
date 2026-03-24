@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { ComparePanel } from './components/ComparePanel'
 import { DetailPanel } from './components/DetailPanel'
+import { ForceExplorer } from './components/ForceExplorer'
 import { LoomCanvas } from './components/LoomCanvas'
-import { PressureLegend } from './components/PressureLegend'
 import { sentenceCase } from './lib/format'
 import {
   getDatasetRegistry,
@@ -853,7 +853,10 @@ function App() {
               }}
             />
 
-            <PressureLegend
+            <ForceExplorer
+              datasetId={datasetId}
+              detail={detail}
+              periods={dataset.periods}
               pressureSeries={dataset.pressureOverlaySeries}
               selectedPressureId={selectedPressureId}
               currentPeriodId={detail.period.id}
@@ -862,6 +865,7 @@ function App() {
                 setSelectedPressureId(pressureId)
                 setShowPressureOverlay(true)
               }}
+              onPeriodSelect={handlePeriodSelect}
             />
           </div>
 

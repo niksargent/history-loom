@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import { formatConfidence, sentenceCase, titleCaseLabel } from '../lib/format'
 import {
   buildGeographyInsetModel,
@@ -184,159 +184,6 @@ function LivedVoiceCard({
         </p>
       </div>
     </article>
-  )
-}
-
-function getPressureFieldTone(polarity: PressureOverlaySeries['polarity']) {
-  return polarity === 'stress'
-    ? {
-        accent: '243,177,91',
-        shell: 'border-amber-300/18 bg-amber-300/7',
-        chip: 'border-amber-300/20 text-amber-100',
-        text: 'text-amber-100',
-      }
-    : {
-        accent: '121,219,194',
-        shell: 'border-cyan-300/18 bg-cyan-300/7',
-        chip: 'border-cyan-300/20 text-cyan-100',
-        text: 'text-cyan-100',
-      }
-}
-
-function getPressureStateLabel(value: number, polarity: PressureOverlaySeries['polarity']) {
-  if (value >= 80) {
-    return polarity === 'stress' ? 'Peak strain' : 'Holding firm'
-  }
-
-  if (value >= 60) {
-    return polarity === 'stress' ? 'Rising strain' : 'Holding line'
-  }
-
-  if (value >= 40) {
-    return polarity === 'stress' ? 'Present strain' : 'Steady support'
-  }
-
-  return polarity === 'stress' ? 'Background strain' : 'Light support'
-}
-
-function PressureFocusField({
-  pressureCascade,
-  periodTitle,
-}: {
-  pressureCascade: NonNullable<ReturnType<typeof buildPressureCascade>>
-  periodTitle: string
-}) {
-  const tone = getPressureFieldTone(pressureCascade.polarity)
-  const matchedEvents = [...pressureCascade.matchedEvents].sort(
-    (left, right) => left.startYear - right.startYear,
-  )
-  const fieldStyle = {
-    '--force-accent': tone.accent,
-  } as CSSProperties
-
-  return (
-    <section
-      className={`surface-depth reveal-up reveal-delay-1 rounded-[1.5rem] border p-4 ${tone.shell}`}
-      style={fieldStyle}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="eyebrow">Force in focus</p>
-          <h3 className="mt-2 text-base text-stone-100">{pressureCascade.label}</h3>
-          <p className="mt-3 text-sm leading-6 text-stone-300">{pressureCascade.description}</p>
-        </div>
-        <div className="text-right">
-          <span
-            className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] ${tone.chip}`}
-          >
-            {pressureCascade.value}
-          </span>
-          <p className={`mt-2 text-[11px] uppercase tracking-[0.18em] ${tone.text}`}>
-            {getPressureStateLabel(pressureCascade.value, pressureCascade.polarity)}
-          </p>
-        </div>
-      </div>
-
-      <div className="force-flow-shell mt-5 rounded-[1.3rem] border border-white/8 bg-black/18 px-4 py-4">
-        <div className="force-flow-header">
-          <div className="force-flow-kicker">
-            <span className="force-flow-dot force-flow-dot-source" />
-            <span>Field climate</span>
-          </div>
-          <div className="force-flow-kicker">
-            <span className="force-flow-dot force-flow-dot-event" />
-            <span>
-              {matchedEvents.length
-                ? `${matchedEvents.length} flashpoint${matchedEvents.length === 1 ? '' : 's'}`
-                : 'No named flashpoint'}
-            </span>
-          </div>
-        </div>
-
-        <div className="force-flow-layout mt-4">
-          <div className="force-flow-rail" aria-hidden="true">
-            <span className="force-flow-beam" />
-            <span className="force-flow-dot force-flow-dot-source force-flow-dot-float" />
-            <span className="force-flow-dot force-flow-dot-core force-flow-pulse" />
-          </div>
-
-          <div className="force-flow-core rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
-            <p className="eyebrow">Through</p>
-            <h4 className="mt-2 text-base text-stone-100">{periodTitle}</h4>
-            <p className="mt-3 text-sm leading-6 text-stone-300">
-              {matchedEvents.length
-                ? `This force shows up in the named events below and concentrates most clearly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
-                : 'Here it reads as atmosphere around the period rather than one single turning point.'}
-            </p>
-
-            <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/7">
-              <div
-                className="force-flow-fill h-full rounded-full"
-                style={{ width: `${pressureCascade.value}%` }}
-              />
-            </div>
-
-            {pressureCascade.impactedScales.length ? (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {pressureCascade.impactedScales.map((scale) => (
-                  <span
-                    key={scale}
-                    className={`rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${getScaleAccent(scale)}`}
-                  >
-                    {titleCaseLabel(scale)}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </div>
-
-          <div className="grid gap-3">
-            {matchedEvents.length ? (
-              matchedEvents.map((event) => (
-                <article
-                  key={event.id}
-                  className="force-flow-event rounded-[1.15rem] border border-white/8 bg-white/[0.03] p-4"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <h4 className={`text-sm uppercase tracking-[0.18em] ${tone.text}`}>
-                      {event.title}
-                    </h4>
-                    <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                      {event.geography}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
-                </article>
-              ))
-            ) : (
-              <div className="rounded-[1.15rem] border border-dashed border-white/8 bg-white/[0.025] px-4 py-5 text-sm leading-6 text-stone-400">
-                Atmosphere only.
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
   )
 }
 
@@ -640,8 +487,8 @@ function DetailSections({
       </SectionDisclosure>
 
       <SectionDisclosure
-        title="Events and lived voice"
-        summary={`${events.length} event${events.length === 1 ? '' : 's'}${snapshot?.response ? ' plus one voice' : snapshot ? ' plus one snapshot' : ''} anchor this period.`}
+        title="Events"
+        summary={`${events.length} event${events.length === 1 ? '' : 's'} anchor this period.`}
         isCollapsed={collapsedSections.texture}
         onToggle={() => toggleSection('texture')}
       >
@@ -772,9 +619,7 @@ export function DetailPanel({
       ? `${pressureCascade.label} through ${period.title}`
       : `${period.title} in place`,
   )
-  const supportsInsetMap = !geographyModel.highlightedRegions.some(
-    (region) => region === 'united-states' || region === 'north-america',
-  )
+  const supportsInsetMap = datasetId === 'britain-1066-2025'
 
   return (
     <aside
@@ -898,10 +743,6 @@ export function DetailPanel({
             </section>
 
             {supportsInsetMap ? <GeographyInset model={geographyModel} /> : null}
-
-            {pressureCascade && selectedPressureSeries ? (
-              <PressureFocusField pressureCascade={pressureCascade} periodTitle={period.title} />
-            ) : null}
 
             <DetailSections
               key={`${period.id}:${viewMode}:${showEchoes ? 'echoes' : 'quiet'}`}

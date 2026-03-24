@@ -119,11 +119,26 @@ Immediate rule:
 
 This is now approved as a light UI system improvement, not a redesign.
 
-### 4. Motion and alternate views
+### 4. Force Explorer
+
+Before building a separate motion page, the main surface needs one stronger visual way to understand forces.
+
+Approved direction:
+- build a dedicated `Force Explorer` surface on the main page
+- show force selection, field trace, and current-period flashpoints together
+- retire the weaker detail-panel force card
+- keep the relationship visual first, not label first
+
+Status:
+- Force Explorer is now implemented
+- the old detail-panel force card has been retired
+- geography now follows the honest rule: Britain map only until other datasets have real map treatments
+
+### 5. Motion and alternate views
 
 Do not overload the main page.
 
-Instead, record a second-layer exhibit idea:
+After Force Explorer, record a second-layer exhibit idea:
 - an `In motion` or `Interactive time` view or modal
 
 Candidate views:
@@ -158,7 +173,8 @@ They belong after the current three datasets are stronger and the multi-dataset 
 2. add dataset-specific atmospheric theming
 3. define lived voice v2 standards
 4. selectively validate datasets toward `solid`
-5. only then decide whether the next extension is:
+5. build Force Explorer
+6. next decide whether the next extension is:
    - an `In motion` page
    - thematic filtering
    - guided narrative

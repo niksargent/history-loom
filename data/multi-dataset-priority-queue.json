@@ -25,17 +25,22 @@
       "id": "md-task-05",
       "label": "Selectively validate Britain, USA, and France toward the `solid` threshold rather than reopening broad enrichment",
       "status": "done"
+    },
+    {
+      "id": "md-task-06",
+      "label": "Implement Force Explorer as the next visual relationship surface and retire the weak detail-panel force card",
+      "status": "done"
     }
   ],
   "next": [
     {
-      "id": "md-task-06",
-      "label": "Design an `In motion` or `Interactive time` concept with a bar chart race and force-pull animation as secondary views rather than main-page clutter",
+      "id": "md-task-07",
+      "label": "Design an `In motion` or `Interactive time` concept with a bar chart race and force-pull animation as a secondary view rather than main-page clutter",
       "priority": "high",
-      "reason": "No dataset is yet solid enough for cross-dataset compare, but the product is mature enough to extend through a lower-claim secondary exhibit surface."
+      "reason": "Force Explorer is now in place, so the next visual step is the separate motion-first surface rather than more card iteration."
     },
     {
-      "id": "md-task-07",
+      "id": "md-task-08",
       "label": "Run selective validation only where a concrete blocker is keeping Britain, USA, or France below the `solid` threshold",
       "priority": "medium",
       "reason": "Validation should now be targeted and evidence-led rather than broad and open-ended."

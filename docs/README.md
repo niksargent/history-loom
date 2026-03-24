@@ -98,6 +98,7 @@ history-loom/
     france-maturity-checkpoint-decision.md
     multi-dataset-next-phase-plan.md
     multi-dataset-solid-readiness-review.md
+    force-explorer-plan.md
     lived-voice-v2.md
     dataset-authoring-workflow.md
     dataset-authoring-standards.md
@@ -200,6 +201,9 @@ In progress:
 - lived voice v2 is now implemented across Britain, USA, and France with tabbed persona switching in the detail panel
 - the first selective validation review against the new `solid` threshold is now complete: no live dataset is yet solid, but all three are strong enough for further low-claim product extension
 - a small UI defect watchlist is now explicit: remove redundant `lived voice` repetition in the texture section, enforce British English consistently, and revisit the legibility of the `Force in focus` / `Through` card
+- the next feature-leap is now explicitly `Force Explorer`, replacing the weak detail-panel force explanation before any separate `In motion` view is designed
+- Force Explorer is now implemented on the main page as the primary force relationship surface, with clickable period nodes on the trace and a selected date-range marker replacing the ambiguous `current` label
+- geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
 - dataset backgrounds are now allowed to vary by field using flag-derived atmospheric palettes rather than one hardcoded global background
