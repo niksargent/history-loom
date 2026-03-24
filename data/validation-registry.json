@@ -182,7 +182,8 @@
   },
   "datasetSeeding": {
     "united-states-1776-2025": {
-      "status": "first_usable_draft_baseline_reached",
+      "status": "usable_draft_checkpoint_accepted",
+      "nextPhase": "selective_validation",
       "defaultLensProposal": "usa-civic-8-era",
       "planningArtifacts": [
         "docs/usa-dataset-charter.md",
@@ -206,7 +207,7 @@
         "Britannica U.S. history event overviews for post-1968 turning points"
       ],
       "guardrail": "No USA runtime content should be treated as canonical until source-backed seed additions and later validation review have been completed.",
-      "seedLayerStatus": "runtime draft seed is live in the app; first usable-enrichment and validation-review pass are complete"
+      "seedLayerStatus": "runtime draft seed is live in the app; usable-enrichment, lived voice, UI review, period-quality review, and authoring-standards pass are complete; USA is now accepted at usable-draft maturity"
     }
   }
 }

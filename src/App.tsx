@@ -3,6 +3,7 @@ import { ComparePanel } from './components/ComparePanel'
 import { DetailPanel } from './components/DetailPanel'
 import { LoomCanvas } from './components/LoomCanvas'
 import { PressureLegend } from './components/PressureLegend'
+import { sentenceCase } from './lib/format'
 import {
   getDatasetRegistry,
   getCounterpartIds,
@@ -286,15 +287,10 @@ function App() {
       labelClass: 'text-amber-100',
     },
   ] as const
-  const liveModeLabel = comparePicking
-    ? 'Choose a comparison period on the loom.'
-    : showEchoes
-      ? 'Echo links are active.'
-      : selectedPressureSeries
-        ? `${selectedPressureSeries.label} is active.`
-        : showPressureOverlay
-          ? 'Pressure lines are visible.'
-          : 'Overview view.'
+  const focusSignals = [
+    comparePicking ? 'Choose counterpart' : null,
+    selectedPressureSeries ? sentenceCase(selectedPressureSeries.label) : null,
+  ].filter(Boolean) as string[]
   const questionEntries = buildQuestionEntries(dataset)
   const forceEntries = [
     {
@@ -440,10 +436,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[color:var(--bg)] text-stone-100">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(55,81,92,0.22),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(219,181,108,0.16),_transparent_30%),linear-gradient(180deg,rgba(14,17,18,0.96),rgba(8,10,11,1))]" />
+    <div className="relative isolate min-h-screen bg-[color:var(--bg)] text-stone-100">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_right,_rgba(244,241,233,0.78),_rgba(215,208,194,0.28)_16%,_rgba(172,164,148,0.12)_26%,_transparent_46%),radial-gradient(circle_at_top_left,_rgba(87,126,138,0.24),_transparent_34%),radial-gradient(circle_at_center_right,_rgba(196,176,136,0.1),_transparent_32%),linear-gradient(180deg,rgba(70,76,80,0.98)_0%,rgba(44,48,51,0.98)_26%,rgba(24,27,29,1)_58%,rgba(12,14,15,1)_100%)]" />
 
-      <main className="mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
+      <main className="relative z-10 mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
         <header className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] px-6 py-6 md:px-8">
           <div className="grid gap-6 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
             <div className="max-w-4xl">
@@ -460,26 +456,29 @@ function App() {
                 pressure undercurrents beneath, and curated echoes between distant eras.
               </p>
 
-              <div className="mt-6 grid gap-3 md:grid-cols-2">
-                <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
-                  <p className="eyebrow">Field</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {datasetRegistry.map((entry) => (
-                      <button
-                        key={entry.id}
-                        type="button"
-                        onClick={() => handleDatasetChange(entry.id)}
-                        className={`ui-action rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] transition ${
-                          datasetId === entry.id
-                            ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
-                            : 'text-stone-300 hover:text-stone-100'
-                        }`}
-                      >
-                        {entry.scope}
-                      </button>
-                    ))}
+              <section className="surface-depth mt-6 rounded-[1.5rem] border border-[rgba(214,211,209,0.08)] px-4 py-4 md:px-5">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <p className="eyebrow">Field</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {datasetRegistry.map((entry) => (
+                        <button
+                          key={entry.id}
+                          type="button"
+                          onClick={() => handleDatasetChange(entry.id)}
+                          className={`ui-action rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] transition ${
+                            datasetId === entry.id
+                              ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                              : 'text-stone-300 hover:text-stone-100'
+                          }`}
+                        >
+                          {entry.scope}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mt-3 grid grid-cols-2 gap-3">
+
+                  <div className="grid grid-cols-2 gap-3 text-right">
                     <div>
                       <p className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
                         Lens
@@ -497,21 +496,41 @@ function App() {
                       </p>
                     </div>
                   </div>
-                  <p className="mt-4 text-sm leading-6 text-stone-400">{dataset.lens.note}</p>
-                </section>
+                </div>
 
-                <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
-                  <p className="eyebrow">Current focus</p>
-                  <h3 className="mt-2 font-display text-2xl leading-tight text-stone-100">
-                    {detail.period.title}
-                  </h3>
-                  <p className="mt-1 text-sm uppercase tracking-[0.22em] text-stone-500">
-                    {detail.period.rangeLabel}
+                <div className="mt-4 border-t border-white/8 pt-4">
+                  <div className="flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl leading-tight text-stone-100">
+                        {detail.period.title}
+                      </h3>
+                      <p className="mt-1 text-sm uppercase tracking-[0.22em] text-stone-500">
+                        {detail.period.rangeLabel}
+                      </p>
+                    </div>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
+                      {dataset.meta.scope}
+                    </span>
+                  </div>
+
+                  {focusSignals.length ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {focusSignals.map((signal) => (
+                        <span
+                          key={signal}
+                          className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-300"
+                        >
+                          {signal}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <p className="mt-4 max-w-3xl text-sm leading-6 text-stone-400">
+                    {detail.period.summary}
                   </p>
-                  <p className="mt-4 text-sm leading-6 text-stone-300">{liveModeLabel}</p>
-                  <p className="mt-3 text-sm leading-6 text-stone-400">{detail.period.summary}</p>
-                </section>
-              </div>
+                </div>
+              </section>
             </div>
 
             <div className="space-y-3">
@@ -520,7 +539,7 @@ function App() {
                   <div className="max-w-xl">
                     <p className="eyebrow">Start with a...</p>
                     <h2 className="font-display mt-2 text-2xl text-stone-100">
-                      Choose a way into the same field
+                      Choose a way in
                     </h2>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -566,7 +585,6 @@ function App() {
                             )}`}
                           >
                             <div className="flex items-start justify-between gap-3">
-                              <span className="eyebrow">Question</span>
                               <span
                                 className={`h-2.5 w-2.5 rounded-full ${
                                   entry.tone === 'amber'
@@ -600,10 +618,7 @@ function App() {
                           >
                             <div className="flex items-start justify-between gap-3">
                               <div className="min-w-0">
-                                <p className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
-                                  Force
-                                </p>
-                                <h3 className="mt-1 font-display text-lg leading-tight text-stone-100">
+                                <h3 className="font-display text-lg leading-tight text-stone-100">
                                   {entry.title}
                                 </h3>
                                 <p className="mt-1.5 text-sm leading-6 text-stone-400">
@@ -647,7 +662,6 @@ function App() {
                             )}`}
                           >
                             <div className="flex items-start justify-between gap-3">
-                              <span className="eyebrow">Pattern</span>
                               <span
                                 className={`h-2.5 w-2.5 rounded-full ${
                                   entry.tone === 'amber'
@@ -670,7 +684,7 @@ function App() {
               <div className="grid gap-3 md:grid-cols-2">
                 <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="eyebrow">Fingerprint</p>
+                    <p className="eyebrow">Structural fingerprint</p>
                     <span className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
                       {dataset.meta.scope}
                     </span>
@@ -700,6 +714,20 @@ function App() {
                       {detail.echoes.length} echo{detail.echoes.length === 1 ? '' : 'es'}
                     </span>
                   </div>
+                  <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/6">
+                    <div
+                      className="h-full rounded-full bg-[linear-gradient(90deg,rgba(243,177,91,0.85),rgba(121,219,194,0.85))]"
+                      style={{
+                        width: `${Math.max(
+                          14,
+                          Math.min(
+                            100,
+                            50 + Math.round((stabiliserMean - stressMean) / 2),
+                          ),
+                        )}%`,
+                      }}
+                    />
+                  </div>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
                     <div className="rounded-[1rem] border border-[rgba(243,177,91,0.12)] bg-[rgba(243,177,91,0.05)] px-3 py-3">
                       <p className="text-[11px] uppercase tracking-[0.22em] text-amber-100">
@@ -707,7 +735,7 @@ function App() {
                       </p>
                       <p className="mt-2 font-display text-2xl text-stone-100">{stressMean}</p>
                       <p className="mt-1 text-xs leading-5 text-stone-400">
-                        {dominantStress?.label ?? 'No stress signal'}
+                        {dominantStress?.label ?? 'Low signal'}
                       </p>
                     </div>
                     <div className="rounded-[1rem] border border-[rgba(121,219,194,0.12)] bg-[rgba(121,219,194,0.05)] px-3 py-3">
@@ -720,7 +748,7 @@ function App() {
                       <p className="mt-1 text-xs leading-5 text-stone-400">
                         {selectedPressureSeries?.label ??
                           dominantStabiliser?.label ??
-                          'No stabiliser signal'}
+                          'Low signal'}
                       </p>
                     </div>
                   </div>
@@ -740,17 +768,6 @@ function App() {
               }`}
             >
               {showPressureOverlay ? 'Hide pressure lines' : 'Show pressure lines'}
-            </button>
-            <button
-              type="button"
-              onClick={() => setShowEchoes((current) => !current)}
-              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
-                showEchoes
-                  ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
-                  : 'text-stone-300 hover:text-stone-100'
-              }`}
-            >
-              {showEchoes ? 'Hide echoes' : 'Show echoes'}
             </button>
           </div>
         </header>
@@ -783,7 +800,10 @@ function App() {
               selectedPressureId={selectedPressureId}
               currentPeriodId={detail.period.id}
               currentPeriodScores={detail.period.pressureScores}
-              onPressureSelect={setSelectedPressureId}
+              onPressureSelect={(pressureId) => {
+                setSelectedPressureId(pressureId)
+                setShowPressureOverlay(true)
+              }}
             />
           </div>
 

@@ -4,6 +4,12 @@
 
 This document defines a repeatable process for building or expanding a dataset so the product does not depend on ad hoc research notes or inconsistent judgment.
 
+This workflow should now be read alongside:
+- `docs/dataset-authoring-standards.md`
+
+The workflow describes sequence.
+The standards document defines what “good enough” means at each content layer.
+
 ## Workflow overview
 
 1. Define the dataset charter
@@ -60,6 +66,8 @@ For each period:
 - assign geography ids
 - add brief internal rationale notes where useful
 
+Selection should follow the event standard in `docs/dataset-authoring-standards.md`, not fame or quota alone.
+
 ## 5. Snapshot and scale authorship
 
 For each period:
@@ -78,6 +86,8 @@ After events and pressures are stable:
 
 This is another high-complexity step and may justify a higher-reasoning model.
 
+Echoes should be graded explicitly as strong, moderate, or exploratory structural drafts.
+
 ## 7. Review and validation
 
 Check:
@@ -92,6 +102,11 @@ If model-authored draft candidates have been added during prototyping:
 - mark them explicitly as draft candidates
 - keep them out of the mentally "fully validated" set
 - move them into a source-backed review phase before treating them as settled content
+
+Review should now also check:
+- whether period summaries are plain-language enough
+- whether lived voice is genuinely human and accessible
+- whether the strongest periods are overpowering weaker ones in the field
 
 ## 8. Publish dataset maturity
 

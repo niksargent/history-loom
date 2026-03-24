@@ -36,6 +36,21 @@ function buildPath(points: PressureOverlaySeries['points'], width: number, heigh
   return coordinates.join(' ')
 }
 
+function buildEchoRoutePath(fromIndex: number, toIndex: number, count: number) {
+  if (count <= 0 || fromIndex === toIndex) {
+    return ''
+  }
+
+  const columnWidth = 1100 / count
+  const startX = fromIndex * columnWidth + columnWidth / 2
+  const endX = toIndex * columnWidth + columnWidth / 2
+  const distance = Math.abs(toIndex - fromIndex)
+  const baseY = 132
+  const canopyY = Math.max(18, 58 - distance * 7)
+
+  return `M ${startX.toFixed(2)} ${baseY.toFixed(2)} L ${startX.toFixed(2)} ${canopyY.toFixed(2)} L ${endX.toFixed(2)} ${canopyY.toFixed(2)} L ${endX.toFixed(2)} ${baseY.toFixed(2)}`
+}
+
 function getSeriesClass(
   seriesId: string,
   selectedPressureId: string | null,
@@ -50,6 +65,23 @@ function getSeriesClass(
   }
 
   return selectedPressureId === seriesId ? 'opacity-100' : 'opacity-10'
+}
+
+function sortSeriesForRender(
+  series: PressureOverlaySeries[],
+  selectedPressureId: string | null,
+) {
+  return [...series].sort((left, right) => {
+    if (left.id === selectedPressureId) {
+      return 1
+    }
+
+    if (right.id === selectedPressureId) {
+      return -1
+    }
+
+    return 0
+  })
 }
 
 export function LoomCanvas({
@@ -74,6 +106,19 @@ export function LoomCanvas({
       ? overlaySeries.find((series) => series.id === selectedPressureId) ?? null
       : null
   const compactStack = density === 'compact'
+  const selectedIndex = periods.findIndex((period) => period.id === selectedPeriodId)
+  const echoRouteIndexes = showEchoes
+    ? periods
+        .map((period, index) =>
+          echoCounterpartIds.has(period.id) && index !== selectedIndex
+            ? { id: period.id, index, active: period.id === activeEchoCounterpartId }
+            : null,
+        )
+        .filter((value): value is { id: string; index: number; active: boolean } => value !== null)
+    : []
+  const mutedEchoRoutes = echoRouteIndexes.filter((route) => !route.active)
+  const activeEchoRoute = echoRouteIndexes.find((route) => route.active) ?? null
+  const renderedSeries = sortSeriesForRender(overlaySeries, selectedPressureId)
 
   return (
     <section className="glass-panel reveal-up overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)]">
@@ -82,7 +127,7 @@ export function LoomCanvas({
           <div>
             <p className="eyebrow">The Loom</p>
             <h2 className="font-display text-2xl text-stone-100 md:text-3xl">
-              Periods, visible pressure, curated echoes
+              The field at a glance
             </h2>
           </div>
           <div className="max-w-xl text-sm leading-6 text-stone-400">
@@ -92,14 +137,14 @@ export function LoomCanvas({
                 {selectedSeries.description}
               </>
             ) : (
-              <>Select a pressure to trace one force across the whole field.</>
+              <>Choose a force to trace it across the field.</>
             )}
           </div>
         </div>
 
         {comparePicking ? (
           <div className="surface-depth reveal-up reveal-delay-1 mt-4 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50">
-            Compare is ready. Amber marks the period you started from. Choose the second period directly on the Loom.
+            Compare is ready. Pick the second period directly on the Loom.
           </div>
         ) : null}
 
@@ -138,11 +183,9 @@ export function LoomCanvas({
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
-          <p className="text-xs leading-6 text-stone-500">
-            {compactStack
-              ? 'Compact period stack reduces unselected cards to date and title while the active card opens wider.'
-              : 'Expanded period stack gives each period more room for reading.'}
-          </p>
+          <span className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-400">
+            Stack density
+          </span>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
@@ -264,11 +307,13 @@ export function LoomCanvas({
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            {overlaySeries.map((series) => (
+            {renderedSeries.map((series) => (
               <path
                 key={series.id}
                 d={buildPath(series.points, 1100, 160)}
-                className={`transition-opacity duration-500 ${getSeriesClass(
+                className={`transition-opacity duration-500 ${
+                  series.id === selectedPressureId && showPressureOverlay ? 'pressure-selected' : ''
+                } ${getSeriesClass(
                   series.id,
                   selectedPressureId,
                   showPressureOverlay,
@@ -286,6 +331,78 @@ export function LoomCanvas({
                 strokeLinejoin="round"
               />
             ))}
+            {mutedEchoRoutes.map((route) => {
+              const path = buildEchoRoutePath(selectedIndex, route.index, periods.length)
+              const sourceX = ((selectedIndex + 0.5) * 1100) / periods.length
+              const targetX = ((route.index + 0.5) * 1100) / periods.length
+              const distance = Math.abs(route.index - selectedIndex)
+              const canopyY = Math.max(18, 58 - distance * 7)
+
+              return (
+                <g key={`echo-route-${route.id}`}>
+                  <path
+                    d={path}
+                    className="echo-route-muted"
+                    pathLength="1"
+                    fill="none"
+                    stroke="rgba(165,243,252,0.28)"
+                    strokeWidth="1.35"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <circle
+                    cx={sourceX}
+                    cy="132"
+                    r="3.2"
+                    fill="rgba(250,204,21,0.46)"
+                  />
+                  <circle
+                    cx={sourceX}
+                    cy={canopyY}
+                    r="2.1"
+                    fill="rgba(250,204,21,0.3)"
+                  />
+                  <circle
+                    cx={targetX}
+                    cy="132"
+                    r="3.2"
+                    fill="rgba(165,243,252,0.52)"
+                  />
+                  <circle
+                    cx={targetX}
+                    cy={canopyY}
+                    r="2.1"
+                    fill="rgba(165,243,252,0.32)"
+                  />
+                </g>
+              )
+            })}
+            {activeEchoRoute ? (() => {
+              const path = buildEchoRoutePath(selectedIndex, activeEchoRoute.index, periods.length)
+              const sourceX = ((selectedIndex + 0.5) * 1100) / periods.length
+              const targetX = ((activeEchoRoute.index + 0.5) * 1100) / periods.length
+              const distance = Math.abs(activeEchoRoute.index - selectedIndex)
+              const canopyY = Math.max(18, 58 - distance * 7)
+
+              return (
+                <g key={`echo-route-active-${activeEchoRoute.id}`}>
+                  <path
+                    d={path}
+                    className="echo-route-trace"
+                    pathLength="1"
+                    fill="none"
+                    stroke="rgba(165,243,252,0.86)"
+                    strokeWidth="2.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <circle cx={sourceX} cy="132" r="4.8" fill="rgba(250,204,21,0.96)" />
+                  <circle cx={sourceX} cy={canopyY} r="3" fill="rgba(250,204,21,0.9)" />
+                  <circle cx={targetX} cy={canopyY} r="3" fill="rgba(165,243,252,0.9)" />
+                  <circle cx={targetX} cy="132" r="4.8" fill="rgba(165,243,252,0.96)" />
+                </g>
+              )
+            })() : null}
           </svg>
 
           <div
@@ -432,17 +549,17 @@ export function LoomCanvas({
                       </div>
                       {isCompareTarget ? (
                         <div className="mt-3 rounded-2xl border border-[rgba(251,113,133,0.18)] bg-[rgba(251,113,133,0.08)] px-3 py-2 text-xs leading-5 text-rose-100">
-                          Comparison period
+                          Compare
                         </div>
                       ) : null}
                       {isActiveEcho && !isCompareTarget ? (
                         <div className="mt-3 rounded-2xl border border-[rgba(103,232,249,0.22)] bg-[rgba(103,232,249,0.08)] px-3 py-2 text-xs leading-5 text-cyan-50">
-                          Echo in focus
+                          Echo focus
                         </div>
                       ) : null}
                       {showEchoState && !isCompareTarget && !isActiveEcho ? (
                         <div className="mt-3 rounded-2xl border border-[rgba(121,219,194,0.18)] bg-[rgba(121,219,194,0.08)] px-3 py-2 text-xs leading-5 text-cyan-100">
-                          Echoes active
+                          Echo
                         </div>
                       ) : null}
                     </div>

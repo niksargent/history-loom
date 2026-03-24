@@ -51,8 +51,13 @@ The USA dataset should be treated as `usable` when:
 The main remaining weaknesses are no longer raw event count. They are:
 - deciding whether the current snapshot layer is now accessible enough or needs a richer lived-voice layer
 
+That question has now been answered:
+- the lived-voice layer is in place
+- the next USA phase is therefore not more broad enrichment
+- it is `validation and quality review`
+
 ## Recommended next steps
 
-1. Decide whether the next accessibility gain should be a richer lived-voice layer rather than more snapshot rewriting.
-2. If yes, define how that layer should fit the current schema and detail flow.
-3. Only then decide whether more structural expansion is justified.
+1. Review the exploratory and moderate-strength draft echoes.
+2. Reassess period-level quality now that lived voice is present across the whole field.
+3. Tighten authoring standards before France seeding.

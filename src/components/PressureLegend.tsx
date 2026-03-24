@@ -129,7 +129,6 @@ export function PressureLegend({
     <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-6 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="eyebrow">Pressure Field</p>
           <h2 className="font-display text-2xl text-stone-100">Structural forces</h2>
         </div>
         <button
@@ -142,10 +141,9 @@ export function PressureLegend({
       </div>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
-        <p className="text-xs leading-6 text-stone-500">
-          Ordering and intensity reflect the selected period rather than the whole dataset.
-        </p>
-
+        <span className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-400">
+          Order
+        </span>
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
@@ -265,7 +263,7 @@ export function PressureLegend({
 
               <div className={`mt-4 rounded-[1.1rem] border px-3 py-3 ${tone.shell}`}>
                 <div className="flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.2em] text-stone-500">
-                  <span>In selected period</span>
+                  <span>Now</span>
                   <span className={tone.text}>{getIntensityLabel(currentValue)}</span>
                 </div>
 

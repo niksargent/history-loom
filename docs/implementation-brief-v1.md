@@ -38,16 +38,31 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - the next approved USA content move is a lived-voice layer built as an accessibility companion to the snapshot model
 - the USA snapshot model now supports optional lived-voice fields and renders them in the detail panel when present
 - the Britain snapshot model now also carries lived-voice fields and renders them in the detail panel
-- the next review should now be a full UI pass using the installed `frontend-skill`
+- the active refinement pass is now a documented exhibit UI pass using the installed `frontend-skill`
 
 Current refinement focus:
-- pause broad UI polishing and treat the current interface as good enough for the next phase
+- execute one bounded exhibit UI refinement pass focused on composition, copy economy, lived voice, and interpretive motion
+- the first implementation slice of that pass is now in place:
+  - simpler opening composition
+  - reduced interface narration
+  - promoted lived-voice presentation
+  - more purposeful trace/reveal motion
+- the second slice is now also in place:
+  - lived voice now sits above `Reading this period` as the human introduction to the selected era
+  - the page background now carries more atmosphere and less flat darkness
+  - active echoes now read more like routes through the field than static linked records, using a canopy-style loom route fan
+  - selected pressure focus now reliably preserves overlay visibility across force-entry surfaces without relying on unstable draw-on animation
+  - selected pressure focus in the detail panel now reads more like a live field moving through the current period and its event flashpoints, not just a list of values and tagged events
+  - remaining low-value structural copy has been reduced again across header state chips, force controls, compare-picking copy, and quiet echo states
 - keep Britain in selective validation mode
-- move effort into USA comparative validation, accessibility, and repeatable research operations
+- move effort into USA validation-and-quality review, authoring standards, and repeatable research operations
+- the period-by-period USA quality review is now complete; the next real data task is authoring-standard tightening, not more raw additions
+- the USA maturity checkpoint is now accepted, so France can begin from a stronger baseline than either Britain or early USA had
+- the France dataset charter is now written, so the next data task has shifted from USA maturity to France periodization and seeding design
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
 - keep geography implemented but paused pending product discussion
-- reserve future UI work for higher-value exhibit refinements such as motion, animation, progressive reveal, and staging
+- reserve any later UI work for further exhibit refinements beyond the current pass
 
 ## What is solid
 
@@ -74,12 +89,13 @@ The next quality threshold is interpretive clarity, not feature count:
 
 ## Recommended next sequence
 
-1. execute the Britain v2 data-expansion plan
-2. establish the repeatable authoring workflow and review process
-3. strengthen USA readability and validate draft additions
-4. delay cross-dataset compare until Britain and USA are both mature enough
-5. discuss geography before further map tuning or placement changes
-6. only then add one post-MVP expansion feature
+1. complete the bounded exhibit UI refinement pass
+2. keep Britain in selective validation mode and move USA into validation-and-quality review
+3. establish the repeatable authoring workflow, standards, and review process
+4. complete France periodization and seeding design from the shared authoring standards
+5. delay cross-dataset compare until Britain and USA are both mature enough
+6. discuss geography before further map tuning or placement changes
+7. only then add one post-MVP expansion feature
 
 ## Product intent
 

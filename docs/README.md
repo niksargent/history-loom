@@ -69,6 +69,7 @@ history-loom/
     data-schema.md
     content-taxonomy.md
     design-language.md
+    exhibit-ui-refinement-plan.md
     mvp-scope.md
     implementation-brief-v1.md
     britain-v2-data-expansion.md
@@ -81,11 +82,14 @@ history-loom/
     usa-v1-gap-audit.md
     usa-v1-validation-review.md
     usa-lived-voice-layer.md
+    usa-period-quality-review.md
     usa-periodization-proposal.md
     usa-initial-seed-candidates.md
     usa-snapshot-strategy.md
     usa-pressure-grounding-map.md
+    france-dataset-charter.md
     dataset-authoring-workflow.md
+    dataset-authoring-standards.md
     multi-dataset-strategy.md
     research-notes.md
   data/
@@ -161,6 +165,18 @@ In progress:
 - USA dataset has reached a first usable draft baseline with a first plain-language snapshot uplift completed
 - the USA lived-voice / vox-pop style content pass is now implemented
 - the Britain lived-voice / vox-pop style content pass is now implemented
+- the exhibit UI refinement pass is now in progress, with header simplification, copy reduction, stronger lived-voice presentation, and more purposeful reveal/trace motion now implemented
+- the next data phase is now USA validation-and-quality review rather than further open-ended expansion
+- the period-by-period USA quality review is now complete, with the remaining watchlist concentrated in `us-p01`, `us-p02`, and `us-p07`
+- authoring standards are now being tightened so France starts from a clearer content method than either Britain or early USA did
+- the USA maturity checkpoint is now accepted: USA is template dataset 2 at usable-draft maturity, so France can begin without waiting for USA perfection
+- France chartering is now active as dataset 3, with the charter complete and periodization/seeding next
+- lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
+- the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
+- active echoes now render more spatially, with a canopy-style route fan in the Loom and a matching constellation treatment in the detail panel
+- selected pressure focus now keeps the pressure overlay active regardless of whether the force was chosen from the Loom or the structural-force panel, using stable highlight behavior rather than animated line drawing
+- selected pressure focus in the detail panel now uses a more embodied field-to-period-to-flashpoint treatment rather than a simple descriptive score block
+- a final ink-economy pass has trimmed more low-value structural copy from header state pills, force controls, compare prompting, and empty echo states
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
 - future UI refinement, if revisited later, should focus on motion, animation, progressive reveal, and exhibit staging rather than broad layout change
 
@@ -180,12 +196,12 @@ Deferred:
 
 The next delivery sequence should be:
 1. treat Britain as template dataset 1 rather than an active expansion target
-2. run a top-to-bottom UI review using the installed `frontend-skill`
+2. complete the bounded exhibit UI refinement pass documented in `docs/exhibit-ui-refinement-plan.md`
 3. keep Britain in selective validation mode rather than open-ended enrichment
-4. hold cross-dataset compare until both datasets are mature enough to support it honestly
-5. keep UI work paused except for clear breakages or later exhibit-grade refinement
+4. complete France periodization and seeding plans from the shared Britain/USA standards baseline
+5. hold cross-dataset compare until both datasets are mature enough to support it honestly
 6. discuss geography before doing any further tuning or placement changes
-7. only then choose the next product expansion, most likely France chartering, thematic filtering, or guided narrative
+7. only then choose the next product expansion after France setup, most likely thematic filtering or guided narrative
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect
@@ -196,7 +212,7 @@ One future content direction should remain visible:
 - a likely answer is a `vox pop` or street-voice panel in the detail area, answering questions like `how are things affecting you?` and `what is everyday life like?` in clear, plain language
 - the goal is not just to show structure, but to make the structure felt
 - that lived-voice layer should be implemented for USA first and then Britain
-- once both datasets have it, the next full product pass should be a top-to-bottom UI review using the installed `frontend-skill`
+- now that both datasets have it, the next full product pass is the current exhibit UI refinement pass using the installed `frontend-skill`
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data

@@ -1,6 +1,6 @@
 {
   "datasetId": "united-states-1776-2025",
-  "phase": "usable-enrichment",
+  "phase": "usable-draft-checkpoint-complete",
   "completed": [
     {
       "id": "usa-task-01",
@@ -66,14 +66,34 @@
       "id": "usa-task-13",
       "label": "Backfill the lived-voice layer into Britain after the USA version is complete",
       "status": "done"
+    },
+    {
+      "id": "usa-task-14",
+      "label": "Run a top-to-bottom UI review with frontend-skill after USA and Britain lived-voice layers are in place",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-15",
+      "label": "Run a period-by-period USA validation and quality review",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-16",
+      "label": "Tighten authoring standards using Britain and USA together",
+      "status": "done"
+    },
+    {
+      "id": "usa-task-17",
+      "label": "Make a USA maturity checkpoint decision before France seeding",
+      "status": "done"
     }
   ],
   "next": [
     {
-      "id": "usa-task-14",
-      "label": "Run a top-to-bottom UI review with frontend-skill after USA and Britain lived-voice layers are in place",
+      "id": "france-task-01",
+      "label": "Write the France dataset charter using the Britain and USA standards baseline",
       "priority": "high",
-      "reason": "The right moment for the next full UI review is after the richer human-content layer is visible in the live interface."
+      "reason": "France is now the next dataset and should begin from the stronger repeatable method rather than from ad hoc expansion."
     }
   ]
 }

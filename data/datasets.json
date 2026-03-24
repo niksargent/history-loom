@@ -5,8 +5,8 @@
     "scope": "Britain",
     "startYear": 1066,
     "endYear": 2025,
-    "status": "usable",
-    "currentPriority": "britain-v2-gap-audit-and-enrichment",
+    "status": "template-dataset-1",
+    "currentPriority": "selective-validation",
     "defaultLensId": "britain-80-year-civic",
     "availableLensIds": [
       "britain-80-year-civic"
@@ -36,7 +36,7 @@
       "europe",
       "global"
     ],
-    "notes": "Current active dataset. UI is stable enough; next phase is data density, thematic coverage, and stronger linkage."
+    "notes": "Template dataset 1. Broad enrichment is closed; Britain now sits in selective validation and occasional targeted correction."
   },
   {
     "id": "united-states-1776-2025",
@@ -44,8 +44,8 @@
     "scope": "United States",
     "startYear": 1776,
     "endYear": 2025,
-    "status": "seeding",
-    "currentPriority": "source-backed-periodization-and-anchor-events",
+    "status": "usable-draft",
+    "currentPriority": "selective-validation-before-france",
     "defaultLensId": "usa-civic-8-era",
     "availableLensIds": [
       "usa-civic-8-era"
@@ -69,6 +69,39 @@
       "north-america",
       "global"
     ],
-    "notes": "Chosen as dataset 2. Source-backed seeding is now in progress, beginning with an 8-era civic lens proposal and a first anchor-event shortlist."
+    "notes": "Template dataset 2 at usable-draft maturity. Broad enrichment is closed; the active posture is selective validation while France chartering begins."
+  },
+  {
+    "id": "france-1789-2025",
+    "label": "France, 1789-2025",
+    "scope": "France",
+    "startYear": 1789,
+    "endYear": 2025,
+    "status": "chartering",
+    "currentPriority": "dataset-charter-and-periodization",
+    "defaultLensId": "france-civic-tbd",
+    "availableLensIds": [
+      "france-civic-tbd"
+    ],
+    "supportedThemeIds": [
+      "legitimacy",
+      "order",
+      "fracture",
+      "technology",
+      "labour",
+      "belief",
+      "identity",
+      "inequality",
+      "reform",
+      "empire",
+      "war",
+      "information"
+    ],
+    "supportedGeographyIds": [
+      "france",
+      "europe",
+      "global"
+    ],
+    "notes": "Dataset 3. Chartering has begun, with periodization and seed planning still to be defined before any runtime dataset is created."
   }
 ]

@@ -296,11 +296,11 @@ function CompareMatrixSection({
       <div className="absolute inset-y-5 left-1/2 hidden w-px -translate-x-1/2 bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.18),rgba(255,255,255,0))] xl:block" />
       <div className="relative flex flex-wrap items-center justify-between gap-4">
         <p className="eyebrow">{title}</p>
-        <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
-          {overlap.length
-            ? `${overlap.length} shared motif${overlap.length === 1 ? '' : 's'}`
-            : 'Difference is stronger here'}
-        </span>
+          <span className="text-xs uppercase tracking-[0.18em] text-stone-500">
+            {overlap.length
+              ? `${overlap.length} shared motif${overlap.length === 1 ? '' : 's'}`
+              : 'More distinct than shared'}
+          </span>
       </div>
 
       <div className="relative mt-4 grid gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)_minmax(0,1fr)]">
@@ -308,19 +308,19 @@ function CompareMatrixSection({
           label="Source period"
           tone="source"
           items={sourceOnly}
-          emptyLabel="Little sits only on this side."
+          emptyLabel="Distinct elsewhere."
         />
         <CompareBucket
           label="Shared"
           tone="shared"
           items={overlap}
-          emptyLabel="No clear overlap in this category."
+          emptyLabel="No shared motif."
         />
         <CompareBucket
           label="Comparison period"
           tone="target"
           items={targetOnly}
-          emptyLabel="Little sits only on this side."
+          emptyLabel="Distinct elsewhere."
         />
       </div>
     </section>
@@ -520,9 +520,6 @@ export function ComparePanel({
               >
                 Structural comparison
               </h2>
-              <p className="mt-3 text-sm leading-6 text-stone-300">
-                Amber marks the period you started from. Rose marks the period opened beside it.
-              </p>
             </div>
 
             <button
@@ -593,7 +590,7 @@ export function ComparePanel({
               label="Shared values"
               tone="shared"
               items={sharedValues}
-              emptyLabel="Different values lead each period."
+              emptyLabel="Different values lead."
             />
             <CompareBucket
               label="Shared mood"
@@ -605,7 +602,7 @@ export function ComparePanel({
               label="Shared pressures"
               tone="shared"
               items={sharedPressures}
-              emptyLabel="Different forces dominate each period."
+              emptyLabel="Different forces dominate."
             />
           </div>
 

@@ -1,0 +1,25 @@
+{
+  "datasetId": "france-1789-2025",
+  "phase": "chartering",
+  "completed": [
+    {
+      "id": "france-task-01",
+      "label": "Write the France dataset charter using the Britain and USA standards baseline",
+      "status": "done"
+    }
+  ],
+  "next": [
+    {
+      "id": "france-task-02",
+      "label": "Write the France periodization proposal",
+      "priority": "high",
+      "reason": "France depends on a strong regime-and-legitimacy lens, and that lens must be settled before seed content starts."
+    },
+    {
+      "id": "france-task-03",
+      "label": "Write the France seeding plan and first anchor-event shortlist",
+      "priority": "high",
+      "reason": "The next content move should be source-backed seeding, not premature runtime data files."
+    }
+  ]
+}

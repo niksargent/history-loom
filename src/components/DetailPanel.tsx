@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useState, type CSSProperties, type ReactNode } from 'react'
 import { formatConfidence, sentenceCase, titleCaseLabel } from '../lib/format'
 import {
   buildGeographyInsetModel,
@@ -81,7 +81,7 @@ function buildPeriodReading(
 }
 
 interface SectionDisclosureProps {
-  eyebrow: string
+  eyebrow?: string
   title: string
   summary: string
   isCollapsed: boolean
@@ -101,8 +101,8 @@ function SectionDisclosure({
     <section className="reveal-up">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="eyebrow">{eyebrow}</p>
-          <h3 className="mt-1 text-base text-stone-100">{title}</h3>
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+          <h3 className={`${eyebrow ? 'mt-1' : ''} text-base text-stone-100`}>{title}</h3>
           {isCollapsed ? (
             <p className="mt-2 max-w-xl text-sm leading-6 text-stone-400">{summary}</p>
           ) : null}
@@ -119,6 +119,238 @@ function SectionDisclosure({
 
       {!isCollapsed ? <div className="mt-3">{children}</div> : null}
     </section>
+  )
+}
+
+function LivedVoiceCard({
+  title,
+  speakerFrame,
+  prompt,
+  response,
+}: {
+  title: string
+  speakerFrame?: string
+  prompt?: string
+  response: string
+}) {
+  return (
+    <article className="voice-shell reveal-up reveal-delay-1 relative overflow-hidden rounded-[1.35rem] border p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(243,177,91,0.08),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(121,219,194,0.08),_transparent_34%)]" />
+      <div className="relative">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="eyebrow">Lived voice</p>
+            <h3 className="mt-2 text-base text-stone-100">{title}</h3>
+            {speakerFrame ? (
+              <p className="mt-2 text-sm leading-6 text-stone-300">{speakerFrame}</p>
+            ) : null}
+          </div>
+          <div className="voice-wave" aria-hidden="true">
+            {Array.from({ length: 12 }, (_, index) => (
+              <span key={`${title}-voice-bar-${index}`} />
+            ))}
+          </div>
+        </div>
+        {prompt ? <p className="mt-4 text-sm leading-6 text-stone-500">{prompt}</p> : null}
+        <p className="mt-4 max-w-3xl text-base leading-7 text-stone-50 md:text-lg">“{response}”</p>
+      </div>
+    </article>
+  )
+}
+
+function getPressureFieldTone(polarity: PressureOverlaySeries['polarity']) {
+  return polarity === 'stress'
+    ? {
+        accent: '243,177,91',
+        shell: 'border-amber-300/18 bg-amber-300/7',
+        chip: 'border-amber-300/20 text-amber-100',
+        text: 'text-amber-100',
+      }
+    : {
+        accent: '121,219,194',
+        shell: 'border-cyan-300/18 bg-cyan-300/7',
+        chip: 'border-cyan-300/20 text-cyan-100',
+        text: 'text-cyan-100',
+      }
+}
+
+function getPressureStateLabel(value: number, polarity: PressureOverlaySeries['polarity']) {
+  if (value >= 80) {
+    return polarity === 'stress' ? 'Peak strain' : 'Holding firm'
+  }
+
+  if (value >= 60) {
+    return polarity === 'stress' ? 'Rising strain' : 'Holding line'
+  }
+
+  if (value >= 40) {
+    return polarity === 'stress' ? 'Present strain' : 'Steady support'
+  }
+
+  return polarity === 'stress' ? 'Background strain' : 'Light support'
+}
+
+function PressureFocusField({
+  pressureCascade,
+  periodTitle,
+}: {
+  pressureCascade: NonNullable<ReturnType<typeof buildPressureCascade>>
+  periodTitle: string
+}) {
+  const tone = getPressureFieldTone(pressureCascade.polarity)
+  const matchedEvents = [...pressureCascade.matchedEvents].sort(
+    (left, right) => left.startYear - right.startYear,
+  )
+  const fieldStyle = {
+    '--force-accent': tone.accent,
+  } as CSSProperties
+
+  return (
+    <section
+      className={`surface-depth reveal-up reveal-delay-1 rounded-[1.5rem] border p-4 ${tone.shell}`}
+      style={fieldStyle}
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="eyebrow">Force in focus</p>
+          <h3 className="mt-2 text-base text-stone-100">{pressureCascade.label}</h3>
+          <p className="mt-3 text-sm leading-6 text-stone-300">{pressureCascade.description}</p>
+        </div>
+        <div className="text-right">
+          <span
+            className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] ${tone.chip}`}
+          >
+            {pressureCascade.value}
+          </span>
+          <p className={`mt-2 text-[11px] uppercase tracking-[0.18em] ${tone.text}`}>
+            {getPressureStateLabel(pressureCascade.value, pressureCascade.polarity)}
+          </p>
+        </div>
+      </div>
+
+      <div className="force-flow-shell mt-5 rounded-[1.3rem] border border-white/8 bg-black/18 px-4 py-4">
+        <div className="force-flow-header">
+          <div className="force-flow-kicker">
+            <span className="force-flow-dot force-flow-dot-source" />
+            <span>Field climate</span>
+          </div>
+          <div className="force-flow-kicker">
+            <span className="force-flow-dot force-flow-dot-event" />
+            <span>
+              {matchedEvents.length
+                ? `${matchedEvents.length} flashpoint${matchedEvents.length === 1 ? '' : 's'}`
+                : 'No named flashpoint'}
+            </span>
+          </div>
+        </div>
+
+        <div className="force-flow-layout mt-4">
+          <div className="force-flow-rail" aria-hidden="true">
+            <span className="force-flow-beam" />
+            <span className="force-flow-dot force-flow-dot-source force-flow-dot-float" />
+            <span className="force-flow-dot force-flow-dot-core force-flow-pulse" />
+          </div>
+
+          <div className="force-flow-core rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4">
+            <p className="eyebrow">Through</p>
+            <h4 className="mt-2 text-base text-stone-100">{periodTitle}</h4>
+            <p className="mt-3 text-sm leading-6 text-stone-300">
+              {matchedEvents.length
+                ? `This force shows up in the named events below and concentrates most clearly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
+                : 'Here it reads as atmosphere around the period rather than one single turning point.'}
+            </p>
+
+            <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/7">
+              <div
+                className="force-flow-fill h-full rounded-full"
+                style={{ width: `${pressureCascade.value}%` }}
+              />
+            </div>
+
+            {pressureCascade.impactedScales.length ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {pressureCascade.impactedScales.map((scale) => (
+                  <span
+                    key={scale}
+                    className={`rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${getScaleAccent(scale)}`}
+                  >
+                    {titleCaseLabel(scale)}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="grid gap-3">
+            {matchedEvents.length ? (
+              matchedEvents.map((event) => (
+                <article
+                  key={event.id}
+                  className="force-flow-event rounded-[1.15rem] border border-white/8 bg-white/[0.03] p-4"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <h4 className={`text-sm uppercase tracking-[0.18em] ${tone.text}`}>
+                      {event.title}
+                    </h4>
+                    <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
+                      {event.geography}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
+                </article>
+              ))
+            ) : (
+              <div className="rounded-[1.15rem] border border-dashed border-white/8 bg-white/[0.025] px-4 py-5 text-sm leading-6 text-stone-400">
+                Atmosphere only.
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function EchoConstellation({
+  sourceTitle,
+  echoes,
+  activeEchoId,
+}: {
+  sourceTitle: string
+  echoes: SelectedPeriodDetail['echoes']
+  activeEchoId: string | null
+}) {
+  return (
+    <div className="rounded-[1rem] border border-cyan-300/14 bg-black/18 px-3 py-3">
+      <div className="echo-constellation">
+        <div className="echo-constellation-source">
+          <span className="echo-route-stop echo-route-stop-source" />
+          <span className="text-[11px] uppercase tracking-[0.18em] text-amber-100">{sourceTitle}</span>
+        </div>
+        <div className="echo-constellation-branches">
+          {echoes.map((echo) => {
+            const isActive = echo.link.id === activeEchoId
+
+            return (
+              <div
+                key={`constellation-${echo.link.id}`}
+                className={`echo-constellation-branch ${isActive ? 'echo-constellation-branch-active' : ''}`}
+              >
+                <span className="echo-route-track" />
+                <span className="echo-route-stop echo-route-stop-target" />
+                <span
+                  className={`text-[11px] uppercase tracking-[0.18em] ${
+                    isActive ? 'text-cyan-50' : 'text-cyan-100/80'
+                  }`}
+                >
+                  {echo.counterpart.title}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -164,8 +396,7 @@ function DetailSections({
   return (
     <>
       <SectionDisclosure
-        eyebrow="What shifted"
-        title="What emerged and what frayed"
+        title="What changed"
         summary={`${period.whatEmerged.concat(period.newPossibilities).slice(0, 5).length} gains in view, ${period.whatFaded.concat(period.whatBroke).slice(0, 5).length} losses in view.`}
         isCollapsed={collapsedSections.shifts}
         onToggle={() => toggleSection('shifts')}
@@ -195,9 +426,8 @@ function DetailSections({
       </SectionDisclosure>
 
       <SectionDisclosure
-        eyebrow="Multi-scale read"
-        title="The same period across several scales"
-        summary={`${scaleSummaries.length} scale reads stay available here.`}
+        title="Across scales"
+        summary={`${scaleSummaries.length} scale views stay available here.`}
         isCollapsed={collapsedSections.scales}
         onToggle={() => toggleSection('scales')}
       >
@@ -229,8 +459,7 @@ function DetailSections({
       </SectionDisclosure>
 
       <SectionDisclosure
-        eyebrow="Pressure summary"
-        title="Tracked forces in this period"
+        title="Forces in play"
         summary={
           selectedPressureSeries
             ? `${selectedPressureSeries.label} is in focus within ${pressureSnapshots.length} tracked forces.`
@@ -273,12 +502,11 @@ function DetailSections({
       </SectionDisclosure>
 
       <SectionDisclosure
-        eyebrow="Echo journey"
-        title="Follow the rhyme"
+        title="Follow echoes"
         summary={
           echoes.length
             ? `${echoes.length} curated echo${echoes.length === 1 ? '' : 'es'} open outward from this period.`
-            : 'No curated echo pair is attached to this period yet.'
+            : 'No echo yet.'
         }
         isCollapsed={collapsedSections.echoes}
         onToggle={() => toggleSection('echoes')}
@@ -317,8 +545,7 @@ function DetailSections({
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="eyebrow">Next echo</p>
-                      <h4 className="mt-2 text-sm uppercase tracking-[0.22em] text-cyan-100">
+                      <h4 className="text-sm uppercase tracking-[0.22em] text-cyan-100">
                         {activeEcho.counterpart.title}
                       </h4>
                       <p className="mt-1 text-xs uppercase tracking-[0.18em] text-stone-500">
@@ -328,6 +555,14 @@ function DetailSections({
                     <span className="rounded-full border border-white/8 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
                       {formatConfidence(activeEcho.link.confidence)}
                     </span>
+                  </div>
+
+                  <div className="mt-4">
+                    <EchoConstellation
+                      sourceTitle={period.title}
+                      echoes={echoes}
+                      activeEchoId={activeEcho.link.id}
+                    />
                   </div>
 
                   <p className="mt-3 text-sm leading-6 text-stone-200">
@@ -369,16 +604,15 @@ function DetailSections({
             </>
           ) : (
             <div className="rounded-[1.25rem] border border-white/8 bg-white/4 p-4 text-sm leading-6 text-stone-400">
-              This period does not yet have a curated echo pair.
+              No echo yet.
             </div>
           )}
         </div>
       </SectionDisclosure>
 
       <SectionDisclosure
-        eyebrow="Events and lived texture"
-        title="Named events and daily life"
-        summary={`${events.length} event${events.length === 1 ? '' : 's'}${snapshot ? ' and one lived snapshot' : ''} anchor this period.`}
+        title="Events and lived voice"
+        summary={`${events.length} event${events.length === 1 ? '' : 's'}${snapshot?.response ? ' plus one voice' : snapshot ? ' plus one snapshot' : ''} anchor this period.`}
         isCollapsed={collapsedSections.texture}
         onToggle={() => toggleSection('texture')}
       >
@@ -420,24 +654,9 @@ function DetailSections({
               </h4>
               <p className="mt-3 text-sm leading-6 text-stone-200">{snapshot.summary}</p>
               <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.dailyReality}</p>
-              {snapshot.response ? (
-                <div className="mt-4 rounded-[1rem] border border-white/8 bg-black/15 p-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="eyebrow">Lived voice</span>
-                    {snapshot.speakerFrame ? (
-                      <span className="rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300">
-                        {snapshot.speakerFrame}
-                      </span>
-                    ) : null}
-                  </div>
-                  {snapshot.prompt ? (
-                    <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.prompt}</p>
-                  ) : null}
-                  <p className="mt-3 text-sm leading-6 text-stone-100">{snapshot.response}</p>
-                </div>
-              ) : null}
             </article>
           ) : null}
+
         </div>
       </SectionDisclosure>
     </>
@@ -483,7 +702,7 @@ export function DetailPanel({
   onCompareToPeriod,
   onViewModeChange,
 }: DetailPanelProps) {
-  const { period } = detail
+  const { period, snapshot } = detail
   const pressureCascade = buildPressureCascade(detail, selectedPressureId, datasetId)
   const periodReading = buildPeriodReading(detail, selectedPressureSeries)
   const leadPressureChipLabel =
@@ -514,7 +733,6 @@ export function DetailPanel({
         <div className="border-b border-white/10 px-6 py-5 md:px-7">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="eyebrow">Selected period</p>
               <h2 className="font-display text-2xl text-stone-100">{period.title}</h2>
               <p className="mt-2 text-sm uppercase tracking-[0.2em] text-stone-500">
                 {period.rangeLabel}
@@ -596,21 +814,24 @@ export function DetailPanel({
 
           {comparePicking ? (
             <p className="mt-4 text-sm leading-6 text-amber-100/90">
-              Choose the second period on the Loom.
-            </p>
-          ) : null}
-
-          {compareActive ? (
-            <p className="mt-4 text-sm leading-6 text-rose-100/85">
-              Comparison stays open with the rose-marked period.
+              Choose the second period.
             </p>
           ) : null}
         </div>
 
         {isOpen ? (
           <div className="flex-1 space-y-7 overflow-y-auto px-6 py-6 md:px-7">
+            {snapshot?.response ? (
+              <LivedVoiceCard
+                title={snapshot.title}
+                speakerFrame={snapshot.speakerFrame}
+                prompt={snapshot.prompt}
+                response={snapshot.response}
+              />
+            ) : null}
+
             <section className="surface-depth reveal-up rounded-[1.5rem] border border-[rgba(214,211,209,0.08)] p-4">
-              <p className="eyebrow">Reading this period</p>
+              <h3 className="text-base text-stone-100">Reading this period</h3>
               <p className="mt-3 text-sm leading-6 text-stone-200">{periodReading}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-300">
@@ -618,7 +839,7 @@ export function DetailPanel({
                 </span>
                 {leadPressureChipLabel ? (
                   <span className="rounded-full border border-[rgba(243,177,91,0.18)] bg-[rgba(243,177,91,0.08)] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-amber-100">
-                    Lead pressure: {leadPressureChipLabel}
+                    {leadPressureChipLabel}
                   </span>
                 ) : null}
               </div>
@@ -627,83 +848,7 @@ export function DetailPanel({
             {supportsInsetMap ? <GeographyInset model={geographyModel} /> : null}
 
             {pressureCascade && selectedPressureSeries ? (
-              <section className="surface-depth reveal-up reveal-delay-1 rounded-[1.5rem] border border-amber-300/14 bg-amber-300/7 p-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="eyebrow">Pressure cascade</p>
-                    <h3 className="mt-2 text-base text-stone-100">{pressureCascade.label}</h3>
-                    <p className="mt-3 text-sm leading-6 text-stone-300">
-                      {pressureCascade.description}
-                    </p>
-                  </div>
-                  <span className="rounded-full border border-amber-300/20 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-amber-100">
-                    {pressureCascade.value}
-                  </span>
-                </div>
-
-                <div className="surface-depth mt-4 rounded-[1.25rem] border border-white/10 bg-black/20 p-4">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-amber-100">
-                    Reading this period through {pressureCascade.label.toLowerCase()}
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-stone-200">
-                    {period.title} feels this force at {pressureCascade.value}/100.
-                    {pressureCascade.matchedEvents.length
-                      ? ` It gathers around ${pressureCascade.matchedEvents.length} named event${pressureCascade.matchedEvents.length === 1 ? '' : 's'} and reads most strongly at ${pressureCascade.impactedScales.length ? pressureCascade.impactedScales.map((scale) => titleCaseLabel(scale)).join(', ').toLowerCase() : 'the visible event layer'}.`
-                      : ' Here it shapes the climate of the period more than one named turning point.'}
-                  </p>
-                </div>
-
-                <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/7">
-                  <div
-                    className={`h-full rounded-full ${
-                      pressureCascade.polarity === 'stress'
-                        ? 'bg-amber-300/85'
-                        : 'bg-cyan-300/85'
-                    }`}
-                    style={{ width: `${pressureCascade.value}%` }}
-                  />
-                </div>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {pressureCascade.impactedScales.length ? (
-                    pressureCascade.impactedScales.map((scale) => (
-                      <span
-                        key={scale}
-                        className={`rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${getScaleAccent(scale)}`}
-                      >
-                        {titleCaseLabel(scale)}
-                      </span>
-                    ))
-                  ) : (
-                    <span className="text-sm leading-6 text-stone-400">
-                      No named event in this period is tagged directly to this force.
-                    </span>
-                  )}
-                </div>
-
-                {pressureCascade.matchedEvents.length ? (
-                  <div className="mt-4 grid gap-3">
-                    {pressureCascade.matchedEvents.map((event) => (
-                      <article
-                        key={event.id}
-                        className="rounded-[1.25rem] border border-amber-300/16 bg-black/15 p-4"
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <h4 className="text-sm uppercase tracking-[0.18em] text-amber-100">
-                            {event.title}
-                          </h4>
-                          <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                            {event.geography}
-                          </span>
-                        </div>
-                        <p className="mt-3 text-sm leading-6 text-stone-300">
-                          {event.summary}
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-                ) : null}
-              </section>
+              <PressureFocusField pressureCascade={pressureCascade} periodTitle={period.title} />
             ) : null}
 
             <DetailSections

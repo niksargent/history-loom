@@ -107,6 +107,6 @@ That means:
 ## Recommended next step
 
 Move next into:
-- `lived-voice layer decision`
+- `USA validation-and-quality review`
 
-The plain-language snapshot uplift is now complete. The next accessibility gain should come from deciding whether to add a richer plain-language voice layer rather than continuing to rewrite structural summaries.
+The lived-voice layer is now complete. The next gain should come from reviewing comparative confidence, period-level quality, and the standards that future datasets should inherit.

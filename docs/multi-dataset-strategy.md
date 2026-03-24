@@ -88,6 +88,10 @@ Current decision:
 - dataset 2 = `United States, 1776-2025`
 - dataset 3 candidate = `France`
 
+Status update:
+- France is no longer just a candidate
+- France chartering has now begun as dataset 3
+
 Current implication:
 - USA is the first planned dataset likely to use a different period count and non-equal period durations from Britain
 - minimum multi-dataset mechanics should therefore avoid assuming `12 periods` or `equal-width periods`

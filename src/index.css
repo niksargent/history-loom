@@ -98,6 +98,277 @@ button:focus-visible {
   transform: translateY(1px);
 }
 
+.voice-shell {
+  border-color: rgba(214, 211, 209, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    linear-gradient(135deg, rgba(8, 10, 11, 0.9), rgba(14, 17, 19, 0.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 40px rgba(0, 0, 0, 0.26);
+}
+
+.voice-wave {
+  display: inline-flex;
+  align-items: end;
+  gap: 0.22rem;
+  height: 1.75rem;
+}
+
+.voice-wave span {
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(243, 177, 91, 0.92), rgba(121, 219, 194, 0.9));
+  animation: voice-flicker 1.8s ease-in-out infinite;
+}
+
+.voice-wave span:nth-child(1),
+.voice-wave span:nth-child(7) {
+  height: 0.75rem;
+}
+
+.voice-wave span:nth-child(2),
+.voice-wave span:nth-child(10) {
+  height: 1.35rem;
+  animation-delay: 120ms;
+}
+
+.voice-wave span:nth-child(3),
+.voice-wave span:nth-child(9) {
+  height: 1rem;
+  animation-delay: 220ms;
+}
+
+.voice-wave span:nth-child(4),
+.voice-wave span:nth-child(8) {
+  height: 1.55rem;
+  animation-delay: 320ms;
+}
+
+.voice-wave span:nth-child(5),
+.voice-wave span:nth-child(12) {
+  height: 0.9rem;
+  animation-delay: 180ms;
+}
+
+.voice-wave span:nth-child(6),
+.voice-wave span:nth-child(11) {
+  height: 1.2rem;
+  animation-delay: 260ms;
+}
+
+.force-flow-shell {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(var(--force-accent), 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    rgba(7, 9, 10, 0.28);
+}
+
+.force-flow-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.force-flow-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(214, 211, 209, 0.72);
+}
+
+.force-flow-layout {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.force-flow-rail {
+  position: relative;
+  min-height: 100%;
+}
+
+.force-flow-beam {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--force-accent), 0.18),
+    rgba(var(--force-accent), 0.68) 32%,
+    rgba(var(--force-accent), 0.3)
+  );
+}
+
+.force-flow-dot {
+  position: absolute;
+  left: 50%;
+  width: 0.72rem;
+  height: 0.72rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.force-flow-dot-source {
+  background: rgba(var(--force-accent), 0.74);
+  top: 0.2rem;
+}
+
+.force-flow-dot-core {
+  width: 0.98rem;
+  height: 0.98rem;
+  top: 5.75rem;
+  background: rgba(var(--force-accent), 0.98);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 20px rgba(var(--force-accent), 0.32);
+}
+
+.force-flow-dot-event {
+  position: static;
+  transform: none;
+  width: 0.52rem;
+  height: 0.52rem;
+  background: rgba(var(--force-accent), 0.9);
+  box-shadow: 0 0 12px rgba(var(--force-accent), 0.24);
+}
+
+.force-flow-dot-float {
+  animation: force-drift 4.8s ease-in-out infinite;
+}
+
+.force-flow-core {
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.force-flow-core::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(var(--force-accent), 0.12), transparent 38%);
+  pointer-events: none;
+}
+
+.force-flow-fill {
+  background: linear-gradient(90deg, rgba(var(--force-accent), 0.52), rgba(var(--force-accent), 0.95));
+  box-shadow: 0 0 18px rgba(var(--force-accent), 0.22);
+}
+
+.force-flow-event {
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.force-flow-event::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  left: -1.02rem;
+  width: 0.55rem;
+  border-top: 1px solid rgba(var(--force-accent), 0.34);
+  border-bottom: 1px solid transparent;
+}
+
+.force-flow-event::after {
+  content: "";
+  position: absolute;
+  top: 1.15rem;
+  left: -1.34rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: rgba(var(--force-accent), 0.88);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 16px rgba(var(--force-accent), 0.22);
+}
+
+.echo-route-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.echo-constellation {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.echo-constellation-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.echo-constellation-branches {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.echo-constellation-branch {
+  display: grid;
+  grid-template-columns: minmax(1.6rem, 2.3rem) auto auto;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.echo-constellation-branch-active {
+  filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.12));
+}
+
+.echo-route-track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.45), rgba(165, 243, 252, 0.7));
+  overflow: hidden;
+}
+
+.echo-route-track::after {
+  content: "";
+  position: absolute;
+  inset: -1px auto -1px -18%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: route-glide 2.8s ease-in-out infinite;
+}
+
+.echo-route-stop {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.echo-route-stop-source {
+  background: rgba(250, 204, 21, 0.92);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.3);
+}
+
+.echo-route-stop-target {
+  background: rgba(165, 243, 252, 0.92);
+  box-shadow: 0 0 18px rgba(103, 232, 249, 0.28);
+}
+
 .eyebrow {
   margin: 0;
   color: #8d877f;
@@ -147,6 +418,24 @@ button:focus-visible {
     0 0 22px rgba(103, 232, 249, 0.12);
 }
 
+.pressure-selected {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.08))
+    drop-shadow(0 0 14px rgba(243, 177, 91, 0.18));
+}
+
+.echo-route-trace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trace-line 820ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  filter: drop-shadow(0 0 8px rgba(103, 232, 249, 0.18));
+}
+
+.echo-route-muted {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trace-line 700ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(219, 181, 108, 0.4) transparent;
@@ -193,13 +482,96 @@ button:focus-visible {
   }
 }
 
+@keyframes trace-line {
+  from {
+    stroke-dashoffset: 1400;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes voice-flicker {
+  0%,
+  100% {
+    transform: scaleY(0.84);
+    opacity: 0.74;
+  }
+
+  50% {
+    transform: scaleY(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes route-glide {
+  0% {
+    left: -22%;
+  }
+
+  100% {
+    left: 102%;
+  }
+}
+
+@keyframes force-pulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(0.94);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 0 14px rgba(var(--force-accent), 0.24);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.06);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 0 22px rgba(var(--force-accent), 0.34);
+  }
+}
+
+@keyframes force-drift {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(0.4rem);
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-up,
-  .loom-band-active {
+  .loom-band-active,
+  .echo-route-trace,
+  .echo-route-muted,
+  .voice-wave span,
+  .echo-route-track::after,
+  .force-flow-dot-float,
+  .force-flow-pulse {
     animation: none;
   }
 
   .ui-action:active {
     transform: none;
+  }
+}
+
+.force-flow-pulse {
+  animation: force-pulse 3.4s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .force-flow-layout {
+    grid-template-columns: 1rem 1fr;
+  }
+
+  .force-flow-layout > :last-child {
+    grid-column: 2;
   }
 }
