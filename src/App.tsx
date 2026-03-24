@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ComparePanel } from './components/ComparePanel'
 import { DetailPanel } from './components/DetailPanel'
 import { ForceExplorer } from './components/ForceExplorer'
+import { InMotionRacePanel } from './components/InMotionRacePanel'
 import { LoomCanvas } from './components/LoomCanvas'
 import { sentenceCase } from './lib/format'
 import {
@@ -232,6 +233,7 @@ function App() {
   const [compareSourceId, setCompareSourceId] = useState<string | null>(null)
   const [compareTargetId, setCompareTargetId] = useState<string | null>(null)
   const [comparePicking, setComparePicking] = useState(false)
+  const [isInMotionOpen, setIsInMotionOpen] = useState(false)
 
   function handleDatasetChange(nextDatasetId: string) {
     const nextState = loadDatasetState(nextDatasetId)
@@ -256,6 +258,7 @@ function App() {
     setCompareSourceId(null)
     setCompareTargetId(null)
     setComparePicking(false)
+    setIsInMotionOpen(false)
   }
 
   if (!dataset || loadError) {
@@ -827,6 +830,14 @@ function App() {
             >
               {showPressureOverlay ? 'Hide pressure lines' : 'Show pressure lines'}
             </button>
+
+            <button
+              type="button"
+              onClick={() => setIsInMotionOpen(true)}
+              className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 hover:text-stone-100"
+            >
+              In motion
+            </button>
           </div>
         </header>
 
@@ -896,6 +907,17 @@ function App() {
             selectedPressureId={selectedPressureId}
             selectedPressureLabel={selectedPressureSeries?.label ?? null}
             onClose={clearCompare}
+          />
+        ) : null}
+
+        {isInMotionOpen ? (
+          <InMotionRacePanel
+            datasetLabel={currentDatasetEntry?.scope ?? dataset.meta.scope}
+            periods={dataset.periods}
+            pressureSeries={dataset.pressureOverlaySeries}
+            initialPeriodId={selectedPeriodId}
+            initialPinnedPressureId={selectedPressureId}
+            onClose={() => setIsInMotionOpen(false)}
           />
         ) : null}
       </main>

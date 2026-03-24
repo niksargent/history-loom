@@ -69,7 +69,8 @@ Current refinement focus:
 - the next product phase is now multi-dataset consolidation, not immediate dataset 4 seeding
 - lived voice v2 is now implemented as a tabbed persona layer inside the detail panel, using multi-voice snapshot support rather than a single response block
 - the first solid-readiness review is now complete: Britain, USA, and France all remain below `solid`, but none is blocking lower-claim product extension
-- Force Explorer is now implemented as the first real feature-leap after the bounded UI pass, replacing the weaker detail-panel force explanation with a dedicated relationship surface and direct period selection from the field trace
+- Force Explorer is now implemented as the first real feature-leap after the bounded UI pass, replacing the weaker detail-panel force explanation with a dedicated relationship surface, direct period selection from the field trace, and a more readable full-width flashpoint layout
+- the first `In motion` implementation now exists as an expansive Race modal, using autoplay, interpolated movement, force trails, scrubbing, family filtering, and pinned-force emphasis for a single dataset
 - geography is now constrained to Britain until the other datasets have real map treatments rather than a misleading reused inset
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path

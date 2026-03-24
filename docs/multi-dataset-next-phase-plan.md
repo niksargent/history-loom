@@ -149,6 +149,15 @@ Candidate views:
 These are promising because they shift explanation from text to movement.
 They should remain separate from the main Loom page unless they clearly outperform the current reading surface.
 
+Status:
+- the first product brief for `In motion` now exists in `docs/in-motion-brief.md`
+- the approved default mode is `Race`
+- the race chart must show trails
+- the exact chart form for the force-pull / tension view is still intentionally open
+- the architecture should be prepared for later same-time-range dataset comparison without turning cross-dataset compare on yet
+- the concrete v1 Race spec now exists in `docs/in-motion-race-spec.md`
+- the first live Race modal is now implemented for one dataset at a time
+
 ## What stays off
 
 Still deferred:
@@ -174,10 +183,10 @@ They belong after the current three datasets are stronger and the multi-dataset 
 3. define lived voice v2 standards
 4. selectively validate datasets toward `solid`
 5. build Force Explorer
-6. next decide whether the next extension is:
-   - an `In motion` page
-   - thematic filtering
-   - guided narrative
+6. define `In motion` as the next lower-claim extension
+7. define the single-dataset Race mode in detail
+8. build `Race` first before deciding the exact Tension visual
+9. review Race in live use before deciding whether Tension or same-time-range dataset comparison should come next
 
 ## Higher-reasoning steps
 

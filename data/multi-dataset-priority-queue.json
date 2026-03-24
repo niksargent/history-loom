@@ -30,14 +30,24 @@
       "id": "md-task-06",
       "label": "Implement Force Explorer as the next visual relationship surface and retire the weak detail-panel force card",
       "status": "done"
+    },
+    {
+      "id": "md-task-07",
+      "label": "Design an `In motion` or `Interactive time` concept with Race as the first mode, trails enabled, and architecture that can later compare same-time-range datasets",
+      "status": "done"
+    },
+    {
+      "id": "md-task-07a",
+      "label": "Define the v1 Race mode as an expansive modal with autoplay, interpolated motion, pinned-force emphasis, and trails",
+      "status": "done"
     }
   ],
   "next": [
     {
-      "id": "md-task-07",
-      "label": "Design an `In motion` or `Interactive time` concept with a bar chart race and force-pull animation as a secondary view rather than main-page clutter",
+      "id": "md-task-07b",
+      "label": "Review the first live Race modal in use and decide what it teaches before locking the Tension mode or same-time-range dataset comparison layout",
       "priority": "high",
-      "reason": "Force Explorer is now in place, so the next visual step is the separate motion-first surface rather than more card iteration."
+      "reason": "Race now exists as the first motion surface, so the next useful step is to learn from it before deciding the exact Tension chart or future comparison view."
     },
     {
       "id": "md-task-08",

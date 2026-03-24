@@ -31,7 +31,9 @@ That made it feel like narrated analytics instead of a revealing visual surface.
 - one clear field trace across all periods
 - clickable period nodes on the trace
 - selected-period date-range marker
-- flashpoints for the selected period shown as connected event cards
+- padded trace endpoints so the first and last nodes sit cleanly inside the chart
+- a stable score/date read anchored at the top-right of the explorer
+- flashpoints for the selected period shown as full-width reading cards, with metadata beneath rather than in a competing side column
 
 ## What it replaces
 
@@ -67,4 +69,7 @@ Implemented now:
 - force selection now drives a dedicated field trace plus flashpoint surface
 - the field trace can now switch periods directly from the explorer
 - the selected period is marked by its date range rather than an ambiguous `current` label
+- the trace now has padded endpoints so the edge periods do not clip at the chart boundary
+- the score and selected date range are now held in a stable top-right position within the explorer
+- flashpoints now read as full-width cards with title and summary first, then metadata pills underneath
 - the Britain-specific geography inset is now hidden for USA and France until real dataset-specific maps exist
