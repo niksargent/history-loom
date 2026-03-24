@@ -1,0 +1,44 @@
+{
+  "phase": "multi-dataset-consolidation",
+  "completed": [
+    {
+      "id": "md-task-01",
+      "label": "Define the next multi-dataset phase after Britain, USA, and France all become live fields",
+      "status": "done"
+    },
+    {
+      "id": "md-task-02",
+      "label": "Define a `solid` maturity threshold above `usable draft`",
+      "status": "done"
+    },
+    {
+      "id": "md-task-03",
+      "label": "Approve dataset-specific atmospheric theming so each field can feel visually distinct",
+      "status": "done"
+    },
+    {
+      "id": "md-task-04",
+      "label": "Define lived voice v2 with stronger persona and multiple social positions per period where the content can support it",
+      "status": "done"
+    },
+    {
+      "id": "md-task-05",
+      "label": "Selectively validate Britain, USA, and France toward the `solid` threshold rather than reopening broad enrichment",
+      "status": "done"
+    }
+  ],
+  "next": [
+    {
+      "id": "md-task-06",
+      "label": "Design an `In motion` or `Interactive time` concept with a bar chart race and force-pull animation as secondary views rather than main-page clutter",
+      "priority": "high",
+      "reason": "No dataset is yet solid enough for cross-dataset compare, but the product is mature enough to extend through a lower-claim secondary exhibit surface."
+    },
+    {
+      "id": "md-task-07",
+      "label": "Run selective validation only where a concrete blocker is keeping Britain, USA, or France below the `solid` threshold",
+      "priority": "medium",
+      "reason": "Validation should now be targeted and evidence-led rather than broad and open-ended."
+    }
+  ]
+}

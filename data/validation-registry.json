@@ -183,7 +183,7 @@
   "datasetSeeding": {
     "united-states-1776-2025": {
       "status": "usable_draft_checkpoint_accepted",
-      "nextPhase": "selective_validation",
+      "nextPhase": "selective_validation_to_solid",
       "defaultLensProposal": "usa-civic-8-era",
       "planningArtifacts": [
         "docs/usa-dataset-charter.md",
@@ -208,6 +208,64 @@
       ],
       "guardrail": "No USA runtime content should be treated as canonical until source-backed seed additions and later validation review have been completed.",
       "seedLayerStatus": "runtime draft seed is live in the app; usable-enrichment, lived voice, UI review, period-quality review, and authoring-standards pass are complete; USA is now accepted at usable-draft maturity"
+    },
+    "france-1789-2025": {
+      "status": "usable_draft_checkpoint_accepted",
+      "nextPhase": "selective_validation_to_solid",
+      "defaultLensProposal": "france-civic-9-era",
+      "planningArtifacts": [
+        "docs/france-dataset-charter.md",
+        "docs/france-periodization-proposal.md",
+        "docs/france-seeding-plan.md",
+        "docs/france-initial-seed-candidates.md",
+        "docs/france-pressure-grounding-map.md",
+        "docs/france-snapshot-strategy.md",
+        "docs/france-v1-validation-review.md",
+        "docs/france-period-quality-review.md",
+        "docs/france-maturity-checkpoint-decision.md"
+      ],
+      "seedFiles": [
+        "data/france/meta.json",
+        "data/france/periods.json",
+        "data/france/events.json",
+        "data/france/pressures.json",
+        "data/france/echoes.json",
+        "data/france/snapshots.json"
+      ],
+      "sourceClasses": [
+        "Britannica French Revolution and post-1789 regime history overviews",
+        "Britannica event pages for the Declaration of the Rights of Man and of the Citizen, Dreyfus Affair, and Fourth Republic",
+        "Britannica France since 1940 coverage for liberation, Fifth Republic, and late-modern legitimacy strain"
+      ],
+      "guardrail": "France is now a usable draft field, but it should not yet be treated as canonical or used for cross-dataset comparison.",
+      "seedLayerStatus": "the first runtime France draft seed is live in the app, has passed a basic validation review and period-quality review, and is now accepted at usable-draft maturity"
+    }
+  },
+  "solidReadiness": {
+    "britain-1066-2025": {
+      "status": "not_yet_solid",
+      "strength": "structurally strong template field",
+      "blockers": [
+        "legacy model-authored event drafts remain unresolved",
+        "legacy draft echoes still need stricter comparative review"
+      ]
+    },
+    "united-states-1776-2025": {
+      "status": "not_yet_solid",
+      "strength": "strong usable draft with source-backed anchor events",
+      "blockers": [
+        "watchlist periods us-p01 us-p02 and us-p07 still warrant selective scrutiny",
+        "echo confidence remains mixed between strong and exploratory"
+      ]
+    },
+    "france-1789-2025": {
+      "status": "not_yet_solid",
+      "strength": "live usable draft with coherent lens and strong anchors",
+      "blockers": [
+        "newer field with less cumulative validation time",
+        "watchlist periods fr-p03 fr-p06 and fr-p07 remain under observation",
+        "more exploratory echoes remain explicitly provisional"
+      ]
     }
   }
 }

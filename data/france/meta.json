@@ -1,0 +1,10 @@
+{
+  "project": "The History Loom",
+  "dataset": "France Seed Dataset",
+  "scope": "France",
+  "startYear": 1789,
+  "endYear": 2025,
+  "initialLensYears": 0,
+  "lensCount": 9,
+  "note": "The France seed uses a 9-era civic lens with uneven historical durations. The zero value is a compatibility placeholder until the multi-dataset loader supports non-equal lenses directly."
+}

@@ -1,25 +1,69 @@
 {
   "datasetId": "france-1789-2025",
-  "phase": "chartering",
+  "phase": "usable-draft-checkpoint-complete",
   "completed": [
     {
       "id": "france-task-01",
       "label": "Write the France dataset charter using the Britain and USA standards baseline",
       "status": "done"
-    }
-  ],
-  "next": [
+    },
     {
       "id": "france-task-02",
       "label": "Write the France periodization proposal",
-      "priority": "high",
-      "reason": "France depends on a strong regime-and-legitimacy lens, and that lens must be settled before seed content starts."
+      "status": "done"
     },
     {
       "id": "france-task-03",
       "label": "Write the France seeding plan and first anchor-event shortlist",
+      "status": "done"
+    },
+    {
+      "id": "france-task-04",
+      "label": "Write the France pressure-grounding map",
+      "status": "done"
+    },
+    {
+      "id": "france-task-05",
+      "label": "Write the France snapshot and lived-voice strategy",
+      "status": "done"
+    },
+    {
+      "id": "france-task-06",
+      "label": "Create the first runtime France seed files after pressure grounding and lived-readability planning are complete",
+      "status": "done"
+    },
+    {
+      "id": "france-task-08",
+      "label": "Run a basic validation review on the first France runtime draft seed",
+      "status": "done"
+    },
+    {
+      "id": "france-task-07",
+      "label": "Wire the first runtime France seed into the dataset registry without exposing it before basic validation",
+      "status": "done"
+    },
+    {
+      "id": "france-task-09",
+      "label": "Review France live-use clarity after guarded exposure and decide whether any era needs selective strengthening",
+      "status": "done"
+    },
+    {
+      "id": "france-task-10",
+      "label": "Decide whether France is strong enough to move from guarded draft to usable-draft maturity",
+      "status": "done"
+    },
+    {
+      "id": "france-task-12",
+      "label": "Plan the next multi-dataset phase now that Britain, USA, and France are all usable draft fields",
+      "status": "done"
+    }
+  ],
+  "next": [
+    {
+      "id": "france-task-11",
+      "label": "Only if needed, selectively strengthen one watchlist France era revealed by live use",
       "priority": "high",
-      "reason": "The next content move should be source-backed seeding, not premature runtime data files."
+      "reason": "France is now usable draft. Any new work should be driven by a real weak spot, not by open-ended enrichment."
     }
   ]
 }

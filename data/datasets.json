@@ -6,7 +6,7 @@
     "startYear": 1066,
     "endYear": 2025,
     "status": "template-dataset-1",
-    "currentPriority": "selective-validation",
+    "currentPriority": "selective-validation-to-solid",
     "defaultLensId": "britain-80-year-civic",
     "availableLensIds": [
       "britain-80-year-civic"
@@ -36,7 +36,17 @@
       "europe",
       "global"
     ],
-    "notes": "Template dataset 1. Broad enrichment is closed; Britain now sits in selective validation and occasional targeted correction."
+    "notes": "Template dataset 1. Broad enrichment is closed; Britain now sits in selective validation toward a stronger solid threshold and occasional targeted correction.",
+    "visualTheme": {
+      "light": "rgba(245,243,238,0.86)",
+      "cool": "rgba(31,63,120,0.34)",
+      "warm": "rgba(152,39,58,0.28)",
+      "contrast": "rgba(72,96,159,0.22)",
+      "glow": "rgba(205,170,92,0.18)",
+      "baseTop": "rgba(63,68,76,0.99)",
+      "baseMid": "rgba(36,40,46,0.99)",
+      "baseBottom": "rgba(12,14,15,1)"
+    }
   },
   {
     "id": "united-states-1776-2025",
@@ -45,7 +55,7 @@
     "startYear": 1776,
     "endYear": 2025,
     "status": "usable-draft",
-    "currentPriority": "selective-validation-before-france",
+    "currentPriority": "selective-validation-to-solid",
     "defaultLensId": "usa-civic-8-era",
     "availableLensIds": [
       "usa-civic-8-era"
@@ -69,7 +79,17 @@
       "north-america",
       "global"
     ],
-    "notes": "Template dataset 2 at usable-draft maturity. Broad enrichment is closed; the active posture is selective validation while France chartering begins."
+    "notes": "Template dataset 2 at usable-draft maturity. Broad enrichment is closed; the active posture is selective validation toward a stronger solid threshold.",
+    "visualTheme": {
+      "light": "rgba(248,245,239,0.88)",
+      "cool": "rgba(22,56,114,0.42)",
+      "warm": "rgba(178,34,52,0.34)",
+      "contrast": "rgba(241,238,229,0.16)",
+      "glow": "rgba(120,151,206,0.16)",
+      "baseTop": "rgba(52,58,68,0.99)",
+      "baseMid": "rgba(27,31,38,1)",
+      "baseBottom": "rgba(10,12,14,1)"
+    }
   },
   {
     "id": "france-1789-2025",
@@ -77,11 +97,11 @@
     "scope": "France",
     "startYear": 1789,
     "endYear": 2025,
-    "status": "chartering",
-    "currentPriority": "dataset-charter-and-periodization",
-    "defaultLensId": "france-civic-tbd",
+    "status": "usable-draft",
+    "currentPriority": "selective-validation-to-solid",
+    "defaultLensId": "france-civic-9-era",
     "availableLensIds": [
-      "france-civic-tbd"
+      "france-civic-9-era"
     ],
     "supportedThemeIds": [
       "legitimacy",
@@ -102,6 +122,16 @@
       "europe",
       "global"
     ],
-    "notes": "Dataset 3. Chartering has begun, with periodization and seed planning still to be defined before any runtime dataset is created."
+    "notes": "Template dataset 3 at usable-draft maturity. France is now live in the app and moves into selective validation toward a stronger solid threshold. Cross-dataset compare remains off.",
+    "visualTheme": {
+      "light": "rgba(247,245,241,0.9)",
+      "cool": "rgba(41,82,162,0.36)",
+      "warm": "rgba(203,55,74,0.28)",
+      "contrast": "rgba(236,232,222,0.2)",
+      "glow": "rgba(115,142,201,0.12)",
+      "baseTop": "rgba(60,66,76,0.99)",
+      "baseMid": "rgba(32,36,43,1)",
+      "baseBottom": "rgba(11,13,15,1)"
+    }
   }
 ]

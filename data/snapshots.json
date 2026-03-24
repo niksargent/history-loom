@@ -10,7 +10,30 @@
     "speakerFrame": "A village household after conquest",
     "prompt": "What changes first for ordinary people after a conquest?",
     "response": "New rulers mean new dues, new demands, and new people claiming authority over your life. You still work the land, but the balance of fear and power has changed.",
-    "sourcesOrRationale": "Interpretive snapshot based on conquest-era agrarian order and elite replacement."
+    "sourcesOrRationale": "Interpretive snapshot based on conquest-era agrarian order and elite replacement.",
+    "voices": [
+      {
+        "id": "s01-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman keeping a village household after conquest",
+        "response": "I still grind grain, mend clothes, and count what we can spare, but now every measure seems to belong to someone above us. New men ask what we owe before they ask how we live."
+      },
+      {
+        "id": "s01-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A field worker under a new lord",
+        "response": "I work the same strips of land, yet the terms feel harsher and less certain. If the steward wants timber, hens, or labour, there is no easy way to refuse."
+      },
+      {
+        "id": "s01-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A villager watching a new ruling class settle in",
+        "response": "The old names at the top are gone, and the castle tells you that before anyone speaks. Authority feels closer, harder, and less willing to bargain."
+      }
+    ]
   },
   {
     "id": "s02",
@@ -23,7 +46,30 @@
     "speakerFrame": "A household living under stronger royal reach",
     "prompt": "How does stronger government feel on the ground?",
     "response": "The king is still far away, but his rules arrive more often through officials, courts, and payments. Local life still matters most, yet it no longer feels untouched by power from above.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in legal and fiscal expansion under Angevin rule."
+    "sourcesOrRationale": "Interpretive snapshot grounded in legal and fiscal expansion under Angevin rule.",
+    "voices": [
+      {
+        "id": "s02-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman managing dues and disputes in a more governed realm",
+        "response": "There is always another fee, another summons, another man carrying the king's word. Even small quarrels can now travel farther than the village."
+      },
+      {
+        "id": "s02-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man called on for levy and payment",
+        "response": "You feel the crown in tallies, roads, and demands for service. The king is distant, but his reach now arrives with seals, sheriffs, and men who keep accounts."
+      },
+      {
+        "id": "s02-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A townsman noticing stronger royal administration",
+        "response": "People talk more about law because law now turns up in daily life. Order is broader than before, but so is the cost of being noticed by it."
+      }
+    ]
   },
   {
     "id": "s03",
@@ -36,7 +82,30 @@
     "speakerFrame": "Someone living in a more settled but tightly ranked order",
     "prompt": "What does stability feel like when hierarchy is normal?",
     "response": "Life can feel more regular and predictable, but that does not mean it feels free. Order is real, yet so are rank, limits, and the sense that your place is mostly decided for you.",
-    "sourcesOrRationale": "Interpretive snapshot based on thirteenth-century consolidation of law and representative taxation."
+    "sourcesOrRationale": "Interpretive snapshot based on thirteenth-century consolidation of law and representative taxation.",
+    "voices": [
+      {
+        "id": "s03-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living inside a settled but ranked order",
+        "response": "Most days are predictable, and that is worth something, but predictability is not the same as freedom. You know your duties well because they were decided long before you were born."
+      },
+      {
+        "id": "s03-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A craftsman or tenant in a more regular kingdom",
+        "response": "The rules are clearer, the market steadier, and the king less erratic than in rougher times. Still, a man can spend his whole life knowing exactly where he is not allowed to rise."
+      },
+      {
+        "id": "s03-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "Someone watching stable institutions harden into custom",
+        "response": "The realm feels calmer because more things are settled in writing and practice. That calm rests on hierarchy, and everyone is expected to treat that hierarchy as natural."
+      }
+    ]
   },
   {
     "id": "s04",
@@ -49,7 +118,30 @@
     "speakerFrame": "A survivor in a labour market changed by plague",
     "prompt": "What does daily life feel like after mass death?",
     "response": "There may be more room to bargain than before, but the loss is everywhere. Fear, grief, and attempts to force the old order back into place shape the choices people can make.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in Black Death mortality and labour regulation."
+    "sourcesOrRationale": "Interpretive snapshot grounded in Black Death mortality and labour regulation.",
+    "voices": [
+      {
+        "id": "s04-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman trying to keep a family alive after plague",
+        "response": "There are empty places at table and empty houses on the road, and no one can pretend otherwise. Work may pay better now, but grief and fear sit in every bargain."
+      },
+      {
+        "id": "s04-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A labourer in the shortage after mass death",
+        "response": "For the first time a man like me can ask for more and sometimes get it. Then the law steps in and tries to push us back to the old obedience."
+      },
+      {
+        "id": "s04-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A survivor watching old order strain after catastrophe",
+        "response": "The great ones want the world stitched back together exactly as it was. Too many people are gone for that, and everyone can feel the mismatch."
+      }
+    ]
   },
   {
     "id": "s05",
@@ -62,7 +154,30 @@
     "speakerFrame": "Someone living where authority feels weak and unstable",
     "prompt": "How does a brittle kingdom feel in everyday life?",
     "response": "You notice uncertainty before you understand politics. Safety depends on local power, and confidence in the wider realm feels thin because nobody seems fully in control.",
-    "sourcesOrRationale": "Interpretive snapshot based on fifteenth-century dynastic and noble conflict."
+    "sourcesOrRationale": "Interpretive snapshot based on fifteenth-century dynastic and noble conflict.",
+    "voices": [
+      {
+        "id": "s05-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman relying on local protection in a brittle kingdom",
+        "response": "You worry less about grand politics than about which lord can actually keep the road safe this month. When power is weak above, danger becomes local very quickly."
+      },
+      {
+        "id": "s05-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through dynastic uncertainty",
+        "response": "Taxes still come, but confidence does not. Every shift among great men makes ordinary work feel less secure, because you never know whose quarrel will land on your doorstep."
+      },
+      {
+        "id": "s05-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A town resident watching weak rule from below",
+        "response": "The kingdom still has a crown, but it feels thinner than it should. People speak of order as something that ought to exist, not something they fully trust."
+      }
+    ]
   },
   {
     "id": "s06",
@@ -75,7 +190,30 @@
     "speakerFrame": "A parish household living through religious change",
     "prompt": "What does religious upheaval feel like to ordinary people?",
     "response": "The changes do not stay in books or courts. They enter worship, memory, and local life, making familiar practices feel uncertain and public loyalty more dangerous to get wrong.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in the English Reformation and dissolution."
+    "sourcesOrRationale": "Interpretive snapshot grounded in the English Reformation and dissolution.",
+    "voices": [
+      {
+        "id": "s06-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman seeing worship and memory remade",
+        "response": "The prayers change, the walls change, and the old comforts disappear faster than people can make sense of them. You learn to watch your words because devotion is no longer private."
+      },
+      {
+        "id": "s06-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A parish man navigating royal religious change",
+        "response": "What the king decides about religion now shapes what happens in church, in marriage, and in burial. A man can keep working as before and still feel the ground shift under him."
+      },
+      {
+        "id": "s06-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "Someone watching policy invade ordinary ritual",
+        "response": "Reform sounds like something argued at court until it starts stripping altars, closing houses, and testing loyalties in public. Then everyone understands that power has entered the soul of the parish."
+      }
+    ]
   },
   {
     "id": "s07",
@@ -88,7 +226,30 @@
     "speakerFrame": "A family navigating a more dangerous religious climate",
     "prompt": "How does sharper confessional conflict change ordinary life?",
     "response": "You still work, worship, and raise a family, but belief no longer feels like a quiet matter. The wrong words, loyalties, or neighbours can bring real danger into everyday life.",
-    "sourcesOrRationale": "Interpretive snapshot based on late Tudor and early Stuart confessional conflict."
+    "sourcesOrRationale": "Interpretive snapshot based on late Tudor and early Stuart confessional conflict.",
+    "voices": [
+      {
+        "id": "s07-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living in a more dangerous confessional climate",
+        "response": "You measure neighbours differently when belief can bring punishment to the household. Even teaching children how to pray can feel like a risky act."
+      },
+      {
+        "id": "s07-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man trying to stay safe amid sharper religious division",
+        "response": "Work goes on, but faith no longer sits quietly beside it. A careless word, the wrong service, or the wrong patron can remake a man's prospects overnight."
+      },
+      {
+        "id": "s07-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A subject watching loyalty and conscience collide",
+        "response": "The realm looks ordered from above, yet everyone knows there are lines that can suddenly expose you. Religion has become a public test, not only a private conviction."
+      }
+    ]
   },
   {
     "id": "s08",
@@ -101,7 +262,30 @@
     "speakerFrame": "A parish caught inside civil war",
     "prompt": "What happens when national crisis enters local life?",
     "response": "The quarrels of rulers stop feeling distant very quickly. Soldiers, demands, fear, and divided loyalties show up at the level of homes, roads, and familiar faces.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in the civil wars and print-politics era."
+    "sourcesOrRationale": "Interpretive snapshot grounded in the civil wars and print-politics era.",
+    "voices": [
+      {
+        "id": "s08-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman trying to feed a household in civil war",
+        "response": "The war is not out on a distant field; it is in the lanes, the barns, and the demands at the door. You learn to hide what matters and speak carefully to armed men."
+      },
+      {
+        "id": "s08-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living where armies and arguments both arrive",
+        "response": "One side wants horses, the other wants grain, and both talk as if God and Parliament are settled things. For people like us, the quarrel mostly feels like requisition and fear."
+      },
+      {
+        "id": "s08-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A parishioner watching national fracture become local fact",
+        "response": "The kingdom breaks where ordinary life used to hold. Familiar faces take sides, and every road carries news that sounds like a threat."
+      }
+    ]
   },
   {
     "id": "s09",
@@ -114,7 +298,30 @@
     "speakerFrame": "Someone living in a town pulled into wider trade",
     "prompt": "How does a more commercial world feel to ordinary people?",
     "response": "The world seems bigger because goods, news, and money move more quickly. But wider connections do not remove inequality; they often make dependence and hierarchy feel even more embedded.",
-    "sourcesOrRationale": "Interpretive snapshot based on eighteenth-century commerce and imperial growth."
+    "sourcesOrRationale": "Interpretive snapshot based on eighteenth-century commerce and imperial growth.",
+    "voices": [
+      {
+        "id": "s09-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman in a town opened by trade and credit",
+        "response": "There is more to buy, more to hear, and more to envy than my mother ever knew. Yet the better the town looks, the clearer it becomes who profits most."
+      },
+      {
+        "id": "s09-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A worker in a commercial town",
+        "response": "Ships, shops, and newspapers make the world feel wider, but wider does not mean fairer. A man can feel connected to distant markets and still be tightly bound at home."
+      },
+      {
+        "id": "s09-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A townsman watching commerce reshape daily expectations",
+        "response": "People speak more often of improvement because improvement is now visible in goods, roads, and talk. That same improvement teaches everyone to compare themselves with those above them."
+      }
+    ]
   },
   {
     "id": "s10",
@@ -127,7 +334,30 @@
     "speakerFrame": "A worker in industrial Britain",
     "prompt": "What does industrial progress feel like in daily life?",
     "response": "There is more movement, more work, and more change than before, but also more smoke, crowding, and pressure. The machine and the clock shape life as much as the family or the parish once did.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in industrialisation, urbanisation, and reform."
+    "sourcesOrRationale": "Interpretive snapshot grounded in industrialisation, urbanisation, and reform.",
+    "voices": [
+      {
+        "id": "s10-woman",
+        "label": "Woman",
+        "voiceMode": "worker",
+        "speakerFrame": "A woman keeping pace with factory time and crowded streets",
+        "response": "The bell and the clock rule the day more than season or custom now. You can earn cash, but you also breathe smoke, mind children, and count every penny against rent."
+      },
+      {
+        "id": "s10-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man working in industrial Britain",
+        "response": "The machine never lets you forget who sets the pace. There is work if the trade is good, and sudden hunger if it is not."
+      },
+      {
+        "id": "s10-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident of a fast-growing industrial town",
+        "response": "Everything looks larger: mills, crowds, wealth, anger. Progress is undeniable, but so is the feeling that it has been built on bodies that are wearing out too fast."
+      }
+    ]
   },
   {
     "id": "s11",
@@ -140,7 +370,30 @@
     "speakerFrame": "A citizen living through mass mobilization",
     "prompt": "How does total war change ordinary life?",
     "response": "War reaches into almost everything: work, food, family, and information. The state feels far larger because survival, sacrifice, and national purpose all become part of daily routine.",
-    "sourcesOrRationale": "Interpretive snapshot based on late Victorian mass politics and the two world wars."
+    "sourcesOrRationale": "Interpretive snapshot based on late Victorian mass politics and the two world wars.",
+    "voices": [
+      {
+        "id": "s11-woman",
+        "label": "Woman",
+        "voiceMode": "civic",
+        "speakerFrame": "A woman living inside rationing, war work, and mobilization",
+        "response": "The state knows what you eat, what you save, and where your labour is needed. Private life shrinks because the nation keeps asking to be served first."
+      },
+      {
+        "id": "s11-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man pulled into total-war discipline",
+        "response": "War gives purpose and fear in the same breath. Work, news, and family all start to move to a national timetable rather than your own."
+      },
+      {
+        "id": "s11-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching mass politics become mass obligation",
+        "response": "You feel the country as an organized force pressing through daily routine. Sacrifice becomes ordinary because it is expected everywhere and from everyone."
+      }
+    ]
   },
   {
     "id": "s12",
@@ -153,6 +406,29 @@
     "speakerFrame": "A person living with more choice but less shared confidence",
     "prompt": "What does late-modern Britain feel like in everyday terms?",
     "response": "There is more choice and more freedom in some parts of life, but also more strain, mistrust, and uncertainty about where the country is heading. Institutions still matter, yet they often feel thinner than the promises made around them.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in welfare-state creation, deindustrialisation, devolution, digital media, and Brexit."
+    "sourcesOrRationale": "Interpretive snapshot grounded in welfare-state creation, deindustrialisation, devolution, digital media, and Brexit.",
+    "voices": [
+      {
+        "id": "s12-woman",
+        "label": "Woman",
+        "voiceMode": "street-level",
+        "speakerFrame": "A woman living with wider choice and thinner security",
+        "response": "I can choose more in my own life than my grandmother could, but that does not make the future feel steady. Housing, care, and bills can swallow freedom very quickly."
+      },
+      {
+        "id": "s12-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through late-modern insecurity",
+        "response": "Work changes faster than trust does. You are told to adapt, retrain, and keep moving, while the institutions that once felt solid seem to answer more weakly each year."
+      },
+      {
+        "id": "s12-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching common confidence thin out",
+        "response": "The country still functions, but it does not feel held together in the same way. Public life is louder, more fractured, and less sure of what it owes the future."
+      }
+    ]
   }
 ]

@@ -135,6 +135,19 @@ Each lived-voice item should:
 - stay concise
 - feel like something a person might plausibly say
 - translate structure into everyday stakes
+- imply a real social position, household role, or civic vantage rather than a generic narrator
+- sound like a person describing consequences in daily life, not like an analyst summarising the period in first person
+
+### Stronger persona standard
+
+When the product moves to lived voice v2, each period should aim to support multiple personae where the data can sustain them.
+
+The preferred direction is:
+- one female-coded everyday voice
+- one male-coded everyday voice
+- one third voice shaped by work, civic role, age, or outsider status
+
+These should feel like distinct windows into the same field, not three paraphrases of the same summary.
 
 ### Bad lived-voice patterns
 
@@ -174,6 +187,17 @@ At least one layer per period should be understandable to a bright 13-year-old:
 - event summary
 
 If a period only works when read through abstract structural language, it is not finished.
+
+## 6a. Language standard
+
+Default to British English across:
+- UI labels
+- dataset copy
+- snapshot text
+- lived voice
+- docs, unless quoting a source directly
+
+This should be treated as the hard default for the project rather than a per-file preference.
 
 ## 7. Validation standard
 

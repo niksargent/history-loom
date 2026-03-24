@@ -168,11 +168,25 @@ HumanSnapshot represents lived experience at one or more scales.
 - `speakerFrame` (optional)
 - `prompt` (optional)
 - `response` (optional)
+- `voices` (optional array of lived-voice entries)
 - `sourcesOrRationale`
 
 ### Notes
 
 The optional lived-voice fields support a more accessible, more human reading layer without requiring a separate top-level content file.
+
+`voices` is the forward path for lived voice v2:
+- multiple personae can sit inside one period snapshot
+- legacy single-voice fields remain valid as fallback
+- the UI should prefer `voices` when present and fall back to `response` when not
+
+Each `voices` entry should include:
+- `id`
+- `label`
+- `voiceMode` (optional)
+- `speakerFrame` (optional)
+- `prompt` (optional)
+- `response`
 
 ---
 

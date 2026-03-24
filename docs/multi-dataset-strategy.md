@@ -34,11 +34,19 @@ Each dataset should carry:
 - sparse echoes
 - limited snapshots
 
-### Usable
+### Usable draft
 - all periods have meaningful events
 - pressure reading works
 - echoes are present
 - snapshots are present
+- the field is live and useful, but still explicitly carries draft confidence where needed
+
+### Solid
+- source-backed event coverage is strong enough across the field
+- exploratory echoes have been reviewed and separated from stronger echoes
+- live-use watchlist periods no longer feel structurally thin
+- lived voice and plain-language layers feel human, not provisional
+- the dataset can support further product extension without repeated structural repair
 
 ### Rich
 - thematic coverage is reliable
@@ -59,6 +67,9 @@ The future UI should likely support:
 - optional compare across datasets only when both are mature enough
 
 The user should not have to understand internal schema or maturity metadata.
+
+The product can extend while datasets are still in `usable draft`.
+It should not open high-claim features like cross-dataset comparison until at least two datasets are `solid`.
 
 ## Cross-dataset comparison rules
 
@@ -91,10 +102,18 @@ Current decision:
 Status update:
 - France is no longer just a candidate
 - France chartering has now begun as dataset 3
+- France now has a proposed default lens: `france-civic-9-era`
 
 Current implication:
 - USA is the first planned dataset likely to use a different period count and non-equal period durations from Britain
 - minimum multi-dataset mechanics should therefore avoid assuming `12 periods` or `equal-width periods`
+- the next multi-dataset phase is no longer about adding another field quickly
+- it is about moving Britain, USA, and France from `usable draft` toward `solid`
+
+Future candidates after France:
+- Scotland
+- Britain before 1066
+- Roman / Roman world
 
 ## Dataset 2 launch criteria
 

@@ -1,6 +1,12 @@
 import datasetsJson from '../../data/datasets.json'
 import echoesJson from '../../data/echoes.json'
 import eventsJson from '../../data/events.json'
+import franceEchoesJson from '../../data/france/echoes.json'
+import franceEventsJson from '../../data/france/events.json'
+import franceMetaJson from '../../data/france/meta.json'
+import francePeriodsJson from '../../data/france/periods.json'
+import francePressuresJson from '../../data/france/pressures.json'
+import franceSnapshotsJson from '../../data/france/snapshots.json'
 import metaJson from '../../data/meta.json'
 import periodsJson from '../../data/periods.json'
 import pressuresJson from '../../data/pressures.json'
@@ -301,6 +307,14 @@ const rawDatasets: Record<
     pressures: usaPressuresJson as PressureSeries[],
     echoes: usaEchoesJson as EchoLink[],
     snapshots: usaSnapshotsJson as HumanSnapshot[],
+  },
+  'france-1789-2025': {
+    meta: franceMetaJson as Meta,
+    periods: francePeriodsJson as Period[],
+    events: franceEventsJson as Event[],
+    pressures: francePressuresJson as PressureSeries[],
+    echoes: franceEchoesJson as EchoLink[],
+    snapshots: franceSnapshotsJson as HumanSnapshot[],
   },
 }
 

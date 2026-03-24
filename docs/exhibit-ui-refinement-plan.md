@@ -93,3 +93,11 @@ Still deferred for later:
 - geography reconsideration
 - larger compare rethinking
 - deeper exhibit choreography beyond the current bounded pass
+
+## Known UI defects and watchpoints
+
+These should be treated as explicit cleanup items rather than vague impressions:
+
+- the detail section title `Events and lived voice` is now redundant because lived voice already leads the panel and does not need to be repeatedly named lower down
+- the `Force in focus` / `Through` card is conceptually stronger than it is immediately legible; some users do not understand that it is showing a force moving from field climate into the selected period and then into named flashpoints
+- copy and labelling should default to British English consistently across the whole product

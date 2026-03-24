@@ -59,10 +59,21 @@ Current refinement focus:
 - the period-by-period USA quality review is now complete; the next real data task is authoring-standard tightening, not more raw additions
 - the USA maturity checkpoint is now accepted, so France can begin from a stronger baseline than either Britain or early USA had
 - the France dataset charter is now written, so the next data task has shifted from USA maturity to France periodization and seeding design
+- the France periodization proposal is now set to a `9-era civic lens`, which reinforces the product rule that honest lenses matter more than matching period counts across datasets
+- France now has a seeding plan and initial anchor shortlist, but runtime data creation remains deliberately blocked behind pressure grounding and lived-readability planning
+- the France pressure-grounding map and snapshot/lived-voice strategy are now complete, and the first runtime France draft seed now exists on disk
+- France now also has a first basic validation review and is wired into the app path as a guarded draft field
+- France remains draft-scoped, and cross-dataset compare is still intentionally off
+- France now also has a live-use clarity review, with the watchlist concentrated in `fr-p03`, `fr-p06`, and `fr-p07`
+- France is now accepted as template dataset 3 at usable-draft maturity
+- the next product phase is now multi-dataset consolidation, not immediate dataset 4 seeding
+- lived voice v2 is now implemented as a tabbed persona layer inside the detail panel, using multi-voice snapshot support rather than a single response block
+- the first solid-readiness review is now complete: Britain, USA, and France all remain below `solid`, but none is blocking lower-claim product extension
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
 - keep geography implemented but paused pending product discussion
 - reserve any later UI work for further exhibit refinements beyond the current pass
+- dataset-specific atmospheric backgrounds should now reflect the selected field rather than relying on one global background
 
 ## What is solid
 
@@ -92,10 +103,10 @@ The next quality threshold is interpretive clarity, not feature count:
 1. complete the bounded exhibit UI refinement pass
 2. keep Britain in selective validation mode and move USA into validation-and-quality review
 3. establish the repeatable authoring workflow, standards, and review process
-4. complete France periodization and seeding design from the shared authoring standards
-5. delay cross-dataset compare until Britain and USA are both mature enough
+4. treat Britain, USA, and France as live fields that now need selective validation toward a `solid` threshold
+5. delay cross-dataset compare until at least two datasets are solid enough
 6. discuss geography before further map tuning or placement changes
-7. only then add one post-MVP expansion feature
+7. use the current dataset baseline to add one lower-claim post-MVP expansion feature, most likely an `In motion` view, while keeping cross-dataset compare off
 
 ## Product intent
 

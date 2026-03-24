@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type ReactNode } from 'react'
+import { useMemo, useState, type CSSProperties, type ReactNode } from 'react'
 import { formatConfidence, sentenceCase, titleCaseLabel } from '../lib/format'
 import {
   buildGeographyInsetModel,
@@ -6,7 +6,7 @@ import {
   getScaleAccent,
   getReleaseLabel,
 } from '../lib/loom-data'
-import type { Scale } from '../types/domain'
+import type { LivedVoice, Scale } from '../types/domain'
 import type {
   DetailViewMode,
   PressureOverlaySeries,
@@ -124,15 +124,20 @@ function SectionDisclosure({
 
 function LivedVoiceCard({
   title,
-  speakerFrame,
-  prompt,
-  response,
+  voices,
 }: {
   title: string
-  speakerFrame?: string
-  prompt?: string
-  response: string
+  voices: LivedVoice[]
 }) {
+  const [activeVoiceId, setActiveVoiceId] = useState(voices[0]?.id ?? '')
+
+  const activeVoice =
+    voices.find((voice) => voice.id === activeVoiceId) ?? voices[0] ?? null
+
+  if (!activeVoice) {
+    return null
+  }
+
   return (
     <article className="voice-shell reveal-up reveal-delay-1 relative overflow-hidden rounded-[1.35rem] border p-5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(243,177,91,0.08),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(121,219,194,0.08),_transparent_34%)]" />
@@ -141,8 +146,10 @@ function LivedVoiceCard({
           <div>
             <p className="eyebrow">Lived voice</p>
             <h3 className="mt-2 text-base text-stone-100">{title}</h3>
-            {speakerFrame ? (
-              <p className="mt-2 text-sm leading-6 text-stone-300">{speakerFrame}</p>
+            {activeVoice.speakerFrame ? (
+              <p className="mt-2 text-sm leading-6 text-stone-300">
+                {activeVoice.speakerFrame}
+              </p>
             ) : null}
           </div>
           <div className="voice-wave" aria-hidden="true">
@@ -151,8 +158,30 @@ function LivedVoiceCard({
             ))}
           </div>
         </div>
-        {prompt ? <p className="mt-4 text-sm leading-6 text-stone-500">{prompt}</p> : null}
-        <p className="mt-4 max-w-3xl text-base leading-7 text-stone-50 md:text-lg">“{response}”</p>
+        {voices.length > 1 ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {voices.map((voice) => (
+              <button
+                key={voice.id}
+                type="button"
+                onClick={() => setActiveVoiceId(voice.id)}
+                className={`ui-action rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] transition ${
+                  voice.id === activeVoice.id
+                    ? 'border-amber-300/30 bg-amber-300/10 text-amber-100'
+                    : 'text-stone-300 hover:text-stone-100'
+                }`}
+              >
+                {voice.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        {activeVoice.prompt ? (
+          <p className="mt-4 text-sm leading-6 text-stone-500">{activeVoice.prompt}</p>
+        ) : null}
+        <p className="mt-4 max-w-3xl text-base leading-7 text-stone-50 md:text-lg">
+          “{activeVoice.response}”
+        </p>
       </div>
     </article>
   )
@@ -703,6 +732,30 @@ export function DetailPanel({
   onViewModeChange,
 }: DetailPanelProps) {
   const { period, snapshot } = detail
+  const livedVoices = useMemo(() => {
+    if (!snapshot) {
+      return []
+    }
+
+    if (snapshot.voices?.length) {
+      return snapshot.voices
+    }
+
+    if (!snapshot.response) {
+      return []
+    }
+
+    return [
+      {
+        id: `${snapshot.id}-voice`,
+        label: 'Voice',
+        voiceMode: snapshot.voiceMode,
+        speakerFrame: snapshot.speakerFrame,
+        prompt: snapshot.prompt,
+        response: snapshot.response,
+      },
+    ]
+  }, [snapshot])
   const pressureCascade = buildPressureCascade(detail, selectedPressureId, datasetId)
   const periodReading = buildPeriodReading(detail, selectedPressureSeries)
   const leadPressureChipLabel =
@@ -821,12 +874,11 @@ export function DetailPanel({
 
         {isOpen ? (
           <div className="flex-1 space-y-7 overflow-y-auto px-6 py-6 md:px-7">
-            {snapshot?.response ? (
+            {livedVoices.length ? (
               <LivedVoiceCard
-                title={snapshot.title}
-                speakerFrame={snapshot.speakerFrame}
-                prompt={snapshot.prompt}
-                response={snapshot.response}
+                key={snapshot?.id ?? period.id}
+                title={snapshot?.title ?? period.title}
+                voices={livedVoices}
               />
             ) : null}
 

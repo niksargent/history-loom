@@ -100,6 +100,15 @@ export interface EchoLink {
   notes: string
 }
 
+export interface LivedVoice {
+  id: string
+  label: string
+  voiceMode?: 'personal' | 'street-level' | 'household' | 'worker' | 'civic'
+  speakerFrame?: string
+  prompt?: string
+  response: string
+}
+
 export interface HumanSnapshot {
   id: string
   periodId: string
@@ -111,6 +120,7 @@ export interface HumanSnapshot {
   speakerFrame?: string
   prompt?: string
   response?: string
+  voices?: LivedVoice[]
   sourcesOrRationale: string
 }
 
@@ -126,6 +136,17 @@ export interface Geography {
   kind: string
 }
 
+export interface DatasetVisualTheme {
+  light: string
+  cool: string
+  warm: string
+  contrast: string
+  glow: string
+  baseTop: string
+  baseMid: string
+  baseBottom: string
+}
+
 export interface DatasetRegistryEntry {
   id: string
   label: string
@@ -139,4 +160,5 @@ export interface DatasetRegistryEntry {
   supportedThemeIds: string[]
   supportedGeographyIds: string[]
   notes: string
+  visualTheme?: DatasetVisualTheme
 }

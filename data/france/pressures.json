@@ -1,0 +1,134 @@
+[
+  {
+    "id": "inequality",
+    "label": "Inequality",
+    "description": "The concentration of power, wealth, and advantage across the social order.",
+    "category": "social",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 82, "fr-p02": 68, "fr-p03": 72, "fr-p04": 78, "fr-p05": 70, "fr-p06": 74, "fr-p07": 58, "fr-p08": 54, "fr-p09": 72 },
+    "peakPeriods": ["fr-p01", "fr-p04", "fr-p06"],
+    "releasePatterns": ["revolution", "reform", "polarization"],
+    "relatedPressureIds": ["economicPrecarity", "socialCohesion"]
+  },
+  {
+    "id": "eliteCompetition",
+    "label": "Elite Competition",
+    "description": "Conflict, faction, and rivalry among those with power.",
+    "category": "political",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 88, "fr-p02": 46, "fr-p03": 58, "fr-p04": 76, "fr-p05": 52, "fr-p06": 66, "fr-p07": 62, "fr-p08": 40, "fr-p09": 74 },
+    "peakPeriods": ["fr-p01", "fr-p04", "fr-p09"],
+    "releasePatterns": ["regime reset", "executive consolidation", "anti-system politics"],
+    "relatedPressureIds": ["institutionalLegitimacy", "informationAcceleration"]
+  },
+  {
+    "id": "institutionalLegitimacy",
+    "label": "Institutional Legitimacy",
+    "description": "The degree to which governing arrangements are accepted as rightful and workable.",
+    "category": "political",
+    "polarity": "stabiliser",
+    "valuesByPeriod": { "fr-p01": 22, "fr-p02": 64, "fr-p03": 42, "fr-p04": 26, "fr-p05": 68, "fr-p06": 34, "fr-p07": 40, "fr-p08": 76, "fr-p09": 36 },
+    "peakPeriods": ["fr-p08", "fr-p05", "fr-p02"],
+    "releasePatterns": ["constitutional refounding", "executive stabilization", "republican settlement"],
+    "relatedPressureIds": ["publicHope", "socialCohesion"]
+  },
+  {
+    "id": "socialCohesion",
+    "label": "Social Cohesion",
+    "description": "The extent of shared trust, belonging, and common purpose.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": { "fr-p01": 24, "fr-p02": 50, "fr-p03": 38, "fr-p04": 28, "fr-p05": 52, "fr-p06": 30, "fr-p07": 42, "fr-p08": 56, "fr-p09": 30 },
+    "peakPeriods": ["fr-p08", "fr-p05", "fr-p02"],
+    "releasePatterns": ["settlement", "reconstruction", "shared modernization"],
+    "relatedPressureIds": ["publicHope", "institutionalLegitimacy"]
+  },
+  {
+    "id": "technologicalDisruption",
+    "label": "Technological Disruption",
+    "description": "The speed and intensity with which new technologies unsettle work, war, daily life, and institutions.",
+    "category": "technological",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 20, "fr-p02": 24, "fr-p03": 32, "fr-p04": 40, "fr-p05": 62, "fr-p06": 58, "fr-p07": 52, "fr-p08": 68, "fr-p09": 82 },
+    "peakPeriods": ["fr-p09", "fr-p08", "fr-p05"],
+    "releasePatterns": ["state modernization", "labour strain", "platform fragmentation"],
+    "relatedPressureIds": ["informationAcceleration", "economicPrecarity"]
+  },
+  {
+    "id": "informationAcceleration",
+    "label": "Information Acceleration",
+    "description": "The speed and reach of communication, persuasion, and narrative spread.",
+    "category": "informational",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 54, "fr-p02": 48, "fr-p03": 46, "fr-p04": 56, "fr-p05": 60, "fr-p06": 64, "fr-p07": 54, "fr-p08": 62, "fr-p09": 92 },
+    "peakPeriods": ["fr-p09", "fr-p06", "fr-p08"],
+    "releasePatterns": ["polarization", "mass mobilization", "legitimacy whiplash"],
+    "relatedPressureIds": ["moralCertainty", "socialCohesion"]
+  },
+  {
+    "id": "ecologicalStrain",
+    "label": "Ecological Strain",
+    "description": "Stress arising from climate, disease, harvest pressure, resource use, or environmental damage.",
+    "category": "ecological",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 18, "fr-p02": 20, "fr-p03": 24, "fr-p04": 24, "fr-p05": 26, "fr-p06": 28, "fr-p07": 24, "fr-p08": 28, "fr-p09": 38 },
+    "peakPeriods": ["fr-p09", "fr-p06", "fr-p08"],
+    "releasePatterns": ["resource pressure", "late-modern environmental anxiety"],
+    "relatedPressureIds": ["economicPrecarity", "socialCohesion"]
+  },
+  {
+    "id": "militarization",
+    "label": "Militarization",
+    "description": "The intensity with which war-making or military logic shapes society and the state.",
+    "category": "military",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 70, "fr-p02": 92, "fr-p03": 38, "fr-p04": 70, "fr-p05": 42, "fr-p06": 96, "fr-p07": 82, "fr-p08": 44, "fr-p09": 36 },
+    "peakPeriods": ["fr-p06", "fr-p02", "fr-p07"],
+    "releasePatterns": ["regime collapse", "state expansion", "security politics"],
+    "relatedPressureIds": ["institutionalLegitimacy", "publicHope"]
+  },
+  {
+    "id": "moralCertainty",
+    "label": "Moral Certainty",
+    "description": "The force with which a society treats beliefs, doctrine, or ideology as non-negotiable.",
+    "category": "cultural",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 92, "fr-p02": 74, "fr-p03": 58, "fr-p04": 82, "fr-p05": 64, "fr-p06": 68, "fr-p07": 70, "fr-p08": 52, "fr-p09": 72 },
+    "peakPeriods": ["fr-p01", "fr-p04", "fr-p02"],
+    "releasePatterns": ["ideological hardening", "revolutionary emergency", "identity conflict"],
+    "relatedPressureIds": ["socialCohesion", "informationAcceleration"]
+  },
+  {
+    "id": "publicHope",
+    "label": "Public Hope",
+    "description": "Shared confidence that the future can be made better.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": { "fr-p01": 86, "fr-p02": 60, "fr-p03": 44, "fr-p04": 62, "fr-p05": 66, "fr-p06": 34, "fr-p07": 58, "fr-p08": 70, "fr-p09": 40 },
+    "peakPeriods": ["fr-p01", "fr-p08", "fr-p05"],
+    "releasePatterns": ["revolution", "republican settlement", "modernization"],
+    "relatedPressureIds": ["institutionalLegitimacy", "socialCohesion"]
+  },
+  {
+    "id": "individualAutonomy",
+    "label": "Individual Autonomy",
+    "description": "The room people have to define life choices beyond inherited station and obligation.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": { "fr-p01": 48, "fr-p02": 34, "fr-p03": 40, "fr-p04": 46, "fr-p05": 54, "fr-p06": 38, "fr-p07": 42, "fr-p08": 60, "fr-p09": 68 },
+    "peakPeriods": ["fr-p09", "fr-p08", "fr-p05"],
+    "releasePatterns": ["rights expansion", "cultural liberalization", "later pluralism"],
+    "relatedPressureIds": ["informationAcceleration", "institutionalLegitimacy"]
+  },
+  {
+    "id": "economicPrecarity",
+    "label": "Economic Precarity",
+    "description": "Exposure to insecurity in work, price, subsistence, and material survival.",
+    "category": "economic",
+    "polarity": "stress",
+    "valuesByPeriod": { "fr-p01": 74, "fr-p02": 64, "fr-p03": 62, "fr-p04": 72, "fr-p05": 56, "fr-p06": 84, "fr-p07": 68, "fr-p08": 42, "fr-p09": 66 },
+    "peakPeriods": ["fr-p06", "fr-p01", "fr-p04"],
+    "releasePatterns": ["reform", "protest", "anti-system drift"],
+    "relatedPressureIds": ["inequality", "socialCohesion"]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "fr-x01",
+    "sourcePeriodId": "fr-p01",
+    "targetPeriodId": "fr-p04",
+    "similarityLabel": "Republican opening gives way to harder executive order",
+    "similarityReasons": [
+      "Both periods begin with civic opening and mass political energy.",
+      "Both turn quickly toward stronger authority when legitimacy and order fail to stabilize."
+    ],
+    "dimensions": ["institutionalLegitimacy", "moralCertainty", "publicHope"],
+    "confidence": 0.82,
+    "notes": "These are not identical revolutions, but both periods show how French hopes of refounding can turn toward executive closure when legitimacy remains unstable."
+  },
+  {
+    "id": "fr-x02",
+    "sourcePeriodId": "fr-p01",
+    "targetPeriodId": "fr-p07",
+    "similarityLabel": "National refounding through emergency and moral rupture",
+    "similarityReasons": [
+      "Both periods rebuild legitimacy out of crisis rather than continuity.",
+      "Both make ordinary life feel inseparable from questions of national survival and moral choice."
+    ],
+    "dimensions": ["institutionalLegitimacy", "publicHope", "socialCohesion"],
+    "confidence": 0.71,
+    "notes": "Revolution and liberation are morally distinct, but both feel like moments when the polity must be rebuilt because the old order has become untenable."
+  },
+  {
+    "id": "fr-x03",
+    "sourcePeriodId": "fr-p03",
+    "targetPeriodId": "fr-p08",
+    "similarityLabel": "Legitimacy repaired through stronger constitutional order",
+    "similarityReasons": [
+      "Both periods respond to instability by trying to make authority more governable.",
+      "The later period succeeds more durably because it solves the executive weakness the earlier period never resolved."
+    ],
+    "dimensions": ["institutionalLegitimacy", "socialCohesion", "publicHope"],
+    "confidence": 0.74,
+    "notes": "This echo is comparative rather than repetitive: what the Restoration could not stabilize, the Fifth Republic stabilizes more successfully."
+  },
+  {
+    "id": "fr-x04",
+    "sourcePeriodId": "fr-p02",
+    "targetPeriodId": "fr-p08",
+    "similarityLabel": "Centralized state order after upheaval",
+    "similarityReasons": [
+      "Both periods channel instability into stronger executive and administrative order.",
+      "Both connect legitimacy to national competence, discipline, and state reach."
+    ],
+    "dimensions": ["institutionalLegitimacy", "militarization", "publicHope"],
+    "confidence": 0.69,
+    "notes": "Napoleonic and Gaullist France differ sharply, but each period uses state centralization to answer an earlier legitimacy crisis."
+  },
+  {
+    "id": "fr-x05",
+    "sourcePeriodId": "fr-p05",
+    "targetPeriodId": "fr-p09",
+    "similarityLabel": "The republic speaks in universal terms while fracture keeps returning",
+    "similarityReasons": [
+      "Both periods are organized around republican claims to national unity.",
+      "Both reveal deep fractures over belonging, belief, and who the republic truly protects."
+    ],
+    "dimensions": ["institutionalLegitimacy", "socialCohesion", "moralCertainty"],
+    "confidence": 0.79,
+    "notes": "The Third Republic and late-modern France are far apart in social form, but each shows how civic universalism can coexist with sharp exclusion and distrust."
+  },
+  {
+    "id": "fr-x06",
+    "sourcePeriodId": "fr-p06",
+    "targetPeriodId": "fr-p09",
+    "similarityLabel": "Fear and fragmentation weaken confidence in the national settlement",
+    "similarityReasons": [
+      "Both periods are marked by insecurity, ideological hardening, and weaker trust in the political center.",
+      "Both make the republic feel more brittle than its formal institutions suggest."
+    ],
+    "dimensions": ["institutionalLegitimacy", "socialCohesion", "informationAcceleration"],
+    "confidence": 0.72,
+    "notes": "Interwar fracture and late-modern fragmentation differ in danger and scale, but both undermine confidence that the republic can still hold a shared center."
+  }
+]

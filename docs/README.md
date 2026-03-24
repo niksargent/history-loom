@@ -88,6 +88,17 @@ history-loom/
     usa-snapshot-strategy.md
     usa-pressure-grounding-map.md
     france-dataset-charter.md
+    france-periodization-proposal.md
+    france-seeding-plan.md
+    france-initial-seed-candidates.md
+    france-pressure-grounding-map.md
+    france-snapshot-strategy.md
+    france-v1-validation-review.md
+    france-period-quality-review.md
+    france-maturity-checkpoint-decision.md
+    multi-dataset-next-phase-plan.md
+    multi-dataset-solid-readiness-review.md
+    lived-voice-v2.md
     dataset-authoring-workflow.md
     dataset-authoring-standards.md
     multi-dataset-strategy.md
@@ -98,6 +109,13 @@ history-loom/
     geographies.json
     validation-registry.json
     usa/
+      meta.json
+      periods.json
+      events.json
+      pressures.json
+      echoes.json
+      snapshots.json
+    france/
       meta.json
       periods.json
       events.json
@@ -171,8 +189,21 @@ In progress:
 - authoring standards are now being tightened so France starts from a clearer content method than either Britain or early USA did
 - the USA maturity checkpoint is now accepted: USA is template dataset 2 at usable-draft maturity, so France can begin without waiting for USA perfection
 - France chartering is now active as dataset 3, with the charter complete and periodization/seeding next
+- France now has a proposed `9-era civic lens` aligned to regime and legitimacy breaks rather than equal-duration blocks
+- France now also has a first seeding plan and anchor shortlist, but still no runtime dataset files
+- France now also has a pressure-grounding map and snapshot/lived-voice strategy, and a first runtime France draft seed now exists on disk
+- France now also has a first basic validation review and is wired into the app path as a guarded draft field
+- France remains draft-scoped, and cross-dataset compare remains off
+- France now also has a first live-use clarity review, with the main watchlist concentrated in `fr-p03`, `fr-p06`, and `fr-p07`
+- France is now accepted as template dataset 3 at usable-draft maturity
+- the next active project phase is now explicitly multi-dataset: move the three live fields toward `solid`, not toward endless new seeding
+- lived voice v2 is now implemented across Britain, USA, and France with tabbed persona switching in the detail panel
+- the first selective validation review against the new `solid` threshold is now complete: no live dataset is yet solid, but all three are strong enough for further low-claim product extension
+- a small UI defect watchlist is now explicit: remove redundant `lived voice` repetition in the texture section, enforce British English consistently, and revisit the legibility of the `Force in focus` / `Through` card
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
+- dataset backgrounds are now allowed to vary by field using flag-derived atmospheric palettes rather than one hardcoded global background
+- those palettes should now be treated as richer atmospheric syntheses rather than simple two-color gradients, so each field reads differently at first glance
 - active echoes now render more spatially, with a canopy-style route fan in the Loom and a matching constellation treatment in the detail panel
 - selected pressure focus now keeps the pressure overlay active regardless of whether the force was chosen from the Loom or the structural-force panel, using stable highlight behavior rather than animated line drawing
 - selected pressure focus in the detail panel now uses a more embodied field-to-period-to-flashpoint treatment rather than a simple descriptive score block
@@ -187,10 +218,13 @@ Deferred:
 - thematic filters
 - guided paths
 - accessible lived-voice or `vox pop` cards in the detail pane to explain periods in plain language through imagined first-person street-level responses
+- richer lived-voice personae per period, likely as tabbed woman/man/third-voice positions where the content can support it
 - saved states
 - quotes
 - custom lenses
 - advanced similarity engine
+- a future `In motion` or `Interactive time` view/modal using motion-first charts such as a bar chart race or force-pull animation
+- future candidate datasets after France: Scotland, Britain before 1066, and Roman
 
 ## What next
 
@@ -198,10 +232,10 @@ The next delivery sequence should be:
 1. treat Britain as template dataset 1 rather than an active expansion target
 2. complete the bounded exhibit UI refinement pass documented in `docs/exhibit-ui-refinement-plan.md`
 3. keep Britain in selective validation mode rather than open-ended enrichment
-4. complete France periodization and seeding plans from the shared Britain/USA standards baseline
-5. hold cross-dataset compare until both datasets are mature enough to support it honestly
+4. move Britain, USA, and France from `usable draft` toward `solid` through selective validation rather than broad enrichment
+5. hold cross-dataset compare until at least two datasets are solid enough to support it honestly
 6. discuss geography before doing any further tuning or placement changes
-7. only then choose the next product expansion after France setup, most likely thematic filtering or guided narrative
+7. move next into a lower-claim extension such as an `In motion` view while continuing only targeted validation toward `solid`
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect
@@ -211,8 +245,8 @@ One future content direction should remain visible:
 - the product needs a more accessible, more human narrative layer for younger and non-specialist audiences
 - a likely answer is a `vox pop` or street-voice panel in the detail area, answering questions like `how are things affecting you?` and `what is everyday life like?` in clear, plain language
 - the goal is not just to show structure, but to make the structure felt
-- that lived-voice layer should be implemented for USA first and then Britain
-- now that both datasets have it, the next full product pass is the current exhibit UI refinement pass using the installed `frontend-skill`
+- that lived-voice layer now exists across Britain, USA, and France in a first persona-driven v2 pass, and can later grow into image or audio-led presentation
+- now that three datasets are live, the immediate next product phase is the one documented in `docs/multi-dataset-next-phase-plan.md`
 
 What should not happen yet:
 - do not add multi-lens UI without real alternate-lens data

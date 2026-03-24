@@ -10,7 +10,30 @@
     "speakerFrame": "A household trying to make sense of independence",
     "prompt": "What does this moment feel like if you are just trying to live through it?",
     "response": "People speak in big words about liberty, but daily life is still full of work, shortages, and uncertainty. The country is new, yet power still sits in old kinds of hands.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in the founding era and National Archives founding documents."
+    "sourcesOrRationale": "Interpretive snapshot grounded in the founding era and National Archives founding documents.",
+    "voices": [
+      {
+        "id": "us-s01-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman keeping a household in the early republic",
+        "response": "They talk about liberty in town, but my day is still measured in hauling water, mending cloth, and making food stretch. The country is new; dependence is not."
+      },
+      {
+        "id": "us-s01-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man trying to make a living in a fragile republic",
+        "response": "Independence has changed the flag faster than it has changed ordinary power. A man still looks to local elites, credit, and harvests before he trusts any national promise."
+      },
+      {
+        "id": "us-s01-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen hearing republican ideals from below",
+        "response": "The words are grand enough to stir you, but the reach of them is plainly uneven. The republic feels like an argument that has not yet decided who counts."
+      }
+    ]
   },
   {
     "id": "us-s02",
@@ -23,7 +46,30 @@
     "speakerFrame": "Someone living inside the republic's unequal expansion",
     "prompt": "How does expansion affect ordinary life?",
     "response": "If you are on the winning side, the country can feel full of room and promise. If you are enslaved or being pushed off your land, that same growth feels like force closing in.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in expansion-era conflict, the Louisiana Purchase, and the Mexican-American War."
+    "sourcesOrRationale": "Interpretive snapshot grounded in expansion-era conflict, the Louisiana Purchase, and the Mexican-American War.",
+    "voices": [
+      {
+        "id": "us-s02-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living where expansion redraws everyday security",
+        "response": "Some families speak as if the land itself were opening for them. Others watch soldiers, speculators, or slave traders turn that same expansion into fear at the door."
+      },
+      {
+        "id": "us-s02-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man caught in the republic's unequal expansion",
+        "response": "If you hold property and stand on the right side of power, the country feels full of motion and promise. If you do not, expansion feels like someone else's future taking shape over your body."
+      },
+      {
+        "id": "us-s02-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident watching growth and coercion advance together",
+        "response": "The republic grows by calling itself free while forcing whole peoples into narrower ground. Public confidence and public violence rise together."
+      }
+    ]
   },
   {
     "id": "us-s03",
@@ -36,7 +82,30 @@
     "speakerFrame": "Someone living through war and emancipation",
     "prompt": "What changes first when the nation breaks into war?",
     "response": "The state gets closer very quickly. Soldiers, shortages, danger, and new ideas about freedom all arrive at once, and nobody can be sure what kind of country will survive.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in emancipation, Civil War, and Reconstruction."
+    "sourcesOrRationale": "Interpretive snapshot grounded in emancipation, Civil War, and Reconstruction.",
+    "voices": [
+      {
+        "id": "us-s03-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman trying to hold family life together in wartime",
+        "response": "Everything becomes uncertain at once: food, news, safety, and the fate of men you love. Freedom sounds larger than before, but so does the price of reaching it."
+      },
+      {
+        "id": "us-s03-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through war and emancipation",
+        "response": "The state suddenly knows your name, your labour, and perhaps your body. A man can feel history moving through his street before he understands what country will come out the other side."
+      },
+      {
+        "id": "us-s03-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching the nation break and reform",
+        "response": "War drags ideas about union and freedom out of speeches and into daily risk. Nothing about the country feels abstract once survival and citizenship are being renegotiated together."
+      }
+    ]
   },
   {
     "id": "us-s04",
@@ -49,7 +118,30 @@
     "speakerFrame": "A city worker in an unequal modern age",
     "prompt": "What does modern progress feel like on the ground?",
     "response": "The city feels alive and full of motion, but it also feels crowded, unequal, and controlled by people far above you. Progress is real, but it does not arrive fairly.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in industrialization, segregation, and reform-era shifts."
+    "sourcesOrRationale": "Interpretive snapshot grounded in industrialization, segregation, and reform-era shifts.",
+    "voices": [
+      {
+        "id": "us-s04-woman",
+        "label": "Woman",
+        "voiceMode": "worker",
+        "speakerFrame": "A woman navigating a crowded, unequal industrial city",
+        "response": "The city offers wages, lights, and movement, but also rooms packed too tight and money that vanishes too fast. Progress is easy to admire from a distance and harder to live inside."
+      },
+      {
+        "id": "us-s04-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man working in the unequal modern republic",
+        "response": "Machines and rail lines make the country feel unstoppable. They do not stop bosses from setting the terms or neighborhoods from being sorted by power."
+      },
+      {
+        "id": "us-s04-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident watching modernity widen opportunity and control",
+        "response": "The republic looks richer, faster, and more capable than before. It also looks more willing to call inequality the price of progress."
+      }
+    ]
   },
   {
     "id": "us-s05",
@@ -62,7 +154,30 @@
     "speakerFrame": "A household pulled into Depression and war mobilization",
     "prompt": "How does crisis change what government means to people?",
     "response": "Government stops feeling distant when it helps you eat, work, or survive. In hard times and war, the state becomes part of the rhythm of ordinary life.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in the New Deal and World War II mobilization."
+    "sourcesOrRationale": "Interpretive snapshot grounded in the New Deal and World War II mobilization.",
+    "voices": [
+      {
+        "id": "us-s05-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living through depression relief and war mobilization",
+        "response": "When work disappears, policy stops feeling abstract very quickly. A relief check, a ration book, or a government job can mean the difference between dignity and panic."
+      },
+      {
+        "id": "us-s05-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man pulled from hardship into state-led recovery and war",
+        "response": "The government becomes real when it helps put bread on the table and then asks for service in return. Crisis teaches you how large the state can become when the country decides it must act."
+      },
+      {
+        "id": "us-s05-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen seeing federal power become part of ordinary life",
+        "response": "Washington no longer feels like a distant dome and a speech. It shows up in wages, roads, food, uniforms, and the sense that private life is tied to national survival."
+      }
+    ]
   },
   {
     "id": "us-s06",
@@ -75,7 +190,30 @@
     "speakerFrame": "Someone living in a more comfortable but more contested America",
     "prompt": "What does this period feel like behind the polished surface?",
     "response": "There is more comfort and confidence than before, but the country does not feel settled. Questions about race, war, and belonging are now too visible to ignore.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in postwar life and the civil-rights era."
+    "sourcesOrRationale": "Interpretive snapshot grounded in postwar life and the civil-rights era.",
+    "voices": [
+      {
+        "id": "us-s06-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living inside postwar comfort and public conflict",
+        "response": "The appliances are newer and the rooms more comfortable, but comfort does not stop the arguments outside from entering the home. Race, war, and rights make the old calm harder to believe in."
+      },
+      {
+        "id": "us-s06-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man in prosperous but contested America",
+        "response": "People talk as if the country has finally settled into success, yet the streets and television keep proving otherwise. A man can feel materially safer and politically less certain at the same time."
+      },
+      {
+        "id": "us-s06-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching postwar order crack under its own claims",
+        "response": "This is the moment when prosperity stops hiding contradiction. The country looks strongest just as its unfinished promises become hardest to deny."
+      }
+    ]
   },
   {
     "id": "us-s07",
@@ -88,7 +226,30 @@
     "speakerFrame": "Someone living through deindustrialization and distrust",
     "prompt": "How does it feel when the country keeps changing but trust keeps shrinking?",
     "response": "You may have more things to buy and more media to watch, but less faith that the system works for people like you. Work feels shakier, and public life feels harder to believe in.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in the late-20th-century market turn and post-Watergate distrust."
+    "sourcesOrRationale": "Interpretive snapshot grounded in the late-20th-century market turn and post-Watergate distrust.",
+    "voices": [
+      {
+        "id": "us-s07-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman managing insecurity after work and trust thin out",
+        "response": "The shops are full, but steady confidence is not. You learn to plan around layoffs, rising costs, and the feeling that the institutions above you are less dependable than they sound."
+      },
+      {
+        "id": "us-s07-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through deindustrialization and distrust",
+        "response": "A good job can disappear, and with it the story you told yourself about the country. Media grows louder while public faith grows weaker, and the two changes feed each other."
+      },
+      {
+        "id": "us-s07-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching individual choice replace shared confidence",
+        "response": "You can buy more, watch more, and move more freely than before, yet public life feels thinner. The republic becomes easier to consume and harder to believe in."
+      }
+    ]
   },
   {
     "id": "us-s08",
@@ -101,6 +262,29 @@
     "speakerFrame": "A person trying to keep up in the platform era",
     "prompt": "What does this period feel like in everyday terms?",
     "response": "You are always connected, always reacting, and rarely fully at rest. Information is everywhere, but it can still feel hard to know what is true or what kind of future people share.",
-    "sourcesOrRationale": "Interpretive snapshot grounded in 9/11, the financial crisis, and the platform-era public sphere."
+    "sourcesOrRationale": "Interpretive snapshot grounded in 9/11, the financial crisis, and the platform-era public sphere.",
+    "voices": [
+      {
+        "id": "us-s08-woman",
+        "label": "Woman",
+        "voiceMode": "street-level",
+        "speakerFrame": "A woman trying to live in the platform-era public sphere",
+        "response": "The phone never really lets the day end. News, fear, work, family, and argument all arrive through the same glass and leave you feeling informed and unsettled at once."
+      },
+      {
+        "id": "us-s08-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through platform-era acceleration",
+        "response": "Everything moves faster than trust can keep up. You are expected to stay available, keep reacting, and build a life on systems that feel useful one day and brittle the next."
+      },
+      {
+        "id": "us-s08-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching common reality fragment",
+        "response": "The country is connected more tightly than ever and feels less held together. Public life no longer lacks information; it lacks shared weight and shared rhythm."
+      }
+    ]
   }
 ]

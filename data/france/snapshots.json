@@ -1,0 +1,326 @@
+[
+  {
+    "id": "fr-s01",
+    "periodId": "fr-p01",
+    "title": "Politics enters the street",
+    "scale": "personal",
+    "summary": "Everything feels unstable and charged. The old order is falling, but the new one is not settled, and ordinary life is now tied to public events and fear.",
+    "dailyReality": "Bread, rumor, and politics all feel like matters of survival.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A Paris household living through revolution",
+    "prompt": "What does this period feel like if you are just trying to live through it?",
+    "response": "One week people talk about rights and the nation, and the next they worry about food, violence, and who may be denounced. Politics no longer feels far away. It is in the market, in the street, and in your home.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of the French Revolution.",
+    "voices": [
+      {
+        "id": "fr-s01-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman in Paris trying to feed a family through revolution",
+        "response": "Some mornings I queue for bread before I hear the latest rumor, and some mornings the rumor matters more than the bread. Politics now sits at the table with us whether we invite it or not."
+      },
+      {
+        "id": "fr-s01-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living where revolution has entered the street",
+        "response": "A speech, a crowd, and a denunciation can change the week faster than work can steady it. You feel history at the market stall before you understand it in any grand way."
+      },
+      {
+        "id": "fr-s01-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident watching public life turn urgent and dangerous",
+        "response": "The nation is no longer an idea discussed above; it is a force pressing through food, fear, and accusation. Ordinary life has become political because there is no longer a safe outside to politics."
+      }
+    ]
+  },
+  {
+    "id": "fr-s02",
+    "periodId": "fr-p02",
+    "title": "Order with war inside it",
+    "scale": "personal",
+    "summary": "The country feels more orderly than before, but that order comes with conscription, discipline, and the constant pull of war.",
+    "dailyReality": "The state feels stronger and clearer, but it asks more of people's bodies and loyalties.",
+    "voiceMode": "household",
+    "speakerFrame": "A family living under Napoleonic rule",
+    "prompt": "How does stronger order change daily life?",
+    "response": "Things feel less chaotic than they did in the revolution, but the state is closer now. Men are taken for war, laws reach further, and even peace at home feels tied to fighting somewhere else.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of Napoleonic France.",
+    "voices": [
+      {
+        "id": "fr-s02-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living under order tied to conscription and war",
+        "response": "Life is less chaotic than in the revolution, but the state asks more of every household. Peace at home can vanish the moment another campaign needs bodies and grain."
+      },
+      {
+        "id": "fr-s02-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man under Napoleonic discipline",
+        "response": "The law feels clearer and the state more capable, yet that same strength can seize your labour or your service without much debate. Order is real, but it marches in boots."
+      },
+      {
+        "id": "fr-s02-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A subject seeing consolidation bound to war",
+        "response": "France looks more coherent because authority has hardened around a single center. That coherence is paid for by a nation constantly being asked to mobilize."
+      }
+    ]
+  },
+  {
+    "id": "fr-s03",
+    "periodId": "fr-p03",
+    "title": "Calmer, but never fully settled",
+    "scale": "local",
+    "summary": "Life looks more settled on the surface, yet people still live with the sense that another rupture may come.",
+    "dailyReality": "The regime asks for obedience, but not everyone believes it will last.",
+    "voiceMode": "civic",
+    "speakerFrame": "Someone living under restoration politics",
+    "prompt": "What does an uneasy settlement feel like?",
+    "response": "The city is not in full upheaval, but it does not feel truly secure either. People work, worship, argue, and wait, with a sense that the political order still rests on weak ground.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of Restoration France and the July Revolution.",
+    "voices": [
+      {
+        "id": "fr-s03-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman living in a calmer but uneasy restoration",
+        "response": "The shouting has quieted, but nobody I know mistakes quiet for certainty. You keep house as usual while sensing the regime may still be only resting on the surface."
+      },
+      {
+        "id": "fr-s03-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man working through restoration politics",
+        "response": "Business, worship, and routine have returned enough to feel almost normal. The word almost matters, because everyone can still imagine the next rupture."
+      },
+      {
+        "id": "fr-s03-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident watching settlement without full legitimacy",
+        "response": "Order has come back in form, not in conviction. France is easier to live in than in revolutionary crisis, but still too unsettled to trust completely."
+      }
+    ]
+  },
+  {
+    "id": "fr-s04",
+    "periodId": "fr-p04",
+    "title": "Hope turns, then breaks",
+    "scale": "personal",
+    "summary": "The period begins with democratic hope, turns toward stronger authority, and ends in defeat and humiliation.",
+    "dailyReality": "People feel politics changing quickly above them, while ordinary security never fully catches up.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A resident living through 1848, empire, and defeat",
+    "prompt": "What does it feel like when political openings keep closing again?",
+    "response": "At first it feels as though the country might open to ordinary people. Then authority hardens, and by the end defeat makes the whole story feel broken again. It is exhausting to keep hoping and being overruled.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of 1848, the Second Empire, and 1870.",
+    "voices": [
+      {
+        "id": "fr-s04-woman",
+        "label": "Woman",
+        "voiceMode": "street-level",
+        "speakerFrame": "A woman living through opening, closure, and defeat",
+        "response": "Each promise of change seems to narrow before ordinary life can catch up with it. Hope becomes tiring when it keeps being followed by harder authority and then humiliation."
+      },
+      {
+        "id": "fr-s04-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man watching political openings close again",
+        "response": "You hear that the people are to be included, then you watch power tighten around familiar hands. By the time defeat arrives, it feels like the whole cycle has mocked the hope that began it."
+      },
+      {
+        "id": "fr-s04-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident living inside repeated reversal",
+        "response": "This era teaches people not only what change can look like, but how quickly it can be fenced back in. The public mood grows exhausted because the pattern becomes recognizable."
+      }
+    ]
+  },
+  {
+    "id": "fr-s05",
+    "periodId": "fr-p05",
+    "title": "The republic becomes normal, but not simple",
+    "scale": "national",
+    "summary": "School, secularism, service, and public life now carry the republic's mark, but the nation still argues over who belongs and what the republic means.",
+    "dailyReality": "The state feels more ordinary and more present, even while scandal and prejudice show its limits.",
+    "voiceMode": "civic",
+    "speakerFrame": "A household shaped by the schools and rituals of the republic",
+    "prompt": "How does a republic feel once it is no longer new?",
+    "response": "It feels less like constant emergency and more like a system that teaches you how to belong. But when scandal erupts or prejudice turns public, you see that the republic is still fighting over its own promises.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of the Third Republic and the Dreyfus Affair.",
+    "voices": [
+      {
+        "id": "fr-s05-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman shaped by the schools and rituals of the republic",
+        "response": "The republic feels ordinary enough to structure the week: school, civic ceremony, and the expectations of belonging. That normality breaks whenever scandal reveals how uneven the promise still is."
+      },
+      {
+        "id": "fr-s05-man",
+        "label": "Man",
+        "voiceMode": "civic",
+        "speakerFrame": "A man living in the settled but argued Third Republic",
+        "response": "France now knows how to present itself as a republic, and that gives daily life a firmer frame. It does not stop prejudice, panic, or bitter argument from showing where the frame is weak."
+      },
+      {
+        "id": "fr-s05-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen seeing the republic become habit and contest together",
+        "response": "The republic is strongest when it stops feeling new. It is also most revealing then, because its injustices appear inside the very routines that claim to bind the nation together."
+      }
+    ]
+  },
+  {
+    "id": "fr-s06",
+    "periodId": "fr-p06",
+    "title": "A tired republic under too much strain",
+    "scale": "personal",
+    "summary": "War memory, economic weakness, and political division make the republic feel worn down rather than secure.",
+    "dailyReality": "Even before collapse arrives, many people feel they are living inside an order that is losing strength.",
+    "voiceMode": "household",
+    "speakerFrame": "A family carrying the burden of war and interwar strain",
+    "prompt": "What does a weakening republic feel like in daily life?",
+    "response": "It feels tired. People still speak about the nation and the republic, but there is less confidence behind the words. Money is tight, politics is bitter, and the fear of another disaster never really leaves.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of interwar France and the fall of France.",
+    "voices": [
+      {
+        "id": "fr-s06-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman carrying interwar strain at home",
+        "response": "The house is run carefully because money never feels fully secure and fear never fully leaves. People still say republic and nation with respect, but not with the old confidence."
+      },
+      {
+        "id": "fr-s06-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living in a republic that feels tired",
+        "response": "Work, politics, and memory all feel burdened by the last catastrophe and shadowed by the next. A man can sense institutional weakness long before collapse makes it undeniable."
+      },
+      {
+        "id": "fr-s06-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A resident watching confidence drain from the republic",
+        "response": "The order still stands, but it no longer stands easily. France feels like a state trying to preserve authority without the reserves of belief needed to do it well."
+      }
+    ]
+  },
+  {
+    "id": "fr-s07",
+    "periodId": "fr-p07",
+    "title": "Relief, rebuilding, then another strain",
+    "scale": "personal",
+    "summary": "Occupation ends and rebuilding begins, but the new republic still feels fragile and burdened by empire crisis.",
+    "dailyReality": "People move from fear and scarcity into reconstruction without ever fully trusting that politics is stable.",
+    "voiceMode": "household",
+    "speakerFrame": "Someone living through liberation and the unstable Fourth Republic",
+    "prompt": "How does daily life feel after occupation has ended?",
+    "response": "There is relief, of course, and rebuilding feels real. But the country is still unsettled. People want normal life back, yet politics remains shaky and the burden of empire keeps pushing crisis into the present.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of wartime France, liberation, and the Fourth Republic.",
+    "voices": [
+      {
+        "id": "fr-s07-woman",
+        "label": "Woman",
+        "voiceMode": "household",
+        "speakerFrame": "A woman trying to rebuild after occupation",
+        "response": "Relief is real, but it does not erase scarcity or political weakness. You step into rebuilding with gratitude and suspicion at the same time."
+      },
+      {
+        "id": "fr-s07-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man living through liberation and the Fourth Republic",
+        "response": "The country wants normal life back quickly, yet politics keeps proving unstable and empire keeps dragging crisis back into view. Recovery feels genuine but never fully settled."
+      },
+      {
+        "id": "fr-s07-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching relief give way to another strain",
+        "response": "Liberation restores public dignity, but not durable balance. The new republic begins with moral force and lives under a continuing pressure it cannot master."
+      }
+    ]
+  },
+  {
+    "id": "fr-s08",
+    "periodId": "fr-p08",
+    "title": "Modern, organized, and suddenly rebellious",
+    "scale": "personal",
+    "summary": "The country feels more efficient and more secure, but a generation that benefits from modernization also pushes hard against its authority.",
+    "dailyReality": "Comfort rises, yet younger people and workers feel the order can still be rigid, remote, and overconfident.",
+    "voiceMode": "worker",
+    "speakerFrame": "A person living inside the ordered prosperity of the early Fifth Republic",
+    "prompt": "What does this more stable period feel like on the ground?",
+    "response": "Life feels more organized and often more comfortable than before, but that does not mean people feel heard. The state seems strong, the future seems planned, and that is exactly why revolt can suddenly feel necessary.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of the Fifth Republic, decolonization, and May 1968.",
+    "voices": [
+      {
+        "id": "fr-s08-woman",
+        "label": "Woman",
+        "voiceMode": "worker",
+        "speakerFrame": "A woman living inside ordered prosperity and sudden revolt",
+        "response": "Life is more comfortable and more organized than it was for my parents, yet the order can feel smug and distant. That is why rebellion no longer seems irrational once it begins."
+      },
+      {
+        "id": "fr-s08-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man in the confident early Fifth Republic",
+        "response": "The state looks strong, the roads and offices work, and the future feels planned from above. A man can benefit from that stability and still resent how little say it leaves him."
+      },
+      {
+        "id": "fr-s08-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching technocratic order produce its own backlash",
+        "response": "France appears steadier than before because authority is firmer and modernization is visible. That same firmness creates the pressure that makes revolt legible, especially to the young."
+      }
+    ]
+  },
+  {
+    "id": "fr-s09",
+    "periodId": "fr-p09",
+    "title": "Stable institutions, weaker common feeling",
+    "scale": "personal",
+    "summary": "The constitution endures, but the public mood is more fragmented. People live in a republic that is formally stable yet often feels divided and strained.",
+    "dailyReality": "Life is more connected, more protected in some ways, and more anxious in others.",
+    "voiceMode": "street-level",
+    "speakerFrame": "A person trying to live inside late-modern French fragmentation",
+    "prompt": "What does this period feel like in ordinary life?",
+    "response": "You may still see the state as strong, but it is harder to feel that the country moves together. Information is constant, politics feels sharper, and people often feel they are being sorted into camps rather than held inside one common story.",
+    "sourcesOrRationale": "Interpretive snapshot grounded in Britannica coverage of Mitterrand-era change, European integration, and the Paris attacks of 2015.",
+    "voices": [
+      {
+        "id": "fr-s09-woman",
+        "label": "Woman",
+        "voiceMode": "street-level",
+        "speakerFrame": "A woman living in a more fragmented late-modern France",
+        "response": "The state still exists around me, but common feeling is harder to find. News arrives constantly, and every crisis seems to sort people into sharper camps."
+      },
+      {
+        "id": "fr-s09-man",
+        "label": "Man",
+        "voiceMode": "worker",
+        "speakerFrame": "A man trying to keep faith with institutions in a sharper public mood",
+        "response": "You can see the republic still functioning, yet it no longer feels as if everyone is carried by the same story. Work, security, and identity all seem easier to argue over than to settle."
+      },
+      {
+        "id": "fr-s09-public",
+        "label": "Public",
+        "voiceMode": "civic",
+        "speakerFrame": "A citizen watching formal stability and social fragmentation coexist",
+        "response": "France has kept the constitutional shell more successfully than many states. The strain now lies in whether that shell still holds a shared public life inside it."
+      }
+    ]
+  }
+]

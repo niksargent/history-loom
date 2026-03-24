@@ -12,9 +12,58 @@ import {
 } from './lib/loom-data'
 import type { LoomDataset, PressureSnapshot } from './types/view'
 import type { DetailViewMode, LoomDensityMode } from './types/view'
+import type { DatasetVisualTheme } from './types/domain'
 
 type EntryTab = 'question' | 'force' | 'pattern'
 type EntryTone = 'amber' | 'cyan'
+
+const defaultBackgroundTheme: DatasetVisualTheme = {
+  light: 'rgba(244,241,233,0.78)',
+  cool: 'rgba(87,126,138,0.24)',
+  warm: 'rgba(196,176,136,0.1)',
+  contrast: 'rgba(176,160,132,0.12)',
+  glow: 'rgba(172,164,148,0.12)',
+  baseTop: 'rgba(70,76,80,0.98)',
+  baseMid: 'rgba(44,48,51,0.98)',
+  baseBottom: 'rgba(12,14,15,1)',
+}
+
+function buildDatasetBackground(datasetId: string, theme?: DatasetVisualTheme) {
+  const palette = theme ?? defaultBackgroundTheme
+
+  if (datasetId === 'united-states-1776-2025') {
+    return [
+      `radial-gradient(circle at 82% 6%, ${palette.light}, rgba(245, 240, 229, 0.34) 16%, transparent 42%)`,
+      `radial-gradient(circle at 14% 18%, ${palette.cool}, transparent 34%)`,
+      `radial-gradient(circle at 72% 34%, ${palette.warm}, transparent 28%)`,
+      `radial-gradient(circle at 18% 78%, ${palette.contrast}, transparent 26%)`,
+      `radial-gradient(circle at 88% 68%, ${palette.glow}, transparent 24%)`,
+      `linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 34%)`,
+      `linear-gradient(180deg, ${palette.baseTop} 0%, ${palette.baseMid} 30%, rgba(18, 22, 28, 1) 58%, ${palette.baseBottom} 100%)`,
+    ].join(', ')
+  }
+
+  if (datasetId === 'france-1789-2025') {
+    return [
+      `radial-gradient(circle at 54% 4%, ${palette.light}, rgba(245, 241, 235, 0.3) 18%, transparent 44%)`,
+      `radial-gradient(circle at 18% 22%, ${palette.cool}, transparent 32%)`,
+      `radial-gradient(circle at 84% 24%, ${palette.warm}, transparent 30%)`,
+      `radial-gradient(circle at 50% 72%, ${palette.contrast}, transparent 24%)`,
+      `radial-gradient(circle at 16% 82%, ${palette.glow}, transparent 22%)`,
+      `linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 26%, rgba(255, 255, 255, 0.03) 52%, transparent 74%)`,
+      `linear-gradient(180deg, ${palette.baseTop} 0%, ${palette.baseMid} 28%, rgba(17, 20, 24, 1) 58%, ${palette.baseBottom} 100%)`,
+    ].join(', ')
+  }
+
+  return [
+    `radial-gradient(circle at 78% 8%, ${palette.light}, rgba(224, 216, 202, 0.24) 16%, transparent 44%)`,
+    `radial-gradient(circle at 14% 18%, ${palette.cool}, transparent 34%)`,
+    `radial-gradient(circle at 72% 28%, ${palette.warm}, transparent 30%)`,
+    `radial-gradient(circle at 44% 70%, ${palette.contrast}, transparent 24%)`,
+    `radial-gradient(circle at 18% 82%, ${palette.glow}, transparent 22%)`,
+    `linear-gradient(180deg, ${palette.baseTop} 0%, ${palette.baseMid} 28%, rgba(24, 27, 29, 1) 58%, ${palette.baseBottom} 100%)`,
+  ].join(', ')
+}
 
 function loadDatasetState(datasetId: string) {
   try {
@@ -324,6 +373,12 @@ function App() {
     { id: 'force', label: 'Force' },
     { id: 'pattern', label: 'Pattern' },
   ] as const
+  const currentDatasetEntry =
+    datasetRegistry.find((entry) => entry.id === datasetId) ?? null
+  const atmosphericBackground = buildDatasetBackground(
+    datasetId,
+    currentDatasetEntry?.visualTheme,
+  )
 
   function getEntryCardClass(isActive: boolean, tone: EntryTone) {
     if (isActive) {
@@ -437,7 +492,10 @@ function App() {
 
   return (
     <div className="relative isolate min-h-screen bg-[color:var(--bg)] text-stone-100">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_top_right,_rgba(244,241,233,0.78),_rgba(215,208,194,0.28)_16%,_rgba(172,164,148,0.12)_26%,_transparent_46%),radial-gradient(circle_at_top_left,_rgba(87,126,138,0.24),_transparent_34%),radial-gradient(circle_at_center_right,_rgba(196,176,136,0.1),_transparent_32%),linear-gradient(180deg,rgba(70,76,80,0.98)_0%,rgba(44,48,51,0.98)_26%,rgba(24,27,29,1)_58%,rgba(12,14,15,1)_100%)]" />
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{ background: atmosphericBackground }}
+      />
 
       <main className="relative z-10 mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
         <header className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] px-6 py-6 md:px-8">
