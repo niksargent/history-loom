@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import type { Period } from '../types/domain'
 import type { PressureOverlaySeries } from '../types/view'
 
@@ -23,6 +23,7 @@ const PILL_TRAIL_X = PILL_LEFT - 18
 const ROW_TOP = 68
 const ROW_BOTTOM = 560
 const TRAIL_WINDOW = 3.4
+const TRAIL_STEPS = 18
 const PERIOD_DURATION_MS = 2200
 const SEGMENT_HOLD = 0.16
 
@@ -179,7 +180,7 @@ function buildTrailSamples(
 
   const sampleStart = Math.max(progress - TRAIL_WINDOW, 0)
   const span = Math.max(progress - sampleStart, 0.001)
-  const steps = 32
+  const steps = TRAIL_STEPS
   const sampleMap = new Map<string, { x: number; y: number }[]>()
 
   for (let step = 0; step <= steps; step += 1) {
@@ -224,6 +225,14 @@ function buildInterpolatedYear(periods: Period[], progress: number) {
   return `${Math.round(fromYear + (toYear - fromYear) * mix)}`
 }
 
+function getActivePeriod(periods: Period[], progress: number) {
+  if (!periods.length) {
+    return null
+  }
+
+  return periods[Math.min(Math.floor(clamp(progress, 0, periods.length - 1)), periods.length - 1)] ?? null
+}
+
 export function InMotionRacePanel({
   datasetLabel,
   periods,
@@ -235,6 +244,12 @@ export function InMotionRacePanel({
   const titleId = useId()
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const sliderRef = useRef<HTMLInputElement | null>(null)
+  const titleTextRef = useRef<HTMLHeadingElement | null>(null)
+  const yearTextRef = useRef<HTMLParagraphElement | null>(null)
+  const rangeTextRef = useRef<HTMLParagraphElement | null>(null)
+  const pillRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const scoreRefs = useRef<Record<string, HTMLSpanElement | null>>({})
   const animationFrameRef = useRef<number | null>(null)
   const lastFrameTimeRef = useRef<number | null>(null)
   const progressRef = useRef(0)
@@ -244,8 +259,7 @@ export function InMotionRacePanel({
     0,
     periods.findIndex((period) => period.id === initialPeriodId),
   )
-  const [progress, setProgress] = useState(initialIndex)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [filter, setFilter] = useState<RaceFilter>('all')
   const [pinnedForceId, setPinnedForceId] = useState<string | null>(initialPinnedPressureId)
   const [speed, setSpeed] = useState(1)
@@ -261,25 +275,9 @@ export function InMotionRacePanel({
 
     return Array.from({ length }, (_, index) => buildRankMap(visibleSeries, index, 'all'))
   }, [visibleSeries])
-  const orderedSeries = useMemo(
-    () => buildDisplayedSeries(visibleSeries, progress, rankMaps),
-    [progress, rankMaps, visibleSeries],
-  )
-  const trailSamples = useMemo(
-    () => buildTrailSamples(visibleSeries, progress, rankMaps),
-    [progress, rankMaps, visibleSeries],
-  )
-  const activePeriod =
-    periods[Math.min(Math.floor(clamp(progress, 0, periods.length - 1)), periods.length - 1)] ??
-    periods[0]
-  const interpolatedYear = buildInterpolatedYear(periods, progress)
   const effectivePinnedForceId = pressureSeries.some((series) => series.id === pinnedForceId)
     ? pinnedForceId
     : null
-
-  useEffect(() => {
-    progressRef.current = progress
-  }, [progress])
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -299,6 +297,118 @@ export function InMotionRacePanel({
       window.removeEventListener('keydown', handleKeydown)
     }
   }, [onClose])
+
+  const drawFrame = useCallback(
+    (frameProgress: number) => {
+      const orderedSeries = buildDisplayedSeries(visibleSeries, frameProgress, rankMaps)
+      const trailSamples = buildTrailSamples(visibleSeries, frameProgress, rankMaps)
+      const activePeriod = getActivePeriod(periods, frameProgress)
+      const interpolatedYear = buildInterpolatedYear(periods, frameProgress)
+
+      const canvas = canvasRef.current
+      if (canvas) {
+        const context = canvas.getContext('2d')
+        if (context) {
+          const dpr = window.devicePixelRatio || 1
+          const rect = canvas.getBoundingClientRect()
+          const width = rect.width || STAGE_WIDTH
+          const height = rect.height || STAGE_HEIGHT
+
+          if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
+            canvas.width = Math.round(width * dpr)
+            canvas.height = Math.round(height * dpr)
+          }
+
+          context.setTransform(dpr, 0, 0, dpr, 0, 0)
+          context.clearRect(0, 0, width, height)
+          context.lineCap = 'round'
+          context.lineJoin = 'round'
+
+          for (let index = 0; index < orderedSeries.length; index += 1) {
+            const y = getRowY(index, orderedSeries.length)
+            context.strokeStyle = 'rgba(255,255,255,0.025)'
+            context.lineWidth = 1
+            context.beginPath()
+            context.moveTo(TRAIL_LEFT, y)
+            context.lineTo(PILL_TRAIL_X - 14, y)
+            context.stroke()
+          }
+
+          orderedSeries.forEach((series, index) => {
+            const tone = getPolarityTone(series.polarity)
+            const isPinned = series.id === effectivePinnedForceId
+            const trailStrength = getTrailStrength(index, orderedSeries.length)
+            const points = trailSamples.get(series.id) ?? []
+
+            if (points.length < 2) {
+              return
+            }
+
+            context.beginPath()
+            context.moveTo(points[0].x, points[0].y)
+            for (let pointIndex = 1; pointIndex < points.length; pointIndex += 1) {
+              context.lineTo(points[pointIndex].x, points[pointIndex].y)
+            }
+            context.strokeStyle = tone.lineSoft
+            context.globalAlpha = isPinned ? 0.42 : 0.06 + trailStrength * 0.14
+            context.lineWidth = isPinned ? 12 : 5 + trailStrength * 2.4
+            context.stroke()
+
+            context.beginPath()
+            context.moveTo(points[0].x, points[0].y)
+            for (let pointIndex = 1; pointIndex < points.length; pointIndex += 1) {
+              context.lineTo(points[pointIndex].x, points[pointIndex].y)
+            }
+            context.strokeStyle = tone.line
+            context.globalAlpha = isPinned ? 0.98 : 0.2 + trailStrength * 0.24
+            context.lineWidth = isPinned ? 3.6 : 1.1 + trailStrength * 1.1
+            context.stroke()
+          })
+
+          context.globalAlpha = 1
+        }
+      }
+
+      orderedSeries.forEach((series, index) => {
+        const pill = pillRefs.current[series.id]
+        const score = scoreRefs.current[series.id]
+        const isPinned = series.id === effectivePinnedForceId
+        const trailStrength = getTrailStrength(index, orderedSeries.length)
+
+        if (pill) {
+          pill.style.transform = `translate3d(0, ${series.y - PILL_HEIGHT / 2}px, 0)`
+          pill.style.opacity = `${isPinned ? 1 : 0.76 + trailStrength * 0.18}`
+          pill.style.boxShadow = isPinned
+            ? '0 18px 28px rgba(0,0,0,0.28)'
+            : '0 10px 20px rgba(0,0,0,0.14)'
+          pill.style.zIndex = `${isPinned ? 20 : 10 + orderedSeries.length - index}`
+        }
+
+        if (score) {
+          score.textContent = `${Math.round(series.currentValue)}`
+        }
+      })
+
+      if (titleTextRef.current) {
+        titleTextRef.current.textContent = activePeriod?.title ?? ''
+      }
+      if (yearTextRef.current) {
+        yearTextRef.current.textContent = interpolatedYear
+      }
+      if (rangeTextRef.current) {
+        rangeTextRef.current.textContent = activePeriod?.rangeLabel ?? ''
+      }
+      if (sliderRef.current && document.activeElement !== sliderRef.current) {
+        sliderRef.current.value = frameProgress.toFixed(3)
+      }
+    },
+    [effectivePinnedForceId, periods, rankMaps, visibleSeries],
+  )
+
+  useEffect(() => {
+    progressRef.current = initialIndex
+    drawFrame(initialIndex)
+  }, [drawFrame, initialIndex])
 
   useEffect(() => {
     if (!isPlaying || progressRef.current >= maxProgress) {
@@ -323,16 +433,14 @@ export function InMotionRacePanel({
         setFps(samples.reduce((sum, sample) => sum + sample, 0) / samples.length)
       }
 
-      setProgress((current) => {
-        const next = current + (delta / PERIOD_DURATION_MS) * speed
+      const next = progressRef.current + (delta / PERIOD_DURATION_MS) * speed
+      progressRef.current = Math.min(next, maxProgress)
+      drawFrame(progressRef.current)
 
-        if (next >= maxProgress) {
-          setIsPlaying(false)
-          return maxProgress
-        }
-
-        return next
-      })
+      if (next >= maxProgress) {
+        setIsPlaying(false)
+        return
+      }
 
       animationFrameRef.current = window.requestAnimationFrame(tick)
     }
@@ -346,77 +454,11 @@ export function InMotionRacePanel({
       animationFrameRef.current = null
       lastFrameTimeRef.current = null
     }
-  }, [isPlaying, maxProgress, speed])
+  }, [drawFrame, isPlaying, maxProgress, speed])
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) {
-      return
-    }
-
-    const context = canvas.getContext('2d')
-    if (!context) {
-      return
-    }
-
-    const dpr = window.devicePixelRatio || 1
-    const rect = canvas.getBoundingClientRect()
-    const width = rect.width || STAGE_WIDTH
-    const height = rect.height || STAGE_HEIGHT
-
-    if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
-      canvas.width = Math.round(width * dpr)
-      canvas.height = Math.round(height * dpr)
-    }
-
-    context.setTransform(dpr, 0, 0, dpr, 0, 0)
-    context.clearRect(0, 0, width, height)
-    context.lineCap = 'round'
-    context.lineJoin = 'round'
-
-    for (let index = 0; index < orderedSeries.length; index += 1) {
-      const y = getRowY(index, orderedSeries.length)
-      context.strokeStyle = 'rgba(255,255,255,0.025)'
-      context.lineWidth = 1
-      context.beginPath()
-      context.moveTo(TRAIL_LEFT, y)
-      context.lineTo(PILL_TRAIL_X - 14, y)
-      context.stroke()
-    }
-
-    orderedSeries.forEach((series, index) => {
-      const tone = getPolarityTone(series.polarity)
-      const isPinned = series.id === effectivePinnedForceId
-      const trailStrength = getTrailStrength(index, orderedSeries.length)
-      const points = trailSamples.get(series.id) ?? []
-
-      if (points.length < 2) {
-        return
-      }
-
-      context.beginPath()
-      context.moveTo(points[0].x, points[0].y)
-      for (let pointIndex = 1; pointIndex < points.length; pointIndex += 1) {
-        context.lineTo(points[pointIndex].x, points[pointIndex].y)
-      }
-      context.strokeStyle = tone.lineSoft
-      context.globalAlpha = isPinned ? 0.42 : 0.06 + trailStrength * 0.14
-      context.lineWidth = isPinned ? 12 : 5 + trailStrength * 2.4
-      context.stroke()
-
-      context.beginPath()
-      context.moveTo(points[0].x, points[0].y)
-      for (let pointIndex = 1; pointIndex < points.length; pointIndex += 1) {
-        context.lineTo(points[pointIndex].x, points[pointIndex].y)
-      }
-      context.strokeStyle = tone.line
-      context.globalAlpha = isPinned ? 0.98 : 0.2 + trailStrength * 0.24
-      context.lineWidth = isPinned ? 3.6 : 1.1 + trailStrength * 1.1
-      context.stroke()
-    })
-
-    context.globalAlpha = 1
-  }, [effectivePinnedForceId, orderedSeries, trailSamples])
+    drawFrame(progressRef.current)
+  }, [drawFrame, filter, pinnedForceId])
 
   return (
     <div className="compare-backdrop fixed inset-0 z-50 overflow-y-auto px-4 py-6 md:px-6">
@@ -461,15 +503,20 @@ export function InMotionRacePanel({
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <p className="eyebrow">Live field</p>
-                  <h3 className="mt-2 font-display text-2xl text-stone-100">
-                    {activePeriod?.title}
+                  <h3 ref={titleTextRef} className="mt-2 font-display text-2xl text-stone-100">
+                    {getActivePeriod(periods, initialIndex)?.title}
                   </h3>
                 </div>
 
                 <div className="text-right">
-                  <p className="font-display text-4xl text-stone-100">{interpolatedYear}</p>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-stone-500">
-                    {activePeriod?.rangeLabel}
+                  <p ref={yearTextRef} className="font-display text-4xl text-stone-100">
+                    {buildInterpolatedYear(periods, initialIndex)}
+                  </p>
+                  <p
+                    ref={rangeTextRef}
+                    className="mt-2 text-[11px] uppercase tracking-[0.18em] text-stone-500"
+                  >
+                    {getActivePeriod(periods, initialIndex)?.rangeLabel}
                   </p>
                 </div>
               </div>
@@ -484,40 +531,43 @@ export function InMotionRacePanel({
                     aria-hidden="true"
                   />
 
-                  {orderedSeries.map((series, index) => {
+                  {visibleSeries.map((series, index) => {
                     const tone = getPolarityTone(series.polarity)
                     const isPinned = series.id === effectivePinnedForceId
-                    const y = series.y
-                    const trailStrength = getTrailStrength(index, orderedSeries.length)
 
                     return (
                       <button
                         key={`${series.id}-pill`}
+                        ref={(node) => {
+                          pillRefs.current[series.id] = node
+                        }}
                         type="button"
                         onClick={() =>
                           setPinnedForceId((current) =>
                             current === series.id ? null : series.id,
                           )
                         }
-                        className={`absolute flex -translate-y-1/2 items-center justify-between gap-3 rounded-full px-4 text-left shadow-[0_12px_24px_rgba(0,0,0,0.18)] ${
+                        className={`absolute flex items-center justify-between gap-3 rounded-full px-4 text-left shadow-[0_12px_24px_rgba(0,0,0,0.18)] ${
                           isPinned ? tone.pill : tone.pillMuted
                         }`}
                         style={{
                           left: `${PILL_LEFT}px`,
-                          top: `${y}px`,
+                          top: '0px',
                           width: `${PILL_WIDTH}px`,
                           height: `${PILL_HEIGHT}px`,
-                          transform: 'translateY(-50%)',
-                          opacity: isPinned ? 1 : 0.76 + trailStrength * 0.18,
-                          boxShadow: isPinned
-                            ? '0 18px 28px rgba(0,0,0,0.28)'
-                            : '0 10px 20px rgba(0,0,0,0.14)',
+                          transform: `translate3d(0, ${getRowY(index, visibleSeries.length) - PILL_HEIGHT / 2}px, 0)`,
+                          willChange: 'transform, opacity',
                         }}
                       >
                         <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: tone.dot }} />
                         <span className="min-w-0 flex-1 truncate text-sm">{series.label}</span>
-                        <span className="shrink-0 text-[10px] uppercase tracking-[0.18em]">
-                          {Math.round(series.currentValue)}
+                        <span
+                          ref={(node) => {
+                            scoreRefs.current[series.id] = node
+                          }}
+                          className="shrink-0 text-[10px] uppercase tracking-[0.18em]"
+                        >
+                          {Math.round(interpolateSeriesValue(series, initialIndex))}
                         </span>
                       </button>
                     )
@@ -527,14 +577,16 @@ export function InMotionRacePanel({
 
               <div className="mt-5">
                 <input
+                  ref={sliderRef}
                   type="range"
                   min={0}
                   max={maxProgress}
                   step={0.001}
-                  value={progress}
+                  defaultValue={initialIndex}
                   onChange={(event) => {
-                    setProgress(Number(event.target.value))
+                    progressRef.current = Number(event.target.value)
                     setIsPlaying(false)
+                    drawFrame(progressRef.current)
                   }}
                   className="h-2 w-full cursor-pointer appearance-none rounded-full bg-white/8"
                   aria-label="Scrub time"
@@ -560,7 +612,11 @@ export function InMotionRacePanel({
                   <button
                     type="button"
                     onClick={() => {
-                      setProgress(0)
+                      progressRef.current = 0
+                      if (sliderRef.current) {
+                        sliderRef.current.value = '0'
+                      }
+                      drawFrame(0)
                       setIsPlaying(true)
                     }}
                     className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-200"
