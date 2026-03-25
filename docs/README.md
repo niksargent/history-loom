@@ -100,6 +100,8 @@ history-loom/
     multi-dataset-solid-readiness-review.md
     force-explorer-plan.md
     lived-voice-v2.md
+    population-extension-plan.md
+    data-science-insight-plan.md
     dataset-authoring-workflow.md
     dataset-authoring-standards.md
     multi-dataset-strategy.md
@@ -205,6 +207,8 @@ In progress:
 - Force Explorer is now implemented on the main page as the primary force relationship surface, with clickable period nodes on the trace, padded edge periods, a stable top-right score/date read, and a selected date-range marker replacing the ambiguous `current` label
 - Force Explorer flashpoints now read as full-width event cards with summary first and metadata underneath, rather than competing text and pill columns
 - `In motion` now has its first live implementation: a `Race` modal opened from the header, showing ranked force pills, autoplay with interpolated movement, trails, scrubbing, family filtering, and pinned-force emphasis for one dataset at a time
+- population is now recognised as a major missing structural series, and a first explicit extension plan now exists for schema, dataset, and UI support
+- derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
 - geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
@@ -214,6 +218,8 @@ In progress:
 - selected pressure focus now keeps the pressure overlay active regardless of whether the force was chosen from the Loom or the structural-force panel, using stable highlight behavior rather than animated line drawing
 - selected pressure focus in the detail panel now uses a more embodied field-to-period-to-flashpoint treatment rather than a simple descriptive score block
 - a final ink-economy pass has trimmed more low-value structural copy from header state pills, force controls, compare prompting, and empty echo states
+- the next header-adjacent refinement is now clearly defined: the header should read as an entry deck, not a mixed control-and-readout strip, with `Structural fingerprint` and `Pressure balance` moved lower into the exploration flow
+- field setup and live selection context are now being separated more honestly: dataset/lens/echo setup belongs in the right-hand entry rail, while the selected-period read belongs inside the Loom itself
 - geographic inset exists, but further tuning, layout changes, and placement decisions are postponed until product discussion
 - future UI refinement, if revisited later, should focus on motion, animation, progressive reveal, and exhibit staging rather than broad layout change
 
@@ -230,7 +236,7 @@ Deferred:
 - custom lenses
 - advanced similarity engine
 - later `In motion` modes beyond Race, including the still-undecided Tension chart and any bounded Network mode
-- future candidate datasets after France: Scotland, Britain before 1066, and Roman
+- future candidate datasets after France: Scotland, Britain before 1066, Roman, Germany, India, Japan, Mexico, and Russia / USSR
 
 ## What next
 
@@ -242,6 +248,8 @@ The next delivery sequence should be:
 5. hold cross-dataset compare until at least two datasets are solid enough to support it honestly
 6. discuss geography before doing any further tuning or placement changes
 7. move next into a lower-claim extension such as an `In motion` view while continuing only targeted validation toward `solid`
+8. extend the schema and live datasets to support population as a first-class contextual metric, beginning in detail and compare
+9. define a derived-insight layer so the product can surface clusters, co-movement, and candidate relationships without overstating causation
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect

@@ -58,10 +58,7 @@ function getScaleShellClass(scale: Scale, isImpacted: boolean) {
   }
 }
 
-function buildPeriodReading(
-  detail: SelectedPeriodDetail,
-  selectedPressureSeries: PressureOverlaySeries | null,
-) {
+function buildPeriodReading(detail: SelectedPeriodDetail) {
   const valueLead = detail.period.dominantValues
     .slice(0, 2)
     .map((value) => sentenceCase(value))
@@ -70,7 +67,7 @@ function buildPeriodReading(
     .slice(0, 2)
     .map((mood) => sentenceCase(mood))
     .join(' / ')
-  const leadPressure = selectedPressureSeries?.label ?? detail.pressureSnapshots[0]?.label ?? null
+  const leadPressure = detail.pressureSnapshots[0]?.label ?? null
   const releaseLabel = getReleaseLabel(detail.period.releaseType).toLowerCase()
 
   if (leadPressure) {
@@ -604,9 +601,8 @@ export function DetailPanel({
     ]
   }, [snapshot])
   const pressureCascade = buildPressureCascade(detail, selectedPressureId, datasetId)
-  const periodReading = buildPeriodReading(detail, selectedPressureSeries)
-  const leadPressureChipLabel =
-    selectedPressureSeries?.label ?? detail.pressureSnapshots[0]?.label ?? null
+  const periodReading = buildPeriodReading(detail)
+  const leadPressureChipLabel = detail.pressureSnapshots[0]?.label ?? null
   const geographyModel = buildGeographyInsetModel(
     Array.from(
       new Set(

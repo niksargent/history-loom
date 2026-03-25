@@ -94,6 +94,15 @@ Still deferred for later:
 - larger compare rethinking
 - deeper exhibit choreography beyond the current bounded pass
 
+## Immediate next implementation
+
+The next immediate UI pass should be tightly scoped:
+- restage the top header as a clearer entry deck for setup and orientation
+- split field setup from live Loom readout, with dataset selection and lens/echo summary on the right and selected-period context inside the Loom itself
+- move `Structural fingerprint` and `Pressure balance` out of the header and down into the main exploration flow, directly above Force Explorer
+- recast `Pressure balance` as an opposing pull bar from a centre line, using average stress and stabiliser scores as relative pull rather than pretending they form one conserved total
+- fix the detail-panel reading logic so user-selected force highlighting does not rewrite the authored period reading
+
 ## Known UI defects and watchpoints
 
 These should be treated as explicit cleanup items rather than vague impressions:

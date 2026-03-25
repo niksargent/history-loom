@@ -50,6 +50,18 @@
       "reason": "Race now exists as the first motion surface, so the next useful step is to learn from it before deciding the exact Tension chart or future comparison view."
     },
     {
+      "id": "md-task-09",
+      "label": "Extend the schema and live dataset plans to support population as a first-class contextual series, beginning in detail and compare",
+      "priority": "high",
+      "reason": "Population is a major missing scale signal and should be added cleanly before future compare or motion views start to depend on it."
+    },
+    {
+      "id": "md-task-10",
+      "label": "Define a derived-insight layer for clusters, co-movement, and candidate pressure relationships so the tool can generate stronger `aha` moments",
+      "priority": "high",
+      "reason": "The next real product gain is not more presentation alone; it is stronger insight generation from the structured data already in the system."
+    },
+    {
       "id": "md-task-08",
       "label": "Run selective validation only where a concrete blocker is keeping Britain, USA, or France below the `solid` threshold",
       "priority": "medium",

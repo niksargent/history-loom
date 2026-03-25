@@ -5,6 +5,8 @@ import { getReleaseLabel } from '../lib/loom-data'
 interface LoomCanvasProps {
   periods: Period[]
   overlaySeries: PressureOverlaySeries[]
+  selectedPeriodTitle: string
+  selectedPeriodRangeLabel: string
   selectedPeriodId: string
   selectedPressureId: string | null
   comparePicking: boolean
@@ -87,6 +89,8 @@ function sortSeriesForRender(
 export function LoomCanvas({
   periods,
   overlaySeries,
+  selectedPeriodTitle,
+  selectedPeriodRangeLabel,
   selectedPeriodId,
   selectedPressureId,
   comparePicking,
@@ -123,63 +127,69 @@ export function LoomCanvas({
   return (
     <section className="glass-panel reveal-up overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)]">
       <div className="border-b border-[rgba(214,211,209,0.08)] px-6 py-4 md:px-8">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_12.75rem] md:items-start md:gap-x-5">
           <div>
             <p className="eyebrow">The Loom</p>
-            <h2 className="font-display text-2xl text-stone-100 md:text-3xl">
-              The field at a glance
+            <h2 className="font-display text-2xl leading-tight text-stone-100 md:text-3xl">
+              {selectedPeriodTitle}
             </h2>
+            <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-stone-500">
+              {selectedPeriodRangeLabel}
+            </p>
           </div>
-          <div className="max-w-xl text-sm leading-6 text-stone-400">
-            {selectedSeries ? (
-              <>
-                <span className="text-stone-200">{selectedSeries.label}:</span>{' '}
-                {selectedSeries.description}
-              </>
-            ) : (
-              <>Choose a force to trace it across the field.</>
-            )}
-          </div>
-        </div>
 
-        {comparePicking ? (
-          <div className="surface-depth reveal-up reveal-delay-1 mt-4 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50">
-            Compare is ready. Pick the second period directly on the Loom.
-          </div>
-        ) : null}
+          {selectedSeries ? (
+            <div className="rounded-[1rem] border border-[rgba(214,211,209,0.08)] bg-white/[0.035] px-3.5 py-3 text-right text-sm leading-6 text-stone-400 md:row-span-2">
+              <span className="text-stone-200">{selectedSeries.label}:</span>{' '}
+              {selectedSeries.description}
+            </div>
+          ) : null}
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => onPressureSelect(null)}
-            className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-200/40 ${
-              selectedPressureId === null
-                ? 'border-stone-200/30 bg-white/10 text-stone-100'
-                : 'border-white/10 text-stone-400 hover:border-white/20 hover:text-stone-200'
-            }`}
-          >
-            All threads
-          </button>
-          {overlaySeries.map((series) => {
-            const isSelected = selectedPressureId === series.id
+          {comparePicking ? (
+            <div
+              className={`surface-depth reveal-up reveal-delay-1 rounded-[1.25rem] border border-amber-300/16 bg-amber-300/7 px-4 py-3 text-sm leading-6 text-amber-50 ${
+                selectedSeries ? '' : 'md:col-span-2'
+              }`}
+            >
+              Compare is ready. Pick the second period directly on the Loom.
+            </div>
+          ) : null}
 
-            return (
+          <div className={selectedSeries ? 'min-w-0 w-full md:pr-2' : 'min-w-0 w-full md:col-span-2'}>
+            <div className="mt-1 flex w-full flex-wrap gap-2 md:mt-0">
               <button
-                key={series.id}
                 type="button"
-                onClick={() => onPressureSelect(series.id)}
-                className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/40 ${
-                  isSelected
-                    ? series.polarity === 'stress'
-                      ? 'border-amber-300/45 bg-amber-300/10 text-amber-100'
-                      : 'border-cyan-300/45 bg-cyan-300/10 text-cyan-100'
+                onClick={() => onPressureSelect(null)}
+                className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-200/40 ${
+                  selectedPressureId === null
+                    ? 'border-stone-200/30 bg-white/10 text-stone-100'
                     : 'border-white/10 text-stone-400 hover:border-white/20 hover:text-stone-200'
                 }`}
               >
-                {series.label}
+                All threads
               </button>
-            )
-          })}
+              {overlaySeries.map((series) => {
+                const isSelected = selectedPressureId === series.id
+
+                return (
+                  <button
+                    key={series.id}
+                    type="button"
+                    onClick={() => onPressureSelect(series.id)}
+                    className={`rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/40 ${
+                      isSelected
+                        ? series.polarity === 'stress'
+                          ? 'border-amber-300/45 bg-amber-300/10 text-amber-100'
+                          : 'border-cyan-300/45 bg-cyan-300/10 text-cyan-100'
+                        : 'border-white/10 text-stone-400 hover:border-white/20 hover:text-stone-200'
+                    }`}
+                  >
+                    {series.label}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
@@ -196,7 +206,7 @@ export function LoomCanvas({
                   : 'text-stone-300 hover:text-stone-100'
               }`}
             >
-              Overview stack
+              Overview
             </button>
             <button
               type="button"
@@ -207,7 +217,7 @@ export function LoomCanvas({
                   : 'text-stone-300 hover:text-stone-100'
               }`}
             >
-              Expanded cards
+              Expanded
             </button>
           </div>
         </div>

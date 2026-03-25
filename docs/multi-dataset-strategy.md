@@ -114,6 +114,11 @@ Future candidates after France:
 - Scotland
 - Britain before 1066
 - Roman / Roman world
+- Germany, 1815-2025
+- India, 1757-2025
+- Japan, 1603-2025
+- Mexico, 1810-2025
+- Russia / USSR, 1861-2025
 
 ## Dataset 2 launch criteria
 

@@ -71,9 +71,15 @@ Current refinement focus:
 - the first solid-readiness review is now complete: Britain, USA, and France all remain below `solid`, but none is blocking lower-claim product extension
 - Force Explorer is now implemented as the first real feature-leap after the bounded UI pass, replacing the weaker detail-panel force explanation with a dedicated relationship surface, direct period selection from the field trace, and a more readable full-width flashpoint layout
 - the first `In motion` implementation now exists as an expansive Race modal, using autoplay, interpolated movement, force trails, scrubbing, family filtering, and pinned-force emphasis for a single dataset
+- population is now recognised as the next major data-model extension, with a planning pass complete and schema/detail/compare support next
+- derived insight and data science are now recognised as the next insight-layer extension, so the tool can surface clusters, co-movement, and candidate force relationships rather than only curated readings
+- the next immediate UI refinement is now a header-adjacent pass: distinguish the top header as entry/setup, move `Structural fingerprint` and `Pressure balance` below the Loom, and stop selected-force highlighting from rewriting the period reading
+- that pass now also explicitly separates field setup from live Loom readout, so dataset/lens/echo setup sits in the right-hand entry rail while selected-period context lives with the Loom itself
 - geography is now constrained to Britain until the other datasets have real map treatments rather than a misleading reused inset
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
+- extend the live schema and dataset plans to support population as a first-class contextual series
+- plan a derived-insight layer that can support clustering, correlation, and lead-lag style prompts without overstating causation
 - keep geography implemented but paused pending product discussion
 - reserve any later UI work for further exhibit refinements beyond the current pass
 - dataset-specific atmospheric backgrounds should now reflect the selected field rather than relying on one global background
@@ -110,6 +116,8 @@ The next quality threshold is interpretive clarity, not feature count:
 5. delay cross-dataset compare until at least two datasets are solid enough
 6. discuss geography before further map tuning or placement changes
 7. use the current dataset baseline to add one lower-claim post-MVP expansion feature, most likely an `In motion` view, while keeping cross-dataset compare off
+8. add population as the next approved schema-and-data extension, starting in detail and compare before any main-page overlay decision
+9. define a derived-insight layer that can support insight prompts, cluster reads, and future cross-dataset pattern work
 
 ## Product intent
 

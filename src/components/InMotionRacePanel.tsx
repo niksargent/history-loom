@@ -19,13 +19,14 @@ const TRAIL_LEFT = 84
 const PILL_LEFT = 774
 const PILL_WIDTH = 196
 const PILL_HEIGHT = 36
-const PILL_TRAIL_X = PILL_LEFT - 18
+const PILL_TRAIL_X = PILL_LEFT - 28
 const ROW_TOP = 68
 const ROW_BOTTOM = 560
 const TRAIL_WINDOW = 3.4
-const TRAIL_STEPS = 18
+const TRAIL_STEPS = 12
 const PERIOD_DURATION_MS = 2200
 const SEGMENT_HOLD = 0.16
+const RENDER_DPR_CAP = 1.25
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max)
@@ -169,6 +170,24 @@ function buildDisplayedSeries(
     .sort((left, right) => left.y - right.y)
 }
 
+function getInterpolatedY(
+  seriesId: string,
+  count: number,
+  progress: number,
+  rankMaps: Map<string, number>[],
+  lastIndex: number,
+) {
+  const { baseIndex, nextIndex, mix } = getSegmentMix(progress, lastIndex)
+  const rankMapA = rankMaps[baseIndex] ?? new Map()
+  const rankMapB = rankMaps[nextIndex] ?? rankMapA
+  const rankA = rankMapA.get(seriesId) ?? count - 1
+  const rankB = rankMapB.get(seriesId) ?? rankA
+  const yA = getRowY(rankA, count)
+  const yB = getRowY(rankB, count)
+
+  return yA + (yB - yA) * mix
+}
+
 function buildTrailSamples(
   visible: PressureOverlaySeries[],
   progress: number,
@@ -182,17 +201,21 @@ function buildTrailSamples(
   const span = Math.max(progress - sampleStart, 0.001)
   const steps = TRAIL_STEPS
   const sampleMap = new Map<string, { x: number; y: number }[]>()
+  const count = visible.length
+  const lastIndex = Math.max(visible[0]?.points.length - 1, 0)
 
   for (let step = 0; step <= steps; step += 1) {
     const sampleProgress = sampleStart + (span * step) / steps
-    const ordered = buildDisplayedSeries(visible, sampleProgress, rankMaps)
     const age = progress - sampleProgress
     const x = PILL_TRAIL_X - (age / TRAIL_WINDOW) * (PILL_TRAIL_X - TRAIL_LEFT)
 
-    for (const target of ordered) {
-      const points = sampleMap.get(target.id) ?? []
-      points.push({ x, y: target.y })
-      sampleMap.set(target.id, points)
+    for (const series of visible) {
+      const points = sampleMap.get(series.id) ?? []
+      points.push({
+        x,
+        y: getInterpolatedY(series.id, count, sampleProgress, rankMaps, lastIndex),
+      })
+      sampleMap.set(series.id, points)
     }
   }
 
@@ -243,6 +266,7 @@ export function InMotionRacePanel({
 }: InMotionRacePanelProps) {
   const titleId = useId()
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const guideCanvasRef = useRef<HTMLCanvasElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const sliderRef = useRef<HTMLInputElement | null>(null)
   const titleTextRef = useRef<HTMLHeadingElement | null>(null)
@@ -252,6 +276,7 @@ export function InMotionRacePanel({
   const scoreRefs = useRef<Record<string, HTMLSpanElement | null>>({})
   const animationFrameRef = useRef<number | null>(null)
   const lastFrameTimeRef = useRef<number | null>(null)
+  const stageMetricsRef = useRef({ width: STAGE_WIDTH, height: STAGE_HEIGHT, dpr: 1 })
   const progressRef = useRef(0)
   const fpsSampleRef = useRef<number[]>([])
   const fpsFrameCounterRef = useRef(0)
@@ -298,6 +323,46 @@ export function InMotionRacePanel({
     }
   }, [onClose])
 
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const guideCanvas = guideCanvasRef.current
+    if (!canvas || !guideCanvas) {
+      return
+    }
+
+    const dpr = Math.min(window.devicePixelRatio || 1, RENDER_DPR_CAP)
+    const rect = canvas.getBoundingClientRect()
+    const width = rect.width || STAGE_WIDTH
+    const height = rect.height || STAGE_HEIGHT
+
+    stageMetricsRef.current = { width, height, dpr }
+
+    for (const target of [canvas, guideCanvas]) {
+      target.width = Math.round(width * dpr)
+      target.height = Math.round(height * dpr)
+    }
+
+    const guideContext = guideCanvas.getContext('2d')
+    if (!guideContext) {
+      return
+    }
+
+    guideContext.setTransform(dpr, 0, 0, dpr, 0, 0)
+    guideContext.clearRect(0, 0, width, height)
+    guideContext.lineCap = 'round'
+    guideContext.lineJoin = 'round'
+
+    for (let index = 0; index < visibleSeries.length; index += 1) {
+      const y = getRowY(index, visibleSeries.length)
+      guideContext.strokeStyle = 'rgba(255,255,255,0.025)'
+      guideContext.lineWidth = 1
+      guideContext.beginPath()
+      guideContext.moveTo(TRAIL_LEFT, y)
+      guideContext.lineTo(PILL_TRAIL_X - 14, y)
+      guideContext.stroke()
+    }
+  }, [visibleSeries.length])
+
   const drawFrame = useCallback(
     (frameProgress: number) => {
       const orderedSeries = buildDisplayedSeries(visibleSeries, frameProgress, rankMaps)
@@ -306,18 +371,11 @@ export function InMotionRacePanel({
       const interpolatedYear = buildInterpolatedYear(periods, frameProgress)
 
       const canvas = canvasRef.current
-      if (canvas) {
+      const guideCanvas = guideCanvasRef.current
+      if (canvas && guideCanvas) {
         const context = canvas.getContext('2d')
         if (context) {
-          const dpr = window.devicePixelRatio || 1
-          const rect = canvas.getBoundingClientRect()
-          const width = rect.width || STAGE_WIDTH
-          const height = rect.height || STAGE_HEIGHT
-
-          if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
-            canvas.width = Math.round(width * dpr)
-            canvas.height = Math.round(height * dpr)
-          }
+          const { width, height, dpr } = stageMetricsRef.current
 
           context.setTransform(dpr, 0, 0, dpr, 0, 0)
           context.clearRect(0, 0, width, height)
@@ -330,7 +388,7 @@ export function InMotionRacePanel({
             context.lineWidth = 1
             context.beginPath()
             context.moveTo(TRAIL_LEFT, y)
-            context.lineTo(PILL_TRAIL_X - 14, y)
+            context.lineTo(PILL_TRAIL_X - 10, y)
             context.stroke()
           }
 
@@ -378,25 +436,32 @@ export function InMotionRacePanel({
         if (pill) {
           pill.style.transform = `translate3d(0, ${series.y - PILL_HEIGHT / 2}px, 0)`
           pill.style.opacity = `${isPinned ? 1 : 0.76 + trailStrength * 0.18}`
-          pill.style.boxShadow = isPinned
-            ? '0 18px 28px rgba(0,0,0,0.28)'
-            : '0 10px 20px rgba(0,0,0,0.14)'
-          pill.style.zIndex = `${isPinned ? 20 : 10 + orderedSeries.length - index}`
         }
 
         if (score) {
-          score.textContent = `${Math.round(series.currentValue)}`
+          const nextScore = `${Math.round(series.currentValue)}`
+          if (score.textContent !== nextScore) {
+            score.textContent = nextScore
+          }
         }
       })
 
       if (titleTextRef.current) {
-        titleTextRef.current.textContent = activePeriod?.title ?? ''
+        const nextTitle = activePeriod?.title ?? ''
+        if (titleTextRef.current.textContent !== nextTitle) {
+          titleTextRef.current.textContent = nextTitle
+        }
       }
       if (yearTextRef.current) {
-        yearTextRef.current.textContent = interpolatedYear
+        if (yearTextRef.current.textContent !== interpolatedYear) {
+          yearTextRef.current.textContent = interpolatedYear
+        }
       }
       if (rangeTextRef.current) {
-        rangeTextRef.current.textContent = activePeriod?.rangeLabel ?? ''
+        const nextRange = activePeriod?.rangeLabel ?? ''
+        if (rangeTextRef.current.textContent !== nextRange) {
+          rangeTextRef.current.textContent = nextRange
+        }
       }
       if (sliderRef.current && document.activeElement !== sliderRef.current) {
         sliderRef.current.value = frameProgress.toFixed(3)
@@ -429,7 +494,7 @@ export function InMotionRacePanel({
         samples.shift()
       }
       fpsFrameCounterRef.current += 1
-      if (fpsFrameCounterRef.current % 6 === 0) {
+      if (fpsFrameCounterRef.current % 12 === 0) {
         setFps(samples.reduce((sum, sample) => sum + sample, 0) / samples.length)
       }
 
@@ -523,6 +588,7 @@ export function InMotionRacePanel({
 
               <div className="mt-6 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] px-4 py-5">
                 <div className="relative h-[620px]">
+                  <canvas ref={guideCanvasRef} className="hidden" aria-hidden="true" />
                   <canvas
                     ref={canvasRef}
                     width={STAGE_WIDTH}

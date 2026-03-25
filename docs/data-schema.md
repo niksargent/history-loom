@@ -8,6 +8,7 @@ The UI should be driven by a structured historical schema, not hard-coded copy. 
 - periods
 - events
 - pressures
+- population
 - echoes
 - themes
 - multi-scale lived experience
@@ -19,6 +20,7 @@ The UI should be driven by a structured historical schema, not hard-coded copy. 
 - Period
 - Event
 - PressureSeries
+- PopulationSeries
 - EchoLink
 - Theme
 - HumanSnapshot
@@ -84,6 +86,11 @@ A Period is the main historical unit shown in the interface.
 - `pressureScores` (object keyed by pressure id)
 - `pressureSummary`
 - `releaseType`
+
+### Optional population fields
+- `populationEstimate`
+- `populationLabel`
+- `urbanisationEstimate`
 
 ### Optional internal fields
 - `authoringNotes`
@@ -153,7 +160,28 @@ EchoLink connects two or more historical units by structural similarity.
 
 ---
 
-## 7. HumanSnapshot object
+## 7. PopulationSeries object
+
+PopulationSeries describes changing human scale through time for a dataset.
+
+### Fields
+- `id`
+- `label`
+- `scope`
+- `unit`
+- `valuesByPeriod` (object keyed by period id)
+- `anchors` (optional finer-grain points for interpolation)
+- `notes`
+- `sourceNotes`
+
+### Notes
+
+Population should begin as one value per period for each live dataset.
+Later additions can include finer-grain anchor points, urbanisation, or other settlement-scale measures where source quality supports them.
+
+---
+
+## 8. HumanSnapshot object
 
 HumanSnapshot represents lived experience at one or more scales.
 
@@ -190,7 +218,7 @@ Each `voices` entry should include:
 
 ---
 
-## 8. Theme object
+## 9. Theme object
 
 Theme is a controlled vocabulary item used across periods and events.
 
@@ -201,7 +229,7 @@ Theme is a controlled vocabulary item used across periods and events.
 
 ---
 
-## 9. Geography object
+## 10. Geography object
 
 Geography is a normalized place or region used for repeatable mapping and future cross-dataset comparison.
 
@@ -212,7 +240,7 @@ Geography is a normalized place or region used for repeatable mapping and future
 
 ---
 
-## 10. DatasetRegistryEntry object
+## 11. DatasetRegistryEntry object
 
 DatasetRegistryEntry records what a dataset is, how mature it is, and what it currently supports.
 
@@ -228,11 +256,13 @@ DatasetRegistryEntry records what a dataset is, how mature it is, and what it cu
 - `availableLensIds`
 - `supportedThemeIds`
 - `supportedGeographyIds`
+- `hasPopulationCoverage`
+- `populationConfidence`
 - `notes`
 
 ---
 
-## 11. MVP minimum schema
+## 12. MVP minimum schema
 
 For MVP, each Period should include at least:
 - id
@@ -249,7 +279,7 @@ For MVP, each Period should include at least:
 - one human snapshot summary
 - one or more echo links
 
-## 12. Britain v2 additions
+## 13. Britain v2 additions
 
 The Britain v2 expansion phase should add:
 - a controlled theme file
@@ -260,3 +290,13 @@ The Britain v2 expansion phase should add:
 
 The UI does not need to expose all of these immediately.
 The goal is to make research and future dataset growth repeatable.
+
+## 14. Population extension
+
+Population is now an approved next-layer schema extension.
+
+Recommended rollout:
+- add one `PopulationSeries` per live dataset
+- add period-level population fields for readable context
+- expose population first in detail and compare surfaces
+- only later decide whether population belongs in the main Loom or `In motion`

@@ -29,6 +29,16 @@ The next multi-dataset phase should do four things:
 3. make the multi-dataset experience feel more intentional in the UI
 4. avoid opening cross-dataset comparison before the data can support it honestly
 
+Population is now also an approved extension track inside that phase:
+- extend the schema cleanly
+- add one population value per period for the three live datasets
+- expose population first as contextual scale, not decorative metadata
+
+Data science is now also an approved extension track:
+- use derived analysis to surface clusters, co-movement, and candidate relationships
+- support editorial insight and future UI prompts
+- do not present automated inference as historical truth
+
 ## Maturity model
 
 ### Seed
@@ -158,6 +168,35 @@ Status:
 - the concrete v1 Race spec now exists in `docs/in-motion-race-spec.md`
 - the first live Race modal is now implemented for one dataset at a time
 
+### 6. Population as scale context
+
+Population is one of the biggest missing structural data points in the current system.
+
+Approved direction:
+- add population as a first-class series, not a loose note
+- start with one period-level value for Britain, the United States, and France
+- use it first in detail and compare
+- plan for later use inside `In motion`
+
+Status:
+- the planning layer now exists in `docs/population-extension-plan.md`
+- schema, dataset, and UI support still need to be added
+
+### 7. Derived insight and data science
+
+The product needs stronger `aha` moments, not just more content and more presentation.
+
+Approved direction:
+- use derived analysis to spot clusters within and across datasets
+- identify pressures that tend to rise together
+- identify suggestive lead-lag relationships between stressors and stabilisers
+- support echo curation with structural similarity signals
+
+Status:
+- the planning layer now exists in `docs/data-science-insight-plan.md`
+- no derived-insight schema or runtime layer exists yet
+- this should begin as an internal or low-claim feature, not a public truth engine
+
 ## What stays off
 
 Still deferred:
@@ -172,6 +211,11 @@ The next serious dataset candidates after France should remain:
 - Scotland as its own field
 - Britain before the current 1066 threshold
 - the Roman world as a deeper civilizational field
+- Germany, 1815-2025
+- India, 1757-2025
+- Japan, 1603-2025
+- Mexico, 1810-2025
+- Russia / USSR, 1861-2025
 
 These should not begin yet.
 They belong after the current three datasets are stronger and the multi-dataset system is more settled.
@@ -187,6 +231,8 @@ They belong after the current three datasets are stronger and the multi-dataset 
 7. define the single-dataset Race mode in detail
 8. build `Race` first before deciding the exact Tension visual
 9. review Race in live use before deciding whether Tension or same-time-range dataset comparison should come next
+10. extend the live datasets and schema to support population as a contextual series
+11. define the first derived-insight schema and internal clustering/correlation pass
 
 ## Higher-reasoning steps
 
@@ -195,3 +241,5 @@ These steps are the ones most likely to benefit from a higher-reasoning model:
 - designing lived-voice personas that feel human rather than synthetic
 - deciding whether a motion-first view clarifies the data or merely decorates it
 - deciding when cross-dataset comparison would be honest
+- deciding how population should inform interpretation without turning the UI into a statistics layer
+- deciding which derived patterns are genuinely illuminating rather than merely computationally available
