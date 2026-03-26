@@ -7,6 +7,7 @@ import {
   getReleaseLabel,
 } from '../lib/loom-data'
 import type { LivedVoice, Scale } from '../types/domain'
+import type { InsightPrompt } from '../types/insights'
 import type {
   DetailViewMode,
   PressureOverlaySeries,
@@ -539,6 +540,7 @@ function DetailSections({
 interface DetailPanelProps {
   datasetId: string
   detail: SelectedPeriodDetail
+  insightPrompt: InsightPrompt | null
   isOpen: boolean
   showEchoes: boolean
   selectedPressureId: string | null
@@ -551,6 +553,7 @@ interface DetailPanelProps {
   onToggleEchoes: () => void
   onFocusEcho: (echoId: string) => void
   onFollowEcho: (periodId: string) => void
+  onOpenInsights: (section: InsightPrompt['destinationSection'], targetId: string) => void
   onStartComparePick: () => void
   onCompareToPeriod: (periodId: string) => void
   onViewModeChange: (viewMode: DetailViewMode) => void
@@ -559,6 +562,7 @@ interface DetailPanelProps {
 export function DetailPanel({
   datasetId,
   detail,
+  insightPrompt,
   isOpen,
   showEchoes,
   selectedPressureId,
@@ -571,6 +575,7 @@ export function DetailPanel({
   onToggleEchoes,
   onFocusEcho,
   onFollowEcho,
+  onOpenInsights,
   onStartComparePick,
   onCompareToPeriod,
   onViewModeChange,
@@ -737,6 +742,31 @@ export function DetailPanel({
                 ) : null}
               </div>
             </section>
+
+            {insightPrompt ? (
+              <section className="surface-depth reveal-up rounded-[1.5rem] border border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.06)] p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="eyebrow">Pattern to notice</p>
+                    <p className="mt-2 text-sm leading-6 text-stone-200">
+                      {insightPrompt.text}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onOpenInsights(
+                        insightPrompt.destinationSection,
+                        insightPrompt.destinationTargetId,
+                      )
+                    }
+                    className="ui-action shrink-0 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-amber-100"
+                  >
+                    See why
+                  </button>
+                </div>
+              </section>
+            ) : null}
 
             {supportsInsetMap ? <GeographyInset model={geographyModel} /> : null}
 

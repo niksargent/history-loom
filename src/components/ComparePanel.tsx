@@ -475,7 +475,7 @@ export function ComparePanel({
           }.`
       : echoLink
         ? 'This pairing already has a curated echo link, so the comparison is tracing an existing rhyme.'
-        : 'No single pressure is in focus, so this reading stays structural rather than force-specific.'
+        : 'No force is pinned, so this read stays broad rather than force-by-force.'
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -518,7 +518,7 @@ export function ComparePanel({
                 id={titleId}
                 className="font-display text-3xl text-stone-100 md:text-4xl"
               >
-                Structural comparison
+                How these periods compare
               </h2>
             </div>
 
@@ -560,7 +560,7 @@ export function ComparePanel({
               }
             />
             <InsightCard
-              label="Main separation"
+              label="Biggest difference"
               tone="target"
               body={
                 leadingDifference
@@ -568,12 +568,12 @@ export function ComparePanel({
                   : 'The differences are distributed rather than concentrated in one category.'
               }
             />
-            <InsightCard label="Pressure relationship" tone="source" body={pressureInsight} />
+            <InsightCard label="Force in view" tone="source" body={pressureInsight} />
           </div>
 
         <section className="surface-depth reveal-up reveal-delay-2 mt-6 rounded-[1.5rem] border border-[rgba(214,211,209,0.07)] bg-black/18 p-5">
           <div className="flex flex-wrap items-start justify-between gap-4">
-            <h3 className="font-display text-2xl text-stone-100">Where the two periods rhyme</h3>
+            <h3 className="font-display text-2xl text-stone-100">Where they feel alike</h3>
             {echoLink ? (
               <span className="rounded-full border border-[rgba(121,219,194,0.18)] bg-[rgba(121,219,194,0.08)] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-cyan-100">
                 Curated echo

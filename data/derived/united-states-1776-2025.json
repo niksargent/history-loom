@@ -1,0 +1,491 @@
+{
+  "datasetId": "united-states-1776-2025",
+  "datasetLabel": "United States",
+  "publicStatus": "public",
+  "generation": {
+    "version": "v1",
+    "method": "stats-first-derived-insights",
+    "generatedAt": "2026-03-26T10:11:53.623Z"
+  },
+  "periodClusters": [
+    {
+      "id": "united-states-1776-2025-cluster-1-us-p04",
+      "periodId": "us-p04",
+      "clusterId": "united-states-1776-2025-cluster-1",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Industrial Concentration, Segregation, Reform, and Imperial Turn sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "topSignals": [
+        "Inequality",
+        "Information Acceleration",
+        "Technological Disruption"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-1-us-p07",
+      "periodId": "us-p07",
+      "clusterId": "united-states-1776-2025-cluster-1",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.704,
+      "confidence": "moderate",
+      "summary": "Realignment, Neoliberal Turn, and Media Fracture sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "topSignals": [
+        "Inequality",
+        "Information Acceleration",
+        "Technological Disruption"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-1-us-p08",
+      "periodId": "us-p08",
+      "clusterId": "united-states-1776-2025-cluster-1",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.553,
+      "confidence": "experimental",
+      "summary": "Security State, Platform Era, and Polarization sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "topSignals": [
+        "Inequality",
+        "Information Acceleration",
+        "Technological Disruption"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-2-us-p01",
+      "periodId": "us-p01",
+      "clusterId": "united-states-1776-2025-cluster-2",
+      "clusterLabel": "mobilised settlement",
+      "strength": 0.749,
+      "confidence": "moderate",
+      "summary": "Revolution and Constitutional Founding sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Public Hope"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-2-us-p02",
+      "periodId": "us-p02",
+      "clusterId": "united-states-1776-2025-cluster-2",
+      "clusterLabel": "mobilised settlement",
+      "strength": 0.732,
+      "confidence": "moderate",
+      "summary": "Republic-Building, Expansion, and Sectional Strain sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Public Hope"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-2-us-p03",
+      "periodId": "us-p03",
+      "clusterId": "united-states-1776-2025-cluster-2",
+      "clusterLabel": "mobilised settlement",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Slavery Crisis, Civil War, and Reconstruction sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Public Hope"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-2-us-p05",
+      "periodId": "us-p05",
+      "clusterId": "united-states-1776-2025-cluster-2",
+      "clusterLabel": "mobilised settlement",
+      "strength": 0.592,
+      "confidence": "experimental",
+      "summary": "Depression, New Deal, and World War sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Public Hope"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-cluster-2-us-p06",
+      "periodId": "us-p06",
+      "clusterId": "united-states-1776-2025-cluster-2",
+      "clusterLabel": "mobilised settlement",
+      "strength": 0.623,
+      "confidence": "experimental",
+      "summary": "Postwar Order and Civil Rights Transformation sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Public Hope"
+      ]
+    }
+  ],
+  "pressureRelationships": [
+    {
+      "id": "united-states-1776-2025-institutionalLegitimacy-socialCohesion-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.958,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+    },
+    {
+      "id": "united-states-1776-2025-informationAcceleration-individualAutonomy-lag0",
+      "sourcePressureId": "informationAcceleration",
+      "sourceLabel": "Information Acceleration",
+      "targetPressureId": "individualAutonomy",
+      "targetLabel": "Individual Autonomy",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.952,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Information Acceleration and individual autonomy repeatedly rise together here."
+    },
+    {
+      "id": "united-states-1776-2025-technologicalDisruption-informationAcceleration-lag0",
+      "sourcePressureId": "technologicalDisruption",
+      "sourceLabel": "Technological Disruption",
+      "targetPressureId": "informationAcceleration",
+      "targetLabel": "Information Acceleration",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.905,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+    },
+    {
+      "id": "united-states-1776-2025-socialCohesion-economicPrecarity-lag1",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "economicPrecarity",
+      "targetLabel": "Economic Precarity",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.901,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Social Cohesion often intensifies before economic precarity does here."
+    },
+    {
+      "id": "united-states-1776-2025-institutionalLegitimacy-publicHope-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "targetPressureId": "publicHope",
+      "targetLabel": "Public Hope",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.843,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Institutional Legitimacy and public hope repeatedly rise together here."
+    },
+    {
+      "id": "united-states-1776-2025-eliteCompetition-institutionalLegitimacy-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "targetPressureId": "institutionalLegitimacy",
+      "targetLabel": "Institutional Legitimacy",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.826,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+    },
+    {
+      "id": "united-states-1776-2025-institutionalLegitimacy-individualAutonomy-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "targetPressureId": "individualAutonomy",
+      "targetLabel": "Individual Autonomy",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.814,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Institutional Legitimacy and individual autonomy repeatedly pull apart here."
+    },
+    {
+      "id": "united-states-1776-2025-socialCohesion-moralCertainty-lag0",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "moralCertainty",
+      "targetLabel": "Moral Certainty",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.813,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "us-p01",
+        "us-p02",
+        "us-p03",
+        "us-p04",
+        "us-p05",
+        "us-p06",
+        "us-p07",
+        "us-p08"
+      ],
+      "summary": "Social Cohesion and moral certainty repeatedly pull apart here."
+    }
+  ],
+  "outliers": [
+    {
+      "id": "united-states-1776-2025-outlier-us-p08",
+      "periodId": "us-p08",
+      "outlierType": "unexpected-profile",
+      "strength": 0.99,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "Security State, Platform Era, and Polarization sits outside the field’s usual pattern, shaped unusually strongly by information acceleration and public hope.",
+      "topSignals": [
+        "Information Acceleration",
+        "Public Hope",
+        "Individual Autonomy"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-outlier-us-p05",
+      "periodId": "us-p05",
+      "outlierType": "high-strain-high-order",
+      "strength": 0.917,
+      "confidence": "strong",
+      "explanationLabel": "High strain and strong order coexist",
+      "summary": "Depression, New Deal, and World War is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "topSignals": [
+        "Social Cohesion",
+        "Elite Competition",
+        "Economic Precarity"
+      ]
+    },
+    {
+      "id": "united-states-1776-2025-outlier-us-p06",
+      "periodId": "us-p06",
+      "outlierType": "high-strain-high-order",
+      "strength": 0.829,
+      "confidence": "strong",
+      "explanationLabel": "High strain and strong order coexist",
+      "summary": "Postwar Order and Civil Rights Transformation is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "topSignals": [
+        "Economic Precarity",
+        "Inequality",
+        "Elite Competition"
+      ]
+    }
+  ],
+  "echoSupport": [
+    {
+      "id": "united-states-1776-2025-echo-support-us-x01",
+      "echoId": "us-x01",
+      "sourcePeriodId": "us-p01",
+      "targetPeriodId": "us-p06",
+      "supportStatus": "weak",
+      "similarityScore": 0.185,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x02",
+      "echoId": "us-x02",
+      "sourcePeriodId": "us-p03",
+      "targetPeriodId": "us-p06",
+      "supportStatus": "weak",
+      "similarityScore": -0.379,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x03",
+      "echoId": "us-x03",
+      "sourcePeriodId": "us-p04",
+      "targetPeriodId": "us-p07",
+      "supportStatus": "weak",
+      "similarityScore": 0.243,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x04",
+      "echoId": "us-x04",
+      "sourcePeriodId": "us-p05",
+      "targetPeriodId": "us-p08",
+      "supportStatus": "weak",
+      "similarityScore": -0.609,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x05",
+      "echoId": "us-x05",
+      "sourcePeriodId": "us-p02",
+      "targetPeriodId": "us-p08",
+      "supportStatus": "weak",
+      "similarityScore": -0.458,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x06",
+      "echoId": "us-x06",
+      "sourcePeriodId": "us-p01",
+      "targetPeriodId": "us-p03",
+      "supportStatus": "weak",
+      "similarityScore": 0.065,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "united-states-1776-2025-echo-support-us-x07",
+      "echoId": "us-x07",
+      "sourcePeriodId": "us-p05",
+      "targetPeriodId": "us-p06",
+      "supportStatus": "weak",
+      "similarityScore": 0.401,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    }
+  ],
+  "prompts": [
+    {
+      "id": "us-p01-prompt-family",
+      "periodId": "us-p01",
+      "text": "This era belongs to a recurring mobilised settlement family.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "united-states-1776-2025-cluster-2-us-p01"
+    },
+    {
+      "id": "us-p02-prompt-family",
+      "periodId": "us-p02",
+      "text": "This era belongs to a recurring mobilised settlement family.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "united-states-1776-2025-cluster-2-us-p02"
+    },
+    {
+      "id": "us-p03-prompt-relationship",
+      "periodId": "us-p03",
+      "text": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "united-states-1776-2025-technologicalDisruption-informationAcceleration-lag0"
+    },
+    {
+      "id": "us-p04-prompt-relationship",
+      "periodId": "us-p04",
+      "text": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "united-states-1776-2025-technologicalDisruption-informationAcceleration-lag0"
+    },
+    {
+      "id": "us-p05-prompt-outlier",
+      "periodId": "us-p05",
+      "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "united-states-1776-2025-outlier-us-p05"
+    },
+    {
+      "id": "us-p06-prompt-outlier",
+      "periodId": "us-p06",
+      "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "united-states-1776-2025-outlier-us-p06"
+    },
+    {
+      "id": "us-p07-prompt-family",
+      "periodId": "us-p07",
+      "text": "This era belongs to a recurring fragmenting acceleration family.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "united-states-1776-2025-cluster-1-us-p07"
+    },
+    {
+      "id": "us-p08-prompt-outlier",
+      "periodId": "us-p08",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "united-states-1776-2025-outlier-us-p08"
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { DetailPanel } from './components/DetailPanel'
 import { ForceExplorer } from './components/ForceExplorer'
+import { InsightsLabPage } from './components/InsightsLabPage'
 import { LoomCanvas } from './components/LoomCanvas'
+import { getCrossDatasetInsightPack, getDatasetInsightPack } from './lib/insight-data'
 import {
   getDatasetRegistry,
   getCounterpartIds,
@@ -10,6 +12,11 @@ import {
 import type { LoomDataset, PressureOverlaySeries, PressureSnapshot } from './types/view'
 import type { DetailViewMode, LoomDensityMode } from './types/view'
 import type { DatasetVisualTheme } from './types/domain'
+import type {
+  CrossDatasetInsightPack,
+  DatasetInsightPack,
+  InsightDestinationSection,
+} from './types/insights'
 
 const ComparePanel = lazy(() =>
   import('./components/ComparePanel').then((module) => ({
@@ -25,6 +32,9 @@ const InMotionRacePanel = lazy(() =>
 
 type EntryTab = 'question' | 'force' | 'pattern'
 type EntryTone = 'amber' | 'cyan'
+type AppRoute =
+  | { page: 'loom' }
+  | { page: 'insights'; section: InsightDestinationSection | null; targetId: string | null }
 
 const plannedDatasets = [
   'Scotland',
@@ -36,6 +46,29 @@ const plannedDatasets = [
   'Mexico, 1810-2025',
   'Russia / USSR, 1861-2025',
 ] as const
+
+function parseAppRoute(hash: string): AppRoute {
+  const normalized = hash.replace(/^#/, '')
+
+  if (!normalized.startsWith('insights')) {
+    return { page: 'loom' }
+  }
+
+  const [, section = '', targetId = ''] = normalized.split('/')
+
+  return {
+    page: 'insights',
+    section: section ? (section as InsightDestinationSection) : null,
+    targetId: targetId || null,
+  }
+}
+
+function buildInsightsHash(
+  section: InsightDestinationSection | null,
+  targetId: string | null,
+) {
+  return `#insights${section ? `/${section}` : ''}${targetId ? `/${targetId}` : ''}`
+}
 
 const defaultBackgroundTheme: DatasetVisualTheme = {
   light: 'rgba(244,241,233,0.78)',
@@ -207,7 +240,7 @@ function buildQuestionEntries(dataset: LoomDataset) {
     {
       id: 'rhyming-eras',
       title: 'Which distant eras feel strangely alike?',
-      body: 'Start from the most echo-rich period and let the structural links light up.',
+      body: 'Start from the most echo-rich period and let the links light up.',
       periodId: echoRich?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: null,
       showEchoes: true,
@@ -265,8 +298,8 @@ function buildPatternEntries(dataset: LoomDataset) {
     },
     {
       id: 'pattern-rhyme',
-      title: 'Deep rhyme',
-      body: 'A structurally resonant era with strong curated echoes into another time.',
+      title: 'Strong echo',
+      body: 'An era with strong echoes reaching into another time.',
       periodId: rhyme?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: null,
       showEchoes: true,
@@ -274,7 +307,7 @@ function buildPatternEntries(dataset: LoomDataset) {
     },
     {
       id: 'pattern-settlement',
-      title: 'Renewed settlement',
+      title: 'Order rebuilt',
       body: 'Hope and legitimacy rise together and steady the wider field.',
       periodId: settlement?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: 'institutionalLegitimacy',
@@ -362,6 +395,10 @@ function App() {
   const [loadError, setLoadError] = useState<string | null>(null)
   const [isDatasetLoading, setIsDatasetLoading] = useState(true)
   const [pendingDatasetId, setPendingDatasetId] = useState<string | null>(null)
+  const [route, setRoute] = useState<AppRoute>(() => parseAppRoute(window.location.hash))
+  const [insightPack, setInsightPack] = useState<DatasetInsightPack | null>(null)
+  const [crossDatasetInsightPack, setCrossDatasetInsightPack] =
+    useState<CrossDatasetInsightPack | null>(null)
   const [selectedPeriodId, setSelectedPeriodId] = useState('')
   const [selectedPressureId, setSelectedPressureId] = useState<string | null>(null)
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
@@ -376,6 +413,15 @@ function App() {
   const [comparePicking, setComparePicking] = useState(false)
   const [isInMotionOpen, setIsInMotionOpen] = useState(false)
   const loadRequestRef = useRef(0)
+
+  useEffect(() => {
+    function handleHashChange() {
+      setRoute(parseAppRoute(window.location.hash))
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -413,6 +459,46 @@ function App() {
       cancelled = true
     }
   }, [datasetId])
+
+  useEffect(() => {
+    let cancelled = false
+
+    getDatasetInsightPack(datasetId)
+      .then((nextPack) => {
+        if (!cancelled) {
+          setInsightPack(nextPack)
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setInsightPack(null)
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [datasetId])
+
+  useEffect(() => {
+    let cancelled = false
+
+    getCrossDatasetInsightPack()
+      .then((nextPack) => {
+        if (!cancelled) {
+          setCrossDatasetInsightPack(nextPack)
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setCrossDatasetInsightPack(null)
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   function handleDatasetChange(nextDatasetId: string) {
     if (nextDatasetId === datasetId || nextDatasetId === pendingDatasetId) {
@@ -605,6 +691,10 @@ function App() {
     dataset.pressureOverlaySeries,
     selectedPressureId,
   )
+  const selectedInsightPrompt =
+    insightPack?.publicStatus === 'public'
+      ? insightPack.prompts.find((prompt) => prompt.periodId === resolvedSelectedPeriodId) ?? null
+      : null
 
   function getEntryCardClass(isActive: boolean, tone: EntryTone) {
     if (isActive) {
@@ -620,6 +710,32 @@ function App() {
     setCompareSourceId(null)
     setCompareTargetId(null)
     setComparePicking(false)
+  }
+
+  function openInsights(
+    section: InsightDestinationSection | null = null,
+    targetId: string | null = null,
+  ) {
+    window.location.hash = buildInsightsHash(section, targetId)
+  }
+
+  function closeInsights() {
+    window.location.hash = ''
+  }
+
+  function inspectPeriodFromInsights(periodId: string) {
+    setSelectedPeriodId(periodId)
+    setActiveEchoLinkId(null)
+    setIsDetailOpen(true)
+    closeInsights()
+  }
+
+  function inspectForceFromInsights(periodId: string, pressureId: string) {
+    setSelectedPeriodId(periodId)
+    setSelectedPressureId(pressureId)
+    setShowPressureOverlay(true)
+    setIsDetailOpen(true)
+    closeInsights()
   }
 
   function handleStartComparePick() {
@@ -714,6 +830,30 @@ function App() {
     setShowEchoes(true)
     setActiveEchoLinkId(null)
     setIsDetailOpen(true)
+  }
+
+  if (route.page === 'insights') {
+    return (
+      <div className="relative isolate min-h-screen bg-[color:var(--bg)] text-stone-100">
+        <div
+          className="pointer-events-none fixed inset-0 z-0"
+          style={{ background: atmosphericBackground }}
+        />
+        <InsightsLabPage
+          datasetLabel={currentDatasetEntry?.scope ?? dataset.meta.scope}
+          datasetId={datasetId}
+          periods={dataset.periods}
+          selectedPeriodId={resolvedSelectedPeriodId}
+          insightPack={insightPack}
+          crossDatasetPack={crossDatasetInsightPack}
+          focusSection={route.section}
+          focusTargetId={route.targetId}
+          onClose={closeInsights}
+          onInspectPeriod={inspectPeriodFromInsights}
+          onInspectForce={inspectForceFromInsights}
+        />
+      </div>
+    )
   }
 
   return (
@@ -1044,6 +1184,14 @@ function App() {
 
             <button
               type="button"
+              onClick={() => openInsights()}
+              className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 hover:text-stone-100"
+            >
+              Insights lab
+            </button>
+
+            <button
+              type="button"
               onClick={() => setIsInMotionOpen(true)}
               className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 hover:text-stone-100"
             >
@@ -1166,6 +1314,7 @@ function App() {
           <DetailPanel
             datasetId={datasetId}
             detail={detail}
+            insightPrompt={selectedInsightPrompt}
             isOpen={isDetailOpen}
             showEchoes={showEchoes}
             selectedPressureId={selectedPressureId}
@@ -1178,6 +1327,7 @@ function App() {
             onToggleEchoes={() => setShowEchoes((current) => !current)}
             onFocusEcho={handleFocusEcho}
             onFollowEcho={handleFollowEcho}
+            onOpenInsights={openInsights}
             onStartComparePick={handleStartComparePick}
             onCompareToPeriod={handleCompareToPeriod}
             onViewModeChange={setDetailMode}

@@ -1,0 +1,624 @@
+{
+  "datasetId": "britain-1066-2025",
+  "datasetLabel": "Britain",
+  "publicStatus": "internal",
+  "generation": {
+    "version": "v1",
+    "method": "stats-first-derived-insights",
+    "generatedAt": "2026-03-26T10:11:53.619Z"
+  },
+  "periodClusters": [
+    {
+      "id": "britain-1066-2025-cluster-1-p10",
+      "periodId": "p10",
+      "clusterId": "britain-1066-2025-cluster-1",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Industry, Reform, and Urban Mass Britain sits inside the fragmenting acceleration family, with technological disruption and information acceleration most visible in the profile.",
+      "topSignals": [
+        "Technological Disruption",
+        "Information Acceleration",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-1-p12",
+      "periodId": "p12",
+      "clusterId": "britain-1066-2025-cluster-1",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Welfare, Market Turn, and Fragmented Union sits inside the fragmenting acceleration family, with technological disruption and information acceleration most visible in the profile.",
+      "topSignals": [
+        "Technological Disruption",
+        "Information Acceleration",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-2-p09",
+      "periodId": "p09",
+      "clusterId": "britain-1066-2025-cluster-2",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Union, Empire, and Fiscal-Military Britain sits inside the fragmenting acceleration family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Information Acceleration"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-2-p11",
+      "periodId": "p11",
+      "clusterId": "britain-1066-2025-cluster-2",
+      "clusterLabel": "fragmenting acceleration",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "High Empire, Mass Democracy, and Total War sits inside the fragmenting acceleration family, with militarization and inequality most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Inequality",
+        "Information Acceleration"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p01",
+      "periodId": "p01",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.656,
+      "confidence": "experimental",
+      "summary": "Norman Consolidation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p02",
+      "periodId": "p02",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.815,
+      "confidence": "moderate",
+      "summary": "Angevin Reach and Charter Strain sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p03",
+      "periodId": "p03",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.62,
+      "confidence": "experimental",
+      "summary": "Charter, Parliament, and Plantagenet Order sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p04",
+      "periodId": "p04",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.567,
+      "confidence": "experimental",
+      "summary": "War, Plague, and Social Upheaval sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p05",
+      "periodId": "p05",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.716,
+      "confidence": "moderate",
+      "summary": "Dynastic Crisis and State Formation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p06",
+      "periodId": "p06",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.72,
+      "confidence": "moderate",
+      "summary": "Tudor Centralisation and Reformation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p07",
+      "periodId": "p07",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.819,
+      "confidence": "moderate",
+      "summary": "Religious Conflict and Composite Monarchy sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-cluster-3-p08",
+      "periodId": "p08",
+      "clusterId": "britain-1066-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Civil Wars, Revolution, and Settlement sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "topSignals": [
+        "Moral Certainty",
+        "Inequality",
+        "Militarization"
+      ]
+    }
+  ],
+  "pressureRelationships": [
+    {
+      "id": "britain-1066-2025-informationAcceleration-individualAutonomy-lag0",
+      "sourcePressureId": "informationAcceleration",
+      "sourceLabel": "Information Acceleration",
+      "targetPressureId": "individualAutonomy",
+      "targetLabel": "Individual Autonomy",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.953,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Information Acceleration and individual autonomy repeatedly rise together here."
+    },
+    {
+      "id": "britain-1066-2025-technologicalDisruption-informationAcceleration-lag0",
+      "sourcePressureId": "technologicalDisruption",
+      "sourceLabel": "Technological Disruption",
+      "targetPressureId": "informationAcceleration",
+      "targetLabel": "Information Acceleration",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.944,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+    },
+    {
+      "id": "britain-1066-2025-institutionalLegitimacy-socialCohesion-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.935,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+    },
+    {
+      "id": "britain-1066-2025-informationAcceleration-individualAutonomy-lag1",
+      "sourcePressureId": "informationAcceleration",
+      "sourceLabel": "Information Acceleration",
+      "targetPressureId": "individualAutonomy",
+      "targetLabel": "Individual Autonomy",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.92,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Information Acceleration often intensifies before individual autonomy does here."
+    },
+    {
+      "id": "britain-1066-2025-eliteCompetition-institutionalLegitimacy-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "targetPressureId": "institutionalLegitimacy",
+      "targetLabel": "Institutional Legitimacy",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.89,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+    },
+    {
+      "id": "britain-1066-2025-technologicalDisruption-informationAcceleration-lag1",
+      "sourcePressureId": "technologicalDisruption",
+      "sourceLabel": "Technological Disruption",
+      "targetPressureId": "informationAcceleration",
+      "targetLabel": "Information Acceleration",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.826,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Technological Disruption often intensifies before information acceleration does here."
+    },
+    {
+      "id": "britain-1066-2025-socialCohesion-publicHope-lag0",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "publicHope",
+      "targetLabel": "Public Hope",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.75,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Social Cohesion and public hope repeatedly rise together here."
+    },
+    {
+      "id": "britain-1066-2025-socialCohesion-economicPrecarity-lag1",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "economicPrecarity",
+      "targetLabel": "Economic Precarity",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.727,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "p08",
+        "p09",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "summary": "Social Cohesion often intensifies before economic precarity does here."
+    }
+  ],
+  "outliers": [
+    {
+      "id": "britain-1066-2025-outlier-p12",
+      "periodId": "p12",
+      "outlierType": "unexpected-profile",
+      "strength": 0.99,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "Welfare, Market Turn, and Fragmented Union sits outside the field’s usual pattern, shaped unusually strongly by individual autonomy and ecological strain.",
+      "topSignals": [
+        "Individual Autonomy",
+        "Ecological Strain",
+        "Moral Certainty"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-outlier-p09",
+      "periodId": "p09",
+      "outlierType": "high-strain-high-order",
+      "strength": 0.895,
+      "confidence": "strong",
+      "explanationLabel": "High strain and strong order coexist",
+      "summary": "Union, Empire, and Fiscal-Military Britain is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "topSignals": [
+        "Social Cohesion",
+        "Public Hope",
+        "Institutional Legitimacy"
+      ]
+    },
+    {
+      "id": "britain-1066-2025-outlier-p10",
+      "periodId": "p10",
+      "outlierType": "unexpected-profile",
+      "strength": 0.891,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "Industry, Reform, and Urban Mass Britain sits outside the field’s usual pattern, shaped unusually strongly by economic precarity and technological disruption.",
+      "topSignals": [
+        "Economic Precarity",
+        "Technological Disruption",
+        "Public Hope"
+      ]
+    }
+  ],
+  "echoSupport": [
+    {
+      "id": "britain-1066-2025-echo-support-x01",
+      "echoId": "x01",
+      "sourcePeriodId": "p02",
+      "targetPeriodId": "p08",
+      "supportStatus": "weak",
+      "similarityScore": 0.18,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x02",
+      "echoId": "x02",
+      "sourcePeriodId": "p04",
+      "targetPeriodId": "p10",
+      "supportStatus": "weak",
+      "similarityScore": -0.207,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x03",
+      "echoId": "x03",
+      "sourcePeriodId": "p05",
+      "targetPeriodId": "p08",
+      "supportStatus": "weak",
+      "similarityScore": 0.586,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x04",
+      "echoId": "x04",
+      "sourcePeriodId": "p06",
+      "targetPeriodId": "p12",
+      "supportStatus": "weak",
+      "similarityScore": -0.693,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x05",
+      "echoId": "x05",
+      "sourcePeriodId": "p07",
+      "targetPeriodId": "p12",
+      "supportStatus": "weak",
+      "similarityScore": -0.408,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x06",
+      "echoId": "x06",
+      "sourcePeriodId": "p08",
+      "targetPeriodId": "p11",
+      "supportStatus": "weak",
+      "similarityScore": 0.005,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x07",
+      "echoId": "x07",
+      "sourcePeriodId": "p09",
+      "targetPeriodId": "p11",
+      "supportStatus": "weak",
+      "similarityScore": 0.427,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x08",
+      "echoId": "x08",
+      "sourcePeriodId": "p09",
+      "targetPeriodId": "p12",
+      "supportStatus": "weak",
+      "similarityScore": -0.221,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x09",
+      "echoId": "x09",
+      "sourcePeriodId": "p10",
+      "targetPeriodId": "p12",
+      "supportStatus": "mixed",
+      "similarityScore": 0.659,
+      "confidence": "experimental",
+      "notes": "The echo is narratively plausible, but the structural similarity is mixed."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x10",
+      "echoId": "x10",
+      "sourcePeriodId": "p11",
+      "targetPeriodId": "p12",
+      "supportStatus": "weak",
+      "similarityScore": 0.095,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x11",
+      "echoId": "x11",
+      "sourcePeriodId": "p01",
+      "targetPeriodId": "p09",
+      "supportStatus": "weak",
+      "similarityScore": -0.036,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x12",
+      "echoId": "x12",
+      "sourcePeriodId": "p06",
+      "targetPeriodId": "p08",
+      "supportStatus": "weak",
+      "similarityScore": -0.172,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x13",
+      "echoId": "x13",
+      "sourcePeriodId": "p03",
+      "targetPeriodId": "p09",
+      "supportStatus": "weak",
+      "similarityScore": 0.519,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x14",
+      "echoId": "x14",
+      "sourcePeriodId": "p02",
+      "targetPeriodId": "p10",
+      "supportStatus": "weak",
+      "similarityScore": -0.382,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x15",
+      "echoId": "x15",
+      "sourcePeriodId": "p05",
+      "targetPeriodId": "p12",
+      "supportStatus": "weak",
+      "similarityScore": -0.206,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x16",
+      "echoId": "x16",
+      "sourcePeriodId": "p01",
+      "targetPeriodId": "p06",
+      "supportStatus": "weak",
+      "similarityScore": 0.226,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x17",
+      "echoId": "x17",
+      "sourcePeriodId": "p07",
+      "targetPeriodId": "p08",
+      "supportStatus": "mixed",
+      "similarityScore": 0.728,
+      "confidence": "moderate",
+      "notes": "The echo is narratively plausible, but the structural similarity is mixed."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x18",
+      "echoId": "x18",
+      "sourcePeriodId": "p03",
+      "targetPeriodId": "p06",
+      "supportStatus": "mixed",
+      "similarityScore": 0.737,
+      "confidence": "moderate",
+      "notes": "The echo is narratively plausible, but the structural similarity is mixed."
+    },
+    {
+      "id": "britain-1066-2025-echo-support-x19",
+      "echoId": "x19",
+      "sourcePeriodId": "p04",
+      "targetPeriodId": "p08",
+      "supportStatus": "weak",
+      "similarityScore": -0.018,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    }
+  ],
+  "prompts": []
+}

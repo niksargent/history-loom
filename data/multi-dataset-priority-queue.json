@@ -40,6 +40,16 @@
       "id": "md-task-07a",
       "label": "Define the v1 Race mode as an expansive modal with autoplay, interpolated motion, pinned-force emphasis, and trails",
       "status": "done"
+    },
+    {
+      "id": "md-task-10",
+      "label": "Implement a derived-insight layer for clusters, co-movement, candidate pressure relationships, and a first public USA pilot with a separate Insights Lab surface",
+      "status": "done"
+    },
+    {
+      "id": "md-task-11",
+      "label": "Define the whole-tool public-language and visual-grammar rule so public-facing insight is concrete, visual, and understandable to non-specialists",
+      "status": "done"
     }
   ],
   "next": [
@@ -56,10 +66,22 @@
       "reason": "Population is a major missing scale signal and should be added cleanly before future compare or motion views start to depend on it."
     },
     {
-      "id": "md-task-10",
-      "label": "Define a derived-insight layer for clusters, co-movement, and candidate pressure relationships so the tool can generate stronger `aha` moments",
+      "id": "md-task-10a",
+      "label": "Review and sharpen the generated USA insight prompts, family labels, and surfaced relationship wording so the first public pilot feels genuinely editorial rather than merely computational",
       "priority": "high",
-      "reason": "The next real product gain is not more presentation alone; it is stronger insight generation from the structured data already in the system."
+      "reason": "The first derived-insight layer is live, but its public value now depends on editorial quality, not just on the presence of statistics."
+    },
+    {
+      "id": "md-task-11a",
+      "label": "Apply the first public-language and visual-grammar pass across Insights Lab, the detail-panel insight hook, Compare, and the most visible entry labels",
+      "priority": "high",
+      "reason": "The product now needs public-facing clarity and visual gestalt more urgently than more analytical depth."
+    },
+    {
+      "id": "md-task-10b",
+      "label": "Review the internal Britain, France, and cross-dataset packs to decide which structural cousins and echo-support signals are honest enough for later public release",
+      "priority": "high",
+      "reason": "The architecture is now cross-dataset ready, but public cross-dataset insight should be released only after an explicit quality review."
     },
     {
       "id": "md-task-08",

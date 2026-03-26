@@ -1,0 +1,429 @@
+{
+  "datasetId": "france-1789-2025",
+  "datasetLabel": "France",
+  "publicStatus": "internal",
+  "generation": {
+    "version": "v1",
+    "method": "stats-first-derived-insights",
+    "generatedAt": "2026-03-26T10:11:53.626Z"
+  },
+  "periodClusters": [
+    {
+      "id": "france-1789-2025-cluster-1-fr-p09",
+      "periodId": "fr-p09",
+      "clusterId": "france-1789-2025-cluster-1",
+      "clusterLabel": "accelerated transition",
+      "strength": 1,
+      "confidence": "strong",
+      "summary": "European Integration, Identity Strain, and Fragmented Legitimacy sits inside the accelerated transition family, with information acceleration and technological disruption most visible in the profile.",
+      "topSignals": [
+        "Information Acceleration",
+        "Technological Disruption",
+        "Elite Competition"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-2-fr-p05",
+      "periodId": "fr-p05",
+      "clusterId": "france-1789-2025-cluster-2",
+      "clusterLabel": "high-hope settlement",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Third Republic, Secular Nation-Building, and Industrial Society sits inside the high-hope settlement family, with institutional legitimacy and public hope most visible in the profile.",
+      "topSignals": [
+        "Institutional Legitimacy",
+        "Public Hope",
+        "Technological Disruption"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-2-fr-p08",
+      "periodId": "fr-p08",
+      "clusterId": "france-1789-2025-cluster-2",
+      "clusterLabel": "high-hope settlement",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Fifth Republic, Decolonization, and Technocratic Order sits inside the high-hope settlement family, with institutional legitimacy and public hope most visible in the profile.",
+      "topSignals": [
+        "Institutional Legitimacy",
+        "Public Hope",
+        "Technological Disruption"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p01",
+      "periodId": "fr-p01",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Revolution and Radical Refounding sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p02",
+      "periodId": "fr-p02",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.649,
+      "confidence": "experimental",
+      "summary": "Consulate, Empire, and Continental War sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p03",
+      "periodId": "fr-p03",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.681,
+      "confidence": "moderate",
+      "summary": "Restoration, Monarchy, and Recurrent Rupture sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p04",
+      "periodId": "fr-p04",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.797,
+      "confidence": "moderate",
+      "summary": "Republic, Empire, and Defeat sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p06",
+      "periodId": "fr-p06",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.658,
+      "confidence": "experimental",
+      "summary": "War, Instability, and Republican Fracture sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    },
+    {
+      "id": "france-1789-2025-cluster-3-fr-p07",
+      "periodId": "fr-p07",
+      "clusterId": "france-1789-2025-cluster-3",
+      "clusterLabel": "militarised conviction",
+      "strength": 0.755,
+      "confidence": "moderate",
+      "summary": "Occupation, Liberation, Fourth Republic, and Empire Crisis sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "topSignals": [
+        "Militarization",
+        "Moral Certainty",
+        "Inequality"
+      ]
+    }
+  ],
+  "pressureRelationships": [
+    {
+      "id": "france-1789-2025-institutionalLegitimacy-socialCohesion-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.979,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+    },
+    {
+      "id": "france-1789-2025-eliteCompetition-institutionalLegitimacy-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "targetPressureId": "institutionalLegitimacy",
+      "targetLabel": "Institutional Legitimacy",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.967,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+    },
+    {
+      "id": "france-1789-2025-inequality-socialCohesion-lag0",
+      "sourcePressureId": "inequality",
+      "sourceLabel": "Inequality",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.92,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Inequality and social cohesion repeatedly pull apart here."
+    },
+    {
+      "id": "france-1789-2025-socialCohesion-economicPrecarity-lag0",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "economicPrecarity",
+      "targetLabel": "Economic Precarity",
+      "relationshipType": "inverse",
+      "lag": 0,
+      "strength": 0.837,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Social Cohesion and economic precarity repeatedly pull apart here."
+    },
+    {
+      "id": "france-1789-2025-technologicalDisruption-informationAcceleration-lag0",
+      "sourcePressureId": "technologicalDisruption",
+      "sourceLabel": "Technological Disruption",
+      "targetPressureId": "informationAcceleration",
+      "targetLabel": "Information Acceleration",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.837,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+    },
+    {
+      "id": "france-1789-2025-technologicalDisruption-informationAcceleration-lag1",
+      "sourcePressureId": "technologicalDisruption",
+      "sourceLabel": "Technological Disruption",
+      "targetPressureId": "informationAcceleration",
+      "targetLabel": "Information Acceleration",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.833,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Technological Disruption often intensifies before information acceleration does here."
+    },
+    {
+      "id": "france-1789-2025-socialCohesion-ecologicalStrain-lag1",
+      "sourcePressureId": "socialCohesion",
+      "sourceLabel": "Social Cohesion",
+      "targetPressureId": "ecologicalStrain",
+      "targetLabel": "Ecological Strain",
+      "relationshipType": "lead-lag",
+      "lag": 1,
+      "strength": 0.737,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Social Cohesion often intensifies before ecological strain does here."
+    },
+    {
+      "id": "france-1789-2025-inequality-economicPrecarity-lag0",
+      "sourcePressureId": "inequality",
+      "sourceLabel": "Inequality",
+      "targetPressureId": "economicPrecarity",
+      "targetLabel": "Economic Precarity",
+      "relationshipType": "co-movement",
+      "lag": 0,
+      "strength": 0.72,
+      "confidence": "moderate",
+      "supportingPeriods": [
+        "fr-p01",
+        "fr-p02",
+        "fr-p03",
+        "fr-p04",
+        "fr-p05",
+        "fr-p06",
+        "fr-p07",
+        "fr-p08",
+        "fr-p09"
+      ],
+      "summary": "Inequality and economic precarity repeatedly rise together here."
+    }
+  ],
+  "outliers": [
+    {
+      "id": "france-1789-2025-outlier-fr-p01",
+      "periodId": "fr-p01",
+      "outlierType": "unexpected-profile",
+      "strength": 0.99,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "Revolution and Radical Refounding sits outside the field’s usual pattern, shaped unusually strongly by moral certainty and public hope.",
+      "topSignals": [
+        "Moral Certainty",
+        "Public Hope",
+        "Elite Competition"
+      ]
+    },
+    {
+      "id": "france-1789-2025-outlier-fr-p08",
+      "periodId": "fr-p08",
+      "outlierType": "unexpected-profile",
+      "strength": 0.99,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "Fifth Republic, Decolonization, and Technocratic Order sits outside the field’s usual pattern, shaped unusually strongly by economic precarity and inequality.",
+      "topSignals": [
+        "Economic Precarity",
+        "Inequality",
+        "Institutional Legitimacy"
+      ]
+    },
+    {
+      "id": "france-1789-2025-outlier-fr-p09",
+      "periodId": "fr-p09",
+      "outlierType": "unexpected-profile",
+      "strength": 0.99,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "summary": "European Integration, Identity Strain, and Fragmented Legitimacy sits outside the field’s usual pattern, shaped unusually strongly by information acceleration and ecological strain.",
+      "topSignals": [
+        "Information Acceleration",
+        "Ecological Strain",
+        "Individual Autonomy"
+      ]
+    }
+  ],
+  "echoSupport": [
+    {
+      "id": "france-1789-2025-echo-support-fr-x01",
+      "echoId": "fr-x01",
+      "sourcePeriodId": "fr-p01",
+      "targetPeriodId": "fr-p04",
+      "supportStatus": "reinforced",
+      "similarityScore": 0.901,
+      "confidence": "strong",
+      "notes": "The pressure profile strongly supports this authored echo."
+    },
+    {
+      "id": "france-1789-2025-echo-support-fr-x02",
+      "echoId": "fr-x02",
+      "sourcePeriodId": "fr-p01",
+      "targetPeriodId": "fr-p07",
+      "supportStatus": "weak",
+      "similarityScore": -0.157,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "france-1789-2025-echo-support-fr-x03",
+      "echoId": "fr-x03",
+      "sourcePeriodId": "fr-p03",
+      "targetPeriodId": "fr-p08",
+      "supportStatus": "weak",
+      "similarityScore": 0.011,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "france-1789-2025-echo-support-fr-x04",
+      "echoId": "fr-x04",
+      "sourcePeriodId": "fr-p02",
+      "targetPeriodId": "fr-p08",
+      "supportStatus": "weak",
+      "similarityScore": 0.052,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "france-1789-2025-echo-support-fr-x05",
+      "echoId": "fr-x05",
+      "sourcePeriodId": "fr-p05",
+      "targetPeriodId": "fr-p09",
+      "supportStatus": "weak",
+      "similarityScore": 0.065,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "france-1789-2025-echo-support-fr-x06",
+      "echoId": "fr-x06",
+      "sourcePeriodId": "fr-p06",
+      "targetPeriodId": "fr-p09",
+      "supportStatus": "weak",
+      "similarityScore": 0.151,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    }
+  ],
+  "prompts": []
+}

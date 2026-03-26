@@ -194,8 +194,29 @@ Approved direction:
 
 Status:
 - the planning layer now exists in `docs/data-science-insight-plan.md`
-- no derived-insight schema or runtime layer exists yet
-- this should begin as an internal or low-claim feature, not a public truth engine
+- the derived-insight schema now exists
+- an offline generation pipeline now produces checked-in derived JSON packs
+- a first public USA pilot now exists through the main-page prompt and `Insights Lab`
+- Britain and France derived packs remain internal
+- cross-dataset affinities are now generated internally but are not yet public
+- this remains a low-claim feature, not a public truth engine
+
+### 8. Public language and visual grammar
+
+The product now has a new explicit rule:
+- every public-facing surface should pass the `16-year-old test`
+
+That means:
+- less builder or academic language in public UI
+- more concrete wording
+- stronger visual explanation through colour, grouping, and motion
+- internal labels and public labels should be allowed to differ
+
+This applies across the whole tool, not just Insights Lab.
+
+Status:
+- the issue is now recognised as whole-product, not page-local
+- the next bounded pass should start with Insights Lab and the most visible interpretive surfaces
 
 ## What stays off
 
@@ -232,7 +253,9 @@ They belong after the current three datasets are stronger and the multi-dataset 
 8. build `Race` first before deciding the exact Tension visual
 9. review Race in live use before deciding whether Tension or same-time-range dataset comparison should come next
 10. extend the live datasets and schema to support population as a contextual series
-11. define the first derived-insight schema and internal clustering/correlation pass
+11. implement the first derived-insight schema, public USA pilot, and internal cross-dataset pass
+12. review generated insight quality before any public cross-dataset release
+13. run the first public-language and visual-grammar pass across the tool, starting with Insights Lab
 
 ## Higher-reasoning steps
 
@@ -243,3 +266,4 @@ These steps are the ones most likely to benefit from a higher-reasoning model:
 - deciding when cross-dataset comparison would be honest
 - deciding how population should inform interpretation without turning the UI into a statistics layer
 - deciding which derived patterns are genuinely illuminating rather than merely computationally available
+- deciding when internal cross-dataset affinities are strong and honest enough to surface publicly

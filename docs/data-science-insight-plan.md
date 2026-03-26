@@ -2,151 +2,189 @@
 
 ## Purpose
 
-Define how the product should use data science to surface patterns, clusters, correlations, and candidate explanations without pretending that automated inference is historical truth.
+Use a derived statistical layer to produce stronger `aha` moments from the structured pressure data without pretending that computation is historical truth.
 
-The goal is not to turn the product into a research console.
-The goal is to create more `aha` moments:
-- which periods cluster together
-- which pressures tend to rise together
-- which pressures appear to precede or stabilise others
-- which datasets show similar structural patterns across comparable time windows
+The goal is not to build a research console.
+The goal is to generate and surface patterns that feel genuinely revealing:
+- recurring structural families of periods
+- pressures that reliably travel together
+- one-step lead-lag signals
+- surprising outlier eras
+- later, structural cousins across datasets
 
-## Product role
+## Product posture
 
-Data science should support:
+The posture is now fixed:
+- editorial insights first
+- statistics first, not ML first
+- cross-dataset-ready architecture
+- single-dataset public rollout first
+- separate Insights Lab page for depth
+- only light hooks on the main Loom page
+- public wording must pass the `16-year-old test`
+- visual grammar must carry part of the insight before the text does
+
+Derived insight should support:
 - insight discovery
 - editorial curation
-- stronger question-led entry
-- future motion and compare modes
+- stronger prompts on the main page
+- later Compare, Force Explorer, and motion work
 
 It should not replace:
 - historical judgement
-- authored echo curation
+- authored echoes
 - explicit uncertainty handling
 
-The right posture remains:
-- human-curated
-- machine-assisted
+## Current implementation status
 
-## Core insight types
+Implemented now:
+- a dedicated derived-insight schema in `src/types/insights.ts`
+- offline generation pipeline in `scripts/generate-derived-insights.mjs`
+- precomputed dataset insight packs in `data/derived/`
+- a cross-dataset affinity pack in `data/derived/cross-dataset.json`
+- a public USA insight pilot
+- a separate `Insights Lab` page
+- one restrained derived hook in the selected-period flow
 
-### 1. Pattern clustering
+Current public release posture:
+- USA insight prompts are public
+- Britain and France packs are internal
+- cross-dataset affinities are internal
 
-Within one dataset:
-- cluster periods by pressure profile
-- identify recurring regime shapes or pressure signatures
+Current product correction:
+- the first insight rollout proved the architecture
+- the next pass must make the surfaced language and visuals more accessible to non-specialists
+- internal analytical labels should no longer be exposed directly where they confuse general users
 
-Across datasets:
-- cluster periods from different fields by shared structural profile
-- surface candidate cross-dataset affinities without declaring them equivalent
+## Core insight families
 
-## 2. Correlation and co-movement
+### 1. Structural families
 
-Look for:
-- pressures that tend to rise or fall together
-- stabilisers that repeatedly weaken when specific stressors intensify
-- relationships that are strong within one dataset and weak in another
+Group periods by pressure profile to show recurring structural shapes.
 
-This is useful for:
-- “these forces often travel together”
-- “this stabiliser tends to erode under these conditions”
+Current method:
+- per-dataset pressure vectors
+- z-score normalisation
+- hierarchical agglomerative clustering
+- Ward-style merge cost
 
-## 3. Lead-lag and directional relationships
+Public use:
+- period family labels in Insights Lab
+- one or two short family-based prompts
 
-Explore whether:
-- one pressure often intensifies before another
-- one stabiliser tends to recover after a specific decline pattern
-- certain pressure combinations precede rupture, reform, or consolidation
+### 2. Force relationships
 
-This is the closest the system gets to “two pressures tend to drive another”.
+Detect strong within-dataset relationships between pressures.
 
-It must always be framed carefully:
-- suggestive relationship
-- not proof of causation
+Current method:
+- Spearman rank correlation
+- zero-lag co-movement
+- one-period lagged correlation
 
-## 4. Outlier and inflection detection
+Relationship types:
+- `co-movement`
+- `inverse`
+- `lead-lag`
 
-Identify:
-- periods that break the normal pressure pattern
-- sudden rank shifts
-- unusual combinations of high stress and high stability
+Public use:
+- relationship cards in Insights Lab
+- short prompt hooks when a selected period sits inside a strong relationship pattern
 
-These can drive:
-- featured insight prompts
-- Force Explorer cues
-- future `In motion` callouts
+### 3. Outliers
 
-## 5. Candidate echo support
+Detect periods whose pressure profile sits away from the field’s typical pattern.
 
-Use pressure similarity and trajectory similarity to:
-- suggest candidate echoes
-- rank existing echoes for review
-- identify where an apparently plausible echo is actually weak
+Current method:
+- normalised profile distance
+- cluster-edge style detection
+- simple strength/confidence banding
 
-This supports curation.
-It should not auto-publish echoes as truth.
+Public use:
+- outlier cards in Insights Lab
+- period-level prompts that identify broken expectations
 
-## UI and product implications
+### 4. Echo support
 
-The first uses should be modest and legible:
+Score authored echoes against structural similarity and trajectory similarity.
 
-### Near-term
-- insight prompts in the detail or compare flow
-- short statements such as:
-  - `These two pressures often rise together here`
-  - `This period clusters with two other strain-heavy eras`
-  - `Legitimacy tends to weaken after inequality and information acceleration spike together`
+Current method:
+- profile similarity scoring
+- support labels: `reinforced`, `mixed`, `weak`
 
-### Next-layer
-- cluster views or cluster tags
-- force relationship hints inside Force Explorer
-- `In motion` callouts for rank swaps, unusual surges, or inflection points
+Current public posture:
+- generated
+- internal only
+- not used to auto-publish canonical echoes
 
-### Later
-- bounded cross-dataset pattern comparison
-- editorially reviewed “you may also want to inspect” paths
+### 5. Cross-dataset cousins
 
-## Architectural direction
+Detect structural cousins across countries.
 
-The product should plan for derived analytical artefacts such as:
-- pressure correlation matrices
-- period cluster assignments
-- lead-lag relationship notes
-- confidence or strength bands
+Current method:
+- cosine similarity on normalised vectors
+- thresholding plus shared signal checks
 
-These should be stored as derived data, not mixed carelessly into authored source content.
+Current public posture:
+- architecture ready
+- internal only
+- held back pending editorial review
 
-Recommended approach:
-- raw/authored historical content remains primary
-- derived insight data is generated separately
-- the UI can choose whether to reveal it
+## UI role
+
+### Main page
+
+Keep this light.
+
+Only public derived surface on the main page:
+- one short period-level prompt
+- one route into Insights Lab
+
+### Insights Lab
+
+This is the proper home for deeper derived reading.
+
+Current public sections:
+- period families
+- force relationships
+- outliers
+
+Held back for now:
+- public cross-dataset cousins
+- public echo support judgements
+
+Public rule:
+- Insights Lab should feel like a discovery surface, not a methods page
+- lead with what the user can notice, not with caveats about the model
 
 ## Safeguards
 
-This is a higher-risk area and needs clear rules.
-
 Never:
 - present correlation as causation
-- auto-generate canonical echoes without review
-- hide uncertainty
-- let statistical convenience override historical intelligibility
+- auto-publish canonical echoes
+- let weak analytical output turn into strong product claims
+- surface computational results just because they are available
 
 Always:
-- label derived insight as derived
-- prefer patterns that are legible and useful
-- use editorial review before turning findings into strong product claims
+- label this layer as derived
+- keep confidence explicit
+- prefer legibility over novelty
+- review cross-dataset claims before public release
+- translate internal analytical language into public-facing language before surfacing it
+- use colour, grouping, and line behaviour to communicate pattern type
 
-## Recommended sequence
+## Next steps
 
-1. define the derived-insight schema
-2. generate a first internal-only pass for one dataset
-3. review which insight types are actually useful
-4. expose only the clearest, lowest-risk findings first
-5. extend across datasets only after the single-dataset pass is trustworthy
+1. define shared public-language replacements for internal insight labels
+2. define shared visual grammar for alike / together / apart / unusual
+3. review the generated USA prompts and family labels for editorial sharpness
+4. review Britain and France packs internally
+5. review the internal cross-dataset affinity pack
+6. decide which cross-dataset cousins are fit for public release
+7. decide whether a second public hint belongs in Compare or Force Explorer
 
 ## Constraint
 
-If the output does not make the product feel more revealing to a general user, it does not belong in the UI.
+If the result does not make the product more revealing to a general user, it does not belong in the UI.
 
 The standard is not:
 - mathematically interesting

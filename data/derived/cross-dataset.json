@@ -1,0 +1,55 @@
+{
+  "scope": "internal",
+  "generation": {
+    "version": "v1",
+    "method": "stats-first-derived-insights",
+    "generatedAt": "2026-03-26T10:11:53.712Z"
+  },
+  "affinities": [
+    {
+      "id": "united-states-1776-2025-us-p08-france-1789-2025-fr-p09",
+      "sourceDatasetId": "united-states-1776-2025",
+      "sourcePeriodId": "us-p08",
+      "targetDatasetId": "france-1789-2025",
+      "targetPeriodId": "fr-p09",
+      "similarityScore": 0.924,
+      "sharedTopSignals": [
+        "Information Acceleration",
+        "Ecological Strain",
+        "Individual Autonomy"
+      ],
+      "confidence": "strong",
+      "summary": "Security State, Platform Era, and Polarization in United States forms a structural cousin pair with European Integration, Identity Strain, and Fragmented Legitimacy in France."
+    },
+    {
+      "id": "britain-1066-2025-p12-france-1789-2025-fr-p09",
+      "sourceDatasetId": "britain-1066-2025",
+      "sourcePeriodId": "p12",
+      "targetDatasetId": "france-1789-2025",
+      "targetPeriodId": "fr-p09",
+      "similarityScore": 0.864,
+      "sharedTopSignals": [
+        "Ecological Strain",
+        "Individual Autonomy",
+        "Information Acceleration"
+      ],
+      "confidence": "strong",
+      "summary": "Welfare, Market Turn, and Fragmented Union in Britain forms a structural cousin pair with European Integration, Identity Strain, and Fragmented Legitimacy in France."
+    },
+    {
+      "id": "united-states-1776-2025-us-p06-france-1789-2025-fr-p08",
+      "sourceDatasetId": "united-states-1776-2025",
+      "sourcePeriodId": "us-p06",
+      "targetDatasetId": "france-1789-2025",
+      "targetPeriodId": "fr-p08",
+      "similarityScore": 0.845,
+      "sharedTopSignals": [
+        "Economic Precarity",
+        "Inequality",
+        "Elite Competition"
+      ],
+      "confidence": "strong",
+      "summary": "Postwar Order and Civil Rights Transformation in United States forms a structural cousin pair with Fifth Republic, Decolonization, and Technocratic Order in France."
+    }
+  ]
+}

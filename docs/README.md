@@ -102,6 +102,11 @@ history-loom/
     lived-voice-v2.md
     population-extension-plan.md
     data-science-insight-plan.md
+    derived-insight-schema.md
+    insights-lab-brief.md
+    insight-visual-grammar.md
+    public-language-guide.md
+    usa-insight-pilot-plan.md
     dataset-authoring-workflow.md
     dataset-authoring-standards.md
     multi-dataset-strategy.md
@@ -110,6 +115,11 @@ history-loom/
     datasets.json
     themes.json
     geographies.json
+    derived/
+      britain-1066-2025.json
+      united-states-1776-2025.json
+      france-1789-2025.json
+      cross-dataset.json
     validation-registry.json
     usa/
       meta.json
@@ -209,6 +219,9 @@ In progress:
 - `In motion` now has its first live implementation: a `Race` modal opened from the header, showing ranked force pills, autoplay with interpolated movement, trails, scrubbing, family filtering, and pinned-force emphasis for one dataset at a time
 - population is now recognised as a major missing structural series, and a first explicit extension plan now exists for schema, dataset, and UI support
 - derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
+- the first derived-insight implementation is now live: offline-generated insight packs, a public USA pilot, a new Insights Lab page, and one restrained main-page prompt tied to the selected period
+- derived insight remains public only for USA at this stage; Britain, France, and cross-dataset cousins stay internal while the signal quality is reviewed
+- a new whole-product rule now applies: public-facing language should pass a `16-year-old` comprehension test, with internal analytical labels translated into clearer public wording and supported by stronger visual grammar
 - geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
@@ -250,6 +263,8 @@ The next delivery sequence should be:
 7. move next into a lower-claim extension such as an `In motion` view while continuing only targeted validation toward `solid`
 8. extend the schema and live datasets to support population as a first-class contextual metric, beginning in detail and compare
 9. define a derived-insight layer so the product can surface clusters, co-movement, and candidate relationships without overstating causation
+10. review and sharpen the generated insight labels and prompts before broadening the public rollout beyond USA
+11. run a whole-tool public-language and visual-grammar pass so the product reads less like an academic console and more like a visual discovery tool
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect

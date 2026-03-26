@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc -b && vite build",
+    "generate:insights": "node ./scripts/generate-derived-insights.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
