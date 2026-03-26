@@ -1,11 +1,11 @@
 {
   "datasetId": "britain-1066-2025",
   "datasetLabel": "Britain",
-  "publicStatus": "internal",
+  "publicStatus": "public",
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T10:11:53.619Z"
+    "generatedAt": "2026-03-26T18:13:28.136Z"
   },
   "periodClusters": [
     {
@@ -620,5 +620,96 @@
       "notes": "The authored echo is weaker structurally than it appears narratively."
     }
   ],
-  "prompts": []
+  "prompts": [
+    {
+      "id": "p01-prompt-relationship",
+      "periodId": "p01",
+      "text": "Elite Competition tends to pull away from institutional legitimacy here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "britain-1066-2025-eliteCompetition-institutionalLegitimacy-lag0"
+    },
+    {
+      "id": "p02-prompt-family",
+      "periodId": "p02",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "britain-1066-2025-cluster-3-p02"
+    },
+    {
+      "id": "p03-prompt-relationship",
+      "periodId": "p03",
+      "text": "Institutional Legitimacy tends to rise with social cohesion here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "britain-1066-2025-institutionalLegitimacy-socialCohesion-lag0"
+    },
+    {
+      "id": "p05-prompt-family",
+      "periodId": "p05",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "britain-1066-2025-cluster-3-p05"
+    },
+    {
+      "id": "p06-prompt-family",
+      "periodId": "p06",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "britain-1066-2025-cluster-3-p06"
+    },
+    {
+      "id": "p07-prompt-family",
+      "periodId": "p07",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "britain-1066-2025-cluster-3-p07"
+    },
+    {
+      "id": "p09-prompt-outlier",
+      "periodId": "p09",
+      "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "britain-1066-2025-outlier-p09"
+    },
+    {
+      "id": "p10-prompt-outlier",
+      "periodId": "p10",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "britain-1066-2025-outlier-p10"
+    },
+    {
+      "id": "p11-prompt-relationship",
+      "periodId": "p11",
+      "text": "Technological Disruption tends to rise with information acceleration here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "britain-1066-2025-technologicalDisruption-informationAcceleration-lag0"
+    },
+    {
+      "id": "p12-prompt-outlier",
+      "periodId": "p12",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "britain-1066-2025-outlier-p12"
+    }
+  ]
 }

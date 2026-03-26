@@ -19,6 +19,9 @@ export interface Period {
   startYear: number
   endYear: number
   rangeLabel: string
+  populationEstimate?: number
+  populationLabel?: string
+  urbanisationEstimate?: number
   scope: string
   geography: string[]
   summary: string
@@ -87,6 +90,20 @@ export interface PressureSeries {
   peakPeriods: string[]
   releasePatterns: string[]
   relatedPressureIds: string[]
+}
+
+export interface PopulationSeries {
+  id: string
+  label: string
+  scope: string
+  unit: string
+  valuesByPeriod: Record<string, number>
+  anchors?: Array<{
+    year: number
+    value: number
+  }>
+  notes?: string
+  sourceNotes?: string
 }
 
 export interface EchoLink {
@@ -160,5 +177,7 @@ export interface DatasetRegistryEntry {
   supportedThemeIds: string[]
   supportedGeographyIds: string[]
   notes: string
+  hasPopulationCoverage?: boolean
+  populationConfidence?: 'strong' | 'moderate' | 'exploratory'
   visualTheme?: DatasetVisualTheme
 }

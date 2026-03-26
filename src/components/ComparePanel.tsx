@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef } from 'react'
-import { sentenceCase } from '../lib/format'
+import { formatPopulationCompact, sentenceCase } from '../lib/format'
 import type { ComparePanelModel } from '../types/view'
 
 interface ComparePanelProps {
@@ -181,6 +181,8 @@ function CompareSummaryCard({
 }) {
   const styles = toneStyles[tone]
   const activePressureValue = pressureValue(detail, selectedPressureId)
+  const populationCompact =
+    detail.period.populationLabel ?? formatPopulationCompact(detail.period.populationEstimate)
 
   return (
     <article className={`surface-depth reveal-up reveal-delay-1 rounded-[1.65rem] border p-5 ${styles.shell}`}>
@@ -205,6 +207,13 @@ function CompareSummaryCard({
       <p className="mt-4 text-sm leading-6 text-stone-300">{detail.period.summary}</p>
 
       <div className="mt-4 flex flex-wrap gap-2">
+        {populationCompact ? (
+          <span
+            className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] ${styles.badge}`}
+          >
+            Population {populationCompact}
+          </span>
+        ) : null}
         {detail.period.dominantValues.slice(0, 2).map((value) => (
           <span
             key={`${detail.period.id}-${value}`}

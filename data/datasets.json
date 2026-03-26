@@ -37,6 +37,8 @@
       "global"
     ],
     "notes": "Template dataset 1. Broad enrichment is closed; Britain now sits in selective validation toward a stronger solid threshold and occasional targeted correction.",
+    "hasPopulationCoverage": true,
+    "populationConfidence": "moderate",
     "visualTheme": {
       "light": "rgba(245,243,238,0.86)",
       "cool": "rgba(31,63,120,0.34)",
@@ -80,6 +82,8 @@
       "global"
     ],
     "notes": "Template dataset 2 at usable-draft maturity. Broad enrichment is closed; the active posture is selective validation toward a stronger solid threshold.",
+    "hasPopulationCoverage": true,
+    "populationConfidence": "moderate",
     "visualTheme": {
       "light": "rgba(248,245,239,0.88)",
       "cool": "rgba(22,56,114,0.42)",
@@ -123,6 +127,8 @@
       "global"
     ],
     "notes": "Template dataset 3 at usable-draft maturity. France is now live in the app and moves into selective validation toward a stronger solid threshold. Cross-dataset compare remains off.",
+    "hasPopulationCoverage": true,
+    "populationConfidence": "moderate",
     "visualTheme": {
       "light": "rgba(247,245,241,0.9)",
       "cool": "rgba(41,82,162,0.36)",

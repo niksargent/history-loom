@@ -5,6 +5,7 @@
     "startYear": 1066,
     "endYear": 1145,
     "rangeLabel": "1066–1145",
+    "populationEstimate": 2000000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -111,6 +112,7 @@
     "startYear": 1146,
     "endYear": 1225,
     "rangeLabel": "1146–1225",
+    "populationEstimate": 3000000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -217,6 +219,7 @@
     "startYear": 1226,
     "endYear": 1305,
     "rangeLabel": "1226–1305",
+    "populationEstimate": 4300000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -322,6 +325,7 @@
     "startYear": 1306,
     "endYear": 1385,
     "rangeLabel": "1306–1385",
+    "populationEstimate": 2600000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -429,6 +433,7 @@
     "startYear": 1386,
     "endYear": 1465,
     "rangeLabel": "1386–1465",
+    "populationEstimate": 2400000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -532,6 +537,7 @@
     "startYear": 1466,
     "endYear": 1545,
     "rangeLabel": "1466–1545",
+    "populationEstimate": 3200000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -638,6 +644,7 @@
     "startYear": 1546,
     "endYear": 1625,
     "rangeLabel": "1546–1625",
+    "populationEstimate": 4900000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -745,6 +752,7 @@
     "startYear": 1626,
     "endYear": 1705,
     "rangeLabel": "1626–1705",
+    "populationEstimate": 5600000,
     "scope": "Britain",
     "geography": [
       "England",
@@ -854,6 +862,7 @@
     "startYear": 1706,
     "endYear": 1785,
     "rangeLabel": "1706–1785",
+    "populationEstimate": 9000000,
     "scope": "Britain",
     "geography": [
       "Britain",
@@ -959,6 +968,7 @@
     "startYear": 1786,
     "endYear": 1865,
     "rangeLabel": "1786–1865",
+    "populationEstimate": 23000000,
     "scope": "Britain",
     "geography": [
       "Britain",
@@ -1064,6 +1074,7 @@
     "startYear": 1866,
     "endYear": 1945,
     "rangeLabel": "1866–1945",
+    "populationEstimate": 47000000,
     "scope": "Britain",
     "geography": [
       "Britain",
@@ -1170,6 +1181,7 @@
     "startYear": 1946,
     "endYear": 2025,
     "rangeLabel": "1946–2025",
+    "populationEstimate": 67000000,
     "scope": "Britain",
     "geography": [
       "Britain",

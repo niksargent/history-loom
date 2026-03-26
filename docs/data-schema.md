@@ -300,3 +300,8 @@ Recommended rollout:
 - add period-level population fields for readable context
 - expose population first in detail and compare surfaces
 - only later decide whether population belongs in the main Loom or `In motion`
+
+Status:
+- live type support now exists for `populationEstimate`, `populationLabel`, and optional `urbanisationEstimate`
+- dataset registry entries can now declare population coverage and confidence
+- the first live product pass uses period-level population context in detail and compare

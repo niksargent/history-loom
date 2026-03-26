@@ -23,6 +23,13 @@ Do not publicly surface yet:
 - automated echo support claims
 - weaker experimental relationships
 
+Rollout scope:
+- `single-dataset pilot`
+
+Pilot end state:
+- this pilot must either promote into `all live datasets` for the approved public insight surfaces
+- or be explicitly limited and held back with a recorded reason
+
 ## Why USA first
 
 USA already supports:
@@ -80,3 +87,42 @@ The pilot is successful if:
 - the main page gains hooks without feeling denser
 - the Lab feels like a curated extension, not a dashboard
 - the architecture is ready for Britain, France, and later cross-dataset release
+
+## Promotion path
+
+### Phase 1: keep USA public, tighten quality
+
+Required now:
+- public prompts use plain public language, not internal cluster labels
+- the public Lab feels discoverable rather than technical
+- the strongest USA prompts remain legible and worth clicking
+
+### Phase 2: widen the same public surfaces to all live datasets
+
+Promotion target:
+- Britain and France receive the same public surface types as USA:
+  - family groups
+  - relationship groups
+  - outlier groups
+  - one restrained period prompt
+
+Promotion gate:
+- wording is plain enough for public use
+- generated sections are visually and editorially coherent
+- no dataset feels materially weaker just because the feature was piloted elsewhere first
+
+### Phase 3: consider first public cross-dataset reveal
+
+Only after Phase 2:
+- review internal cousin candidates
+- select one public cross-dataset pairing only if it is strong, legible, and genuinely revealing
+
+Current best candidate:
+- `USA 2001–2025` with `France 1981–2025`
+
+### Failure / hold conditions
+
+Hold or retire expansion if:
+- prompts remain too repetitive
+- family labels are not intelligible in public wording
+- a dataset needs too much exception handling to fit the shared public surface

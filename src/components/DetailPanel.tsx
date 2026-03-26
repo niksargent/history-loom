@@ -1,5 +1,10 @@
 import { useMemo, useState, type ReactNode } from 'react'
-import { formatConfidence, sentenceCase, titleCaseLabel } from '../lib/format'
+import {
+  formatConfidence,
+  formatPopulationEstimate,
+  sentenceCase,
+  titleCaseLabel,
+} from '../lib/format'
 import {
   buildGeographyInsetModel,
   buildPressureCascade,
@@ -607,6 +612,8 @@ export function DetailPanel({
   }, [snapshot])
   const pressureCascade = buildPressureCascade(detail, selectedPressureId)
   const periodReading = buildPeriodReading(detail)
+  const populationRead =
+    period.populationLabel ?? formatPopulationEstimate(period.populationEstimate)
   const leadPressureChipLabel = detail.allPressureSnapshots[0]?.label ?? null
   const geographyModel = buildGeographyInsetModel(
     Array.from(
@@ -742,6 +749,23 @@ export function DetailPanel({
                 ) : null}
               </div>
             </section>
+
+            {populationRead ? (
+              <section className="surface-depth reveal-up rounded-[1.5rem] border border-[rgba(121,219,194,0.16)] bg-[rgba(121,219,194,0.05)] p-4">
+                <p className="eyebrow">Scale of life</p>
+                <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
+                  <div>
+                    <h3 className="text-base text-stone-100">{populationRead}</h3>
+                    <p className="mt-2 max-w-xl text-sm leading-6 text-stone-300">
+                      This is the rough human scale of the country in this period.
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-[rgba(121,219,194,0.16)] bg-[rgba(121,219,194,0.08)] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-cyan-100">
+                    Population
+                  </span>
+                </div>
+              </section>
+            ) : null}
 
             {insightPrompt ? (
               <section className="surface-depth reveal-up rounded-[1.5rem] border border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.06)] p-4">

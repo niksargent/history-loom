@@ -50,6 +50,21 @@
       "id": "md-task-11",
       "label": "Define the whole-tool public-language and visual-grammar rule so public-facing insight is concrete, visual, and understandable to non-specialists",
       "status": "done"
+    },
+    {
+      "id": "md-task-09",
+      "label": "Extend the schema and live dataset plans to support population as a first-class contextual series, beginning in detail and compare",
+      "status": "done"
+    },
+    {
+      "id": "md-task-12",
+      "label": "Review the derived insight output editorially, especially internal cross-dataset cousin candidates, before any wider public release",
+      "status": "done"
+    },
+    {
+      "id": "md-task-13",
+      "label": "Decide whether the USA insight pilot now promotes into the full three-dataset live system for the approved public surfaces",
+      "status": "done"
     }
   ],
   "next": [
@@ -58,12 +73,6 @@
       "label": "Review the first live Race modal in use and decide what it teaches before locking the Tension mode or same-time-range dataset comparison layout",
       "priority": "high",
       "reason": "Race now exists as the first motion surface, so the next useful step is to learn from it before deciding the exact Tension chart or future comparison view."
-    },
-    {
-      "id": "md-task-09",
-      "label": "Extend the schema and live dataset plans to support population as a first-class contextual series, beginning in detail and compare",
-      "priority": "high",
-      "reason": "Population is a major missing scale signal and should be added cleanly before future compare or motion views start to depend on it."
     },
     {
       "id": "md-task-10a",
@@ -81,7 +90,7 @@
       "id": "md-task-10b",
       "label": "Review the internal Britain, France, and cross-dataset packs to decide which structural cousins and echo-support signals are honest enough for later public release",
       "priority": "high",
-      "reason": "The architecture is now cross-dataset ready, but public cross-dataset insight should be released only after an explicit quality review."
+      "reason": "The first editorial review is now complete, and the next decision is whether any internal cousin or echo-support signal is clear and legible enough for a public reveal."
     },
     {
       "id": "md-task-08",

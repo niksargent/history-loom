@@ -5,7 +5,7 @@
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T10:11:53.623Z"
+    "generatedAt": "2026-03-26T18:13:28.140Z"
   },
   "periodClusters": [
     {
@@ -418,7 +418,7 @@
     {
       "id": "us-p01-prompt-family",
       "periodId": "us-p01",
-      "text": "This era belongs to a recurring mobilised settlement family.",
+      "text": "This era is one of the moments when order is rebuilt under pressure.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -427,7 +427,7 @@
     {
       "id": "us-p02-prompt-family",
       "periodId": "us-p02",
-      "text": "This era belongs to a recurring mobilised settlement family.",
+      "text": "This era is one of the moments when order is rebuilt under pressure.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -436,7 +436,7 @@
     {
       "id": "us-p03-prompt-relationship",
       "periodId": "us-p03",
-      "text": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "text": "Technological Disruption tends to rise with information acceleration here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -445,7 +445,7 @@
     {
       "id": "us-p04-prompt-relationship",
       "periodId": "us-p04",
-      "text": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "text": "Technological Disruption tends to rise with information acceleration here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -472,7 +472,7 @@
     {
       "id": "us-p07-prompt-family",
       "periodId": "us-p07",
-      "text": "This era belongs to a recurring fragmenting acceleration family.",
+      "text": "This era is one of the moments when fast change starts to fray trust.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",

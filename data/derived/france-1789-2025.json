@@ -1,11 +1,11 @@
 {
   "datasetId": "france-1789-2025",
   "datasetLabel": "France",
-  "publicStatus": "internal",
+  "publicStatus": "public",
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T10:11:53.626Z"
+    "generatedAt": "2026-03-26T18:13:28.147Z"
   },
   "periodClusters": [
     {
@@ -425,5 +425,87 @@
       "notes": "The authored echo is weaker structurally than it appears narratively."
     }
   ],
-  "prompts": []
+  "prompts": [
+    {
+      "id": "fr-p01-prompt-outlier",
+      "periodId": "fr-p01",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "france-1789-2025-outlier-fr-p01"
+    },
+    {
+      "id": "fr-p02-prompt-relationship",
+      "periodId": "fr-p02",
+      "text": "Inequality tends to rise with economic precarity here.",
+      "insightKind": "relationship",
+      "confidence": "moderate",
+      "destinationSection": "relationships",
+      "destinationTargetId": "france-1789-2025-inequality-economicPrecarity-lag0"
+    },
+    {
+      "id": "fr-p03-prompt-family",
+      "periodId": "fr-p03",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "france-1789-2025-cluster-3-fr-p03"
+    },
+    {
+      "id": "fr-p04-prompt-family",
+      "periodId": "fr-p04",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "france-1789-2025-cluster-3-fr-p04"
+    },
+    {
+      "id": "fr-p05-prompt-relationship",
+      "periodId": "fr-p05",
+      "text": "Technological Disruption tends to rise with information acceleration here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "france-1789-2025-technologicalDisruption-informationAcceleration-lag0"
+    },
+    {
+      "id": "fr-p06-prompt-relationship",
+      "periodId": "fr-p06",
+      "text": "Technological Disruption tends to rise with information acceleration here.",
+      "insightKind": "relationship",
+      "confidence": "strong",
+      "destinationSection": "relationships",
+      "destinationTargetId": "france-1789-2025-technologicalDisruption-informationAcceleration-lag0"
+    },
+    {
+      "id": "fr-p07-prompt-family",
+      "periodId": "fr-p07",
+      "text": "This era is one of the moments when power hardens around belief.",
+      "insightKind": "family",
+      "confidence": "moderate",
+      "destinationSection": "families",
+      "destinationTargetId": "france-1789-2025-cluster-3-fr-p07"
+    },
+    {
+      "id": "fr-p08-prompt-outlier",
+      "periodId": "fr-p08",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "france-1789-2025-outlier-fr-p08"
+    },
+    {
+      "id": "fr-p09-prompt-outlier",
+      "periodId": "fr-p09",
+      "text": "This era is an outlier: unexpected structural profile.",
+      "insightKind": "outlier",
+      "confidence": "strong",
+      "destinationSection": "outliers",
+      "destinationTargetId": "france-1789-2025-outlier-fr-p09"
+    }
+  ]
 }

@@ -12,7 +12,7 @@ const DATASET_CONFIGS = [
   {
     id: 'britain-1066-2025',
     label: 'Britain',
-    visibility: 'internal',
+    visibility: 'public',
     basePath: dataRoot,
   },
   {
@@ -24,7 +24,7 @@ const DATASET_CONFIGS = [
   {
     id: 'france-1789-2025',
     label: 'France',
-    visibility: 'internal',
+    visibility: 'public',
     basePath: path.join(dataRoot, 'france'),
   },
 ]
@@ -290,6 +290,27 @@ function clusterLabelFromSignals(topSignals, periodTitles) {
   return `${topSignals[0] ?? 'mixed'} family`
 }
 
+function publicFamilyPrompt(label) {
+  switch (label) {
+    case 'mobilised settlement':
+      return 'This era is one of the moments when order is rebuilt under pressure.'
+    case 'high-hope settlement':
+      return 'This era is one of the moments when confidence helps hold things together.'
+    case 'fragmenting acceleration':
+      return 'This era is one of the moments when fast change starts to fray trust.'
+    case 'militarised conviction':
+      return 'This era is one of the moments when power hardens around belief.'
+    case 'accelerated transition':
+      return 'This era is one of the moments when change speeds up quickly.'
+    case 'brittle order':
+      return 'This era is one of the moments when order starts to crack.'
+    case 'reconstruction settlement':
+      return 'This era is one of the moments when order is rebuilt after crisis.'
+    default:
+      return 'This era belongs to a recurring pattern.'
+  }
+}
+
 function buildClusterAssignments(dataset, vectorInfo) {
   const clusterTargetCount = dataset.periods.length >= 9 ? 3 : 2
   const clusters = clusterPeriods(vectorInfo.zVectors, clusterTargetCount)
@@ -534,7 +555,7 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
     return {
       id: `${period.id}-prompt-family`,
       periodId: period.id,
-      text: `This era belongs to a recurring ${cluster.clusterLabel} family.`,
+      text: publicFamilyPrompt(cluster.clusterLabel),
       insightKind: 'family',
       confidence: cluster.confidence,
       destinationSection: 'families',
@@ -554,10 +575,10 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
       periodId: period.id,
       text:
         topRelationship.relationshipType === 'lead-lag'
-          ? `${topRelationship.sourceLabel} often intensifies before ${lowerLabel(topRelationship.targetLabel)} does here.`
+          ? `${topRelationship.sourceLabel} often moves before ${lowerLabel(topRelationship.targetLabel)} here.`
           : topRelationship.relationshipType === 'inverse'
-            ? `${topRelationship.sourceLabel} and ${lowerLabel(topRelationship.targetLabel)} repeatedly pull apart here.`
-            : `${topRelationship.sourceLabel} and ${lowerLabel(topRelationship.targetLabel)} repeatedly rise together here.`,
+            ? `${topRelationship.sourceLabel} tends to pull away from ${lowerLabel(topRelationship.targetLabel)} here.`
+            : `${topRelationship.sourceLabel} tends to rise with ${lowerLabel(topRelationship.targetLabel)} here.`,
       insightKind: 'relationship',
       confidence: topRelationship.confidence,
       destinationSection: 'relationships',

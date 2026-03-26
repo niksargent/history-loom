@@ -217,11 +217,14 @@ In progress:
 - Force Explorer is now implemented on the main page as the primary force relationship surface, with clickable period nodes on the trace, padded edge periods, a stable top-right score/date read, and a selected date-range marker replacing the ambiguous `current` label
 - Force Explorer flashpoints now read as full-width event cards with summary first and metadata underneath, rather than competing text and pill columns
 - `In motion` now has its first live implementation: a `Race` modal opened from the header, showing ranked force pills, autoplay with interpolated movement, trails, scrubbing, family filtering, and pinned-force emphasis for one dataset at a time
-- population is now recognised as a major missing structural series, and a first explicit extension plan now exists for schema, dataset, and UI support
+- population is now recognised as a major missing structural series, and the first live pass is now implemented across Britain, USA, and France in schema, detail, and compare
+- the next population question is not whether it matters, but where a population growth chart belongs; Compare is now the preferred first candidate, with `In motion` reserved for a later stronger reveal
 - derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
 - the first derived-insight implementation is now live: offline-generated insight packs, a public USA pilot, a new Insights Lab page, and one restrained main-page prompt tied to the selected period
 - derived insight remains public only for USA at this stage; Britain, France, and cross-dataset cousins stay internal while the signal quality is reviewed
+- the current promotion path is now explicit: keep USA public, review Britain and France to the same standard, then promote the same public insight surfaces across all live datasets before opening any public cross-dataset cousin reveal
 - a new whole-product rule now applies: public-facing language should pass a `16-year-old` comprehension test, with internal analytical labels translated into clearer public wording and supported by stronger visual grammar
+- a new delivery rule now also applies: every change must declare whether it is whole-system, all-live-datasets, pilot, or internal-only, and every pilot must have an explicit path to promotion or retirement
 - geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
@@ -261,7 +264,7 @@ The next delivery sequence should be:
 5. hold cross-dataset compare until at least two datasets are solid enough to support it honestly
 6. discuss geography before doing any further tuning or placement changes
 7. move next into a lower-claim extension such as an `In motion` view while continuing only targeted validation toward `solid`
-8. extend the schema and live datasets to support population as a first-class contextual metric, beginning in detail and compare
+8. keep population as a contextual metric first, and decide later whether it belongs in compare insight, `In motion`, or any main-page overlay
 9. define a derived-insight layer so the product can surface clusters, co-movement, and candidate relationships without overstating causation
 10. review and sharpen the generated insight labels and prompts before broadening the public rollout beyond USA
 11. run a whole-tool public-language and visual-grammar pass so the product reads less like an academic console and more like a visual discovery tool

@@ -110,3 +110,38 @@ Population should improve understanding, not add clutter.
 If it appears in the UI, it should do one of two jobs clearly:
 - tell the user how large the human field is in the selected era
 - reveal how scale changes through time
+
+## Current status
+
+The first live population pass is now complete:
+- schema support exists in the live type system
+- Britain, USA, and France now carry one population value per period
+- the app now shows population first as contextual scale in the detail and compare surfaces
+
+Still deferred:
+- finer-grain anchor points inside periods
+- urbanisation display
+- main Loom population overlay
+- population use in `In motion`
+
+## Future chart placement
+
+Population growth is likely to be one of the most revealing simple lines in the whole product.
+
+Recommended future placement order:
+1. `Compare`
+   - a compact mirrored population chart below the two summary cards
+   - strongest immediate value, because scale difference between periods is often startling
+2. `Insights Lab`
+   - a population sparkline or growth strip inside a future scale-oriented insight card
+   - useful when population helps explain why a force profile feels more intense
+3. `In motion`
+   - a dedicated scale track or companion ribbon, not a main Loom overlay
+   - strongest long-term storytelling value because the growth curve can feel dramatic in motion
+
+Not recommended yet:
+- a default population line in the main Loom
+
+Reason:
+- the growth curve is revealing, but the main Loom is already carrying period selection, forces, and echoes
+- population should add scale, not compete with the primary field grammar

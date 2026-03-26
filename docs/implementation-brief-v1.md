@@ -71,7 +71,7 @@ Current refinement focus:
 - the first solid-readiness review is now complete: Britain, USA, and France all remain below `solid`, but none is blocking lower-claim product extension
 - Force Explorer is now implemented as the first real feature-leap after the bounded UI pass, replacing the weaker detail-panel force explanation with a dedicated relationship surface, direct period selection from the field trace, and a more readable full-width flashpoint layout
 - the first `In motion` implementation now exists as an expansive Race modal, using autoplay, interpolated movement, force trails, scrubbing, family filtering, and pinned-force emphasis for a single dataset
-- population is now recognised as the next major data-model extension, with a planning pass complete and schema/detail/compare support next
+- population is now recognised as the next major data-model extension, with the first live pass now implemented in schema, detail, and compare
 - derived insight and data science are now recognised as the next insight-layer extension, so the tool can surface clusters, co-movement, and candidate force relationships rather than only curated readings
 - the first derived-insight implementation is now in place:
   - offline insight generation pipeline
@@ -85,9 +85,21 @@ Current refinement focus:
 - geography is now constrained to Britain until the other datasets have real map treatments rather than a misleading reused inset
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
+- every new improvement must now declare rollout scope explicitly:
+  - whole-system
+  - all live datasets
+  - single-dataset pilot
+  - internal-only experimental
+- every pilot must also declare its path forward, so it is either promoted deliberately or retired explicitly rather than being left to drift
 - extend the live schema and dataset plans to support population as a first-class contextual series
+- the first population pass is now live: Britain, USA, and France carry one population value per period, and the app shows population in detail and compare as contextual scale
+- the next population design decision is chart placement, with Compare now the preferred first future chart surface and `In motion` the stronger later storytelling surface
 - plan a derived-insight layer that can support clustering, correlation, and lead-lag style prompts without overstating causation
 - review and selectively sharpen the generated insight output before expanding public surfacing beyond USA
+- the derived-insight pilot now has an explicit path forward:
+  - keep USA public
+  - review Britain and France against the same standard
+  - promote the approved public surfaces across all live datasets before any public cross-dataset cousin release
 - translate internal analytical language into clearer public wording across the app, starting with Insights Lab and other interpretive surfaces
 - keep geography implemented but paused pending product discussion
 - reserve any later UI work for further exhibit refinements beyond the current pass
@@ -125,7 +137,7 @@ The next quality threshold is interpretive clarity, not feature count:
 5. delay cross-dataset compare until at least two datasets are solid enough
 6. discuss geography before further map tuning or placement changes
 7. use the current dataset baseline to add one lower-claim post-MVP expansion feature, most likely an `In motion` view, while keeping cross-dataset compare off
-8. add population as the next approved schema-and-data extension, starting in detail and compare before any main-page overlay decision
+8. keep population as a contextual scale layer first, and decide later whether it belongs in compare insight, `In motion`, or any main-page overlay
 9. review the first derived-insight rollout, especially USA prompt quality and internal cross-dataset affinities
 10. decide when public cross-dataset cousins are honest enough to surface
 11. complete the first public-language and visual-grammar pass across the app

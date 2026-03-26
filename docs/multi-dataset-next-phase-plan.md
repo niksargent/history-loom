@@ -34,6 +34,11 @@ Population is now also an approved extension track inside that phase:
 - add one population value per period for the three live datasets
 - expose population first as contextual scale, not decorative metadata
 
+Status:
+- the first population pass is now live in schema, data, detail, and compare
+- the next population question is interpretive: where scale should matter next without cluttering the product
+- the best future chart candidate is now likely a compact population chart in Compare before any main Loom use
+
 Data science is now also an approved extension track:
 - use derived analysis to surface clusters, co-movement, and candidate relationships
 - support editorial insight and future UI prompts
@@ -83,6 +88,32 @@ That is the threshold for:
 
 This means the product can extend before every field is solid.
 It should not extend into high-claim features until at least two fields are solid.
+
+## Rollout discipline
+
+Every new improvement must now declare its rollout scope explicitly.
+
+Allowed rollout scopes:
+- `whole-system`
+- `all live datasets`
+- `single-dataset pilot`
+- `internal-only experimental`
+
+This is now a process rule, not a suggestion.
+If a change does not declare its rollout scope, it is not properly specified.
+
+Pilot rule:
+- every pilot must also declare its intended end state up front
+- a pilot must move toward one of two outcomes:
+  - promotion into the whole system or all live datasets
+  - explicit retirement
+
+What should not happen:
+- pilots drifting indefinitely
+- one dataset silently becoming structurally different from the others
+- internal-only work being mistaken for finished product capability
+
+This rule exists to keep schema, quality, and product behaviour cohesive across datasets.
 
 ## Next approved workstreams
 
@@ -179,8 +210,9 @@ Approved direction:
 - plan for later use inside `In motion`
 
 Status:
-- the planning layer now exists in `docs/population-extension-plan.md`
-- schema, dataset, and UI support still need to be added
+- the planning layer exists in `docs/population-extension-plan.md`
+- the first implementation pass is now complete
+- the next question is whether population belongs in compare insight, `In motion`, or a later cross-dataset scale read
 
 ### 7. Derived insight and data science
 
@@ -200,6 +232,10 @@ Status:
 - Britain and France derived packs remain internal
 - cross-dataset affinities are now generated internally but are not yet public
 - this remains a low-claim feature, not a public truth engine
+- the current promotion path is now explicit:
+  - keep USA public
+  - review Britain and France against the same public standard
+  - promote the same public surfaces across all live datasets before any public cross-dataset cousin release
 
 ### 8. Public language and visual grammar
 
@@ -256,6 +292,8 @@ They belong after the current three datasets are stronger and the multi-dataset 
 11. implement the first derived-insight schema, public USA pilot, and internal cross-dataset pass
 12. review generated insight quality before any public cross-dataset release
 13. run the first public-language and visual-grammar pass across the tool, starting with Insights Lab
+14. review internal cross-dataset cousin candidates editorially before any wider public release
+15. decide whether the USA insight pilot now promotes into the full three-dataset live system
 
 ## Higher-reasoning steps
 
