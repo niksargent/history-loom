@@ -66,14 +66,17 @@ function publicOutlierLabel(label: string) {
   }
 }
 
-function relationDescriptor(relationshipType: 'co-movement' | 'inverse' | 'lead-lag') {
+function relationLine(
+  relationshipType: 'co-movement' | 'inverse' | 'lead-lag',
+  targetLabel: string,
+) {
   switch (relationshipType) {
     case 'co-movement':
-      return 'rise together'
+      return `rise together with ${targetLabel}`
     case 'inverse':
-      return 'pull apart'
+      return `pull apart from ${targetLabel}`
     case 'lead-lag':
-      return 'one often moves first'
+      return `one often moves before ${targetLabel}`
   }
 }
 
@@ -152,6 +155,40 @@ export function InsightsLabPage({
   const prompt = insightPack?.prompts.find((item) => item.periodId === selectedPeriodId) ?? null
   const periodById = Object.fromEntries(periods.map((period) => [period.id, period]))
   const publicPilot = insightPack?.publicStatus === 'public'
+  const familyGroups = insightPack
+    ? Object.values(
+        insightPack.periodClusters.reduce<
+          Record<
+            string,
+            {
+              clusterId: string
+              clusterLabel: string
+              topSignals: string[]
+              strongestStrength: number
+              periods: typeof insightPack.periodClusters
+            }
+          >
+        >((groups, assignment) => {
+          if (!groups[assignment.clusterId]) {
+            groups[assignment.clusterId] = {
+              clusterId: assignment.clusterId,
+              clusterLabel: assignment.clusterLabel,
+              topSignals: assignment.topSignals,
+              strongestStrength: assignment.strength,
+              periods: [],
+            }
+          }
+
+          groups[assignment.clusterId].periods.push(assignment)
+          groups[assignment.clusterId].strongestStrength = Math.max(
+            groups[assignment.clusterId].strongestStrength,
+            assignment.strength,
+          )
+
+          return groups
+        }, {}),
+      ).sort((left, right) => right.strongestStrength - left.strongestStrength)
+    : []
   const internalCrossDatasetCount =
     crossDatasetPack?.affinities.filter(
       (affinity) =>
@@ -222,7 +259,7 @@ export function InsightsLabPage({
                   <div>
                     <p className="eyebrow">Eras that behave alike</p>
                     <h2 className="font-display mt-2 text-2xl text-stone-100">
-                      Recurring patterns in the field
+                      Patterns that show up more than once
                     </h2>
                   </div>
                   <span className="text-[11px] uppercase tracking-[0.18em] text-amber-100/80">
@@ -230,48 +267,66 @@ export function InsightsLabPage({
                   </span>
                 </div>
 
-                <div className="mt-5 grid gap-3 md:grid-cols-2">
-                  {insightPack.periodClusters.map((assignment) => {
-                    const period = periodById[assignment.periodId]
-                    const highlighted =
-                      focusSection === 'families' && focusTargetId === assignment.id
-
-                    return (
-                      <article
-                        key={assignment.id}
-                        className={`rounded-[1.35rem] border p-4 ${sectionShell(highlighted, 'family')}`}
-                      >
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
-                          {period?.rangeLabel ?? assignment.periodId}
-                        </p>
-                        <h3 className="mt-2 text-lg text-stone-100">{period?.title}</h3>
-                        <p className="mt-2 text-sm uppercase tracking-[0.18em] text-amber-100">
-                          {publicFamilyLabel(assignment.clusterLabel)}
-                        </p>
-                        <p className="mt-3 text-sm leading-6 text-stone-300">
-                          {assignment.summary}
-                        </p>
-                        <ConfidenceRail strength={assignment.strength} tone="family" />
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {assignment.topSignals.map((signal) => (
-                            <span
-                              key={`${assignment.id}-${signal}`}
-                              className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
-                            >
-                              {signal}
-                            </span>
-                          ))}
+                <div className="mt-5 space-y-4">
+                  {familyGroups.map((group) => (
+                    <article
+                      key={group.clusterId}
+                      className={`rounded-[1.45rem] border p-5 ${sectionShell(false, 'family')}`}
+                    >
+                      <div className="flex flex-wrap items-start justify-between gap-4">
+                        <div className="max-w-3xl">
+                          <p className="text-sm uppercase tracking-[0.18em] text-amber-100">
+                            {publicFamilyLabel(group.clusterLabel)}
+                          </p>
+                          <p className="mt-3 text-sm leading-6 text-stone-300">
+                            This pattern shows up in {group.periods.length} era{group.periods.length === 1 ? '' : 's'} here,
+                            with {group.topSignals.slice(0, 2).join(' and ').toLowerCase()} most visible across the group.
+                          </p>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => onInspectPeriod(assignment.periodId)}
-                          className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
-                        >
-                          See this period
-                        </button>
-                      </article>
-                    )
-                  })}
+                        <div className="min-w-[10rem]">
+                          <ConfidenceRail strength={group.strongestStrength} tone="family" />
+                        </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {group.topSignals.map((signal) => (
+                          <span
+                            key={`${group.clusterId}-${signal}`}
+                            className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
+                          >
+                            {signal}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-5 grid gap-3 md:grid-cols-2">
+                        {group.periods.map((assignment) => {
+                          const period = periodById[assignment.periodId]
+                          const highlighted =
+                            focusSection === 'families' && focusTargetId === assignment.id
+
+                          return (
+                            <div
+                              key={assignment.id}
+                              className={`rounded-[1.2rem] border px-4 py-4 ${sectionShell(highlighted, 'family')}`}
+                            >
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                                {period?.rangeLabel ?? assignment.periodId}
+                              </p>
+                              <h3 className="mt-2 text-base text-stone-100">{period?.title}</h3>
+                              <button
+                                type="button"
+                                onClick={() => onInspectPeriod(assignment.periodId)}
+                                className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
+                              >
+                                See this period
+                              </button>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </article>
+                  ))}
                 </div>
               </section>
 
@@ -304,7 +359,7 @@ export function InsightsLabPage({
                               {relationship.sourceLabel}
                             </p>
                             <p className="mt-1 text-sm uppercase tracking-[0.18em] text-stone-400">
-                              {relationDescriptor(relationship.relationshipType)} {relationship.targetLabel}
+                              {relationLine(relationship.relationshipType, relationship.targetLabel)}
                             </p>
                           </div>
                           <div className="flex items-center gap-3">
