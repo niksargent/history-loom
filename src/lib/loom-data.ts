@@ -1,22 +1,4 @@
 import datasetsJson from '../../data/datasets.json'
-import echoesJson from '../../data/echoes.json'
-import eventsJson from '../../data/events.json'
-import franceEchoesJson from '../../data/france/echoes.json'
-import franceEventsJson from '../../data/france/events.json'
-import franceMetaJson from '../../data/france/meta.json'
-import francePeriodsJson from '../../data/france/periods.json'
-import francePressuresJson from '../../data/france/pressures.json'
-import franceSnapshotsJson from '../../data/france/snapshots.json'
-import metaJson from '../../data/meta.json'
-import periodsJson from '../../data/periods.json'
-import pressuresJson from '../../data/pressures.json'
-import snapshotsJson from '../../data/snapshots.json'
-import usaEchoesJson from '../../data/usa/echoes.json'
-import usaEventsJson from '../../data/usa/events.json'
-import usaMetaJson from '../../data/usa/meta.json'
-import usaPeriodsJson from '../../data/usa/periods.json'
-import usaPressuresJson from '../../data/usa/pressures.json'
-import usaSnapshotsJson from '../../data/usa/snapshots.json'
 import type {
   DatasetRegistryEntry,
   EchoLink,
@@ -41,6 +23,15 @@ import type {
 } from '../types/view'
 import { clamp, formatYearRange, sentenceCase, titleCaseLabel } from './format'
 
+interface RawDataset {
+  meta: Meta
+  periods: Period[]
+  events: Event[]
+  pressures: PressureSeries[]
+  echoes: EchoLink[]
+  snapshots: HumanSnapshot[]
+}
+
 function toRecord<T extends { id: string }>(items: T[]): Record<string, T> {
   return items.reduce<Record<string, T>>((record, item) => {
     record[item.id] = item
@@ -62,7 +53,7 @@ function assertReference<T>(
   return item
 }
 
-function pickTopPressures(
+function buildPressureSnapshots(
   period: Period,
   pressureById: Record<string, PressureSeries>,
 ): PressureSnapshot[] {
@@ -79,7 +70,6 @@ function pickTopPressures(
       }
     })
     .sort((left, right) => right.value - left.value)
-    .slice(0, 5)
 }
 
 function deriveScaleSummaries(
@@ -262,6 +252,7 @@ function buildSelectedDetails(
             `selected detail snapshot for ${period.id}`,
           )
         : null
+    const allPressureSnapshots = buildPressureSnapshots(period, pressureById)
 
     record[period.id] = {
       period,
@@ -269,7 +260,8 @@ function buildSelectedDetails(
       snapshot,
       echoes: buildEchoModels(period, periodsById, echoesById),
       scaleSummaries: deriveScaleSummaries(period, events, snapshot),
-      pressureSnapshots: pickTopPressures(period, pressureById),
+      allPressureSnapshots,
+      pressureSnapshots: allPressureSnapshots.slice(0, 5),
     }
 
     return record
@@ -278,43 +270,67 @@ function buildSelectedDetails(
 
 const cachedDatasets: Record<string, LoomDataset> = {}
 const cachedPressureByDatasetId: Record<string, Record<string, PressureSeries>> = {}
+const rawDatasetPromises: Partial<Record<string, Promise<RawDataset>>> = {}
 
 const datasetRegistry = datasetsJson as DatasetRegistryEntry[]
 
-const rawDatasets: Record<
-  string,
-  {
-    meta: Meta
-    periods: Period[]
-    events: Event[]
-    pressures: PressureSeries[]
-    echoes: EchoLink[]
-    snapshots: HumanSnapshot[]
-  }
-> = {
-  'britain-1066-2025': {
-    meta: metaJson as Meta,
-    periods: periodsJson as Period[],
-    events: eventsJson as Event[],
-    pressures: pressuresJson as PressureSeries[],
-    echoes: echoesJson as EchoLink[],
-    snapshots: snapshotsJson as HumanSnapshot[],
+const rawDatasetLoaders: Record<string, () => Promise<RawDataset>> = {
+  'britain-1066-2025': async () => {
+    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
+      import('../../data/meta.json'),
+      import('../../data/periods.json'),
+      import('../../data/events.json'),
+      import('../../data/pressures.json'),
+      import('../../data/echoes.json'),
+      import('../../data/snapshots.json'),
+    ])
+
+    return {
+      meta: meta.default as Meta,
+      periods: periods.default as Period[],
+      events: events.default as Event[],
+      pressures: pressures.default as PressureSeries[],
+      echoes: echoes.default as EchoLink[],
+      snapshots: snapshots.default as HumanSnapshot[],
+    }
   },
-  'united-states-1776-2025': {
-    meta: usaMetaJson as Meta,
-    periods: usaPeriodsJson as Period[],
-    events: usaEventsJson as Event[],
-    pressures: usaPressuresJson as PressureSeries[],
-    echoes: usaEchoesJson as EchoLink[],
-    snapshots: usaSnapshotsJson as HumanSnapshot[],
+  'united-states-1776-2025': async () => {
+    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
+      import('../../data/usa/meta.json'),
+      import('../../data/usa/periods.json'),
+      import('../../data/usa/events.json'),
+      import('../../data/usa/pressures.json'),
+      import('../../data/usa/echoes.json'),
+      import('../../data/usa/snapshots.json'),
+    ])
+
+    return {
+      meta: meta.default as Meta,
+      periods: periods.default as Period[],
+      events: events.default as Event[],
+      pressures: pressures.default as PressureSeries[],
+      echoes: echoes.default as EchoLink[],
+      snapshots: snapshots.default as HumanSnapshot[],
+    }
   },
-  'france-1789-2025': {
-    meta: franceMetaJson as Meta,
-    periods: francePeriodsJson as Period[],
-    events: franceEventsJson as Event[],
-    pressures: francePressuresJson as PressureSeries[],
-    echoes: franceEchoesJson as EchoLink[],
-    snapshots: franceSnapshotsJson as HumanSnapshot[],
+  'france-1789-2025': async () => {
+    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
+      import('../../data/france/meta.json'),
+      import('../../data/france/periods.json'),
+      import('../../data/france/events.json'),
+      import('../../data/france/pressures.json'),
+      import('../../data/france/echoes.json'),
+      import('../../data/france/snapshots.json'),
+    ])
+
+    return {
+      meta: meta.default as Meta,
+      periods: periods.default as Period[],
+      events: events.default as Event[],
+      pressures: pressures.default as PressureSeries[],
+      echoes: echoes.default as EchoLink[],
+      snapshots: snapshots.default as HumanSnapshot[],
+    }
   },
 }
 
@@ -322,17 +338,27 @@ export function getDatasetRegistry(): DatasetRegistryEntry[] {
   return datasetRegistry
 }
 
-export function getLoomDataset(datasetId = 'britain-1066-2025'): LoomDataset {
+async function loadRawDataset(datasetId: string): Promise<RawDataset> {
+  if (rawDatasetPromises[datasetId]) {
+    return rawDatasetPromises[datasetId]
+  }
+
+  const loader = rawDatasetLoaders[datasetId]
+
+  if (!loader) {
+    throw new Error(`Unknown dataset "${datasetId}".`)
+  }
+
+  rawDatasetPromises[datasetId] = loader()
+  return rawDatasetPromises[datasetId]
+}
+
+export async function getLoomDataset(datasetId = 'britain-1066-2025'): Promise<LoomDataset> {
   if (cachedDatasets[datasetId]) {
     return cachedDatasets[datasetId]
   }
 
-  const rawDataset = rawDatasets[datasetId]
-
-  if (!rawDataset) {
-    throw new Error(`Unknown dataset "${datasetId}".`)
-  }
-
+  const rawDataset = await loadRawDataset(datasetId)
   const { meta, periods, events, pressures, echoes, snapshots } = rawDataset
 
   validateDataset(periods, events, pressures, echoes, snapshots)
@@ -403,21 +429,10 @@ export function getPressureLabel(
   pressureId: string,
   datasetId = 'britain-1066-2025',
 ): string {
-  const pressureById =
-    cachedPressureByDatasetId[datasetId] ?? toRecord(getLoomDataset(datasetId).pressures)
-  const pressure = pressureById[pressureId]
+  const pressureById = cachedPressureByDatasetId[datasetId]
+  const pressure = pressureById?.[pressureId]
 
   return pressure?.label ?? titleCaseLabel(pressureId)
-}
-
-export function getPressureOverlaySeriesById(
-  pressureId: string,
-  datasetId = 'britain-1066-2025',
-) {
-  return (
-    getLoomDataset(datasetId).pressureOverlaySeries.find((series) => series.id === pressureId) ??
-    null
-  )
 }
 
 export function inferGeographyRegions(labels: string[]): GeoRegionId[] {
@@ -496,13 +511,12 @@ export function buildGeographyInsetModel(
 export function buildPressureCascade(
   detail: SelectedPeriodDetail,
   pressureId: string | null,
-  datasetId = 'britain-1066-2025',
 ): PressureCascadeModel | null {
   if (!pressureId) {
     return null
   }
 
-  const overlaySeries = getPressureOverlaySeriesById(pressureId, datasetId)
+  const overlaySeries = detail.allPressureSnapshots.find((pressure) => pressure.id === pressureId)
 
   if (!overlaySeries) {
     return null

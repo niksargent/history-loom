@@ -1,18 +1,27 @@
-import { useState } from 'react'
-import { ComparePanel } from './components/ComparePanel'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { DetailPanel } from './components/DetailPanel'
 import { ForceExplorer } from './components/ForceExplorer'
-import { InMotionRacePanel } from './components/InMotionRacePanel'
 import { LoomCanvas } from './components/LoomCanvas'
 import {
   getDatasetRegistry,
   getCounterpartIds,
   getLoomDataset,
-  getPressureOverlaySeriesById,
 } from './lib/loom-data'
 import type { LoomDataset, PressureOverlaySeries, PressureSnapshot } from './types/view'
 import type { DetailViewMode, LoomDensityMode } from './types/view'
 import type { DatasetVisualTheme } from './types/domain'
+
+const ComparePanel = lazy(() =>
+  import('./components/ComparePanel').then((module) => ({
+    default: module.ComparePanel,
+  })),
+)
+
+const InMotionRacePanel = lazy(() =>
+  import('./components/InMotionRacePanel').then((module) => ({
+    default: module.InMotionRacePanel,
+  })),
+)
 
 type EntryTab = 'question' | 'force' | 'pattern'
 type EntryTone = 'amber' | 'cyan'
@@ -74,22 +83,6 @@ function buildDatasetBackground(datasetId: string, theme?: DatasetVisualTheme) {
     `radial-gradient(circle at 18% 82%, ${palette.glow}, transparent 22%)`,
     `linear-gradient(180deg, ${palette.baseTop} 0%, ${palette.baseMid} 28%, rgba(24, 27, 29, 1) 58%, ${palette.baseBottom} 100%)`,
   ].join(', ')
-}
-
-function loadDatasetState(datasetId: string) {
-  try {
-    return {
-      datasetId,
-      dataset: getLoomDataset(datasetId),
-      loadError: null as string | null,
-    }
-  } catch (error) {
-    return {
-      datasetId,
-      dataset: null,
-      loadError: error instanceof Error ? error.message : 'Unknown dataset error.',
-    }
-  }
 }
 
 function strongestPressure(
@@ -291,15 +284,85 @@ function buildPatternEntries(dataset: LoomDataset) {
   ]
 }
 
+function LoadingVeil({
+  label,
+  detail,
+  delayMs = 180,
+  centered = false,
+}: {
+  label: string
+  detail: string
+  delayMs?: number
+  centered?: boolean
+}) {
+  const [isVisible, setIsVisible] = useState(delayMs === 0)
+
+  useEffect(() => {
+    if (delayMs === 0) {
+      return
+    }
+
+    const timeout = window.setTimeout(() => setIsVisible(true), delayMs)
+    return () => window.clearTimeout(timeout)
+  }, [delayMs])
+
+  if (!isVisible) {
+    return null
+  }
+
+  return (
+    <div
+      className={`pointer-events-auto absolute inset-0 z-40 flex justify-center rounded-[inherit] bg-[linear-gradient(180deg,rgba(9,10,11,0.14),rgba(9,10,11,0.26))] backdrop-blur-[2px] ${
+        centered ? 'items-center' : 'items-start'
+      }`}
+    >
+      <div
+        className={`rounded-[1.4rem] border border-[rgba(214,211,209,0.08)] bg-[linear-gradient(180deg,rgba(26,29,31,0.92),rgba(18,20,22,0.88))] px-5 py-4 shadow-[0_22px_48px_rgba(0,0,0,0.24)] ${
+          centered ? '' : 'mt-10'
+        }`}
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-amber-200/85" />
+            <span className="h-px w-8 bg-[linear-gradient(90deg,rgba(251,191,36,0.42),rgba(121,219,194,0.26))]" />
+            <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-200/80 [animation-delay:140ms]" />
+            <span className="h-px w-8 bg-[linear-gradient(90deg,rgba(121,219,194,0.26),rgba(251,191,36,0.18))]" />
+            <span className="h-2 w-2 animate-pulse rounded-full bg-stone-200/70 [animation-delay:280ms]" />
+          </div>
+          <div className="text-left">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-stone-300">{label}</p>
+            <p className="mt-1 text-sm leading-6 text-stone-400">{detail}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function PanelFallback({ label }: { label: string }) {
+  return (
+    <div className="compare-backdrop fixed inset-0 z-50 overflow-y-auto px-4 py-6 md:px-6">
+      <section className="glass-panel surface-depth reveal-up relative mx-auto min-h-[72vh] w-full max-w-[1480px] overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-5 md:min-h-[80vh] md:p-7">
+        <LoadingVeil
+          label={label}
+          detail="Preparing panel…"
+          delayMs={120}
+          centered
+        />
+      </section>
+    </div>
+  )
+}
+
 function App() {
   const datasetRegistry = getDatasetRegistry()
   const defaultDatasetId = datasetRegistry[0]?.id ?? 'britain-1066-2025'
-  const [{ datasetId, dataset, loadError }, setDatasetState] = useState(() =>
-    loadDatasetState(defaultDatasetId),
-  )
-  const [selectedPeriodId, setSelectedPeriodId] = useState(
-    dataset?.periods[dataset.periods.length - 1]?.id ?? '',
-  )
+  const [datasetId, setDatasetId] = useState(defaultDatasetId)
+  const [dataset, setDataset] = useState<LoomDataset | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
+  const [isDatasetLoading, setIsDatasetLoading] = useState(true)
+  const [pendingDatasetId, setPendingDatasetId] = useState<string | null>(null)
+  const [selectedPeriodId, setSelectedPeriodId] = useState('')
   const [selectedPressureId, setSelectedPressureId] = useState<string | null>(null)
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
   const [showEchoes, setShowEchoes] = useState(false)
@@ -312,19 +375,55 @@ function App() {
   const [compareTargetId, setCompareTargetId] = useState<string | null>(null)
   const [comparePicking, setComparePicking] = useState(false)
   const [isInMotionOpen, setIsInMotionOpen] = useState(false)
+  const loadRequestRef = useRef(0)
+
+  useEffect(() => {
+    let cancelled = false
+
+    getLoomDataset(datasetId)
+      .then((nextDataset) => {
+        if (cancelled) {
+          return
+        }
+
+        setDataset(nextDataset)
+        setSelectedPeriodId((current) => {
+          if (current && nextDataset.selectedDetailsById[current]) {
+            return current
+          }
+
+          return nextDataset.periods[nextDataset.periods.length - 1]?.id ?? ''
+        })
+      })
+      .catch((error) => {
+        if (cancelled) {
+          return
+        }
+
+        setDataset(null)
+        setLoadError(error instanceof Error ? error.message : 'Unknown dataset error.')
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setIsDatasetLoading(false)
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [datasetId])
 
   function handleDatasetChange(nextDatasetId: string) {
-    const nextState = loadDatasetState(nextDatasetId)
-    setDatasetState(nextState)
-
-    if (!nextState.dataset) {
+    if (nextDatasetId === datasetId || nextDatasetId === pendingDatasetId) {
       return
     }
 
-    const nextDataset = nextState.dataset
-    const nextPeriodId = nextDataset.periods[nextDataset.periods.length - 1]?.id ?? ''
-
-    setSelectedPeriodId(nextPeriodId)
+    const requestId = loadRequestRef.current + 1
+    loadRequestRef.current = requestId
+    setIsDatasetLoading(true)
+    setLoadError(null)
+    setPendingDatasetId(nextDatasetId)
     setSelectedPressureId(null)
     setShowPressureOverlay(true)
     setShowEchoes(false)
@@ -337,9 +436,45 @@ function App() {
     setCompareTargetId(null)
     setComparePicking(false)
     setIsInMotionOpen(false)
+
+    getLoomDataset(nextDatasetId)
+      .then((nextDataset) => {
+        if (loadRequestRef.current !== requestId) {
+          return
+        }
+
+        setDataset(nextDataset)
+        setDatasetId(nextDatasetId)
+        setPendingDatasetId(null)
+        setSelectedPeriodId(nextDataset.periods[nextDataset.periods.length - 1]?.id ?? '')
+      })
+      .catch((error) => {
+        if (loadRequestRef.current !== requestId) {
+          return
+        }
+
+        setPendingDatasetId(null)
+        setLoadError(error instanceof Error ? error.message : 'Unknown dataset error.')
+      })
+      .finally(() => {
+        if (loadRequestRef.current === requestId) {
+          setIsDatasetLoading(false)
+        }
+      })
   }
 
-  if (!dataset || loadError) {
+  if (isDatasetLoading && !dataset && !loadError) {
+    return (
+      <div className="min-h-screen bg-[color:var(--bg)] px-4 py-10 text-stone-100">
+        <main className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <LoadingVeil label="Loading" detail="Preparing the field…" delayMs={0} />
+          <div className="min-h-[16rem]" />
+        </main>
+      </div>
+    )
+  }
+
+  if (!dataset) {
     return (
       <div className="min-h-screen bg-[color:var(--bg)] px-4 py-10 text-stone-100">
         <main className="mx-auto max-w-3xl rounded-[2rem] border border-rose-300/20 bg-rose-300/8 p-8">
@@ -359,7 +494,11 @@ function App() {
     )
   }
 
-  const detail = dataset.selectedDetailsById[selectedPeriodId]
+  const resolvedSelectedPeriodId =
+    selectedPeriodId && dataset.selectedDetailsById[selectedPeriodId]
+      ? selectedPeriodId
+      : dataset.periods[dataset.periods.length - 1]?.id ?? ''
+  const detail = dataset.selectedDetailsById[resolvedSelectedPeriodId]
   const compareSourceDetail = compareSourceId
     ? dataset.selectedDetailsById[compareSourceId]
     : null
@@ -369,24 +508,24 @@ function App() {
       : null
   const echoCounterpartIds = showEchoes ? getCounterpartIds(detail) : new Set<string>()
   const selectedPressureSeries = selectedPressureId
-    ? getPressureOverlaySeriesById(selectedPressureId, datasetId)
+    ? dataset.pressureOverlaySeries.find((series) => series.id === selectedPressureId) ?? null
     : null
   const activeEcho =
     detail.echoes.find((echo) => echo.link.id === activeEchoLinkId) ?? detail.echoes[0] ?? null
   const activeEchoCounterpartId = showEchoes ? activeEcho?.counterpart.id ?? null : null
-  const compareAnchoredToSelected = compareSourceId === selectedPeriodId
+  const compareAnchoredToSelected = compareSourceId === resolvedSelectedPeriodId
   const compareActive = Boolean(compareSourceDetail && compareDetail)
   const uniqueEchoCount = new Set(
     Object.values(dataset.selectedDetailsById).flatMap((item) =>
       item.echoes.map((echo) => echo.link.id),
     ),
   ).size
-  const dominantStress = strongestPressure(detail.pressureSnapshots, 'stress')
-  const dominantStabiliser = strongestPressure(detail.pressureSnapshots, 'stabiliser')
-  const stressSnapshots = detail.pressureSnapshots.filter(
+  const dominantStress = strongestPressure(detail.allPressureSnapshots, 'stress')
+  const dominantStabiliser = strongestPressure(detail.allPressureSnapshots, 'stabiliser')
+  const stressSnapshots = detail.allPressureSnapshots.filter(
     (pressure) => pressure.polarity === 'stress',
   )
-  const stabiliserSnapshots = detail.pressureSnapshots.filter(
+  const stabiliserSnapshots = detail.allPressureSnapshots.filter(
     (pressure) => pressure.polarity === 'stabiliser',
   )
   const stressMean = Math.round(
@@ -455,10 +594,11 @@ function App() {
     { id: 'force', label: 'Force' },
     { id: 'pattern', label: 'Pattern' },
   ] as const
+  const displayDatasetId = pendingDatasetId ?? datasetId
   const currentDatasetEntry =
-    datasetRegistry.find((entry) => entry.id === datasetId) ?? null
+    datasetRegistry.find((entry) => entry.id === displayDatasetId) ?? null
   const atmosphericBackground = buildDatasetBackground(
-    datasetId,
+    displayDatasetId,
     currentDatasetEntry?.visualTheme,
   )
   const headerThreadSeries = pickHeaderThreadSeries(
@@ -488,25 +628,25 @@ function App() {
       return
     }
 
-    setCompareSourceId(selectedPeriodId)
+    setCompareSourceId(resolvedSelectedPeriodId)
     setCompareTargetId(null)
     setComparePicking(true)
     setIsDetailOpen(true)
   }
 
   function handleCompareToPeriod(periodId: string) {
-    if (periodId === selectedPeriodId) {
+    if (periodId === resolvedSelectedPeriodId) {
       return
     }
 
-    setCompareSourceId(selectedPeriodId)
+    setCompareSourceId(resolvedSelectedPeriodId)
     setCompareTargetId(periodId)
     setComparePicking(false)
     setIsDetailOpen(true)
   }
 
   function handlePeriodSelect(periodId: string) {
-    const activeCompareSourceId = compareSourceId ?? selectedPeriodId
+    const activeCompareSourceId = compareSourceId ?? resolvedSelectedPeriodId
 
     if (comparePicking) {
       if (periodId === activeCompareSourceId) {
@@ -549,7 +689,7 @@ function App() {
       return
     }
 
-    const periodId = pickPeakPeriodId(dataset, pressureId) || selectedPeriodId
+    const periodId = pickPeakPeriodId(dataset, pressureId) || resolvedSelectedPeriodId
 
     clearCompare()
     setSelectedPeriodId(periodId)
@@ -584,6 +724,16 @@ function App() {
       />
 
       <main className="relative z-10 mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
+        {isDatasetLoading && dataset ? (
+          <LoadingVeil
+            label={pendingDatasetId ? 'Switching dataset' : 'Loading'}
+            detail={
+              pendingDatasetId && currentDatasetEntry
+                ? `Preparing ${currentDatasetEntry.scope}…`
+                : 'Preparing the field…'
+            }
+          />
+        ) : null}
         <header
           className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(255,248,236,0.12)] px-6 py-6 shadow-[0_24px_64px_rgba(0,0,0,0.2)] backdrop-blur-[28px] md:px-8"
           style={{
@@ -664,7 +814,7 @@ function App() {
                           type="button"
                           onClick={() => handleDatasetChange(entry.id)}
                           className={`ui-action rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] transition ${
-                            datasetId === entry.id
+                            displayDatasetId === entry.id
                               ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
                               : 'text-stone-300 hover:text-stone-100'
                           }`}
@@ -751,7 +901,7 @@ function App() {
                   {entryTab === 'question'
                     ? questionEntries.map((entry) => {
                         const isActive =
-                          selectedPeriodId === entry.periodId &&
+                          resolvedSelectedPeriodId === entry.periodId &&
                           selectedPressureId === entry.pressureId &&
                           showEchoes === entry.showEchoes
 
@@ -832,7 +982,7 @@ function App() {
                   {entryTab === 'pattern'
                     ? patternEntries.map((entry) => {
                         const isActive =
-                          selectedPeriodId === entry.periodId &&
+                          resolvedSelectedPeriodId === entry.periodId &&
                           selectedPressureId === entry.pressureId &&
                           showEchoes === entry.showEchoes
 
@@ -909,7 +1059,7 @@ function App() {
               overlaySeries={dataset.pressureOverlaySeries}
               selectedPeriodTitle={detail.period.title}
               selectedPeriodRangeLabel={detail.period.rangeLabel}
-              selectedPeriodId={selectedPeriodId}
+              selectedPeriodId={resolvedSelectedPeriodId}
               selectedPressureId={selectedPressureId}
               comparePicking={comparePicking}
               compareTargetId={compareTargetId}
@@ -999,7 +1149,6 @@ function App() {
             </div>
 
             <ForceExplorer
-              datasetId={datasetId}
               detail={detail}
               periods={dataset.periods}
               pressureSeries={dataset.pressureOverlaySeries}
@@ -1036,23 +1185,27 @@ function App() {
         </div>
 
         {compareSourceDetail && compareDetail ? (
-          <ComparePanel
-            model={{ source: compareSourceDetail, target: compareDetail }}
-            selectedPressureId={selectedPressureId}
-            selectedPressureLabel={selectedPressureSeries?.label ?? null}
-            onClose={clearCompare}
-          />
+          <Suspense fallback={<PanelFallback label="Compare periods" />}>
+            <ComparePanel
+              model={{ source: compareSourceDetail, target: compareDetail }}
+              selectedPressureId={selectedPressureId}
+              selectedPressureLabel={selectedPressureSeries?.label ?? null}
+              onClose={clearCompare}
+            />
+          </Suspense>
         ) : null}
 
         {isInMotionOpen ? (
-          <InMotionRacePanel
-            datasetLabel={currentDatasetEntry?.scope ?? dataset.meta.scope}
-            periods={dataset.periods}
-            pressureSeries={dataset.pressureOverlaySeries}
-            initialPeriodId={selectedPeriodId}
-            initialPinnedPressureId={selectedPressureId}
-            onClose={() => setIsInMotionOpen(false)}
-          />
+          <Suspense fallback={<PanelFallback label="In motion" />}>
+            <InMotionRacePanel
+              datasetLabel={currentDatasetEntry?.scope ?? dataset.meta.scope}
+              periods={dataset.periods}
+              pressureSeries={dataset.pressureOverlaySeries}
+              initialPeriodId={resolvedSelectedPeriodId}
+              initialPinnedPressureId={selectedPressureId}
+              onClose={() => setIsInMotionOpen(false)}
+            />
+          </Suspense>
         ) : null}
       </main>
     </div>

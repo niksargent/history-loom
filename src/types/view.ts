@@ -101,6 +101,7 @@ export interface SelectedPeriodDetail {
   snapshot: HumanSnapshot | null
   echoes: EchoRevealModel[]
   scaleSummaries: ScaleSummary[]
+  allPressureSnapshots: PressureSnapshot[]
   pressureSnapshots: PressureSnapshot[]
 }
 

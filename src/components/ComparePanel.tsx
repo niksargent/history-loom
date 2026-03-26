@@ -396,9 +396,9 @@ export function ComparePanel({
     model.target.period.dominantValues,
   )
   const sharedMood = intersect(model.source.period.socialMood, model.target.period.socialMood)
-  const sharedPressures = model.source.pressureSnapshots
+  const sharedPressures = model.source.allPressureSnapshots
     .filter((pressure) =>
-      model.target.pressureSnapshots.some((targetPressure) => targetPressure.id === pressure.id),
+      model.target.allPressureSnapshots.some((targetPressure) => targetPressure.id === pressure.id),
     )
     .map((pressure) => pressure.label)
   const echoLink = findEchoReason(model)

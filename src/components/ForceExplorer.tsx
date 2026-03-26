@@ -3,7 +3,6 @@ import type { Period, PressurePolarity } from '../types/domain'
 import type { PressureOverlaySeries, SelectedPeriodDetail } from '../types/view'
 
 interface ForceExplorerProps {
-  datasetId: string
   detail: SelectedPeriodDetail
   periods: Period[]
   pressureSeries: PressureOverlaySeries[]
@@ -191,7 +190,6 @@ function ForceLane({
 }
 
 export function ForceExplorer({
-  datasetId,
   detail,
   periods,
   pressureSeries,
@@ -206,7 +204,7 @@ export function ForceExplorer({
   const activeSeries =
     pressureSeries.find((series) => series.id === activePressureId) ?? sortedSeries[0] ?? null
   const activeCascade =
-    activePressureId !== null ? buildPressureCascade(detail, activePressureId, datasetId) : null
+    activePressureId !== null ? buildPressureCascade(detail, activePressureId) : null
   const activeValue = activeSeries ? currentPeriodScores[activeSeries.id] ?? 0 : 0
   const activeTone = activeSeries ? getPolarityTone(activeSeries.polarity) : null
   const stressSeries = sortedSeries.filter((series) => series.polarity === 'stress')

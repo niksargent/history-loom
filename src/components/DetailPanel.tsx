@@ -67,7 +67,7 @@ function buildPeriodReading(detail: SelectedPeriodDetail) {
     .slice(0, 2)
     .map((mood) => sentenceCase(mood))
     .join(' / ')
-  const leadPressure = detail.pressureSnapshots[0]?.label ?? null
+  const leadPressure = detail.allPressureSnapshots[0]?.label ?? null
   const releaseLabel = getReleaseLabel(detail.period.releaseType).toLowerCase()
 
   if (leadPressure) {
@@ -252,7 +252,7 @@ function DetailSections({
   onFollowEcho,
   onCompareToPeriod,
 }: DetailSectionsProps) {
-  const { period, events, snapshot, echoes, scaleSummaries, pressureSnapshots } = detail
+  const { period, events, snapshot, echoes, scaleSummaries, pressureSnapshots, allPressureSnapshots } = detail
   const activeEcho =
     echoes.find((echo) => echo.link.id === activeEchoLinkId) ?? echoes[0] ?? null
   const [collapsedSections, setCollapsedSections] = useState<Record<DetailSectionId, boolean>>(
@@ -335,8 +335,8 @@ function DetailSections({
         title="Forces in play"
         summary={
           selectedPressureSeries
-            ? `${selectedPressureSeries.label} is in focus within ${pressureSnapshots.length} tracked forces.`
-            : `${pressureSnapshots.length} tracked forces shape this period.`
+            ? `${selectedPressureSeries.label} is in focus within ${allPressureSnapshots.length} tracked forces. Showing the strongest ${pressureSnapshots.length}.`
+            : `${allPressureSnapshots.length} tracked forces shape this period. Showing the strongest ${pressureSnapshots.length}.`
         }
         isCollapsed={collapsedSections.pressures}
         onToggle={() => toggleSection('pressures')}
@@ -600,9 +600,9 @@ export function DetailPanel({
       },
     ]
   }, [snapshot])
-  const pressureCascade = buildPressureCascade(detail, selectedPressureId, datasetId)
+  const pressureCascade = buildPressureCascade(detail, selectedPressureId)
   const periodReading = buildPeriodReading(detail)
-  const leadPressureChipLabel = detail.pressureSnapshots[0]?.label ?? null
+  const leadPressureChipLabel = detail.allPressureSnapshots[0]?.label ?? null
   const geographyModel = buildGeographyInsetModel(
     Array.from(
       new Set(
