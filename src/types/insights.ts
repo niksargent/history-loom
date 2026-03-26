@@ -61,13 +61,24 @@ export interface OutlierSignal {
 export interface CrossDatasetAffinity {
   id: string
   sourceDatasetId: string
+  sourceDatasetLabel: string
   sourcePeriodId: string
+  sourcePeriodTitle: string
+  sourcePeriodRangeLabel: string
   targetDatasetId: string
+  targetDatasetLabel: string
   targetPeriodId: string
+  targetPeriodTitle: string
+  targetPeriodRangeLabel: string
   similarityScore: number
   sharedTopSignals: string[]
   confidence: InsightConfidenceTier
   summary: string
+}
+
+export interface PublicCrossDatasetCousin extends CrossDatasetAffinity {
+  headline: string
+  publicSummary: string
 }
 
 export interface EchoSupportSignal {
@@ -107,4 +118,5 @@ export interface CrossDatasetInsightPack {
   scope: 'internal'
   generation: InsightGenerationMeta
   affinities: CrossDatasetAffinity[]
+  publicCousins: PublicCrossDatasetCousin[]
 }

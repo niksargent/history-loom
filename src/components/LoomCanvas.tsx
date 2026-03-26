@@ -1,5 +1,6 @@
 import type { Period } from '../types/domain'
 import type { LoomDensityMode, PressureOverlaySeries } from '../types/view'
+import { formatPopulationCompact } from '../lib/format'
 import { getReleaseLabel } from '../lib/loom-data'
 
 interface LoomCanvasProps {
@@ -13,12 +14,15 @@ interface LoomCanvasProps {
   compareTargetId: string | null
   compareActive: boolean
   showPressureOverlay: boolean
+  showPopulation: boolean
   echoCounterpartIds: Set<string>
   activeEchoCounterpartId: string | null
   showEchoes: boolean
   density: LoomDensityMode
   onPeriodSelect: (periodId: string) => void
   onDensityChange: (density: LoomDensityMode) => void
+  onTogglePressureOverlay: () => void
+  onTogglePopulation: () => void
   onPressureSelect: (pressureId: string | null) => void
 }
 
@@ -36,6 +40,52 @@ function buildPath(points: PressureOverlaySeries['points'], width: number, heigh
   })
 
   return coordinates.join(' ')
+}
+
+function buildPopulationPoints(values: number[], width: number, height: number) {
+  if (!values.length) {
+    return []
+  }
+
+  const maxValue = Math.max(...values, 1)
+  const columnWidth = width / values.length
+
+  return values.map((value, index) => {
+    const x = columnWidth * index + columnWidth / 2
+    const normalized = maxValue === 0 ? 0 : value / maxValue
+    const y = height - normalized * (height * 0.82) - height * 0.08
+
+    return { x, y }
+  })
+}
+
+function buildPopulationLinePath(values: number[], width: number, height: number) {
+  const points = buildPopulationPoints(values, width, height)
+
+  return points
+    .map((point, index) => {
+      return `${index === 0 ? 'M' : 'L'} ${point.x.toFixed(2)} ${point.y.toFixed(2)}`
+    })
+    .join(' ')
+}
+
+function buildPopulationAreaPath(values: number[], width: number, height: number) {
+  const points = buildPopulationPoints(values, width, height)
+
+  if (!points.length) {
+    return ''
+  }
+
+  const firstX = points[0].x
+  const lastX = points[points.length - 1].x
+  const baselineY = height - height * 0.04
+  const linePath = points
+    .map((point, index) => {
+      return `${index === 0 ? 'M' : 'L'} ${point.x.toFixed(2)} ${point.y.toFixed(2)}`
+    })
+    .join(' ')
+
+  return `${linePath} L ${lastX.toFixed(2)} ${baselineY.toFixed(2)} L ${firstX.toFixed(2)} ${baselineY.toFixed(2)} Z`
 }
 
 function buildEchoRoutePath(fromIndex: number, toIndex: number, count: number) {
@@ -97,12 +147,15 @@ export function LoomCanvas({
   compareTargetId,
   compareActive,
   showPressureOverlay,
+  showPopulation,
   echoCounterpartIds,
   activeEchoCounterpartId,
   showEchoes,
   density,
   onPeriodSelect,
   onDensityChange,
+  onTogglePressureOverlay,
+  onTogglePopulation,
   onPressureSelect,
 }: LoomCanvasProps) {
   const selectedSeries =
@@ -123,6 +176,34 @@ export function LoomCanvas({
   const mutedEchoRoutes = echoRouteIndexes.filter((route) => !route.active)
   const activeEchoRoute = echoRouteIndexes.find((route) => route.active) ?? null
   const renderedSeries = sortSeriesForRender(overlaySeries, selectedPressureId)
+  const populationValues = periods.map((period) => period.populationEstimate ?? 0)
+  const populationPoints = buildPopulationPoints(populationValues, 1100, 120)
+  const selectedPopulation = periods.find((period) => period.id === selectedPeriodId)?.populationEstimate
+  const selectedPopulationLabel = formatPopulationCompact(selectedPopulation)
+  const firstPopulationLabel = formatPopulationCompact(periods[0]?.populationEstimate)
+  const lastPopulationLabel = formatPopulationCompact(periods[periods.length - 1]?.populationEstimate)
+  const selectedPopulationMarkerLeft =
+    periods.length
+      ? `${((selectedIndex + 0.5) / periods.length) * 100}%`
+      : '0%'
+  const selectedPopulationPoint =
+    selectedIndex >= 0 && selectedIndex < populationPoints.length
+      ? populationPoints[selectedIndex]
+      : null
+  const selectedPopulationMarkerTop = selectedPopulationPoint
+    ? `${(selectedPopulationPoint.y / 120) * 100}%`
+    : '50%'
+  const selectedPopulationLabelStyle = selectedPopulationPoint
+    ? selectedPopulationPoint.y <= 26
+      ? {
+          left: selectedPopulationMarkerLeft,
+          top: `calc(${selectedPopulationMarkerTop} + 1.1rem)`,
+        }
+      : {
+          left: selectedPopulationMarkerLeft,
+          top: `calc(${selectedPopulationMarkerTop} - 1.45rem)`,
+        }
+    : null
 
   return (
     <section className="glass-panel reveal-up overflow-hidden rounded-[2rem] border border-[rgba(214,211,209,0.08)]">
@@ -193,9 +274,30 @@ export function LoomCanvas({
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/8 pt-4">
-          <span className="rounded-full border border-white/8 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-400">
-            Stack density
-          </span>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={onTogglePressureOverlay}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                showPressureOverlay
+                  ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                  : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              {showPressureOverlay ? 'Hide pressure lines' : 'Show pressure lines'}
+            </button>
+            <button
+              type="button"
+              onClick={onTogglePopulation}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                showPopulation
+                  ? 'border-[rgba(206,153,255,0.35)] bg-[rgba(206,153,255,0.1)] text-fuchsia-100'
+                  : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              {showPopulation ? 'Hide population' : 'Show population'}
+            </button>
+          </div>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
@@ -446,6 +548,85 @@ export function LoomCanvas({
             })}
           </div>
         </div>
+
+        {showPopulation ? (
+          <div className="surface-depth relative mt-4 overflow-hidden rounded-[1.4rem] border border-[rgba(214,211,209,0.07)] bg-[linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.015))] px-4 py-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p className="eyebrow">Population</p>
+                <p className="mt-1 text-sm leading-6 text-stone-400">
+                  The scale of life across the whole field
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                  {selectedPeriodRangeLabel}
+                </p>
+                <p className="mt-1 font-display text-xl text-stone-100">
+                  {selectedPopulationLabel ?? 'n/a'}
+                </p>
+              </div>
+            </div>
+
+            <div className="relative mt-4 h-24 overflow-hidden rounded-[1.2rem] bg-[linear-gradient(180deg,rgba(206,153,255,0.08),rgba(206,153,255,0.015))]">
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)]" style={{ backgroundSize: `${100 / Math.max(periods.length, 1)}% 100%` }} />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-white/8" />
+              <div
+                className="pointer-events-none absolute bottom-0 top-0 w-px -translate-x-1/2 bg-fuchsia-200/35"
+                style={{ left: selectedPopulationMarkerLeft }}
+              />
+              {selectedPopulationPoint ? (
+                <>
+                  <div
+                    className="pointer-events-none absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-fuchsia-100/70 bg-[rgba(229,204,255,0.9)] shadow-[0_0_12px_rgba(229,204,255,0.28)]"
+                    style={{
+                      left: selectedPopulationMarkerLeft,
+                      top: selectedPopulationMarkerTop,
+                    }}
+                  />
+                  <div
+                    className="pointer-events-none absolute -translate-x-1/2 rounded-full border border-[rgba(229,204,255,0.2)] bg-[rgba(36,30,46,0.82)] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-fuchsia-100/90 shadow-[0_12px_22px_rgba(0,0,0,0.18)]"
+                    style={selectedPopulationLabelStyle ?? undefined}
+                  >
+                    {selectedPopulationLabel ?? 'n/a'}
+                  </div>
+                </>
+              ) : null}
+
+              <svg
+                viewBox="0 0 1100 120"
+                className="pointer-events-none absolute inset-0 h-full w-full"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="population-tide-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="rgba(224, 190, 255, 0.32)" />
+                    <stop offset="68%" stopColor="rgba(224, 190, 255, 0.12)" />
+                    <stop offset="100%" stopColor="rgba(224, 190, 255, 0)" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d={buildPopulationAreaPath(populationValues, 1100, 120)}
+                  fill="url(#population-tide-fill)"
+                />
+                <path
+                  d={buildPopulationLinePath(populationValues, 1100, 120)}
+                  fill="none"
+                  stroke="rgba(229, 204, 255, 0.92)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            <div className="mt-3 flex items-center justify-between gap-3 text-[10px] uppercase tracking-[0.2em] text-stone-500">
+              <span>{firstPopulationLabel ?? 'n/a'}</span>
+              <span>{lastPopulationLabel ?? 'n/a'}</span>
+            </div>
+          </div>
+        ) : null}
 
         <div className={`mt-6 overflow-y-auto pr-1 ${compactStack ? 'max-h-[40rem]' : 'max-h-[32rem]'}`}>
           <div className="grid gap-3">

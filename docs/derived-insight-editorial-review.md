@@ -53,28 +53,40 @@ Current top cousin candidates:
 ## Release posture
 
 Keep public now:
-- USA pilot prompts
-- USA families / relationships / outliers in Insights Lab
+- USA, Britain, and France public prompts
+- USA, Britain, and France families / relationships / outliers in Insights Lab
+- one reviewed public cross-dataset cousin:
+  - `USA 2001-2025` and `France 1981-2025`
 
 Keep internal for now:
-- Britain and France public prompts
-- public cross-dataset cousins
+- additional public cross-dataset cousins
 - public echo-support judgements
+
+## Second-release decision
+
+The next review decision is now explicit:
+- do not release a second public cousin yet
+- do not release public echo-support yet
+
+Why:
+- `Britain 1946-2025` with `France 1981-2025` is plausible, but too close in feel to the first public cousin to add much new public value yet
+- `USA 1945-1968` with `France 1958-1981` is interesting, but still needs more editorial framing before it becomes instantly legible
+- echo-support remains too inward-facing and too mixed to create a clean public `aha` moment
 
 ## Promotion decision
 
 The current recommendation is:
-- keep USA public
-- promote the same public insight surface to Britain and France next
-- do not jump straight from USA public pilot to public cross-dataset cousins
+- keep the three-dataset public insight surface live
+- release only one reviewed cross-dataset cousin first
+- keep other cousins and echo-support internal until reviewed further
 
 Reason:
-- the product should become cohesive across the three live datasets before it starts making public across-country claims
-- this follows the new rollout rule: promote the pilot into the live system before opening a new public scope
+- the product should stay legible and selective as it opens public across-country claims
+- this follows the rollout rule: promotion should be explicit and bounded, not broad by default
 
 ## Recommended next release
 
-If one cross-dataset cousin is eventually made public first, it should be:
+The first public cross-dataset cousin is:
 - `USA 2001-2025` and `France 1981-2025`
 
 Reason:
@@ -88,3 +100,4 @@ Do not surface a cross-dataset cousin publicly unless:
 - the pairing is statistically strong
 - the wording is plain
 - the resemblance is historically legible without a paragraph of explanation
+- it adds something meaningfully different from the cousins already public

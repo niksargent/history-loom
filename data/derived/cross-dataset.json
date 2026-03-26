@@ -3,15 +3,21 @@
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T18:13:28.331Z"
+    "generatedAt": "2026-03-26T18:22:44.709Z"
   },
   "affinities": [
     {
       "id": "united-states-1776-2025-us-p08-france-1789-2025-fr-p09",
       "sourceDatasetId": "united-states-1776-2025",
+      "sourceDatasetLabel": "United States",
       "sourcePeriodId": "us-p08",
+      "sourcePeriodTitle": "Security State, Platform Era, and Polarization",
+      "sourcePeriodRangeLabel": "2001–2025",
       "targetDatasetId": "france-1789-2025",
+      "targetDatasetLabel": "France",
       "targetPeriodId": "fr-p09",
+      "targetPeriodTitle": "European Integration, Identity Strain, and Fragmented Legitimacy",
+      "targetPeriodRangeLabel": "1981–2025",
       "similarityScore": 0.924,
       "sharedTopSignals": [
         "Information Acceleration",
@@ -24,9 +30,15 @@
     {
       "id": "britain-1066-2025-p12-france-1789-2025-fr-p09",
       "sourceDatasetId": "britain-1066-2025",
+      "sourceDatasetLabel": "Britain",
       "sourcePeriodId": "p12",
+      "sourcePeriodTitle": "Welfare, Market Turn, and Fragmented Union",
+      "sourcePeriodRangeLabel": "1946–2025",
       "targetDatasetId": "france-1789-2025",
+      "targetDatasetLabel": "France",
       "targetPeriodId": "fr-p09",
+      "targetPeriodTitle": "European Integration, Identity Strain, and Fragmented Legitimacy",
+      "targetPeriodRangeLabel": "1981–2025",
       "similarityScore": 0.864,
       "sharedTopSignals": [
         "Ecological Strain",
@@ -39,9 +51,15 @@
     {
       "id": "united-states-1776-2025-us-p06-france-1789-2025-fr-p08",
       "sourceDatasetId": "united-states-1776-2025",
+      "sourceDatasetLabel": "United States",
       "sourcePeriodId": "us-p06",
+      "sourcePeriodTitle": "Postwar Order and Civil Rights Transformation",
+      "sourcePeriodRangeLabel": "1945–1968",
       "targetDatasetId": "france-1789-2025",
+      "targetDatasetLabel": "France",
       "targetPeriodId": "fr-p08",
+      "targetPeriodTitle": "Fifth Republic, Decolonization, and Technocratic Order",
+      "targetPeriodRangeLabel": "1958–1981",
       "similarityScore": 0.845,
       "sharedTopSignals": [
         "Economic Precarity",
@@ -50,6 +68,31 @@
       ],
       "confidence": "strong",
       "summary": "Postwar Order and Civil Rights Transformation in United States forms a structural cousin pair with Fifth Republic, Decolonization, and Technocratic Order in France."
+    }
+  ],
+  "publicCousins": [
+    {
+      "id": "united-states-1776-2025-us-p08-france-1789-2025-fr-p09",
+      "sourceDatasetId": "united-states-1776-2025",
+      "sourceDatasetLabel": "United States",
+      "sourcePeriodId": "us-p08",
+      "sourcePeriodTitle": "Security State, Platform Era, and Polarization",
+      "sourcePeriodRangeLabel": "2001–2025",
+      "targetDatasetId": "france-1789-2025",
+      "targetDatasetLabel": "France",
+      "targetPeriodId": "fr-p09",
+      "targetPeriodTitle": "European Integration, Identity Strain, and Fragmented Legitimacy",
+      "targetPeriodRangeLabel": "1981–2025",
+      "similarityScore": 0.924,
+      "sharedTopSignals": [
+        "Information Acceleration",
+        "Ecological Strain",
+        "Individual Autonomy"
+      ],
+      "confidence": "strong",
+      "summary": "Security State, Platform Era, and Polarization in United States forms a structural cousin pair with European Integration, Identity Strain, and Fragmented Legitimacy in France.",
+      "headline": "A late-modern cousin across the Atlantic",
+      "publicSummary": "These two eras both show fast-moving information, a more atomised public mood, and growing strain around trust, identity, and the centre."
     }
   ]
 }

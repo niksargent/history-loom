@@ -47,22 +47,20 @@ Implemented now:
 - one restrained derived hook in the selected-period flow
 
 Current public release posture:
-- USA insight prompts are public
-- Britain and France packs are internal
-- cross-dataset affinities are internal
+- Britain, USA, and France insight prompts are public
+- one reviewed USA-France cross-dataset cousin is public
+- wider cross-dataset affinities remain internal
 
 Rollout rule:
 - this insight layer must also declare rollout scope clearly
-- public USA insight is a `single-dataset pilot`
-- Britain/France insight packs and cross-dataset affinities are currently `internal-only experimental`
-- that pilot cannot remain open-ended; it must either:
-  - promote into wider live dataset support
-  - or be explicitly limited and held back for a reason that is recorded
+- the original public USA insight was a `single-dataset pilot`
+- that pilot has now been promoted into the three live datasets for the approved public surfaces
+- wider cousin and echo-support release remains `internal-only experimental` unless explicitly promoted
 
-Current pilot path:
-- Phase 1: keep USA public and tighten editorial quality
-- Phase 2: promote the same approved public surfaces across Britain and France
-- Phase 3: only then consider the first public cross-dataset cousin reveal
+Current promotion path:
+- Phase 1: keep the three-dataset public surfaces editorially sharp
+- Phase 2: keep one reviewed public cousin bounded and legible
+- Phase 3: only then consider whether any further cousins or echo-support signals should be promoted
 
 Current product correction:
 - the first insight rollout proved the architecture
@@ -140,8 +138,12 @@ Current method:
 
 Current public posture:
 - architecture ready
-- internal only
-- held back pending editorial review
+- one reviewed public reveal now exists:
+  - USA `2001-2025`
+  - France `1981-2025`
+- wider release remains held back pending editorial review
+- no second public cousin is approved yet
+- no public echo-support release is approved yet
 
 ## UI role
 
@@ -163,7 +165,7 @@ Current public sections:
 - outliers
 
 Held back for now:
-- public cross-dataset cousins
+- wider public cross-dataset cousins
 - public echo support judgements
 
 Public rule:
@@ -191,10 +193,9 @@ Always:
 1. keep USA public while tightening editorial quality where the prompt layer is still repetitive
 2. review Britain and France packs against the same public-language and visual standards
 3. decide whether the current USA public surfaces are ready to promote across all live datasets
-4. review the internal cross-dataset affinity pack
-5. decide which cross-dataset cousins are fit for public release
-6. decide whether a second public hint belongs in Compare or Force Explorer
-7. decide where population trend should surface as a chart without cluttering the main Loom
+4. decide where population trend should surface as a chart without cluttering the main Loom
+5. decide whether a second public hint belongs in Compare or Force Explorer
+6. return to cousin and echo-support review only when there is clearer, more varied public value to release
 
 ## Constraint
 

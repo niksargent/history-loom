@@ -65,6 +65,21 @@
       "id": "md-task-13",
       "label": "Decide whether the USA insight pilot now promotes into the full three-dataset live system for the approved public surfaces",
       "status": "done"
+    },
+    {
+      "id": "md-task-10b",
+      "label": "Review the internal Britain, France, and cross-dataset packs to decide which structural cousins and echo-support signals are honest enough for later public release",
+      "status": "done"
+    },
+    {
+      "id": "md-task-10c",
+      "label": "Review whether any further cross-dataset cousins or echo-support signals are strong, legible, and public-safe enough to follow the first USA-France reveal",
+      "status": "done"
+    },
+    {
+      "id": "md-task-10d",
+      "label": "Reopen cousin and echo-support release only if a second reveal adds genuinely new public value rather than repeating the first pattern",
+      "status": "parked"
     }
   ],
   "next": [
@@ -87,10 +102,10 @@
       "reason": "The product now needs public-facing clarity and visual gestalt more urgently than more analytical depth."
     },
     {
-      "id": "md-task-10b",
-      "label": "Review the internal Britain, France, and cross-dataset packs to decide which structural cousins and echo-support signals are honest enough for later public release",
+      "id": "md-task-09a",
+      "label": "Design the first compact population chart for Compare so scale change becomes visible and startling without cluttering the main Loom",
       "priority": "high",
-      "reason": "The first editorial review is now complete, and the next decision is whether any internal cousin or echo-support signal is clear and legible enough for a public reveal."
+      "reason": "Population is now in the data model and compare is the best first chart surface for making scale growth feel revealing rather than decorative."
     },
     {
       "id": "md-task-08",

@@ -16,6 +16,7 @@ interface InsightsLabPageProps {
   focusTargetId: string | null
   onClose: () => void
   onInspectPeriod: (periodId: string) => void
+  onInspectCrossDatasetPeriod: (nextDatasetId: string, periodId: string) => void
   onInspectForce: (periodId: string, pressureId: string) => void
 }
 
@@ -149,6 +150,7 @@ export function InsightsLabPage({
   focusTargetId,
   onClose,
   onInspectPeriod,
+  onInspectCrossDatasetPeriod,
   onInspectForce,
 }: InsightsLabPageProps) {
   const selectedPeriod = periods.find((period) => period.id === selectedPeriodId) ?? periods[0] ?? null
@@ -194,6 +196,11 @@ export function InsightsLabPage({
       (affinity) =>
         affinity.sourceDatasetId === datasetId || affinity.targetDatasetId === datasetId,
     ).length ?? 0
+  const publicCousins =
+    crossDatasetPack?.publicCousins.filter(
+      (cousin) =>
+        cousin.sourceDatasetId === datasetId || cousin.targetDatasetId === datasetId,
+    ) ?? []
 
   return (
     <div className="relative z-10 mx-auto flex min-h-screen max-w-[1680px] flex-col px-4 py-5 md:px-6 lg:px-8">
@@ -329,6 +336,145 @@ export function InsightsLabPage({
                   ))}
                 </div>
               </section>
+
+              {publicCousins.length ? (
+                <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-6 md:p-7">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div>
+                        <p className="eyebrow">A cousin in another country</p>
+                        <h2 className="font-display mt-2 text-2xl text-stone-100">
+                          A distant era that feels strangely familiar
+                        </h2>
+                      </div>
+                      <span className="text-[11px] uppercase tracking-[0.18em] text-fuchsia-100/80">
+                        across countries
+                      </span>
+                    </div>
+
+                    {publicCousins.map((cousin) => {
+                      const highlighted =
+                        focusSection === 'cousins' && focusTargetId === cousin.id
+                      const localOnSource = cousin.sourceDatasetId === datasetId
+                      const localPeriod = localOnSource
+                        ? {
+                            datasetId: cousin.sourceDatasetId,
+                            datasetLabel: cousin.sourceDatasetLabel,
+                            periodId: cousin.sourcePeriodId,
+                            periodTitle: cousin.sourcePeriodTitle,
+                            periodRangeLabel: cousin.sourcePeriodRangeLabel,
+                          }
+                        : {
+                            datasetId: cousin.targetDatasetId,
+                            datasetLabel: cousin.targetDatasetLabel,
+                            periodId: cousin.targetPeriodId,
+                            periodTitle: cousin.targetPeriodTitle,
+                            periodRangeLabel: cousin.targetPeriodRangeLabel,
+                          }
+                      const cousinPeriod = localOnSource
+                        ? {
+                            datasetId: cousin.targetDatasetId,
+                            datasetLabel: cousin.targetDatasetLabel,
+                            periodId: cousin.targetPeriodId,
+                            periodTitle: cousin.targetPeriodTitle,
+                            periodRangeLabel: cousin.targetPeriodRangeLabel,
+                          }
+                        : {
+                            datasetId: cousin.sourceDatasetId,
+                            datasetLabel: cousin.sourceDatasetLabel,
+                            periodId: cousin.sourcePeriodId,
+                            periodTitle: cousin.sourcePeriodTitle,
+                            periodRangeLabel: cousin.sourcePeriodRangeLabel,
+                          }
+
+                      return (
+                        <article
+                          key={cousin.id}
+                          className={`rounded-[1.45rem] border border-[rgba(211,157,255,0.18)] bg-[linear-gradient(180deg,rgba(182,122,255,0.07),rgba(121,219,194,0.045))] p-5 ${
+                            highlighted ? 'shadow-[0_18px_34px_rgba(0,0,0,0.18)]' : ''
+                          }`}
+                        >
+                          <div className="flex flex-wrap items-start justify-between gap-4">
+                            <div className="max-w-3xl">
+                              <p className="text-sm uppercase tracking-[0.18em] text-fuchsia-100">
+                                {cousin.headline}
+                              </p>
+                              <p className="mt-3 text-sm leading-6 text-stone-300">
+                                {cousin.publicSummary}
+                              </p>
+                            </div>
+                            <div className="min-w-[10rem]">
+                              <div className="mt-4">
+                                <div className="h-1.5 overflow-hidden rounded-full bg-white/7">
+                                  <div
+                                    className="h-full rounded-full bg-[linear-gradient(90deg,rgba(206,153,255,0.34),rgba(206,153,255,0.9))]"
+                                    style={{
+                                      width: `${Math.max(
+                                        18,
+                                        Math.round(cousin.similarityScore * 100),
+                                      )}%`,
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="mt-5 grid gap-3 md:grid-cols-2">
+                            <div className="rounded-[1.2rem] border border-white/8 bg-white/5 px-4 py-4">
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                                {localPeriod.datasetLabel} · {localPeriod.periodRangeLabel}
+                              </p>
+                              <h3 className="mt-2 text-base text-stone-100">
+                                {localPeriod.periodTitle}
+                              </h3>
+                              <button
+                                type="button"
+                                onClick={() => onInspectPeriod(localPeriod.periodId)}
+                                className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
+                              >
+                                See this period
+                              </button>
+                            </div>
+
+                            <div className="rounded-[1.2rem] border border-white/8 bg-white/5 px-4 py-4">
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                                {cousinPeriod.datasetLabel} · {cousinPeriod.periodRangeLabel}
+                              </p>
+                              <h3 className="mt-2 text-base text-stone-100">
+                                {cousinPeriod.periodTitle}
+                              </h3>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  onInspectCrossDatasetPeriod(
+                                    cousinPeriod.datasetId,
+                                    cousinPeriod.periodId,
+                                  )
+                                }
+                                className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
+                              >
+                                Open cousin era
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            {cousin.sharedTopSignals.map((signal) => (
+                              <span
+                                key={`${cousin.id}-${signal}`}
+                                className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
+                              >
+                                {signal}
+                              </span>
+                            ))}
+                          </div>
+                        </article>
+                      )
+                    })}
+                  </div>
+                </section>
+              ) : null}
 
               <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-6 md:p-7">
                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -478,7 +624,9 @@ export function InsightsLabPage({
                 These patterns are clues to inspect, not final answers.
               </p>
               <p>
-                Cross-dataset cousins are still being reviewed before public release.
+                {publicCousins.length
+                  ? 'One reviewed cousin is public here. The rest are still under review.'
+                  : 'Cross-dataset cousins are still being reviewed before public release.'}
               </p>
               {internalCrossDatasetCount ? (
                 <p className="text-stone-400">

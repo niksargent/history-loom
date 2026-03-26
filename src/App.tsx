@@ -402,6 +402,7 @@ function App() {
   const [selectedPeriodId, setSelectedPeriodId] = useState('')
   const [selectedPressureId, setSelectedPressureId] = useState<string | null>(null)
   const [showPressureOverlay, setShowPressureOverlay] = useState(true)
+  const [showPopulation, setShowPopulation] = useState(false)
   const [showEchoes, setShowEchoes] = useState(false)
   const [activeEchoLinkId, setActiveEchoLinkId] = useState<string | null>(null)
   const [isDetailOpen, setIsDetailOpen] = useState(true)
@@ -512,6 +513,7 @@ function App() {
     setPendingDatasetId(nextDatasetId)
     setSelectedPressureId(null)
     setShowPressureOverlay(true)
+    setShowPopulation(false)
     setShowEchoes(false)
     setActiveEchoLinkId(null)
     setIsDetailOpen(true)
@@ -738,6 +740,61 @@ function App() {
     closeInsights()
   }
 
+  function inspectCrossDatasetPeriodFromInsights(nextDatasetId: string, periodId: string) {
+    if (nextDatasetId === datasetId) {
+      inspectPeriodFromInsights(periodId)
+      return
+    }
+
+    const requestId = loadRequestRef.current + 1
+    loadRequestRef.current = requestId
+    setIsDatasetLoading(true)
+    setLoadError(null)
+    setPendingDatasetId(nextDatasetId)
+    setSelectedPressureId(null)
+    setShowPressureOverlay(true)
+    setShowEchoes(false)
+    setActiveEchoLinkId(null)
+    setIsDetailOpen(true)
+    setLoomDensity('compact')
+    setDetailMode('guided')
+    setEntryTab('question')
+    setCompareSourceId(null)
+    setCompareTargetId(null)
+    setComparePicking(false)
+    setIsInMotionOpen(false)
+
+    getLoomDataset(nextDatasetId)
+      .then((nextDataset) => {
+        if (loadRequestRef.current !== requestId) {
+          return
+        }
+
+        setDataset(nextDataset)
+        setDatasetId(nextDatasetId)
+        setPendingDatasetId(null)
+        setSelectedPeriodId(
+          nextDataset.selectedDetailsById[periodId]
+            ? periodId
+            : nextDataset.periods[nextDataset.periods.length - 1]?.id ?? '',
+        )
+        closeInsights()
+      })
+      .catch((error) => {
+        if (loadRequestRef.current !== requestId) {
+          return
+        }
+
+        setPendingDatasetId(null)
+        setLoadError(error instanceof Error ? error.message : 'Unknown dataset error.')
+      })
+      .finally(() => {
+        if (loadRequestRef.current === requestId) {
+          setIsDatasetLoading(false)
+        }
+      })
+  }
+
   function handleStartComparePick() {
     if (compareAnchoredToSelected && (comparePicking || compareActive)) {
       clearCompare()
@@ -850,6 +907,7 @@ function App() {
           focusTargetId={route.targetId}
           onClose={closeInsights}
           onInspectPeriod={inspectPeriodFromInsights}
+          onInspectCrossDatasetPeriod={inspectCrossDatasetPeriodFromInsights}
           onInspectForce={inspectForceFromInsights}
         />
       </div>
@@ -1172,18 +1230,6 @@ function App() {
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => setShowPressureOverlay((current) => !current)}
-              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 ${
-                showPressureOverlay
-                  ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
-                  : 'text-stone-300 hover:text-stone-100'
-              }`}
-            >
-              {showPressureOverlay ? 'Hide pressure lines' : 'Show pressure lines'}
-            </button>
-
-            <button
-              type="button"
               onClick={() => openInsights()}
               className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-stone-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45 hover:text-stone-100"
             >
@@ -1213,12 +1259,15 @@ function App() {
               compareTargetId={compareTargetId}
               compareActive={compareActive}
               showPressureOverlay={showPressureOverlay}
+              showPopulation={showPopulation}
               echoCounterpartIds={echoCounterpartIds}
               activeEchoCounterpartId={activeEchoCounterpartId}
               showEchoes={showEchoes}
               density={loomDensity}
               onPeriodSelect={handlePeriodSelect}
               onDensityChange={setLoomDensity}
+              onTogglePressureOverlay={() => setShowPressureOverlay((current) => !current)}
+              onTogglePopulation={() => setShowPopulation((current) => !current)}
               onPressureSelect={(pressureId) => {
                 setSelectedPressureId(pressureId)
                 setShowPressureOverlay(true)

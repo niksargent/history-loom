@@ -228,14 +228,15 @@ Status:
 - the planning layer now exists in `docs/data-science-insight-plan.md`
 - the derived-insight schema now exists
 - an offline generation pipeline now produces checked-in derived JSON packs
-- a first public USA pilot now exists through the main-page prompt and `Insights Lab`
-- Britain and France derived packs remain internal
-- cross-dataset affinities are now generated internally but are not yet public
+- approved public insight now runs across Britain, USA, and France through the main-page prompt and `Insights Lab`
+- one reviewed public cross-dataset cousin is now live:
+  - USA `2001-2025`
+  - France `1981-2025`
+- wider cross-dataset affinities and echo-support signals remain internal
 - this remains a low-claim feature, not a public truth engine
-- the current promotion path is now explicit:
-  - keep USA public
-  - review Britain and France against the same public standard
-  - promote the same public surfaces across all live datasets before any public cross-dataset cousin release
+- the next promotion question is now selective:
+  - keep the first public cousin bounded
+  - review whether any further cousin or echo-support signals are truly public-safe
 
 ### 8. Public language and visual grammar
 

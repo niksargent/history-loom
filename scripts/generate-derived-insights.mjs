@@ -34,6 +34,15 @@ const GENERATION_META = {
   method: 'stats-first-derived-insights',
 }
 
+const APPROVED_PUBLIC_COUSINS = [
+  {
+    id: 'united-states-1776-2025-us-p08-france-1789-2025-fr-p09',
+    headline: 'A late-modern cousin across the Atlantic',
+    publicSummary:
+      'These two eras both show fast-moving information, a more atomised public mood, and growing strain around trust, identity, and the centre.',
+  },
+]
+
 function round(value, digits = 3) {
   const factor = 10 ** digits
   return Math.round(value * factor) / factor
@@ -744,9 +753,15 @@ function buildCrossDatasetAffinities(datasetPacks) {
           affinities.push({
             id: `${leftDataset.id}-${leftPeriod.id}-${rightDataset.id}-${rightPeriod.id}`,
             sourceDatasetId: leftDataset.id,
+            sourceDatasetLabel: leftDataset.label,
             sourcePeriodId: leftPeriod.id,
+            sourcePeriodTitle: leftPeriod.title,
+            sourcePeriodRangeLabel: leftPeriod.rangeLabel,
             targetDatasetId: rightDataset.id,
+            targetDatasetLabel: rightDataset.label,
             targetPeriodId: rightPeriod.id,
+            targetPeriodTitle: rightPeriod.title,
+            targetPeriodRangeLabel: rightPeriod.rangeLabel,
             similarityScore,
             sharedTopSignals,
             confidence: confidenceFromStrength(similarityScore),
@@ -758,6 +773,22 @@ function buildCrossDatasetAffinities(datasetPacks) {
   }
 
   return affinities.sort((left, right) => right.similarityScore - left.similarityScore).slice(0, 18)
+}
+
+function buildPublicCrossDatasetCousins(affinities) {
+  return APPROVED_PUBLIC_COUSINS.map((approved) => {
+    const affinity = affinities.find((candidate) => candidate.id === approved.id)
+
+    if (!affinity) {
+      throw new Error(`Approved public cousin ${approved.id} was not found in generated affinities.`)
+    }
+
+    return {
+      ...affinity,
+      headline: approved.headline,
+      publicSummary: approved.publicSummary,
+    }
+  })
 }
 
 function validateCrossDatasetPack(datasets, pack) {
@@ -773,6 +804,13 @@ function validateCrossDatasetPack(datasets, pack) {
     assert(
       periodIdsByDatasetId[affinity.targetDatasetId]?.has(affinity.targetPeriodId),
       `Cross-dataset pack references unknown target period ${affinity.targetPeriodId} for ${affinity.targetDatasetId}.`,
+    )
+  }
+
+  for (const cousin of pack.publicCousins) {
+    assert(
+      pack.affinities.some((affinity) => affinity.id === cousin.id),
+      `Cross-dataset pack public cousin ${cousin.id} is not present in affinities.`,
     )
   }
 }
@@ -794,13 +832,15 @@ async function main() {
     )
   }
 
+  const affinities = buildCrossDatasetAffinities(datasets)
   const crossDatasetPack = {
     scope: 'internal',
     generation: {
       ...GENERATION_META,
       generatedAt: new Date().toISOString(),
     },
-    affinities: buildCrossDatasetAffinities(datasets),
+    affinities,
+    publicCousins: buildPublicCrossDatasetCousins(affinities),
   }
 
   validateCrossDatasetPack(datasets, crossDatasetPack)
