@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import headerSilhouette from '../media/header01.png'
 import { DetailPanel } from './components/DetailPanel'
 import { ForceExplorer } from './components/ForceExplorer'
 import { InsightsLabPage } from './components/InsightsLabPage'
@@ -9,7 +10,7 @@ import {
   getCounterpartIds,
   getLoomDataset,
 } from './lib/loom-data'
-import type { LoomDataset, PressureOverlaySeries, PressureSnapshot } from './types/view'
+import type { LoomDataset, PressureSnapshot } from './types/view'
 import type { DetailViewMode, LoomDensityMode } from './types/view'
 import type { DatasetVisualTheme } from './types/domain'
 import type {
@@ -46,6 +47,9 @@ const plannedDatasets = [
   'Mexico, 1810-2025',
   'Russia / USSR, 1861-2025',
 ] as const
+
+const debugHeaderSilhouetteBounds = false
+const debugHeaderSilhouetteVerticalBounds = false
 
 function parseAppRoute(hash: string): AppRoute {
   const normalized = hash.replace(/^#/, '')
@@ -131,74 +135,6 @@ function pickPeakPeriodId(dataset: LoomDataset, pressureId: string) {
     dataset.periods[dataset.periods.length - 1]?.id ??
     ''
   )
-}
-
-function buildHeaderThreadPath(
-  points: PressureOverlaySeries['points'],
-  width: number,
-  height: number,
-  offset = 0,
-) {
-  if (!points.length) {
-    return ''
-  }
-
-  const xStep = points.length > 1 ? width / (points.length - 1) : width
-
-  return points
-    .map((point, index) => {
-      const x = index * xStep
-      const y = height - point.normalized * (height * 0.7) - offset
-      return `${index === 0 ? 'M' : 'L'} ${x.toFixed(2)} ${y.toFixed(2)}`
-    })
-    .join(' ')
-}
-
-function pickHeaderThreadSeries(
-  overlaySeries: PressureOverlaySeries[],
-  selectedPressureId: string | null,
-) {
-  const byAverage = [...overlaySeries].sort((left, right) => {
-    const leftAverage =
-      left.points.reduce((sum, point) => sum + point.value, 0) / Math.max(left.points.length, 1)
-    const rightAverage =
-      right.points.reduce((sum, point) => sum + point.value, 0) /
-      Math.max(right.points.length, 1)
-
-    return rightAverage - leftAverage
-  })
-
-  const chosen: PressureOverlaySeries[] = []
-  const seen = new Set<string>()
-
-  if (selectedPressureId) {
-    const selected = overlaySeries.find((series) => series.id === selectedPressureId)
-    if (selected) {
-      chosen.push(selected)
-      seen.add(selected.id)
-    }
-  }
-
-  for (const polarity of ['stress', 'stabiliser'] as const) {
-    const candidate = byAverage.find((series) => series.polarity === polarity && !seen.has(series.id))
-    if (candidate) {
-      chosen.push(candidate)
-      seen.add(candidate.id)
-    }
-  }
-
-  for (const series of byAverage) {
-    if (chosen.length >= 7) {
-      break
-    }
-
-    if (!seen.has(series.id)) {
-      chosen.push(series)
-      seen.add(series.id)
-    }
-  }
-
-  return chosen.slice(0, 7)
 }
 
 function buildQuestionEntries(dataset: LoomDataset) {
@@ -689,10 +625,6 @@ function App() {
     displayDatasetId,
     currentDatasetEntry?.visualTheme,
   )
-  const headerThreadSeries = pickHeaderThreadSeries(
-    dataset.pressureOverlaySeries,
-    selectedPressureId,
-  )
   const selectedInsightPrompt =
     insightPack?.publicStatus === 'public'
       ? insightPack.prompts.find((prompt) => prompt.periodId === resolvedSelectedPeriodId) ?? null
@@ -963,35 +895,50 @@ function App() {
               </p>
 
               <div
-                className="pointer-events-none absolute left-0 top-[calc(100%+0.8rem)] hidden h-24 w-[74%] md:block"
+                className="pointer-events-none absolute left-0 top-[calc(100%+0.8rem)] hidden h-60 overflow-hidden md:block"
                 style={{
+                  width: 'min(31rem, 96%)',
                   maskImage:
-                    'linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.76) 68%, rgba(0,0,0,0.16) 92%, transparent 100%)',
+                    'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.18) 6%, rgba(0,0,0,0.84) 15%, rgba(0,0,0,0.96) 22%, rgba(0,0,0,0.96) 72%, rgba(0,0,0,0.82) 82%, rgba(0,0,0,0.16) 92%, transparent 100%)',
                   WebkitMaskImage:
-                    'linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.76) 68%, rgba(0,0,0,0.16) 92%, transparent 100%)',
+                    'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.18) 6%, rgba(0,0,0,0.84) 15%, rgba(0,0,0,0.96) 22%, rgba(0,0,0,0.96) 72%, rgba(0,0,0,0.82) 82%, rgba(0,0,0,0.16) 92%, transparent 100%)',
+                  outline: debugHeaderSilhouetteBounds
+                    ? '1px solid rgba(253, 164, 175, 0.9)'
+                    : undefined,
+                  outlineOffset: debugHeaderSilhouetteBounds ? '-1px' : undefined,
                 }}
               >
-                <svg
-                  viewBox="0 0 520 96"
-                  className="h-full w-full overflow-visible"
-                  aria-hidden="true"
+                {debugHeaderSilhouetteVerticalBounds ? (
+                  <>
+                    <div className="absolute inset-x-0 top-0 h-px bg-fuchsia-400/95" />
+                    <div className="absolute inset-x-0 bottom-0 h-px bg-fuchsia-400/95" />
+                  </>
+                ) : null}
+                <div
+                  className="h-full w-full"
+                  style={{
+                    maskImage:
+                      'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.16) 6%, rgba(0,0,0,0.84) 13%, rgba(0,0,0,0.96) 21%, rgba(0,0,0,0.96) 65%, rgba(0,0,0,0.8) 83%, rgba(0,0,0,0.14) 96%, transparent 100%)',
+                    WebkitMaskImage:
+                      'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.16) 6%, rgba(0,0,0,0.84) 13%, rgba(0,0,0,0.96) 21%, rgba(0,0,0,0.96) 65%, rgba(0,0,0,0.8) 83%, rgba(0,0,0,0.14) 96%, transparent 100%)',
+                    outline: debugHeaderSilhouetteBounds
+                      ? '1px solid rgba(103, 232, 249, 0.9)'
+                      : undefined,
+                    outlineOffset: debugHeaderSilhouetteBounds ? '-1px' : undefined,
+                  }}
                 >
-                  {headerThreadSeries.map((series, index) => (
-                    <path
-                      key={series.id}
-                      d={buildHeaderThreadPath(series.points, 520, 84, index * 2.1)}
-                      fill="none"
-                      stroke={
-                        series.polarity === 'stress'
-                          ? 'rgba(243,177,91,0.16)'
-                          : 'rgba(121,219,194,0.14)'
-                      }
-                      strokeWidth={index === 0 ? 1.6 : 1}
-                      strokeLinecap="round"
-                      vectorEffect="non-scaling-stroke"
-                    />
-                  ))}
-                </svg>
+                  <img
+                    src={headerSilhouette}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-full w-auto max-w-none"
+                    style={{
+                      filter: 'grayscale(1) contrast(0.82) saturate(0.3) sepia(0.06) hue-rotate(188deg)',
+                      transform: 'scale(1.18)',
+                      transformOrigin: 'left center',
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
