@@ -7,6 +7,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "William of Normandy's victory reordered rulership, landholding, and aristocratic power.",
+    "publicSummary": "William of Normandy's victory changed who ruled, who owned land, and who held power.",
     "type": "political",
     "periodIds": [
       "p01"
@@ -51,6 +52,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A remarkably detailed survey of land and resources that strengthened fiscal and administrative knowledge.",
+    "publicSummary": "A detailed survey of land and resources gave the crown much stronger knowledge for taxing and ruling.",
     "type": "political",
     "periodIds": [
       "p01"
@@ -88,6 +90,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Conflict between Henry II and Thomas Becket dramatized tension between royal and ecclesiastical authority.",
+    "publicSummary": "Henry II's conflict with Thomas Becket showed how sharply royal power could clash with church authority.",
     "type": "religious",
     "periodIds": [
       "p02"
@@ -126,6 +129,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A baronial settlement that became a foundational symbol of limiting arbitrary rule.",
+    "publicSummary": "A baronial deal that became a lasting symbol of limiting arbitrary royal power.",
     "type": "political",
     "periodIds": [
       "p02"
@@ -165,6 +169,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "An important step in the development of representative parliamentary politics.",
+    "publicSummary": "An early step toward more representative parliamentary politics.",
     "type": "political",
     "periodIds": [
       "p03"
@@ -202,6 +207,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A key moment in consolidating the representative shape of Parliament.",
+    "publicSummary": "A key moment in shaping Parliament into a more representative body.",
     "type": "political",
     "periodIds": [
       "p03"
@@ -238,6 +244,7 @@
     "scope": "Britain",
     "geography": "England and Wales",
     "summary": "Plague mortality transformed demography, labour relations, and social confidence.",
+    "publicSummary": "Plague killed on a huge scale and changed population, labour, and social confidence.",
     "type": "demographic",
     "periodIds": [
       "p04"
@@ -280,6 +287,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A major uprising revealing the explosive politics of tax, labour, and hierarchy after plague.",
+    "publicSummary": "A major revolt that showed how explosive tax, labour, and hierarchy had become after plague.",
     "type": "social",
     "periodIds": [
       "p04"
@@ -321,6 +329,7 @@
     "scope": "England",
     "geography": "England/France",
     "summary": "Military failure abroad intensified domestic weakness and elite blame.",
+    "publicSummary": "Military failure overseas deepened weakness at home and sharpened elite blame.",
     "type": "military",
     "periodIds": [
       "p05"
@@ -361,6 +370,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Dynastic conflict exposed the fragility of legitimacy and noble consensus.",
+    "publicSummary": "Dynastic conflict exposed how fragile public trust and noble agreement really were.",
     "type": "political",
     "periodIds": [
       "p05",
@@ -400,6 +410,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The English monarch was declared supreme head of the Church of England.",
+    "publicSummary": "The monarch was declared head of the Church of England.",
     "type": "religious",
     "periodIds": [
       "p06"
@@ -441,6 +452,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Monastic houses were suppressed, redistributing wealth and reshaping local welfare and piety.",
+    "publicSummary": "Monasteries were closed, shifting wealth and changing local care, worship, and daily life.",
     "type": "religious",
     "periodIds": [
       "p06"
@@ -482,6 +494,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A Protestant settlement sought political stability while retaining coercive control.",
+    "publicSummary": "A Protestant religious order tried to steady politics while still using coercion.",
     "type": "religious",
     "periodIds": [
       "p07"
@@ -521,6 +534,7 @@
     "scope": "Britain",
     "geography": "England and Scotland",
     "summary": "James VI and I brought the English and Scottish crowns together under one monarch.",
+    "publicSummary": "James VI and I united the English and Scottish crowns under one ruler.",
     "type": "political",
     "periodIds": [
       "p07"
@@ -561,6 +575,7 @@
     "scope": "Britain",
     "geography": "England, Scotland, Ireland",
     "summary": "War over sovereignty, religion, and authority shattered the old political settlement.",
+    "publicSummary": "War over who should rule, what to believe, and where authority lay shattered the old order.",
     "type": "military",
     "periodIds": [
       "p08"
@@ -610,6 +625,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The post-1688 settlement firmly limited monarchy and strengthened parliamentary principles.",
+    "publicSummary": "After 1688, monarchy was more firmly limited and parliamentary rule grew stronger.",
     "type": "political",
     "periodIds": [
       "p08"
@@ -648,6 +664,7 @@
     "scope": "Britain",
     "geography": "England and Scotland",
     "summary": "England and Scotland were united in the Kingdom of Great Britain.",
+    "publicSummary": "England and Scotland were formally joined in the Kingdom of Great Britain.",
     "type": "political",
     "periodIds": [
       "p09"
@@ -690,6 +707,7 @@
     "scope": "Britain",
     "geography": "Global empire",
     "summary": "Victory strengthened Britain's global reach while deepening debt and imperial entanglement.",
+    "publicSummary": "Victory expanded Britain's global power, while also deepening debt and imperial involvement.",
     "type": "military",
     "periodIds": [
       "p09"
@@ -730,6 +748,7 @@
     "scope": "Britain",
     "geography": "Britain",
     "summary": "The antiquated electoral system was partly reworked, beginning a longer age of reform.",
+    "publicSummary": "The old electoral system was partly reworked, opening a longer era of reform.",
     "type": "political",
     "periodIds": [
       "p10"
@@ -771,6 +790,7 @@
     "scope": "Britain",
     "geography": "Britain",
     "summary": "The state began more direct regulation of industrial labour conditions, especially for children.",
+    "publicSummary": "The state began regulating factory conditions more directly, especially for children.",
     "type": "social",
     "periodIds": [
       "p10"
@@ -812,6 +832,7 @@
     "scope": "Britain",
     "geography": "Britain",
     "summary": "Voting rights widened substantially, deepening mass politics.",
+    "publicSummary": "Voting rights widened sharply, deepening mass politics.",
     "type": "political",
     "periodIds": [
       "p11"
@@ -852,6 +873,7 @@
     "scope": "Britain",
     "geography": "Britain and global war",
     "summary": "Total war reshaped the economy, state power, citizenship, gender roles, and expectations of social protection.",
+    "publicSummary": "Two world wars reshaped the economy, state power, citizenship, gender roles, and expectations of protection.",
     "type": "military",
     "periodIds": [
       "p11"
@@ -899,6 +921,7 @@
     "scope": "Britain",
     "geography": "Britain",
     "summary": "The postwar settlement institutionalised broad social protection and universal health care.",
+    "publicSummary": "The postwar welfare state made broad social protection and universal health care part of everyday expectation.",
     "type": "social",
     "periodIds": [
       "p12"
@@ -941,6 +964,7 @@
     "scope": "Britain",
     "geography": "Britain",
     "summary": "Privatisation, deregulation, anti-union reforms, and market liberalisation reshaped the economy and state.",
+    "publicSummary": "Privatisation, deregulation, anti-union change, and market reform reshaped the economy and the state.",
     "type": "economic",
     "periodIds": [
       "p12"
@@ -985,6 +1009,7 @@
     "scope": "United Kingdom",
     "geography": "Northern Ireland",
     "summary": "A power-sharing settlement largely ended the Troubles and created devolved institutions in Northern Ireland.",
+    "publicSummary": "A power-sharing deal largely ended the Troubles and created devolved government in Northern Ireland.",
     "type": "political",
     "periodIds": [
       "p12"
@@ -1028,6 +1053,7 @@
     "scope": "United Kingdom",
     "geography": "United Kingdom",
     "summary": "The referendum and withdrawal from the EU exposed sovereignty conflict, regional difference, and long-running legitimacy strain.",
+    "publicSummary": "The Brexit vote and EU withdrawal exposed deep arguments over sovereignty, region, and trust in the system.",
     "type": "political",
     "periodIds": [
       "p12"
@@ -1073,6 +1099,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Edward I expelled England's Jewish communities, binding fiscal extraction, confessional exclusion, and a harsher social hierarchy into the political order.",
+    "publicSummary": "Edward I expelled England's Jewish communities, tightening exclusion, extraction, and a harsher social hierarchy.",
     "type": "social",
     "periodIds": [
       "p03"
@@ -1115,6 +1142,7 @@
     "scope": "England",
     "geography": "England and Europe",
     "summary": "The failed Spanish Armada sharpened Protestant state identity, intensified military preparation, and reinforced England's sense of being locked in a confessional struggle.",
+    "publicSummary": "The failed Armada sharpened Protestant identity, intensified military preparation, and deepened the sense of religious struggle.",
     "type": "military",
     "periodIds": [
       "p07"
@@ -1157,6 +1185,7 @@
     "scope": "Composite Monarchy",
     "geography": "Ireland and Britain",
     "summary": "State-backed plantation reordered land, settlement, and power in Ulster, turning confessional difference and hierarchy into a more durable political fault line.",
+    "publicSummary": "State-backed plantation changed land, power, and population in Ulster, turning religious difference into a lasting political fault line.",
     "type": "social",
     "periodIds": [
       "p07"
@@ -1201,6 +1230,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The crown's brutal suppression in the north fused conquest, punitive destruction, and a harsher social order into the early Norman state.",
+    "publicSummary": "The crown's brutal suppression in the north fused conquest, destruction, and a harsher social order into the new Norman state.",
     "type": "military",
     "periodIds": [
       "p01"
@@ -1244,6 +1274,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Conflict over appointment, obedience, and ecclesiastical authority exposed how tightly kingship and sacred order were bound together in the new regime.",
+    "publicSummary": "Conflict over appointments and church authority showed how tightly kingship and sacred order were tied together.",
     "type": "religious",
     "periodIds": [
       "p01"
@@ -1284,6 +1315,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Heavy taxation for crusade and ransom intensified extraction from below and sharpened resentment at a more expensive martial kingship.",
+    "publicSummary": "Heavy taxation for crusade and ransom deepened extraction and sharpened resentment at costly royal warfare.",
     "type": "economic",
     "periodIds": [
       "p02"
@@ -1326,6 +1358,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The papal interdict and John's eventual submission exposed the vulnerability of royal legitimacy when sacred and political authority collided.",
+    "publicSummary": "The papal interdict and John's submission showed how vulnerable royal trust could become when church and crown collided.",
     "type": "religious",
     "periodIds": [
       "p02"
@@ -1366,6 +1399,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The failed rising associated with Lollardy reinforced the link between political order and religious conformity in a period already anxious about loyalty.",
+    "publicSummary": "The failed rising tied political order even more tightly to religious conformity in an anxious age.",
     "type": "religious",
     "periodIds": [
       "p05"
@@ -1406,6 +1440,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Popular revolt against corruption, misrule, and material strain revealed how elite failure and social grievance were beginning to converge.",
+    "publicSummary": "Popular revolt against corruption and hardship showed elite failure and social anger starting to come together.",
     "type": "social",
     "periodIds": [
       "p05"
@@ -1449,6 +1484,7 @@
     "scope": "England and France",
     "geography": "England/France",
     "summary": "Edward III's campaign brought victory at Crécy and the capture of Calais, tying military success to heavy fiscal strain and a longer war footing.",
+    "publicSummary": "Victory at Crécy and the capture of Calais tied military success to heavy taxation and a longer war footing.",
     "type": "military",
     "periodIds": [
       "p04"
@@ -1493,6 +1529,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The crown tried to hold wages down and restrict labour movement after the Black Death, turning post-plague scarcity into a sharper struggle over work, status, and coercion.",
+    "publicSummary": "After the Black Death, the crown tried to hold wages down and restrict labour movement, sharpening the struggle over work and coercion.",
     "type": "economic",
     "periodIds": [
       "p04"
@@ -1536,6 +1573,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "Legislation against papal appointments and appeals to Rome reflected hostility to outside clerical authority and reinforced a harder link between political order and religious control.",
+    "publicSummary": "Laws against papal influence hardened the link between political order and tighter religious control.",
     "type": "religious",
     "periodIds": [
       "p04"
@@ -1577,6 +1615,7 @@
     "scope": "England and Wales",
     "geography": "England and Wales",
     "summary": "Edward I's Welsh campaigns and the subsequent Statute of Wales bound military conquest to administrative integration, extending English crown power through castles, shires, and direct rule.",
+    "publicSummary": "Edward I's conquest of Wales tied military victory to tighter administration, extending crown power through castles and direct rule.",
     "type": "military",
     "periodIds": [
       "p03"
@@ -1623,6 +1662,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The failed attempt to destroy king and Parliament turned confessional fear into harder state suspicion, sharpening anti-Catholic identity and loyalty politics under James I.",
+    "publicSummary": "The failed Gunpowder Plot turned religious fear into harder state suspicion and sharper anti-Catholic politics.",
     "type": "political",
     "periodIds": [
       "p07"

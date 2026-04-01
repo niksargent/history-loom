@@ -584,8 +584,8 @@ export function InsightsLabPage({
               </p>
               <p>
                 {publicCousins.length
-                  ? 'One reviewed cousin is public here. The rest are still under review.'
-                  : 'Cross-dataset cousins are still being reviewed before public release.'}
+                  ? 'One cross-country cousin is visible here. More may appear later.'
+                  : 'Cross-country cousins are still sparse here.'}
               </p>
             </div>
           </section>

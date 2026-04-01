@@ -4,9 +4,14 @@
     "sourcePeriodId": "p02",
     "targetPeriodId": "p08",
     "similarityLabel": "Ruler constrained by a new constitutional language",
+    "publicSimilarityLabel": "Rulers are forced to accept new limits",
     "similarityReasons": [
       "Both periods centre on conflict over the limits of sovereign power.",
       "Both produce texts or settlements that outlive the immediate crisis."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods revolve around conflict over how far rulers should be allowed to go.",
+      "Both leave behind texts or agreements that outlast the immediate crisis."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -14,16 +19,22 @@
       "moralCertainty"
     ],
     "confidence": 0.86,
-    "notes": "Magna Carta and the 1688–89 settlement are not equivalent, but they rhyme as moments of imposed constitutional restraint."
+    "notes": "Magna Carta and the 1688–89 settlement are not equivalent, but they rhyme as moments of imposed constitutional restraint.",
+    "publicNotes": "Magna Carta and 1688–89 are not the same event, but both are moments when rulers are forced to accept lasting limits."
   },
   {
     "id": "x02",
     "sourcePeriodId": "p04",
     "targetPeriodId": "p10",
     "similarityLabel": "Labour renegotiation after system shock",
+    "publicSimilarityLabel": "A major shock rewrites the terms of work",
     "similarityReasons": [
       "Both periods disrupt older labour bargains.",
       "Both sharpen class tension and force new forms of regulation or resistance."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods disrupt older bargains over work and pay.",
+      "Both sharpen class tension and force new rules or resistance."
     ],
     "dimensions": [
       "economicPrecarity",
@@ -31,16 +42,22 @@
       "socialCohesion"
     ],
     "confidence": 0.81,
-    "notes": "Plague shock and industrialisation are different causes with comparable bargaining consequences."
+    "notes": "Plague shock and industrialisation are different causes with comparable bargaining consequences.",
+    "publicNotes": "Plague and industrialisation are very different shocks, but both change who has leverage over work."
   },
   {
     "id": "x03",
     "sourcePeriodId": "p05",
     "targetPeriodId": "p08",
     "similarityLabel": "Legitimacy breakdown in the political centre",
+    "publicSimilarityLabel": "The political centre loses trust and starts to break",
     "similarityReasons": [
       "Both periods feature acute elite rivalry and weak consensus over rightful rule.",
       "Both expose how quickly order frays when legitimacy fails."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods feature fierce elite rivalry and weak agreement over rightful rule.",
+      "Both show how quickly order frays when trust in rule collapses."
     ],
     "dimensions": [
       "eliteCompetition",
@@ -48,16 +65,22 @@
       "socialCohesion"
     ],
     "confidence": 0.84,
-    "notes": "Dynastic crisis and civil war are different in scale but similar in structural brittleness."
+    "notes": "Dynastic crisis and civil war are different in scale but similar in structural brittleness.",
+    "publicNotes": "Dynastic crisis and civil war differ in scale, but both show how brittle politics becomes when the centre loses trust."
   },
   {
     "id": "x04",
     "sourcePeriodId": "p06",
     "targetPeriodId": "p12",
     "similarityLabel": "A new information regime intensifies identity conflict",
+    "publicSimilarityLabel": "A new media world intensifies identity conflict",
     "similarityReasons": [
       "Print in the Reformation era and digital media in the modern era both accelerate conflict and alignment.",
       "In both periods institutions struggle to contain narrative fragmentation."
+    ],
+    "publicSimilarityReasons": [
+      "Print in the Reformation era and digital media today both speed up conflict and alignment.",
+      "In both periods institutions struggle to hold together a shared story."
     ],
     "dimensions": [
       "informationAcceleration",
@@ -65,16 +88,22 @@
       "socialCohesion"
     ],
     "confidence": 0.73,
-    "notes": "This is a deliberately interpretive echo rather than a conventional textbook parallel."
+    "notes": "This is a deliberately interpretive echo rather than a conventional textbook parallel.",
+    "publicNotes": "This is an interpretive echo rather than a standard textbook comparison, but the pattern is still useful."
   },
   {
     "id": "x05",
     "sourcePeriodId": "p07",
     "targetPeriodId": "p12",
     "similarityLabel": "Composite state under identity strain",
+    "publicSimilarityLabel": "One state is pulled by competing identities",
     "similarityReasons": [
       "Both periods feature tension between multiple national or confessional identities within one political frame.",
       "Both show how sovereignty questions harden when belief and belonging diverge."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods feature tension between different identities inside one political frame.",
+      "Both show how sovereignty arguments harden when belief and belonging pull apart."
     ],
     "dimensions": [
       "socialCohesion",
@@ -82,14 +111,20 @@
       "moralCertainty"
     ],
     "confidence": 0.78,
-    "notes": "Early Stuart composite monarchy and the contemporary union are distinct but comparably fragile in identity terms."
+    "notes": "Early Stuart composite monarchy and the contemporary union are distinct but comparably fragile in identity terms.",
+    "publicNotes": "The early Stuart monarchy and the modern union are different, but both become fragile when identity pulls against shared rule."
   },
   {
     "id": "x06",
     "sourcePeriodId": "p08",
     "targetPeriodId": "p11",
     "similarityLabel": "State capacity expands through conflict",
+    "publicSimilarityLabel": "Conflict grows the power of the state",
     "similarityReasons": [
+      "Both periods use crisis to deepen the machinery of state power.",
+      "Both connect mobilisation with new expectations of citizenship."
+    ],
+    "publicSimilarityReasons": [
       "Both periods use crisis to deepen the machinery of state power.",
       "Both connect mobilisation with new expectations of citizenship."
     ],
@@ -99,16 +134,22 @@
       "publicHope"
     ],
     "confidence": 0.77,
-    "notes": "The seventeenth-century fiscal state and twentieth-century total-war state differ in scale but share a pressure-response logic."
+    "notes": "The seventeenth-century fiscal state and twentieth-century total-war state differ in scale but share a pressure-response logic.",
+    "publicNotes": "The seventeenth-century state and the total-war state differ hugely in scale, but both grow through conflict."
   },
   {
     "id": "x07",
     "sourcePeriodId": "p09",
     "targetPeriodId": "p11",
     "similarityLabel": "Confidence before overreach",
+    "publicSimilarityLabel": "Confidence builds before overreach",
     "similarityReasons": [
       "Both periods combine strong state capacity with expansive global ambition.",
       "Both carry moral and strategic blind spots beneath their confidence."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods combine strong state power with wide global ambition.",
+      "Both carry blind spots beneath their confidence."
     ],
     "dimensions": [
       "publicHope",
@@ -116,15 +157,21 @@
       "militarization"
     ],
     "confidence": 0.79,
-    "notes": "Eighteenth-century empire and late imperial Britain both pair prosperity with overstretch risk."
+    "notes": "Eighteenth-century empire and late imperial Britain both pair prosperity with overstretch risk.",
+    "publicNotes": "Both periods pair confidence and prosperity with the risk of going too far."
   },
   {
     "id": "x08",
     "sourcePeriodId": "p09",
     "targetPeriodId": "p12",
     "similarityLabel": "Integrated Britain under strain from its own expansion",
+    "publicSimilarityLabel": "A wider Britain comes under strain from its own reach",
     "similarityReasons": [
       "Both periods are shaped by integration across wider systems—imperial or supranational/global.",
+      "Both generate backlash over who benefits and who belongs."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods are shaped by Britain being tied into much wider systems.",
       "Both generate backlash over who benefits and who belongs."
     ],
     "dimensions": [
@@ -133,14 +180,20 @@
       "socialCohesion"
     ],
     "confidence": 0.69,
-    "notes": "This echo is more exploratory, useful for the interface's comparison mode."
+    "notes": "This echo is more exploratory, useful for the interface's comparison mode.",
+    "publicNotes": "This is a looser echo, but both periods show a wider Britain coming under pressure from its own reach."
   },
   {
     "id": "x09",
     "sourcePeriodId": "p10",
     "targetPeriodId": "p12",
     "similarityLabel": "Acceleration without adaptation",
+    "publicSimilarityLabel": "Change speeds up faster than society can adapt",
     "similarityReasons": [
+      "Industrial and digital change both outrun institutions and social habits.",
+      "Both periods mix excitement, inequality, and disorientation."
+    ],
+    "publicSimilarityReasons": [
       "Industrial and digital change both outrun institutions and social habits.",
       "Both periods mix excitement, inequality, and disorientation."
     ],
@@ -150,16 +203,22 @@
       "economicPrecarity"
     ],
     "confidence": 0.9,
-    "notes": "One of the strongest cross-era echoes in the starter set."
+    "notes": "One of the strongest cross-era echoes in the starter set.",
+    "publicNotes": "This is one of the clearest echoes in the set: change moves faster than society can keep up."
   },
   {
     "id": "x10",
     "sourcePeriodId": "p11",
     "targetPeriodId": "p12",
     "similarityLabel": "Mass citizenship with fraying shared story",
+    "publicSimilarityLabel": "Mass citizenship with a fraying shared story",
     "similarityReasons": [
       "Both periods depend on broad citizenship and state reach.",
       "Both struggle to sustain common narrative across class, region, and identity divides."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods depend on broad citizenship and a far-reaching state.",
+      "Both struggle to sustain a common story across class, region, and identity divides."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -167,16 +226,22 @@
       "publicHope"
     ],
     "confidence": 0.74,
-    "notes": "The arc from postwar solidarity to later fragmentation is intentionally visible here."
+    "notes": "The arc from postwar solidarity to later fragmentation is intentionally visible here.",
+    "publicNotes": "This echo makes the arc from postwar solidarity to later fragmentation easier to see."
   },
   {
     "id": "x11",
     "sourcePeriodId": "p01",
     "targetPeriodId": "p09",
     "similarityLabel": "State-building through coercive integration",
+    "publicSimilarityLabel": "The state grows through forceful integration",
     "similarityReasons": [
       "Both periods create more governable political orders through elite integration and concentrated power.",
       "Both trade autonomy for capacity."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods create more governable orders through tighter integration and concentrated power.",
+      "Both trade autonomy for state capacity."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -184,15 +249,21 @@
       "socialCohesion"
     ],
     "confidence": 0.72,
-    "notes": "Conquest-state and union-fiscal state are not morally or structurally identical, but each strengthens rule through integration."
+    "notes": "Conquest-state and union-fiscal state are not morally or structurally identical, but each strengthens rule through integration.",
+    "publicNotes": "These states are not morally alike, but both become stronger by drawing more people and places under tighter rule."
   },
   {
     "id": "x12",
     "sourcePeriodId": "p06",
     "targetPeriodId": "p08",
     "similarityLabel": "Religious rupture becomes constitutional change",
+    "publicSimilarityLabel": "Religious rupture spills into constitutional change",
     "similarityReasons": [
       "Confessional conflict spills into the structure of rule.",
+      "Questions of ultimate authority become inseparable from governance."
+    ],
+    "publicSimilarityReasons": [
+      "Religious conflict spills into the structure of rule.",
       "Questions of ultimate authority become inseparable from governance."
     ],
     "dimensions": [
@@ -201,16 +272,22 @@
       "eliteCompetition"
     ],
     "confidence": 0.82,
-    "notes": "Useful for tracing how belief intensifies political redesign."
+    "notes": "Useful for tracing how belief intensifies political redesign.",
+    "publicNotes": "This echo is useful for tracing how arguments over belief can remake government itself."
   },
   {
     "id": "x13",
     "sourcePeriodId": "p03",
     "targetPeriodId": "p09",
     "similarityLabel": "Representative institutions deepen inside a still-hierarchical order",
+    "publicSimilarityLabel": "Representative politics deepen without ending hierarchy",
     "similarityReasons": [
       "Both periods strengthen negotiated or parliamentary forms without dissolving elite dominance.",
       "Both pair growing state capacity with unequal social structure and a more durable governing settlement."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods strengthen negotiated or parliamentary politics without ending elite dominance.",
+      "Both combine growing state power with an unequal social order."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -218,16 +295,22 @@
       "militarization"
     ],
     "confidence": 0.71,
-    "notes": "The rhyme is structural rather than moral: both periods widen political form while preserving hierarchy."
+    "notes": "The rhyme is structural rather than moral: both periods widen political form while preserving hierarchy.",
+    "publicNotes": "The rhyme here is simple: politics broadens, but hierarchy remains."
   },
   {
     "id": "x14",
     "sourcePeriodId": "p02",
     "targetPeriodId": "p10",
     "similarityLabel": "Reform language grows out of strain in an unequal order",
+    "publicSimilarityLabel": "Reform language grows out of strain in an unequal society",
     "similarityReasons": [
       "Both periods force concessions after existing arrangements push too hard on the social bargain.",
       "Both create reform languages that outlast the immediate crisis without ending hierarchy or extraction."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods force concessions after the old order pushes too hard.",
+      "Both create reform language that lasts beyond the immediate crisis without ending inequality."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -235,16 +318,22 @@
       "economicPrecarity"
     ],
     "confidence": 0.66,
-    "notes": "Magna Carta and nineteenth-century reform are very different events, but each becomes a durable language of constraint within a still-unequal order."
+    "notes": "Magna Carta and nineteenth-century reform are very different events, but each becomes a durable language of constraint within a still-unequal order.",
+    "publicNotes": "Magna Carta and nineteenth-century reform are very different, but both leave behind a lasting language for limiting power."
   },
   {
     "id": "x15",
     "sourcePeriodId": "p05",
     "targetPeriodId": "p12",
     "similarityLabel": "Weak centre, hardening factions, and legitimacy decay",
+    "publicSimilarityLabel": "A weak centre faces harder factions and fading trust",
     "similarityReasons": [
       "Both periods expose how quickly order frays when the political centre loses authority and faction hardens.",
       "Both combine elite rivalry with wider mistrust, making settlement feel temporary and brittle."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods show how quickly order frays when the political centre loses authority and factions harden.",
+      "Both combine elite rivalry with wider mistrust, making the order feel temporary and brittle."
     ],
     "dimensions": [
       "eliteCompetition",
@@ -252,16 +341,22 @@
       "socialCohesion"
     ],
     "confidence": 0.68,
-    "notes": "Dynastic crisis and contemporary fragmentation are not alike in form, but they rhyme as periods of a weak centre and unstable consensus."
+    "notes": "Dynastic crisis and contemporary fragmentation are not alike in form, but they rhyme as periods of a weak centre and unstable consensus.",
+    "publicNotes": "These periods are not alike in form, but both are times when the centre is weak and shared agreement is unstable."
   },
   {
     "id": "x16",
     "sourcePeriodId": "p01",
     "targetPeriodId": "p06",
     "similarityLabel": "Refounded rule hardens through coercive centralisation",
+    "publicSimilarityLabel": "Refounded rule hardens through tighter central control",
     "similarityReasons": [
       "Both periods consolidate a stronger crown by remaking elite obedience and tightening the bond between political order and sacral authority.",
       "Both turn disruption into a more governable but harsher settlement, with wider administrative reach and less room outside the centre."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods build a stronger crown by tightening obedience and tying rule closely to sacred authority.",
+      "Both turn disruption into a more governable but harsher order with wider administrative reach."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -269,16 +364,22 @@
       "militarization"
     ],
     "confidence": 0.74,
-    "notes": "Norman consolidation and Tudor centralisation are different refoundings, but each strengthens rule through obedience, administrative reach, and a harder ideological frame."
+    "notes": "Norman consolidation and Tudor centralisation are different refoundings, but each strengthens rule through obedience, administrative reach, and a harder ideological frame.",
+    "publicNotes": "Norman and Tudor refounding are different, but each hardens rule through tighter obedience and wider central reach."
   },
   {
     "id": "x17",
     "sourcePeriodId": "p07",
     "targetPeriodId": "p08",
     "similarityLabel": "Confessional strain spills into a sovereignty crisis",
+    "publicSimilarityLabel": "Religious strain spills into a sovereignty crisis",
     "similarityReasons": [
       "Both periods bind questions of belief to questions of rule, making political loyalty inseparable from confessional alignment.",
       "Both show how a composite or contested monarchy becomes unstable when identity conflict, elite rivalry, and legitimacy strain reinforce each other."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods tie questions of belief to questions of rule.",
+      "Both show how monarchy becomes unstable when identity conflict, elite rivalry, and legitimacy strain reinforce each other."
     ],
     "dimensions": [
       "moralCertainty",
@@ -286,16 +387,22 @@
       "socialCohesion"
     ],
     "confidence": 0.79,
-    "notes": "This sits close to the boundary between adjacent development and echo, but it is still useful as a structural rhyme: the tensions of the late Tudor and early Stuart world tip into the legitimacy crisis of the civil-war era."
+    "notes": "This sits close to the boundary between adjacent development and echo, but it is still useful as a structural rhyme: the tensions of the late Tudor and early Stuart world tip into the legitimacy crisis of the civil-war era.",
+    "publicNotes": "This sits close to ordinary historical development rather than a distant echo, but it is still useful for showing how late Tudor strain tips into civil-war crisis."
   },
   {
     "id": "x18",
     "sourcePeriodId": "p03",
     "targetPeriodId": "p06",
     "similarityLabel": "Order thickens as institutions deepen without dissolving hierarchy",
+    "publicSimilarityLabel": "The state grows denser without ending hierarchy",
     "similarityReasons": [
       "Both periods strengthen the machinery of rule by making law, administration, and authority more regular and more central, while preserving a strongly unequal social order.",
       "Both widen the state's reach in ways that feel constructive from above but more restrictive from below, reducing the amount of life left outside formal jurisdiction."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods make law, administration, and authority more regular and more central while keeping a strongly unequal society.",
+      "Both widen the reach of the state in ways that feel constructive from above but more restrictive from below."
     ],
     "dimensions": [
       "institutionalLegitimacy",
@@ -303,16 +410,22 @@
       "moralCertainty"
     ],
     "confidence": 0.72,
-    "notes": "Plantagenet institutionalisation and Tudor centralisation are not equivalent, especially because the Reformation makes p06 far more disruptive, but they rhyme as periods in which the state becomes denser, more durable, and more intrusive without ceasing to be hierarchical."
+    "notes": "Plantagenet institutionalisation and Tudor centralisation are not equivalent, especially because the Reformation makes p06 far more disruptive, but they rhyme as periods in which the state becomes denser, more durable, and more intrusive without ceasing to be hierarchical.",
+    "publicNotes": "These periods are not equivalent, but both show the state becoming denser, more durable, and more intrusive without becoming more equal."
   },
   {
     "id": "x19",
     "sourcePeriodId": "p04",
     "targetPeriodId": "p08",
     "similarityLabel": "Collective shock turns inherited authority into an open question",
+    "publicSimilarityLabel": "Collective shock turns inherited authority into an open question",
     "similarityReasons": [
       "Both periods bring war, fear, and moral certainty directly into ordinary life, making older structures of authority feel breakable rather than fixed.",
       "Both transform crisis from an elite problem into a wider social upheaval, leaving behind a settlement that is more argued over and less taken for granted."
+    ],
+    "publicSimilarityReasons": [
+      "Both periods bring war, fear, and hard belief into ordinary life, making older authority feel breakable rather than fixed.",
+      "Both turn crisis from an elite problem into a wider social upheaval."
     ],
     "dimensions": [
       "militarization",
@@ -320,6 +433,7 @@
       "moralCertainty"
     ],
     "confidence": 0.68,
-    "notes": "Plague-era upheaval and the civil-war century are not the same kind of crisis, but each period turns severe collective shock into a renegotiation of authority and social obedience."
+    "notes": "Plague-era upheaval and the civil-war century are not the same kind of crisis, but each period turns severe collective shock into a renegotiation of authority and social obedience.",
+    "publicNotes": "Plague and civil war are not the same crisis, but both turn severe collective shock into a renegotiation of authority."
   }
 ]

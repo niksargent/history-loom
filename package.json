@@ -9,6 +9,7 @@
     "generate:insights": "node ./scripts/generate-derived-insights.mjs",
     "scaffold:dataset": "node ./scripts/scaffold-dataset.mjs",
     "validate:data": "node ./scripts/validate-datasets.mjs",
+    "audit:public-copy": "node ./scripts/audit-public-copy-usage.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

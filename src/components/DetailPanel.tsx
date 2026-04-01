@@ -12,6 +12,10 @@ import {
   getReleaseLabel,
 } from '../lib/loom-data'
 import {
+  getPublicEchoNotes,
+  getPublicEchoSimilarityLabel,
+  getPublicEchoSimilarityReasons,
+  getPublicEventSummary,
   getPublicPeriodPressureSummary,
   getPublicPeriodReading,
   getPublicPeriodSummary,
@@ -465,13 +469,16 @@ function DetailSections({
                   </div>
 
                   <p className="mt-3 text-sm leading-6 text-stone-200">
-                    {activeEcho.link.similarityLabel}
+                    {getPublicEchoSimilarityLabel(activeEcho.link)}
                   </p>
                   <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-400">
-                    {activeEcho.link.similarityReasons.map((reason) => (
+                    {getPublicEchoSimilarityReasons(activeEcho.link).map((reason) => (
                       <li key={reason}>{reason}</li>
                     ))}
                   </ul>
+                  <p className="mt-3 text-sm leading-6 text-stone-500">
+                    {getPublicEchoNotes(activeEcho.link)}
+                  </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {activeEcho.link.dimensions.map((dimension) => (
                       <span
@@ -541,7 +548,9 @@ function DetailSections({
                       : `${event.startYear}-${event.endYear}`}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
+                <p className="mt-3 text-sm leading-6 text-stone-300">
+                  {getPublicEventSummary(event)}
+                </p>
               </article>
             )
           })}
@@ -760,7 +769,7 @@ export function DetailPanel({
             {livedVoices.length ? (
               <LivedVoiceCard
                 key={snapshot?.id ?? period.id}
-                title={snapshot?.title ?? period.title}
+                title={snapshot ? getPublicSnapshotTitle(snapshot) : period.title}
                 voices={livedVoices}
               />
             ) : null}

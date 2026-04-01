@@ -90,10 +90,10 @@ function deriveScaleSummaries(
 
   const personalHeadline = snapshot?.publicTitle ?? snapshot?.title ?? 'Lived experience'
   const localHeadline = `Local worlds in ${period.rangeLabel}`
-  const nationalHeadline = `${period.title} as a political order`
+  const nationalHeadline = `How the country is held together`
   const globalHeadline = hasGlobalEvent
-    ? `${period.scope} in wider systems`
-    : 'Outer horizons of the period'
+    ? `${period.scope} in the wider world`
+    : 'Beyond the country'
 
   return [
     {

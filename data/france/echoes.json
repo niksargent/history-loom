@@ -4,77 +4,113 @@
     "sourcePeriodId": "fr-p01",
     "targetPeriodId": "fr-p04",
     "similarityLabel": "Republican opening gives way to harder executive order",
+    "publicSimilarityLabel": "Republican opening gives way to harder rule from above",
     "similarityReasons": [
       "Both periods begin with civic opening and mass political energy.",
       "Both turn quickly toward stronger authority when legitimacy and order fail to stabilize."
     ],
+    "publicSimilarityReasons": [
+      "Both periods begin with civic opening and mass political energy.",
+      "Both turn quickly toward stronger authority when order and public trust fail to settle."
+    ],
     "dimensions": ["institutionalLegitimacy", "moralCertainty", "publicHope"],
     "confidence": 0.82,
-    "notes": "These are not identical revolutions, but both periods show how French hopes of refounding can turn toward executive closure when legitimacy remains unstable."
+    "notes": "These are not identical revolutions, but both periods show how French hopes of refounding can turn toward executive closure when legitimacy remains unstable.",
+    "publicNotes": "These are not the same revolution, but both show how hopes of starting again can turn toward harder rule from above when trust stays unstable."
   },
   {
     "id": "fr-x02",
     "sourcePeriodId": "fr-p01",
     "targetPeriodId": "fr-p07",
     "similarityLabel": "National refounding through emergency and moral rupture",
+    "publicSimilarityLabel": "France is rebuilt through emergency and moral rupture",
     "similarityReasons": [
       "Both periods rebuild legitimacy out of crisis rather than continuity.",
       "Both make ordinary life feel inseparable from questions of national survival and moral choice."
     ],
+    "publicSimilarityReasons": [
+      "Both periods rebuild public trust out of crisis rather than continuity.",
+      "Both make ordinary life feel tied to national survival and moral choice."
+    ],
     "dimensions": ["institutionalLegitimacy", "publicHope", "socialCohesion"],
     "confidence": 0.71,
-    "notes": "Revolution and liberation are morally distinct, but both feel like moments when the polity must be rebuilt because the old order has become untenable."
+    "notes": "Revolution and liberation are morally distinct, but both feel like moments when the polity must be rebuilt because the old order has become untenable.",
+    "publicNotes": "Revolution and liberation are morally different, but both feel like moments when France has to rebuild because the old order can no longer hold."
   },
   {
     "id": "fr-x03",
     "sourcePeriodId": "fr-p03",
     "targetPeriodId": "fr-p08",
     "similarityLabel": "Legitimacy repaired through stronger constitutional order",
+    "publicSimilarityLabel": "Public trust is repaired through a stronger constitutional order",
     "similarityReasons": [
       "Both periods respond to instability by trying to make authority more governable.",
       "The later period succeeds more durably because it solves the executive weakness the earlier period never resolved."
     ],
+    "publicSimilarityReasons": [
+      "Both periods answer instability by trying to make rule more governable.",
+      "The later period lasts longer because it solves the executive weakness the earlier one never fixed."
+    ],
     "dimensions": ["institutionalLegitimacy", "socialCohesion", "publicHope"],
     "confidence": 0.74,
-    "notes": "This echo is comparative rather than repetitive: what the Restoration could not stabilize, the Fifth Republic stabilizes more successfully."
+    "notes": "This echo is comparative rather than repetitive: what the Restoration could not stabilize, the Fifth Republic stabilizes more successfully.",
+    "publicNotes": "This is not a repeated story. It is a comparison between one order that could not stabilise France and another that did so more successfully."
   },
   {
     "id": "fr-x04",
     "sourcePeriodId": "fr-p02",
     "targetPeriodId": "fr-p08",
     "similarityLabel": "Centralized state order after upheaval",
+    "publicSimilarityLabel": "A strong central state returns after upheaval",
     "similarityReasons": [
       "Both periods channel instability into stronger executive and administrative order.",
       "Both connect legitimacy to national competence, discipline, and state reach."
     ],
+    "publicSimilarityReasons": [
+      "Both periods turn instability into stronger executive and administrative order.",
+      "Both tie public trust to national competence, discipline, and state reach."
+    ],
     "dimensions": ["institutionalLegitimacy", "militarization", "publicHope"],
     "confidence": 0.69,
-    "notes": "Napoleonic and Gaullist France differ sharply, but each period uses state centralization to answer an earlier legitimacy crisis."
+    "notes": "Napoleonic and Gaullist France differ sharply, but each period uses state centralization to answer an earlier legitimacy crisis.",
+    "publicNotes": "Napoleonic and Gaullist France are very different, but each uses a stronger central state to answer an earlier crisis of trust."
   },
   {
     "id": "fr-x05",
     "sourcePeriodId": "fr-p05",
     "targetPeriodId": "fr-p09",
     "similarityLabel": "The republic speaks in universal terms while fracture keeps returning",
+    "publicSimilarityLabel": "The republic speaks in universal terms, but fracture keeps returning",
     "similarityReasons": [
       "Both periods are organized around republican claims to national unity.",
       "Both reveal deep fractures over belonging, belief, and who the republic truly protects."
     ],
+    "publicSimilarityReasons": [
+      "Both periods are built around republican claims to national unity.",
+      "Both reveal deep fractures over belonging, belief, and who the republic really protects."
+    ],
     "dimensions": ["institutionalLegitimacy", "socialCohesion", "moralCertainty"],
     "confidence": 0.79,
-    "notes": "The Third Republic and late-modern France are far apart in social form, but each shows how civic universalism can coexist with sharp exclusion and distrust."
+    "notes": "The Third Republic and late-modern France are far apart in social form, but each shows how civic universalism can coexist with sharp exclusion and distrust.",
+    "publicNotes": "The Third Republic and late-modern France are very different, but both show how a universal national story can sit alongside exclusion and distrust."
   },
   {
     "id": "fr-x06",
     "sourcePeriodId": "fr-p06",
     "targetPeriodId": "fr-p09",
     "similarityLabel": "Fear and fragmentation weaken confidence in the national settlement",
+    "publicSimilarityLabel": "Fear and fragmentation weaken confidence in the national order",
     "similarityReasons": [
       "Both periods are marked by insecurity, ideological hardening, and weaker trust in the political center.",
       "Both make the republic feel more brittle than its formal institutions suggest."
     ],
+    "publicSimilarityReasons": [
+      "Both periods are marked by insecurity, harder beliefs, and weaker trust in the political centre.",
+      "Both make the republic feel more brittle than its formal institutions suggest."
+    ],
     "dimensions": ["institutionalLegitimacy", "socialCohesion", "informationAcceleration"],
     "confidence": 0.72,
-    "notes": "Interwar fracture and late-modern fragmentation differ in danger and scale, but both undermine confidence that the republic can still hold a shared center."
+    "notes": "Interwar fracture and late-modern fragmentation differ in danger and scale, but both undermine confidence that the republic can still hold a shared center.",
+    "publicNotes": "Interwar fracture and late-modern fragmentation differ in danger and scale, but both weaken confidence that the republic can still hold a shared centre."
   }
 ]

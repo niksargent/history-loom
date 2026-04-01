@@ -1,5 +1,12 @@
 import publicCopyJson from '../../data/public-copy.json'
-import type { HumanSnapshot, LivedVoice, Period, PressureSeries } from '../types/domain'
+import type {
+  EchoLink,
+  Event,
+  HumanSnapshot,
+  LivedVoice,
+  Period,
+  PressureSeries,
+} from '../types/domain'
 import type { OutlierType } from '../types/insights'
 
 const publicCopy = publicCopyJson
@@ -64,6 +71,22 @@ export function getPublicPeriodPressureSummary(period: Period) {
 
 export function getPublicPeriodReading(period: Period) {
   return period.publicReading ?? null
+}
+
+export function getPublicEventSummary(event: Event) {
+  return event.publicSummary ?? event.summary
+}
+
+export function getPublicEchoSimilarityLabel(echo: EchoLink) {
+  return echo.publicSimilarityLabel ?? echo.similarityLabel
+}
+
+export function getPublicEchoSimilarityReasons(echo: EchoLink) {
+  return echo.publicSimilarityReasons ?? echo.similarityReasons
+}
+
+export function getPublicEchoNotes(echo: EchoLink) {
+  return echo.publicNotes ?? echo.notes
 }
 
 export function getPublicSnapshotTitle(snapshot: HumanSnapshot) {

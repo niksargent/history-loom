@@ -1,4 +1,5 @@
 import { buildPressureCascade } from '../lib/loom-data'
+import { getPublicEventSummary } from '../lib/public-copy'
 import type { Period, PressurePolarity } from '../types/domain'
 import type { PressureOverlaySeries, SelectedPeriodDetail } from '../types/view'
 
@@ -385,7 +386,9 @@ export function ForceExplorer({
                               {event.startYear === event.endYear ? event.startYear : `${event.startYear}-${event.endYear}`}
                             </span>
                           </div>
-                          <p className="mt-3 text-sm leading-6 text-stone-300">{event.summary}</p>
+                          <p className="mt-3 text-sm leading-6 text-stone-300">
+                            {getPublicEventSummary(event)}
+                          </p>
                           <div className="mt-3 flex flex-wrap gap-2">
                             <span className="rounded-full bg-white/[0.05] px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-stone-400">{event.geography}</span>
                             {event.scalesAffected.map((scale) => (

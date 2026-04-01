@@ -234,7 +234,7 @@ function buildPatternEntries(dataset: LoomDataset) {
     },
     {
       id: 'pattern-rhyme',
-      title: 'Strong echo',
+      title: 'Distant rhyme',
       body: 'A period with strong echoes reaching into another time.',
       periodId: rhyme?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: null,
@@ -502,13 +502,13 @@ function App() {
     return (
       <div className="min-h-screen bg-[color:var(--bg)] px-4 py-10 text-stone-100">
         <main className="mx-auto max-w-3xl rounded-[2rem] border border-rose-300/20 bg-rose-300/8 p-8">
-          <p className="eyebrow">Application error</p>
+          <p className="eyebrow">Load problem</p>
           <h1 className="font-display mt-3 text-4xl text-stone-50">
-            The History Loom could not load its dataset
+            This history did not load
           </h1>
           <p className="mt-4 text-base leading-7 text-stone-300">
-            The page stayed blank because the app failed before the first render.
-            The underlying error is shown below so it can be fixed directly.
+            Something stopped this history from opening. The error below shows what failed so it
+            can be fixed directly.
           </p>
           <pre className="mt-6 overflow-x-auto rounded-[1.5rem] border border-white/10 bg-black/20 p-4 text-sm leading-6 text-rose-100">
             {loadError ?? 'Dataset unavailable.'}
@@ -889,9 +889,9 @@ function App() {
                 Does history repeat itself, or do pressures, moods, and institutions only rhyme?
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-7 text-stone-300 md:text-lg">
-                A visualisation of {dataset.meta.scope} from {dataset.meta.startYear} to{' '}
-                {dataset.meta.endYear} as recurring structure: periods in the foreground,
-                pressure undercurrents beneath, and curated echoes between distant eras.
+                A way to see {dataset.meta.scope} from {dataset.meta.startYear} to{' '}
+                {dataset.meta.endYear} as recurring patterns: periods in front, deeper pressures
+                underneath, and echoes between distant eras.
               </p>
 
               <div
@@ -1224,7 +1224,7 @@ function App() {
             <div className="grid gap-3 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
               <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="eyebrow">Structural fingerprint</p>
+                  <p className="eyebrow">How this period holds together</p>
                   <span className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
                     {dataset.meta.scope}
                   </span>
@@ -1249,7 +1249,7 @@ function App() {
 
               <section className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] px-4 py-4">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="eyebrow">Pressure balance</p>
+                  <p className="eyebrow">Push and pull</p>
                   <span className="text-[11px] uppercase tracking-[0.22em] text-stone-500">
                     {detail.echoes.length} echo{detail.echoes.length === 1 ? '' : 'es'}
                   </span>
