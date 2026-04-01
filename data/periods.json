@@ -12,6 +12,7 @@
       "British Isles"
     ],
     "summary": "Conquest, elite replacement, castle power, and administrative tightening remade the kingdom under a new ruling class.",
+    "publicSummary": "A new Norman ruling class took control, built castles, tightened administration, and remade England by force.",
     "dominantValues": [
       "lordship",
       "obedience",
@@ -67,6 +68,7 @@
       "elements of pre-Conquest political culture"
     ],
     "pressureSummary": "State-building through conquest produced a more governable but harsher order.",
+    "publicPressureSummary": "The crown became stronger and better organised, but ordinary life grew harsher and more tightly controlled.",
     "releaseType": "consolidation",
     "pressureScores": {
       "inequality": 85,
@@ -119,6 +121,7 @@
       "British Isles"
     ],
     "summary": "Royal reach expanded across a wider Angevin world, but extraction, law, and baronial resistance produced constitutional strain.",
+    "publicSummary": "Royal power stretched wider, but taxes, law, and baronial anger made the system harder to hold together.",
     "dominantValues": [
       "authority",
       "law",
@@ -174,6 +177,7 @@
       "assumptions of unconstrained kingship"
     ],
     "pressureSummary": "Administrative expansion pushed against elite tolerance and generated demands for restraint.",
+    "publicPressureSummary": "A bigger, more demanding state pushed elites to demand limits on royal power.",
     "releaseType": "constraint",
     "pressureScores": {
       "inequality": 82,
@@ -226,6 +230,7 @@
       "British Isles"
     ],
     "summary": "Monarchy, law, and representative institutions thickened together as the realm sought workable order after charter crisis.",
+    "publicSummary": "Monarchy, law, and early representative politics grew together as the realm tried to build workable order after crisis.",
     "dominantValues": [
       "order",
       "custom",
@@ -280,6 +285,7 @@
       "older looser political forms"
     ],
     "pressureSummary": "Institutionalisation created more durable order while preserving hierarchy.",
+    "publicPressureSummary": "Stronger institutions made rule steadier, even while hierarchy stayed firmly in place.",
     "releaseType": "institutionalisation",
     "pressureScores": {
       "inequality": 80,
@@ -332,6 +338,7 @@
       "British Isles"
     ],
     "summary": "Military campaigns, Black Death mortality, labour shortage, and revolt violently reset social bargaining.",
+    "publicSummary": "War, plague, labour shortage, and revolt tore up old expectations and changed the balance between workers and rulers.",
     "dominantValues": [
       "survival",
       "duty",
@@ -387,6 +394,7 @@
       "some assumptions of fixed rank relations"
     ],
     "pressureSummary": "Catastrophe shattered demographic balance and forced renegotiation of labour and authority.",
+    "publicPressureSummary": "Disaster broke the old demographic balance and forced society to renegotiate work, power, and obedience.",
     "releaseType": "upheaval",
     "pressureScores": {
       "inequality": 72,
@@ -440,6 +448,7 @@
       "British Isles"
     ],
     "summary": "Weak kingship, war fatigue, noble faction, and succession conflict destabilised rule even as state habits thickened.",
+    "publicSummary": "Weak kings, war weariness, noble rivalry, and succession disputes shook rule even as the state itself kept maturing.",
     "dominantValues": [
       "lineage",
       "honour",
@@ -492,6 +501,7 @@
       "illusions of effortless order"
     ],
     "pressureSummary": "Weak legitimacy and elite rivalry exposed how much order depended on accepted succession.",
+    "publicPressureSummary": "Rival power blocs and weak public trust showed how much order still depended on accepted succession.",
     "releaseType": "succession-crisis",
     "pressureScores": {
       "inequality": 74,
@@ -544,6 +554,7 @@
       "British Isles"
     ],
     "summary": "Stronger monarchy, dynastic repair, administrative centralisation, and the break with Rome transformed crown, church, and obedience.",
+    "publicSummary": "The Tudors rebuilt royal power, centralised government, and broke with Rome, changing crown, church, and obedience.",
     "dominantValues": [
       "order",
       "dynasty",
@@ -599,6 +610,7 @@
       "much of the monastic world"
     ],
     "pressureSummary": "Centralisation and religious rupture created a more directed state while tearing up older moral worlds.",
+    "publicPressureSummary": "A stronger crown gave the state more direction, but religious rupture unsettled older loyalties.",
     "releaseType": "rupture",
     "pressureScores": {
       "inequality": 76,
@@ -651,6 +663,7 @@
       "British Isles"
     ],
     "summary": "Confessional struggle, dynastic complexity, overseas expansion, and contested sovereignty defined a tense but creative age.",
+    "publicSummary": "Religious conflict, dynastic tension, overseas expansion, and arguments over sovereignty made this a creative but unstable age.",
     "dominantValues": [
       "belief",
       "discipline",
@@ -705,6 +718,7 @@
       "some common religious habits"
     ],
     "pressureSummary": "Belief, monarchy, and expanding horizons interacted to make politics more ideological and unstable.",
+    "publicPressureSummary": "Belief, monarchy, and expanding horizons made politics sharper, more ideological, and harder to contain.",
     "releaseType": "polarisation",
     "pressureScores": {
       "inequality": 77,
@@ -759,6 +773,7 @@
       "British Isles"
     ],
     "summary": "Crown-Parliament conflict, civil war, regicide, republic, restoration, and the 1688–89 settlement reworked sovereignty and rights.",
+    "publicSummary": "Conflict between crown and Parliament led to civil war, regicide, restoration, and a new constitutional order.",
     "dominantValues": [
       "liberty",
       "order",
@@ -813,6 +828,7 @@
       "the aura of unquestioned dynastic right"
     ],
     "pressureSummary": "Acute legitimacy conflict broke the old frame and yielded a more constitutional but more politicised order.",
+    "publicPressureSummary": "A fight over who should rule broke the old frame and produced a more constitutional but more politicised order.",
     "releaseType": "settlement",
     "pressureScores": {
       "inequality": 75,
@@ -869,6 +885,7 @@
       "British Isles"
     ],
     "summary": "Union with Scotland, expanding commerce, imperial war, and fiscal capacity made Britain richer, stronger, and more globally entangled.",
+    "publicSummary": "Union, empire, trade, and fiscal power made Britain richer, stronger, and more entangled with the wider world.",
     "dominantValues": [
       "improvement",
       "commerce",
@@ -923,6 +940,7 @@
       "older non-imperial horizons"
     ],
     "pressureSummary": "Constitutional stability plus finance and war-making capacity produced expansion, wealth, and imperial entanglement.",
+    "publicPressureSummary": "Stable government, finance, and war-making power drove expansion, wealth, and imperial reach.",
     "releaseType": "expansion",
     "pressureScores": {
       "inequality": 78,
@@ -975,6 +993,7 @@
       "British Isles"
     ],
     "summary": "Industrialisation, urbanisation, social reform, and widening political pressure transformed work, class, and the scale of collective life.",
+    "publicSummary": "Industrialisation, urban growth, reform, and rising political pressure transformed work, class, and collective life.",
     "dominantValues": [
       "improvement",
       "efficiency",
@@ -1031,6 +1050,7 @@
       "many traditional labour forms"
     ],
     "pressureSummary": "Technological acceleration and urban concentration produced both new power and deep social strain.",
+    "publicPressureSummary": "Fast technological change and crowded cities created new power, but also deep strain and insecurity.",
     "releaseType": "reform",
     "pressureScores": {
       "inequality": 83,
@@ -1081,6 +1101,7 @@
       "British Isles"
     ],
     "summary": "Britain reached imperial height, widened the franchise, endured labour conflict, and was transformed by two world wars and mass politics.",
+    "publicSummary": "Britain reached imperial height, widened democracy, faced labour conflict, and was remade by two world wars.",
     "dominantValues": [
       "nation",
       "service",
@@ -1137,6 +1158,7 @@
       "much of the old social deference"
     ],
     "pressureSummary": "Mass politics and total war fused citizenship, sacrifice, and state capacity in new ways.",
+    "publicPressureSummary": "Mass politics and total war bound citizenship, sacrifice, and state power together in new ways.",
     "releaseType": "mobilisation",
     "pressureScores": {
       "inequality": 68,
@@ -1188,6 +1210,7 @@
       "British Isles"
     ],
     "summary": "The welfare state, decolonisation, immigration, market liberalisation, deindustrialisation, devolution, digital change, and Brexit reshaped Britain’s social contract.",
+    "publicSummary": "The welfare state, decolonisation, immigration, market reforms, deindustrialisation, devolution, digital change, and Brexit remade modern Britain.",
     "dominantValues": [
       "security",
       "choice",
@@ -1249,6 +1272,7 @@
       "much inherited deference and homogeneity"
     ],
     "pressureSummary": "Postwar inclusion, market restructuring, and identity pluralisation expanded freedom while weakening older solidarities.",
+    "publicPressureSummary": "Postwar inclusion, market change, and identity strain opened some freedoms while weakening older forms of solidarity.",
     "releaseType": "fragmentation",
     "pressureScores": {
       "inequality": 79,

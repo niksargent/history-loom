@@ -101,6 +101,11 @@ Current refinement focus:
   - review Britain and France against the same standard
   - promote the approved public surfaces across all live datasets before any public cross-dataset cousin release
 - translate internal analytical language into clearer public wording across the app, starting with Insights Lab and other interpretive surfaces
+- dataset production is now codified more operationally:
+  - registry-driven `dataPath` loading
+  - a scaffold script for new dataset folders and planning docs
+  - a validation command for live datasets and derived packs
+  - a runbook so future dataset creation is repeatable after a long gap
 - keep geography implemented but paused pending product discussion
 - reserve any later UI work for further exhibit refinements beyond the current pass
 - dataset-specific atmospheric backgrounds should now reflect the selected field rather than relying on one global background

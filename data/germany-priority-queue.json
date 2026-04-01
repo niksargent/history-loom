@@ -1,0 +1,30 @@
+{
+  "phase": "dataset-seeding",
+  "next": [
+    {
+      "id": "seed-01",
+      "label": "Define the first honest lens for Germany, 1815-2025",
+      "priority": "high"
+    },
+    {
+      "id": "seed-02",
+      "label": "Collate candidate anchor events for Germany, 1815-2025",
+      "priority": "high"
+    },
+    {
+      "id": "seed-03",
+      "label": "Ground the shared pressure model for Germany, 1815-2025",
+      "priority": "high"
+    },
+    {
+      "id": "seed-04",
+      "label": "Write the first runtime seed pack for Germany, 1815-2025",
+      "priority": "high"
+    },
+    {
+      "id": "seed-05",
+      "label": "Run validation review before wiring Germany, 1815-2025 into the live registry",
+      "priority": "high"
+    }
+  ]
+}

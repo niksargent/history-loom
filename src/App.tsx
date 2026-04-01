@@ -158,7 +158,7 @@ function buildQuestionEntries(dataset: LoomDataset) {
     {
       id: 'brittle-order',
       title: 'When does order start to feel brittle?',
-      body: 'Jump to a low-legitimacy period and trace the stabiliser that begins to fail.',
+      body: 'Jump to a low-trust period and trace the steadying force that starts to fail.',
       periodId: lowestLegitimacy?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: 'institutionalLegitimacy',
       showEchoes: false,
@@ -185,7 +185,7 @@ function buildQuestionEntries(dataset: LoomDataset) {
     {
       id: 'hope-and-order',
       title: 'When does hope reinforce order?',
-      body: 'Move into the highest-hope period and trace the stabilising forces together.',
+      body: 'Move into the most hopeful period and trace the forces that help hold things together.',
       periodId: highestHope?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: 'publicHope',
       showEchoes: false,
@@ -205,7 +205,7 @@ function buildPatternEntries(dataset: LoomDataset) {
       (left.period.pressureScores.economicPrecarity ?? 0),
   )[0]
   const rhyme = [...details].sort((left, right) => right.echoes.length - left.echoes.length)[0]
-  const settlement = [...details].sort(
+  const orderRebuilt = [...details].sort(
     (left, right) =>
       (right.period.pressureScores.institutionalLegitimacy ?? 0) +
         (right.period.pressureScores.publicHope ?? 0) -
@@ -226,7 +226,7 @@ function buildPatternEntries(dataset: LoomDataset) {
     {
       id: 'pattern-shock',
       title: 'System shock',
-      body: 'Heavy change rewrites labour, security, and the social bargain.',
+      body: 'Heavy change rewrites work, security, and everyday expectations.',
       periodId: shock?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: 'economicPrecarity',
       showEchoes: false,
@@ -235,7 +235,7 @@ function buildPatternEntries(dataset: LoomDataset) {
     {
       id: 'pattern-rhyme',
       title: 'Strong echo',
-      body: 'An era with strong echoes reaching into another time.',
+      body: 'A period with strong echoes reaching into another time.',
       periodId: rhyme?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: null,
       showEchoes: true,
@@ -244,8 +244,8 @@ function buildPatternEntries(dataset: LoomDataset) {
     {
       id: 'pattern-settlement',
       title: 'Order rebuilt',
-      body: 'Hope and legitimacy rise together and steady the wider field.',
-      periodId: settlement?.period.id ?? dataset.periods[0]?.id ?? '',
+      body: 'Hope and public trust rise together and help steady the wider story.',
+      periodId: orderRebuilt?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: 'institutionalLegitimacy',
       showEchoes: false,
       tone: 'cyan' as const,
@@ -491,7 +491,7 @@ function App() {
     return (
       <div className="min-h-screen bg-[color:var(--bg)] px-4 py-10 text-stone-100">
         <main className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8">
-          <LoadingVeil label="Loading" detail="Preparing the field…" delayMs={0} />
+          <LoadingVeil label="Loading" detail="Preparing this history…" delayMs={0} />
           <div className="min-h-[16rem]" />
         </main>
       </div>
@@ -567,13 +567,13 @@ function App() {
   )
   const periodFingerprint = [
     {
-      label: 'Cohesion',
+      label: 'Social bonds',
       value: detail.period.cohesionLevel,
       toneClass: 'bg-cyan-300/80',
       labelClass: 'text-cyan-100',
     },
     {
-      label: 'Legitimacy',
+      label: 'Public trust',
       value: detail.period.legitimacyLevel,
       toneClass: 'bg-cyan-300/60',
       labelClass: 'text-cyan-100/90',
@@ -589,26 +589,26 @@ function App() {
   const forceEntries = [
     {
       id: 'institutionalLegitimacy',
-      title: 'Institutional legitimacy',
-      body: 'Track when accepted order holds and when it thins out.',
+      title: 'Public trust',
+      body: 'Track when people keep faith in the system and when that trust starts to thin out.',
       tone: 'cyan',
     },
     {
       id: 'technologicalDisruption',
-      title: 'Technological disruption',
-      body: 'Follow moments when new systems outrun settled life.',
+      title: 'Tech disruption',
+      body: 'Follow moments when new tools and systems outrun settled life.',
       tone: 'amber',
     },
     {
       id: 'inequality',
       title: 'Inequality',
-      body: 'See how concentrated advantage reshapes eras from above.',
+      body: 'See how concentrated power and advantage reshape each era.',
       tone: 'amber',
     },
     {
       id: 'publicHope',
-      title: 'Public hope',
-      body: 'Look for periods where confidence stabilises the whole field.',
+      title: 'Shared hope',
+      body: 'Look for periods where confidence helps hold the wider story together.',
       tone: 'cyan',
     },
   ] as const
@@ -860,7 +860,7 @@ function App() {
             detail={
               pendingDatasetId && currentDatasetEntry
                 ? `Preparing ${currentDatasetEntry.scope}…`
-                : 'Preparing the field…'
+                : 'Preparing this history…'
             }
           />
         ) : null}
@@ -947,10 +947,10 @@ function App() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="max-w-xl">
                     <p className="eyebrow" style={{ color: 'rgba(42,44,47,0.72)' }}>
-                      Field setup
+                      History setup
                     </p>
                     <h2 className="font-display mt-2 text-2xl text-stone-100">
-                      Choose a field
+                      Choose a history
                     </h2>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {datasetRegistry.map((entry) => (
@@ -978,7 +978,7 @@ function App() {
                         </button>
                         <div className="pointer-events-none absolute left-0 top-[calc(100%+0.7rem)] z-20 w-[21rem] max-w-[calc(100vw-4rem)] translate-y-1 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
                           <div className="surface-depth rounded-[1.35rem] border border-[rgba(214,211,209,0.08)] bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-4 shadow-[0_22px_48px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-                            <p className="eyebrow">Planned fields</p>
+                            <p className="eyebrow">Planned histories</p>
                             <div className="mt-3 flex flex-wrap gap-2">
                               {plannedDatasets.map((plannedDataset) => (
                                 <span
@@ -1335,7 +1335,9 @@ function App() {
             <ComparePanel
               model={{ source: compareSourceDetail, target: compareDetail }}
               selectedPressureId={selectedPressureId}
-              selectedPressureLabel={selectedPressureSeries?.label ?? null}
+              selectedPressureLabel={
+                selectedPressureSeries?.publicLabel ?? selectedPressureSeries?.label ?? null
+              }
               onClose={clearCompare}
             />
           </Suspense>

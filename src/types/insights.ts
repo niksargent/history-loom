@@ -27,24 +27,31 @@ export interface PeriodClusterAssignment {
   periodId: string
   clusterId: string
   clusterLabel: string
+  publicLabel?: string
   strength: number
   confidence: InsightConfidenceTier
   summary: string
+  publicSummary?: string
   topSignals: string[]
+  publicTopSignals?: string[]
 }
 
 export interface PressureRelationship {
   id: string
   sourcePressureId: string
   sourceLabel: string
+  publicSourceLabel?: string
   targetPressureId: string
   targetLabel: string
+  publicTargetLabel?: string
   relationshipType: InsightRelationshipType
+  publicRelationshipLine?: string
   lag: 0 | 1
   strength: number
   confidence: InsightConfidenceTier
   supportingPeriods: string[]
   summary: string
+  publicSummary?: string
 }
 
 export interface OutlierSignal {
@@ -54,8 +61,11 @@ export interface OutlierSignal {
   strength: number
   confidence: InsightConfidenceTier
   explanationLabel: string
+  publicLabel?: string
   summary: string
+  publicSummary?: string
   topSignals: string[]
+  publicTopSignals?: string[]
 }
 
 export interface CrossDatasetAffinity {
@@ -79,6 +89,7 @@ export interface CrossDatasetAffinity {
 export interface PublicCrossDatasetCousin extends CrossDatasetAffinity {
   headline: string
   publicSummary: string
+  publicSharedTopSignals?: string[]
 }
 
 export interface EchoSupportSignal {
@@ -96,6 +107,7 @@ export interface InsightPrompt {
   id: string
   periodId: string
   text: string
+  publicText?: string
   insightKind: 'family' | 'relationship' | 'outlier' | 'echo'
   confidence: InsightConfidenceTier
   destinationSection: InsightDestinationSection

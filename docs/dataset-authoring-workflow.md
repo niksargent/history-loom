@@ -6,9 +6,14 @@ This document defines a repeatable process for building or expanding a dataset s
 
 This workflow should now be read alongside:
 - `docs/dataset-authoring-standards.md`
+- `docs/dataset-production-runbook.md`
+- `docs/dataset-editorial-review-checklist.md`
+- `docs/public-language-guide.md`
 
 The workflow describes sequence.
 The standards document defines what “good enough” means at each content layer.
+The runbook defines the actual repo operations and commands.
+The editorial checklist defines the human promotion gate.
 
 ## Workflow overview
 
@@ -107,6 +112,8 @@ Review should now also check:
 - whether period summaries are plain-language enough
 - whether lived voice is genuinely human and accessible
 - whether the strongest periods are overpowering weaker ones in the field
+- whether required `public*` copy fields exist for the live surfaces
+- whether the banned-term scan passes without exceptions
 
 ## 8. Publish dataset maturity
 

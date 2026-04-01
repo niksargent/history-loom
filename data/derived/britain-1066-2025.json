@@ -5,7 +5,7 @@
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T18:22:44.396Z"
+    "generatedAt": "2026-03-31T20:52:19.383Z"
   },
   "periodClusters": [
     {
@@ -13,12 +13,19 @@
       "periodId": "p10",
       "clusterId": "britain-1066-2025-cluster-1",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Industry, Reform, and Urban Mass Britain sits inside the fragmenting acceleration family, with technological disruption and information acceleration most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when tech disruption and information rush stand out most clearly.",
       "topSignals": [
         "Technological Disruption",
         "Information Acceleration",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Tech disruption",
+        "Information rush",
         "Inequality"
       ]
     },
@@ -27,12 +34,19 @@
       "periodId": "p12",
       "clusterId": "britain-1066-2025-cluster-1",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Welfare, Market Turn, and Fragmented Union sits inside the fragmenting acceleration family, with technological disruption and information acceleration most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when tech disruption and information rush stand out most clearly.",
       "topSignals": [
         "Technological Disruption",
         "Information Acceleration",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Tech disruption",
+        "Information rush",
         "Inequality"
       ]
     },
@@ -41,13 +55,20 @@
       "periodId": "p09",
       "clusterId": "britain-1066-2025-cluster-2",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Union, Empire, and Fiscal-Military Britain sits inside the fragmenting acceleration family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Information Acceleration"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Information rush"
       ]
     },
     {
@@ -55,13 +76,20 @@
       "periodId": "p11",
       "clusterId": "britain-1066-2025-cluster-2",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "High Empire, Mass Democracy, and Total War sits inside the fragmenting acceleration family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Information Acceleration"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Information rush"
       ]
     },
     {
@@ -69,13 +97,20 @@
       "periodId": "p01",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.656,
       "confidence": "experimental",
       "summary": "Norman Consolidation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -83,13 +118,20 @@
       "periodId": "p02",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.815,
       "confidence": "moderate",
       "summary": "Angevin Reach and Charter Strain sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -97,13 +139,20 @@
       "periodId": "p03",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.62,
       "confidence": "experimental",
       "summary": "Charter, Parliament, and Plantagenet Order sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -111,13 +160,20 @@
       "periodId": "p04",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.567,
       "confidence": "experimental",
       "summary": "War, Plague, and Social Upheaval sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -125,13 +181,20 @@
       "periodId": "p05",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.716,
       "confidence": "moderate",
       "summary": "Dynastic Crisis and State Formation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -139,13 +202,20 @@
       "periodId": "p06",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.72,
       "confidence": "moderate",
       "summary": "Tudor Centralisation and Reformation sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -153,13 +223,20 @@
       "periodId": "p07",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.819,
       "confidence": "moderate",
       "summary": "Religious Conflict and Composite Monarchy sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     },
     {
@@ -167,13 +244,20 @@
       "periodId": "p08",
       "clusterId": "britain-1066-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Civil Wars, Revolution, and Settlement sits inside the militarised conviction family, with moral certainty and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when moral certainty and inequality stand out most clearly.",
       "topSignals": [
         "Moral Certainty",
         "Inequality",
         "Militarization"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Inequality",
+        "Militarisation"
       ]
     }
   ],
@@ -182,9 +266,12 @@
       "id": "britain-1066-2025-informationAcceleration-individualAutonomy-lag0",
       "sourcePressureId": "informationAcceleration",
       "sourceLabel": "Information Acceleration",
+      "publicSourceLabel": "Information rush",
       "targetPressureId": "individualAutonomy",
       "targetLabel": "Individual Autonomy",
+      "publicTargetLabel": "Personal freedom",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with personal freedom",
       "lag": 0,
       "strength": 0.953,
       "confidence": "strong",
@@ -202,15 +289,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Information Acceleration and individual autonomy repeatedly rise together here."
+      "summary": "Information Acceleration and individual autonomy repeatedly rise together here.",
+      "publicSummary": "Information rush and personal freedom often rise together across this history."
     },
     {
       "id": "britain-1066-2025-technologicalDisruption-informationAcceleration-lag0",
       "sourcePressureId": "technologicalDisruption",
       "sourceLabel": "Technological Disruption",
+      "publicSourceLabel": "Tech disruption",
       "targetPressureId": "informationAcceleration",
       "targetLabel": "Information Acceleration",
+      "publicTargetLabel": "Information rush",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with information rush",
       "lag": 0,
       "strength": 0.944,
       "confidence": "strong",
@@ -228,15 +319,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "publicSummary": "Tech disruption and information rush often rise together across this history."
     },
     {
       "id": "britain-1066-2025-institutionalLegitimacy-socialCohesion-lag0",
       "sourcePressureId": "institutionalLegitimacy",
       "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
       "targetPressureId": "socialCohesion",
       "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with social bonds",
       "lag": 0,
       "strength": 0.935,
       "confidence": "strong",
@@ -254,15 +349,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here.",
+      "publicSummary": "Public trust and social bonds often rise together across this history."
     },
     {
       "id": "britain-1066-2025-informationAcceleration-individualAutonomy-lag1",
       "sourcePressureId": "informationAcceleration",
       "sourceLabel": "Information Acceleration",
+      "publicSourceLabel": "Information rush",
       "targetPressureId": "individualAutonomy",
       "targetLabel": "Individual Autonomy",
+      "publicTargetLabel": "Personal freedom",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before personal freedom",
       "lag": 1,
       "strength": 0.92,
       "confidence": "strong",
@@ -279,15 +378,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Information Acceleration often intensifies before individual autonomy does here."
+      "summary": "Information Acceleration often intensifies before individual autonomy does here.",
+      "publicSummary": "Information rush often starts moving before personal freedom here."
     },
     {
       "id": "britain-1066-2025-eliteCompetition-institutionalLegitimacy-lag0",
       "sourcePressureId": "eliteCompetition",
       "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
       "targetPressureId": "institutionalLegitimacy",
       "targetLabel": "Institutional Legitimacy",
+      "publicTargetLabel": "Public trust",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from public trust",
       "lag": 0,
       "strength": 0.89,
       "confidence": "strong",
@@ -305,15 +408,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here.",
+      "publicSummary": "Power struggle and public trust often pull in opposite directions across this history."
     },
     {
       "id": "britain-1066-2025-technologicalDisruption-informationAcceleration-lag1",
       "sourcePressureId": "technologicalDisruption",
       "sourceLabel": "Technological Disruption",
+      "publicSourceLabel": "Tech disruption",
       "targetPressureId": "informationAcceleration",
       "targetLabel": "Information Acceleration",
+      "publicTargetLabel": "Information rush",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before information rush",
       "lag": 1,
       "strength": 0.826,
       "confidence": "strong",
@@ -330,15 +437,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Technological Disruption often intensifies before information acceleration does here."
+      "summary": "Technological Disruption often intensifies before information acceleration does here.",
+      "publicSummary": "Tech disruption often starts moving before information rush here."
     },
     {
       "id": "britain-1066-2025-socialCohesion-publicHope-lag0",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "publicHope",
       "targetLabel": "Public Hope",
+      "publicTargetLabel": "Shared hope",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with shared hope",
       "lag": 0,
       "strength": 0.75,
       "confidence": "moderate",
@@ -356,15 +467,19 @@
         "p11",
         "p12"
       ],
-      "summary": "Social Cohesion and public hope repeatedly rise together here."
+      "summary": "Social Cohesion and public hope repeatedly rise together here.",
+      "publicSummary": "Social bonds and shared hope often rise together across this history."
     },
     {
       "id": "britain-1066-2025-socialCohesion-economicPrecarity-lag1",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "economicPrecarity",
       "targetLabel": "Economic Precarity",
+      "publicTargetLabel": "Economic insecurity",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before economic insecurity",
       "lag": 1,
       "strength": 0.727,
       "confidence": "moderate",
@@ -381,7 +496,8 @@
         "p11",
         "p12"
       ],
-      "summary": "Social Cohesion often intensifies before economic precarity does here."
+      "summary": "Social Cohesion often intensifies before economic precarity does here.",
+      "publicSummary": "Social bonds often starts moving before economic insecurity here."
     }
   ],
   "outliers": [
@@ -392,11 +508,18 @@
       "strength": 0.99,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "Welfare, Market Turn, and Fragmented Union sits outside the field’s usual pattern, shaped unusually strongly by individual autonomy and ecological strain.",
+      "publicSummary": "This era stands out from the rest because personal freedom and environmental strain are unusually strong here.",
       "topSignals": [
         "Individual Autonomy",
         "Ecological Strain",
         "Moral Certainty"
+      ],
+      "publicTopSignals": [
+        "Personal freedom",
+        "Environmental strain",
+        "Moral certainty"
       ]
     },
     {
@@ -406,11 +529,18 @@
       "strength": 0.895,
       "confidence": "strong",
       "explanationLabel": "High strain and strong order coexist",
+      "publicLabel": "Heavy strain, but the centre still holds",
       "summary": "Union, Empire, and Fiscal-Military Britain is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "publicSummary": "This era carries heavy pressure, but the centre still holds more firmly than you might expect.",
       "topSignals": [
         "Social Cohesion",
         "Public Hope",
         "Institutional Legitimacy"
+      ],
+      "publicTopSignals": [
+        "Social bonds",
+        "Shared hope",
+        "Public trust"
       ]
     },
     {
@@ -420,11 +550,18 @@
       "strength": 0.891,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "Industry, Reform, and Urban Mass Britain sits outside the field’s usual pattern, shaped unusually strongly by economic precarity and technological disruption.",
+      "publicSummary": "This era stands out from the rest because economic insecurity and tech disruption are unusually strong here.",
       "topSignals": [
         "Economic Precarity",
         "Technological Disruption",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Economic insecurity",
+        "Tech disruption",
+        "Shared hope"
       ]
     }
   ],
@@ -625,6 +762,7 @@
       "id": "p01-prompt-relationship",
       "periodId": "p01",
       "text": "Elite Competition tends to pull away from institutional legitimacy here.",
+      "publicText": "Power struggle often pulls away from public trust here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -633,7 +771,8 @@
     {
       "id": "p02-prompt-family",
       "periodId": "p02",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -643,6 +782,7 @@
       "id": "p03-prompt-relationship",
       "periodId": "p03",
       "text": "Institutional Legitimacy tends to rise with social cohesion here.",
+      "publicText": "Public trust often rises with social bonds here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -651,7 +791,8 @@
     {
       "id": "p05-prompt-family",
       "periodId": "p05",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -660,7 +801,8 @@
     {
       "id": "p06-prompt-family",
       "periodId": "p06",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -669,7 +811,8 @@
     {
       "id": "p07-prompt-family",
       "periodId": "p07",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -679,6 +822,7 @@
       "id": "p09-prompt-outlier",
       "periodId": "p09",
       "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "publicText": "This era carries heavy pressure, but the centre still holds.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -688,6 +832,7 @@
       "id": "p10-prompt-outlier",
       "periodId": "p10",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -697,6 +842,7 @@
       "id": "p11-prompt-relationship",
       "periodId": "p11",
       "text": "Technological Disruption tends to rise with information acceleration here.",
+      "publicText": "Tech disruption often rises with information rush here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -706,6 +852,7 @@
       "id": "p12-prompt-outlier",
       "periodId": "p12",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",

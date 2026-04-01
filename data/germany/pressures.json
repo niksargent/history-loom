@@ -1,0 +1,218 @@
+[
+  {
+    "id": "inequality",
+    "label": "Inequality",
+    "description": "The concentration of power, wealth, and advantage across the social order.",
+    "category": "social",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 62,
+      "de-p02": 70,
+      "de-p03": 52
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["reform pressure", "class strain", "anti-establishment backlash"],
+    "relatedPressureIds": [
+      "economicPrecarity",
+      "socialCohesion"
+    ]
+  },
+  {
+    "id": "eliteCompetition",
+    "label": "Elite Competition",
+    "description": "Conflict, faction, and rivalry among those with power.",
+    "category": "political",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 70,
+      "de-p02": 82,
+      "de-p03": 48
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["constitutional strain", "regime break", "coalition fracture"],
+    "relatedPressureIds": [
+      "institutionalLegitimacy",
+      "militarization"
+    ]
+  },
+  {
+    "id": "institutionalLegitimacy",
+    "label": "Institutional Legitimacy",
+    "description": "The degree to which governing arrangements are accepted as rightful and workable.",
+    "category": "political",
+    "polarity": "stabiliser",
+    "valuesByPeriod": {
+      "de-p01": 46,
+      "de-p02": 26,
+      "de-p03": 74
+    },
+    "peakPeriods": ["de-p03", "de-p01", "de-p02"],
+    "releasePatterns": ["reconstruction", "constitutional settlement", "democratic repair"],
+    "relatedPressureIds": [
+      "publicHope",
+      "socialCohesion"
+    ]
+  },
+  {
+    "id": "socialCohesion",
+    "label": "Social Cohesion",
+    "description": "The extent of shared trust, belonging, and common purpose.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": {
+      "de-p01": 42,
+      "de-p02": 24,
+      "de-p03": 58
+    },
+    "peakPeriods": ["de-p03", "de-p01", "de-p02"],
+    "releasePatterns": ["shared rebuilding", "regional strain", "collective memory work"],
+    "relatedPressureIds": [
+      "publicHope",
+      "institutionalLegitimacy"
+    ]
+  },
+  {
+    "id": "technologicalDisruption",
+    "label": "Technological Disruption",
+    "description": "The speed and intensity with which new technologies unsettle work, war, daily life, and institutions.",
+    "category": "technological",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 78,
+      "de-p02": 84,
+      "de-p03": 68
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["industrial acceleration", "war-machine expansion", "digital fragmentation"],
+    "relatedPressureIds": [
+      "informationAcceleration",
+      "economicPrecarity"
+    ]
+  },
+  {
+    "id": "informationAcceleration",
+    "label": "Information Acceleration",
+    "description": "The speed and reach of communication, persuasion, and narrative spread.",
+    "category": "informational",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 58,
+      "de-p02": 82,
+      "de-p03": 78
+    },
+    "peakPeriods": ["de-p02", "de-p03", "de-p01"],
+    "releasePatterns": ["mass persuasion", "propaganda", "networked fragmentation"],
+    "relatedPressureIds": [
+      "moralCertainty",
+      "socialCohesion"
+    ]
+  },
+  {
+    "id": "ecologicalStrain",
+    "label": "Ecological Strain",
+    "description": "Stress arising from climate, disease, harvest pressure, resource use, or environmental damage.",
+    "category": "ecological",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 28,
+      "de-p02": 34,
+      "de-p03": 44
+    },
+    "peakPeriods": ["de-p03", "de-p02", "de-p01"],
+    "releasePatterns": ["resource strain", "environmental exposure", "late-modern stress"],
+    "relatedPressureIds": [
+      "economicPrecarity",
+      "socialCohesion"
+    ]
+  },
+  {
+    "id": "militarization",
+    "label": "Militarization",
+    "description": "The intensity with which war-making or military logic shapes society and the state.",
+    "category": "military",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 64,
+      "de-p02": 96,
+      "de-p03": 32
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["state expansion", "total war", "security retrenchment"],
+    "relatedPressureIds": [
+      "institutionalLegitimacy",
+      "publicHope"
+    ]
+  },
+  {
+    "id": "moralCertainty",
+    "label": "Moral Certainty",
+    "description": "The force with which a society treats beliefs, doctrine, or ideology as non-negotiable.",
+    "category": "cultural",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 60,
+      "de-p02": 92,
+      "de-p03": 42
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["ideological hardening", "absolutism", "moral caution"],
+    "relatedPressureIds": [
+      "socialCohesion",
+      "eliteCompetition"
+    ]
+  },
+  {
+    "id": "publicHope",
+    "label": "Public Hope",
+    "description": "Shared confidence that the future can be made better.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": {
+      "de-p01": 56,
+      "de-p02": 30,
+      "de-p03": 62
+    },
+    "peakPeriods": ["de-p03", "de-p01", "de-p02"],
+    "releasePatterns": ["reconstruction", "national possibility", "late-modern fatigue"],
+    "relatedPressureIds": [
+      "institutionalLegitimacy",
+      "socialCohesion"
+    ]
+  },
+  {
+    "id": "individualAutonomy",
+    "label": "Individual Autonomy",
+    "description": "The room people have to define life choices beyond inherited station and obligation.",
+    "category": "social",
+    "polarity": "stabiliser",
+    "valuesByPeriod": {
+      "de-p01": 40,
+      "de-p02": 22,
+      "de-p03": 72
+    },
+    "peakPeriods": ["de-p03", "de-p01", "de-p02"],
+    "releasePatterns": ["rights widening", "pluralism", "post-authoritarian opening"],
+    "relatedPressureIds": [
+      "informationAcceleration",
+      "institutionalLegitimacy"
+    ]
+  },
+  {
+    "id": "economicPrecarity",
+    "label": "Economic Precarity",
+    "description": "Exposure to insecurity in work, price, subsistence, and material survival.",
+    "category": "economic",
+    "polarity": "stress",
+    "valuesByPeriod": {
+      "de-p01": 66,
+      "de-p02": 80,
+      "de-p03": 48
+    },
+    "peakPeriods": ["de-p02", "de-p01", "de-p03"],
+    "releasePatterns": ["industrial strain", "inflation and unemployment", "regional adjustment"],
+    "relatedPressureIds": [
+      "inequality",
+      "socialCohesion"
+    ]
+  }
+]

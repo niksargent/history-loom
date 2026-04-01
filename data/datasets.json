@@ -1,12 +1,14 @@
 [
   {
     "id": "britain-1066-2025",
+    "dataPath": ".",
     "label": "Britain, 1066-2025",
     "scope": "Britain",
     "startYear": 1066,
     "endYear": 2025,
     "status": "template-dataset-1",
     "currentPriority": "selective-validation-to-solid",
+    "insightVisibility": "public",
     "defaultLensId": "britain-80-year-civic",
     "availableLensIds": [
       "britain-80-year-civic"
@@ -52,12 +54,14 @@
   },
   {
     "id": "united-states-1776-2025",
+    "dataPath": "usa",
     "label": "United States, 1776-2025",
     "scope": "United States",
     "startYear": 1776,
     "endYear": 2025,
     "status": "usable-draft",
     "currentPriority": "selective-validation-to-solid",
+    "insightVisibility": "public",
     "defaultLensId": "usa-civic-8-era",
     "availableLensIds": [
       "usa-civic-8-era"
@@ -97,12 +101,14 @@
   },
   {
     "id": "france-1789-2025",
+    "dataPath": "france",
     "label": "France, 1789-2025",
     "scope": "France",
     "startYear": 1789,
     "endYear": 2025,
     "status": "usable-draft",
     "currentPriority": "selective-validation-to-solid",
+    "insightVisibility": "public",
     "defaultLensId": "france-civic-9-era",
     "availableLensIds": [
       "france-civic-9-era"
@@ -139,5 +145,42 @@
       "baseMid": "rgba(32,36,43,1)",
       "baseBottom": "rgba(11,13,15,1)"
     }
+  },
+  {
+    "id": "germany-1815-2025",
+    "dataPath": "germany",
+    "label": "Germany, 1815-2025",
+    "scope": "Germany",
+    "startYear": 1815,
+    "endYear": 2025,
+    "status": "process-rehearsal",
+    "currentPriority": "pipeline-rehearsal",
+    "insightVisibility": "internal",
+    "defaultLensId": "germany-civic-3-era",
+    "availableLensIds": [
+      "germany-civic-3-era"
+    ],
+    "supportedThemeIds": [
+      "legitimacy",
+      "order",
+      "fracture",
+      "technology",
+      "labour",
+      "belief",
+      "identity",
+      "inequality",
+      "reform",
+      "empire",
+      "war",
+      "information"
+    ],
+    "supportedGeographyIds": [
+      "germany",
+      "europe",
+      "global"
+    ],
+    "notes": "Temporary Germany mini-seed used to rehearse the end-to-end dataset production pipeline. Not a real public dataset and not a maturity claim.",
+    "hasPopulationCoverage": true,
+    "populationConfidence": "exploratory"
   }
 ]

@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef } from 'react'
 import { formatPopulationCompact, sentenceCase } from '../lib/format'
+import { getPublicPeriodSummary } from '../lib/public-copy'
 import type { ComparePanelModel } from '../types/view'
 
 interface ComparePanelProps {
@@ -204,7 +205,9 @@ function CompareSummaryCard({
         </div>
       </div>
 
-      <p className="mt-4 text-sm leading-6 text-stone-300">{detail.period.summary}</p>
+      <p className="mt-4 text-sm leading-6 text-stone-300">
+        {getPublicPeriodSummary(detail.period)}
+      </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {populationCompact ? (
@@ -235,7 +238,7 @@ function CompareSummaryCard({
       {selectedPressureId && activePressureValue !== null ? (
         <div className={`surface-depth mt-5 rounded-[1.25rem] border p-4 ${styles.panel}`}>
           <p className={`text-[10px] uppercase tracking-[0.22em] ${styles.accent}`}>
-            Active pressure
+            Selected force
           </p>
           <div className="mt-3 flex items-center justify-between gap-3 text-sm text-stone-200">
             <span>{selectedPressureLabel ?? selectedPressureId}</span>
@@ -409,7 +412,7 @@ export function ComparePanel({
     .filter((pressure) =>
       model.target.allPressureSnapshots.some((targetPressure) => targetPressure.id === pressure.id),
     )
-    .map((pressure) => pressure.label)
+    .map((pressure) => pressure.publicLabel ?? pressure.label)
   const echoLink = findEchoReason(model)
   const readingLine = buildReadingLine(
     sharedValues,

@@ -40,6 +40,13 @@ Examples to avoid:
 - `mobilised settlement`
 - `structural family`
 
+Default banned public terms:
+- `field`
+- `settlement`
+- `structural`
+- `derived`
+- `causation`
+
 These may be acceptable in docs or internal review.
 They are poor default UI language.
 
@@ -54,6 +61,15 @@ Prefer wording that points to a felt pattern:
 - `power hardens`
 - `trust falls away`
 - `new technology outruns old rules`
+
+## Approved replacements
+
+- `field` -> `history`, `across time`, `across this history`
+- `legitimacy` -> `public trust`, `faith in institutions`, `confidence in the system`
+- `settlement` -> `order`, `new order`, `shared arrangement`, `rules people accept`
+- `structural` -> `deeper`, `underlying`, `recurring`, or omit it
+- `derived` -> `noticed`, `spotted`, `found`, or omit it
+- `causation` -> `cause and effect`, or omit it
 
 ## Public writing principles
 
@@ -115,3 +131,12 @@ Before shipping a public label or heading, ask:
 3. Can some of the meaning be carried by colour, layout, or motion instead?
 
 If the answer is no, rewrite it.
+
+## Operational enforcement
+
+The validator now checks:
+- public UI string literals in the main public surfaces
+- `public*` copy fields in datasets and derived packs
+- shared public-copy configuration in `data/public-copy.json`
+
+If banned public terms appear there, the check should fail before shipping.

@@ -5,7 +5,7 @@
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T18:22:44.405Z"
+    "generatedAt": "2026-03-31T20:52:19.387Z"
   },
   "periodClusters": [
     {
@@ -13,13 +13,20 @@
       "periodId": "us-p04",
       "clusterId": "united-states-1776-2025-cluster-1",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Industrial Concentration, Segregation, Reform, and Imperial Turn sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when inequality and information rush stand out most clearly.",
       "topSignals": [
         "Inequality",
         "Information Acceleration",
         "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Inequality",
+        "Information rush",
+        "Tech disruption"
       ]
     },
     {
@@ -27,13 +34,20 @@
       "periodId": "us-p07",
       "clusterId": "united-states-1776-2025-cluster-1",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.704,
       "confidence": "moderate",
       "summary": "Realignment, Neoliberal Turn, and Media Fracture sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when inequality and information rush stand out most clearly.",
       "topSignals": [
         "Inequality",
         "Information Acceleration",
         "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Inequality",
+        "Information rush",
+        "Tech disruption"
       ]
     },
     {
@@ -41,13 +55,20 @@
       "periodId": "us-p08",
       "clusterId": "united-states-1776-2025-cluster-1",
       "clusterLabel": "fragmenting acceleration",
+      "publicLabel": "Fast change, fraying trust",
       "strength": 0.553,
       "confidence": "experimental",
       "summary": "Security State, Platform Era, and Polarization sits inside the fragmenting acceleration family, with inequality and information acceleration most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when inequality and information rush stand out most clearly.",
       "topSignals": [
         "Inequality",
         "Information Acceleration",
         "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Inequality",
+        "Information rush",
+        "Tech disruption"
       ]
     },
     {
@@ -55,13 +76,20 @@
       "periodId": "us-p01",
       "clusterId": "united-states-1776-2025-cluster-2",
       "clusterLabel": "mobilised settlement",
+      "publicLabel": "Order rebuilt under pressure",
       "strength": 0.749,
       "confidence": "moderate",
       "summary": "Revolution and Constitutional Founding sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Shared hope"
       ]
     },
     {
@@ -69,13 +97,20 @@
       "periodId": "us-p02",
       "clusterId": "united-states-1776-2025-cluster-2",
       "clusterLabel": "mobilised settlement",
+      "publicLabel": "Order rebuilt under pressure",
       "strength": 0.732,
       "confidence": "moderate",
       "summary": "Republic-Building, Expansion, and Sectional Strain sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Shared hope"
       ]
     },
     {
@@ -83,13 +118,20 @@
       "periodId": "us-p03",
       "clusterId": "united-states-1776-2025-cluster-2",
       "clusterLabel": "mobilised settlement",
+      "publicLabel": "Order rebuilt under pressure",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Slavery Crisis, Civil War, and Reconstruction sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Shared hope"
       ]
     },
     {
@@ -97,13 +139,20 @@
       "periodId": "us-p05",
       "clusterId": "united-states-1776-2025-cluster-2",
       "clusterLabel": "mobilised settlement",
+      "publicLabel": "Order rebuilt under pressure",
       "strength": 0.592,
       "confidence": "experimental",
       "summary": "Depression, New Deal, and World War sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Shared hope"
       ]
     },
     {
@@ -111,13 +160,20 @@
       "periodId": "us-p06",
       "clusterId": "united-states-1776-2025-cluster-2",
       "clusterLabel": "mobilised settlement",
+      "publicLabel": "Order rebuilt under pressure",
       "strength": 0.623,
       "confidence": "experimental",
       "summary": "Postwar Order and Civil Rights Transformation sits inside the mobilised settlement family, with militarization and inequality most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and inequality stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Inequality",
         "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Inequality",
+        "Shared hope"
       ]
     }
   ],
@@ -126,9 +182,12 @@
       "id": "united-states-1776-2025-institutionalLegitimacy-socialCohesion-lag0",
       "sourcePressureId": "institutionalLegitimacy",
       "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
       "targetPressureId": "socialCohesion",
       "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with social bonds",
       "lag": 0,
       "strength": 0.958,
       "confidence": "strong",
@@ -142,15 +201,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here.",
+      "publicSummary": "Public trust and social bonds often rise together across this history."
     },
     {
       "id": "united-states-1776-2025-informationAcceleration-individualAutonomy-lag0",
       "sourcePressureId": "informationAcceleration",
       "sourceLabel": "Information Acceleration",
+      "publicSourceLabel": "Information rush",
       "targetPressureId": "individualAutonomy",
       "targetLabel": "Individual Autonomy",
+      "publicTargetLabel": "Personal freedom",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with personal freedom",
       "lag": 0,
       "strength": 0.952,
       "confidence": "strong",
@@ -164,15 +227,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Information Acceleration and individual autonomy repeatedly rise together here."
+      "summary": "Information Acceleration and individual autonomy repeatedly rise together here.",
+      "publicSummary": "Information rush and personal freedom often rise together across this history."
     },
     {
       "id": "united-states-1776-2025-technologicalDisruption-informationAcceleration-lag0",
       "sourcePressureId": "technologicalDisruption",
       "sourceLabel": "Technological Disruption",
+      "publicSourceLabel": "Tech disruption",
       "targetPressureId": "informationAcceleration",
       "targetLabel": "Information Acceleration",
+      "publicTargetLabel": "Information rush",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with information rush",
       "lag": 0,
       "strength": 0.905,
       "confidence": "strong",
@@ -186,15 +253,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "publicSummary": "Tech disruption and information rush often rise together across this history."
     },
     {
       "id": "united-states-1776-2025-socialCohesion-economicPrecarity-lag1",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "economicPrecarity",
       "targetLabel": "Economic Precarity",
+      "publicTargetLabel": "Economic insecurity",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before economic insecurity",
       "lag": 1,
       "strength": 0.901,
       "confidence": "strong",
@@ -207,15 +278,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Social Cohesion often intensifies before economic precarity does here."
+      "summary": "Social Cohesion often intensifies before economic precarity does here.",
+      "publicSummary": "Social bonds often starts moving before economic insecurity here."
     },
     {
       "id": "united-states-1776-2025-institutionalLegitimacy-publicHope-lag0",
       "sourcePressureId": "institutionalLegitimacy",
       "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
       "targetPressureId": "publicHope",
       "targetLabel": "Public Hope",
+      "publicTargetLabel": "Shared hope",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with shared hope",
       "lag": 0,
       "strength": 0.843,
       "confidence": "strong",
@@ -229,15 +304,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Institutional Legitimacy and public hope repeatedly rise together here."
+      "summary": "Institutional Legitimacy and public hope repeatedly rise together here.",
+      "publicSummary": "Public trust and shared hope often rise together across this history."
     },
     {
       "id": "united-states-1776-2025-eliteCompetition-institutionalLegitimacy-lag0",
       "sourcePressureId": "eliteCompetition",
       "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
       "targetPressureId": "institutionalLegitimacy",
       "targetLabel": "Institutional Legitimacy",
+      "publicTargetLabel": "Public trust",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from public trust",
       "lag": 0,
       "strength": 0.826,
       "confidence": "strong",
@@ -251,15 +330,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here.",
+      "publicSummary": "Power struggle and public trust often pull in opposite directions across this history."
     },
     {
       "id": "united-states-1776-2025-institutionalLegitimacy-individualAutonomy-lag0",
       "sourcePressureId": "institutionalLegitimacy",
       "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
       "targetPressureId": "individualAutonomy",
       "targetLabel": "Individual Autonomy",
+      "publicTargetLabel": "Personal freedom",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from personal freedom",
       "lag": 0,
       "strength": 0.814,
       "confidence": "moderate",
@@ -273,15 +356,19 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Institutional Legitimacy and individual autonomy repeatedly pull apart here."
+      "summary": "Institutional Legitimacy and individual autonomy repeatedly pull apart here.",
+      "publicSummary": "Public trust and personal freedom often pull in opposite directions across this history."
     },
     {
       "id": "united-states-1776-2025-socialCohesion-moralCertainty-lag0",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "moralCertainty",
       "targetLabel": "Moral Certainty",
+      "publicTargetLabel": "Moral certainty",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from moral certainty",
       "lag": 0,
       "strength": 0.813,
       "confidence": "moderate",
@@ -295,7 +382,8 @@
         "us-p07",
         "us-p08"
       ],
-      "summary": "Social Cohesion and moral certainty repeatedly pull apart here."
+      "summary": "Social Cohesion and moral certainty repeatedly pull apart here.",
+      "publicSummary": "Social bonds and moral certainty often pull in opposite directions across this history."
     }
   ],
   "outliers": [
@@ -306,11 +394,18 @@
       "strength": 0.99,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "Security State, Platform Era, and Polarization sits outside the field’s usual pattern, shaped unusually strongly by information acceleration and public hope.",
+      "publicSummary": "This era stands out from the rest because information rush and shared hope are unusually strong here.",
       "topSignals": [
         "Information Acceleration",
         "Public Hope",
         "Individual Autonomy"
+      ],
+      "publicTopSignals": [
+        "Information rush",
+        "Shared hope",
+        "Personal freedom"
       ]
     },
     {
@@ -320,11 +415,18 @@
       "strength": 0.917,
       "confidence": "strong",
       "explanationLabel": "High strain and strong order coexist",
+      "publicLabel": "Heavy strain, but the centre still holds",
       "summary": "Depression, New Deal, and World War is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "publicSummary": "This era carries heavy pressure, but the centre still holds more firmly than you might expect.",
       "topSignals": [
         "Social Cohesion",
         "Elite Competition",
         "Economic Precarity"
+      ],
+      "publicTopSignals": [
+        "Social bonds",
+        "Power struggle",
+        "Economic insecurity"
       ]
     },
     {
@@ -334,11 +436,18 @@
       "strength": 0.829,
       "confidence": "strong",
       "explanationLabel": "High strain and strong order coexist",
+      "publicLabel": "Heavy strain, but the centre still holds",
       "summary": "Postwar Order and Civil Rights Transformation is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "publicSummary": "This era carries heavy pressure, but the centre still holds more firmly than you might expect.",
       "topSignals": [
         "Economic Precarity",
         "Inequality",
         "Elite Competition"
+      ],
+      "publicTopSignals": [
+        "Economic insecurity",
+        "Inequality",
+        "Power struggle"
       ]
     }
   ],
@@ -418,7 +527,8 @@
     {
       "id": "us-p01-prompt-family",
       "periodId": "us-p01",
-      "text": "This era is one of the moments when order is rebuilt under pressure.",
+      "text": "This is one of the moments when a shaken system is pulled back together under pressure.",
+      "publicText": "This is one of the moments when a shaken system is pulled back together under pressure.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -427,7 +537,8 @@
     {
       "id": "us-p02-prompt-family",
       "periodId": "us-p02",
-      "text": "This era is one of the moments when order is rebuilt under pressure.",
+      "text": "This is one of the moments when a shaken system is pulled back together under pressure.",
+      "publicText": "This is one of the moments when a shaken system is pulled back together under pressure.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -437,6 +548,7 @@
       "id": "us-p03-prompt-relationship",
       "periodId": "us-p03",
       "text": "Technological Disruption tends to rise with information acceleration here.",
+      "publicText": "Tech disruption often rises with information rush here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -446,6 +558,7 @@
       "id": "us-p04-prompt-relationship",
       "periodId": "us-p04",
       "text": "Technological Disruption tends to rise with information acceleration here.",
+      "publicText": "Tech disruption often rises with information rush here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -455,6 +568,7 @@
       "id": "us-p05-prompt-outlier",
       "periodId": "us-p05",
       "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "publicText": "This era carries heavy pressure, but the centre still holds.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -464,6 +578,7 @@
       "id": "us-p06-prompt-outlier",
       "periodId": "us-p06",
       "text": "This era is unusual: heavy strain coexists with unexpectedly strong order.",
+      "publicText": "This era carries heavy pressure, but the centre still holds.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -472,7 +587,8 @@
     {
       "id": "us-p07-prompt-family",
       "periodId": "us-p07",
-      "text": "This era is one of the moments when fast change starts to fray trust.",
+      "text": "This is one of the moments when fast change starts pulling trust and everyday life apart.",
+      "publicText": "This is one of the moments when fast change starts pulling trust and everyday life apart.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -482,6 +598,7 @@
       "id": "us-p08-prompt-outlier",
       "periodId": "us-p08",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "de-x01",
+    "sourcePeriodId": "de-p01",
+    "targetPeriodId": "de-p03",
+    "similarityLabel": "State-building widens order while leaving the belonging question open",
+    "similarityReasons": [
+      "Both periods build stronger national institutions while still wrestling with who fully belongs inside the settlement.",
+      "Both tie legitimacy to effective order more than to easy social harmony."
+    ],
+    "dimensions": ["institutionalLegitimacy", "socialCohesion", "individualAutonomy"],
+    "confidence": 0.71,
+    "notes": "This is a process-rehearsal echo, not a polished public claim."
+  },
+  {
+    "id": "de-x02",
+    "sourcePeriodId": "de-p02",
+    "targetPeriodId": "de-p03",
+    "similarityLabel": "The late settlement is built in the shadow of total collapse",
+    "similarityReasons": [
+      "The democratic postwar field is defined partly by rejecting the catastrophe that preceded it.",
+      "The second period’s breakdown remains a live reference point inside the third period’s legitimacy and memory politics."
+    ],
+    "dimensions": ["institutionalLegitimacy", "moralCertainty", "publicHope"],
+    "confidence": 0.76,
+    "notes": "This is a process-rehearsal echo, not a polished public claim."
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "project": "The History Loom",
+  "dataset": "Germany Seed Dataset",
+  "scope": "Germany",
+  "startYear": 1815,
+  "endYear": 2025,
+  "initialLensYears": 0,
+  "lensCount": 3,
+  "note": "The first Germany lens uses a curated multi-era civic lens. The zero value is a compatibility placeholder until the lensing layer carries non-equal spans directly."
+}

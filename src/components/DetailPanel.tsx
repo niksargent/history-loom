@@ -11,6 +11,17 @@ import {
   getScaleAccent,
   getReleaseLabel,
 } from '../lib/loom-data'
+import {
+  getPublicPeriodPressureSummary,
+  getPublicPeriodReading,
+  getPublicPeriodSummary,
+  getPublicSnapshotDailyReality,
+  getPublicSnapshotSummary,
+  getPublicSnapshotTitle,
+  getPublicVoicePrompt,
+  getPublicVoiceResponse,
+  getPublicVoiceSpeakerFrame,
+} from '../lib/public-copy'
 import type { LivedVoice, Scale } from '../types/domain'
 import type { InsightPrompt } from '../types/insights'
 import type {
@@ -65,6 +76,12 @@ function getScaleShellClass(scale: Scale, isImpacted: boolean) {
 }
 
 function buildPeriodReading(detail: SelectedPeriodDetail) {
+  const customReading = getPublicPeriodReading(detail.period)
+
+  if (customReading) {
+    return customReading
+  }
+
   const valueLead = detail.period.dominantValues
     .slice(0, 2)
     .map((value) => sentenceCase(value))
@@ -73,14 +90,15 @@ function buildPeriodReading(detail: SelectedPeriodDetail) {
     .slice(0, 2)
     .map((mood) => sentenceCase(mood))
     .join(' / ')
-  const leadPressure = detail.allPressureSnapshots[0]?.label ?? null
+  const leadPressure =
+    detail.allPressureSnapshots[0]?.publicLabel ?? detail.allPressureSnapshots[0]?.label ?? null
   const releaseLabel = getReleaseLabel(detail.period.releaseType).toLowerCase()
 
   if (leadPressure) {
-    return `${detail.period.title} reads as a ${releaseLabel} period: ${valueLead || 'its leading values'} sit near the surface, the mood leans ${moodLead || 'mixed'}, and the strongest pressure gathers around ${leadPressure.toLowerCase()}.`
+    return `${detail.period.title} feels like a ${releaseLabel} moment: ${valueLead || 'its main values'} sit close to the surface, the mood leans ${moodLead || 'mixed'}, and one of the biggest pressures is ${leadPressure.toLowerCase()}.`
   }
 
-  return `${detail.period.title} reads as a ${releaseLabel} period shaped by ${valueLead || 'its dominant values'}, with a public mood of ${moodLead || 'mixed feeling'}.`
+  return `${detail.period.title} feels like a ${releaseLabel} moment shaped by ${valueLead || 'its main values'}, with a mood of ${moodLead || 'mixed feeling'}.`
 }
 
 interface SectionDisclosureProps {
@@ -149,9 +167,9 @@ function LivedVoiceCard({
           <div>
             <p className="eyebrow">Lived voice</p>
             <h3 className="mt-2 text-base text-stone-100">{title}</h3>
-            {activeVoice.speakerFrame ? (
+            {getPublicVoiceSpeakerFrame(activeVoice) ? (
               <p className="mt-2 text-sm leading-6 text-stone-300">
-                {activeVoice.speakerFrame}
+                {getPublicVoiceSpeakerFrame(activeVoice)}
               </p>
             ) : null}
           </div>
@@ -179,11 +197,11 @@ function LivedVoiceCard({
             ))}
           </div>
         ) : null}
-        {activeVoice.prompt ? (
-          <p className="mt-4 text-sm leading-6 text-stone-500">{activeVoice.prompt}</p>
+        {getPublicVoicePrompt(activeVoice) ? (
+          <p className="mt-4 text-sm leading-6 text-stone-500">{getPublicVoicePrompt(activeVoice)}</p>
         ) : null}
         <p className="mt-4 max-w-3xl text-base leading-7 text-stone-50 md:text-lg">
-          “{activeVoice.response}”
+          “{getPublicVoiceResponse(activeVoice)}”
         </p>
       </div>
     </article>
@@ -341,7 +359,7 @@ function DetailSections({
         title="Forces in play"
         summary={
           selectedPressureSeries
-            ? `${selectedPressureSeries.label} is in focus within ${allPressureSnapshots.length} tracked forces. Showing the strongest ${pressureSnapshots.length}.`
+            ? `${selectedPressureSeries.publicLabel ?? selectedPressureSeries.label} is in focus within ${allPressureSnapshots.length} tracked forces. Showing the strongest ${pressureSnapshots.length}.`
             : `${allPressureSnapshots.length} tracked forces shape this period. Showing the strongest ${pressureSnapshots.length}.`
         }
         isCollapsed={collapsedSections.pressures}
@@ -355,7 +373,7 @@ function DetailSections({
               <div key={pressure.id}>
                 <div className="flex items-center justify-between gap-3 text-sm text-stone-200">
                   <span className={isSelectedPressure ? 'text-amber-100' : ''}>
-                    {pressure.label}
+                    {pressure.publicLabel ?? pressure.label}
                   </span>
                   <span className="text-stone-400">{pressure.value}</span>
                 </div>
@@ -377,7 +395,9 @@ function DetailSections({
             )
           })}
         </div>
-        <p className="mt-4 text-sm leading-6 text-stone-400">{period.pressureSummary}</p>
+        <p className="mt-4 text-sm leading-6 text-stone-400">
+          {getPublicPeriodPressureSummary(period)}
+        </p>
       </SectionDisclosure>
 
       <SectionDisclosure
@@ -529,10 +549,14 @@ function DetailSections({
           {snapshot ? (
             <article className="rounded-[1.25rem] border border-amber-200/14 bg-amber-300/6 p-4">
               <h4 className="text-sm uppercase tracking-[0.2em] text-amber-100">
-                {snapshot.title}
+                {getPublicSnapshotTitle(snapshot)}
               </h4>
-              <p className="mt-3 text-sm leading-6 text-stone-200">{snapshot.summary}</p>
-              <p className="mt-3 text-sm leading-6 text-stone-400">{snapshot.dailyReality}</p>
+              <p className="mt-3 text-sm leading-6 text-stone-200">
+                {getPublicSnapshotSummary(snapshot)}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-stone-400">
+                {getPublicSnapshotDailyReality(snapshot)}
+              </p>
             </article>
           ) : null}
 
@@ -605,8 +629,11 @@ export function DetailPanel({
         label: 'Voice',
         voiceMode: snapshot.voiceMode,
         speakerFrame: snapshot.speakerFrame,
+        publicSpeakerFrame: snapshot.publicSpeakerFrame,
         prompt: snapshot.prompt,
+        publicPrompt: snapshot.publicPrompt,
         response: snapshot.response,
+        publicResponse: snapshot.publicResponse,
       },
     ]
   }, [snapshot])
@@ -614,7 +641,8 @@ export function DetailPanel({
   const periodReading = buildPeriodReading(detail)
   const populationRead =
     period.populationLabel ?? formatPopulationEstimate(period.populationEstimate)
-  const leadPressureChipLabel = detail.allPressureSnapshots[0]?.label ?? null
+  const leadPressureChipLabel =
+    detail.allPressureSnapshots[0]?.publicLabel ?? detail.allPressureSnapshots[0]?.label ?? null
   const geographyModel = buildGeographyInsetModel(
     Array.from(
       new Set(
@@ -624,7 +652,7 @@ export function DetailPanel({
       ),
     ),
     pressureCascade
-      ? `${pressureCascade.label} through ${period.title}`
+      ? `${pressureCascade.publicLabel ?? pressureCascade.label} through ${period.title}`
       : `${period.title} in place`,
   )
   const supportsInsetMap = datasetId === 'britain-1066-2025'
@@ -653,7 +681,9 @@ export function DetailPanel({
               {isOpen ? 'Collapse' : 'Expand'}
             </button>
           </div>
-          <p className="mt-4 max-w-xl text-sm leading-6 text-stone-400">{period.summary}</p>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-stone-400">
+            {getPublicPeriodSummary(period)}
+          </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
             {period.socialMood.map((mood) => (
@@ -773,7 +803,7 @@ export function DetailPanel({
                   <div className="min-w-0">
                     <p className="eyebrow">Pattern to notice</p>
                     <p className="mt-2 text-sm leading-6 text-stone-200">
-                      {insightPrompt.text}
+                      {insightPrompt.publicText ?? insightPrompt.text}
                     </p>
                   </div>
                   <button

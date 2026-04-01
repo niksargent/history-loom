@@ -52,7 +52,9 @@ export interface PressurePoint {
 export interface PressureOverlaySeries {
   id: string
   label: string
+  publicLabel?: string
   description: string
+  publicDescription?: string
   polarity: PressurePolarity
   category: string
   points: PressurePoint[]
@@ -68,9 +70,11 @@ export interface EchoRevealModel {
 export interface PressureSnapshot {
   id: string
   label: string
+  publicLabel?: string
   value: number
   polarity: PressurePolarity
   description: string
+  publicDescription?: string
 }
 
 export interface GeographyInsetModel {
@@ -82,7 +86,9 @@ export interface GeographyInsetModel {
 export interface PressureCascadeModel {
   pressureId: string
   label: string
+  publicLabel?: string
   description: string
+  publicDescription?: string
   value: number
   polarity: PressurePolarity
   matchedEvents: Event[]

@@ -35,52 +35,6 @@ function sectionShell(isHighlighted: boolean, tone: InsightCardTone) {
     : base
 }
 
-function publicFamilyLabel(label: string) {
-  switch (label) {
-    case 'mobilised settlement':
-      return 'Order rebuilt under pressure'
-    case 'high-hope settlement':
-      return 'Confidence holds things together'
-    case 'fragmenting acceleration':
-      return 'Fast change, fraying trust'
-    case 'militarised conviction':
-      return 'Power hardens around belief'
-    case 'accelerated transition':
-      return 'Fast transition'
-    case 'brittle order':
-      return 'Order starting to crack'
-    default:
-      return 'Recurring pattern'
-  }
-}
-
-function publicOutlierLabel(label: string) {
-  switch (label) {
-    case 'High strain and strong order coexist':
-      return 'Heavy strain, but the centre still holds'
-    case 'Unexpected structural profile':
-      return 'This era behaves differently'
-    case 'Cluster-edge period':
-      return 'This era sits at the edge of the pattern'
-    default:
-      return label
-  }
-}
-
-function relationLine(
-  relationshipType: 'co-movement' | 'inverse' | 'lead-lag',
-  targetLabel: string,
-) {
-  switch (relationshipType) {
-    case 'co-movement':
-      return `rise together with ${targetLabel}`
-    case 'inverse':
-      return `pull apart from ${targetLabel}`
-    case 'lead-lag':
-      return `one often moves before ${targetLabel}`
-  }
-}
-
 function RelationGlyph({
   relationshipType,
 }: {
@@ -165,7 +119,9 @@ export function InsightsLabPage({
             {
               clusterId: string
               clusterLabel: string
+              publicLabel?: string
               topSignals: string[]
+              publicTopSignals?: string[]
               strongestStrength: number
               periods: typeof insightPack.periodClusters
             }
@@ -175,7 +131,9 @@ export function InsightsLabPage({
             groups[assignment.clusterId] = {
               clusterId: assignment.clusterId,
               clusterLabel: assignment.clusterLabel,
+              publicLabel: assignment.publicLabel,
               topSignals: assignment.topSignals,
+              publicTopSignals: assignment.publicTopSignals,
               strongestStrength: assignment.strength,
               periods: [],
             }
@@ -191,11 +149,6 @@ export function InsightsLabPage({
         }, {}),
       ).sort((left, right) => right.strongestStrength - left.strongestStrength)
     : []
-  const internalCrossDatasetCount =
-    crossDatasetPack?.affinities.filter(
-      (affinity) =>
-        affinity.sourceDatasetId === datasetId || affinity.targetDatasetId === datasetId,
-    ).length ?? 0
   const publicCousins =
     crossDatasetPack?.publicCousins.filter(
       (cousin) =>
@@ -242,7 +195,9 @@ export function InsightsLabPage({
                   <h2 className="mt-2 font-display text-2xl text-stone-100">
                     {selectedPeriod.title}
                   </h2>
-                  <p className="mt-3 text-lg leading-8 text-stone-50">{prompt.text}</p>
+                  <p className="mt-3 text-lg leading-8 text-stone-50">
+                    {prompt.publicText ?? prompt.text}
+                  </p>
                 </div>
                 <button
                   type="button"
@@ -283,11 +238,14 @@ export function InsightsLabPage({
                       <div className="flex flex-wrap items-start justify-between gap-4">
                         <div className="max-w-3xl">
                           <p className="text-sm uppercase tracking-[0.18em] text-amber-100">
-                            {publicFamilyLabel(group.clusterLabel)}
+                            {group.publicLabel ?? 'Recurring pattern'}
                           </p>
                           <p className="mt-3 text-sm leading-6 text-stone-300">
                             This pattern shows up in {group.periods.length} era{group.periods.length === 1 ? '' : 's'} here,
-                            with {group.topSignals.slice(0, 2).join(' and ').toLowerCase()} most visible across the group.
+                            with {(group.publicTopSignals ?? group.topSignals)
+                              .slice(0, 2)
+                              .join(' and ')
+                              .toLowerCase()} most visible across the group.
                           </p>
                         </div>
                         <div className="min-w-[10rem]">
@@ -296,7 +254,7 @@ export function InsightsLabPage({
                       </div>
 
                       <div className="mt-4 flex flex-wrap gap-2">
-                        {group.topSignals.map((signal) => (
+                        {(group.publicTopSignals ?? group.topSignals).map((signal) => (
                           <span
                             key={`${group.clusterId}-${signal}`}
                             className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
@@ -460,7 +418,7 @@ export function InsightsLabPage({
                           </div>
 
                           <div className="mt-4 flex flex-wrap gap-2">
-                            {cousin.sharedTopSignals.map((signal) => (
+                            {(cousin.publicSharedTopSignals ?? cousin.sharedTopSignals).map((signal) => (
                               <span
                                 key={`${cousin.id}-${signal}`}
                                 className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
@@ -502,10 +460,11 @@ export function InsightsLabPage({
                         <div className="flex flex-wrap items-start justify-between gap-3">
                           <div>
                             <p className="text-sm uppercase tracking-[0.18em] text-cyan-100">
-                              {relationship.sourceLabel}
+                              {relationship.publicSourceLabel ?? relationship.sourceLabel}
                             </p>
                             <p className="mt-1 text-sm uppercase tracking-[0.18em] text-stone-400">
-                              {relationLine(relationship.relationshipType, relationship.targetLabel)}
+                              {relationship.publicRelationshipLine ??
+                                relationship.relationshipType}
                             </p>
                           </div>
                           <div className="flex items-center gap-3">
@@ -516,15 +475,15 @@ export function InsightsLabPage({
                           </div>
                         </div>
                         <p className="mt-3 text-sm leading-6 text-stone-300">
-                          {relationship.summary}
+                          {relationship.publicSummary ?? relationship.summary}
                         </p>
                         <ConfidenceRail strength={relationship.strength} tone="relationship" />
                         <div className="mt-4 flex flex-wrap gap-3">
                           <button
                             type="button"
                             onClick={() =>
-                              onInspectForce(selectedPeriodId, relationship.sourcePressureId)
-                            }
+                            onInspectForce(selectedPeriodId, relationship.sourcePressureId)
+                          }
                             className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
                           >
                             See this force
@@ -565,14 +524,14 @@ export function InsightsLabPage({
                         </p>
                         <h3 className="mt-2 text-lg text-stone-100">{period?.title}</h3>
                         <p className="mt-2 text-sm uppercase tracking-[0.18em] text-rose-100">
-                          {publicOutlierLabel(outlier.explanationLabel)}
+                          {outlier.publicLabel ?? outlier.explanationLabel}
                         </p>
                         <p className="mt-3 text-sm leading-6 text-stone-300">
-                          {outlier.summary}
+                          {outlier.publicSummary ?? outlier.summary}
                         </p>
                         <ConfidenceRail strength={outlier.strength} tone="outlier" />
                         <div className="mt-3 flex flex-wrap gap-2">
-                          {outlier.topSignals.map((signal) => (
+                          {(outlier.publicTopSignals ?? outlier.topSignals).map((signal) => (
                             <span
                               key={`${outlier.id}-${signal}`}
                               className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
@@ -596,13 +555,13 @@ export function InsightsLabPage({
             </>
           ) : (
             <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-6 md:p-7">
-              <p className="eyebrow">Insight rollout</p>
+              <p className="eyebrow">Insights</p>
               <h2 className="font-display mt-2 text-2xl text-stone-100">
-                Public insight is opening on the United States first
+                Insights are still being prepared here
               </h2>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-300">
-                The wider insight engine already runs across datasets, but public release stays
-                selective until the signals are clear enough to trust and easy enough to read.
+                This history is not ready for public insight cards yet, so the Loom stays the main
+                way in for now.
               </p>
             </section>
           )}
@@ -610,7 +569,7 @@ export function InsightsLabPage({
 
         <aside className="space-y-5 xl:sticky xl:top-5">
           <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-5">
-            <p className="eyebrow">Current field</p>
+            <p className="eyebrow">Current history</p>
             <h2 className="mt-2 text-xl text-stone-100">{datasetLabel}</h2>
             <p className="mt-3 text-sm leading-6 text-stone-300">
               The main page gives you a quick hook. This page opens the fuller story behind it.
@@ -628,12 +587,6 @@ export function InsightsLabPage({
                   ? 'One reviewed cousin is public here. The rest are still under review.'
                   : 'Cross-dataset cousins are still being reviewed before public release.'}
               </p>
-              {internalCrossDatasetCount ? (
-                <p className="text-stone-400">
-                  Internal cross-dataset candidates currently detected for this field:{' '}
-                  {internalCrossDatasetCount}
-                </p>
-              ) : null}
             </div>
           </section>
 
@@ -641,7 +594,9 @@ export function InsightsLabPage({
             <section className="glass-panel rounded-[2rem] border border-[rgba(214,211,209,0.08)] p-5">
               <p className="eyebrow">Current clue</p>
               <h2 className="mt-2 text-xl text-stone-100">{selectedPeriod.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-stone-300">{prompt.text}</p>
+              <p className="mt-3 text-sm leading-6 text-stone-300">
+                {prompt.publicText ?? prompt.text}
+              </p>
             </section>
           ) : null}
         </aside>

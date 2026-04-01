@@ -2,6 +2,7 @@ import type { Period } from '../types/domain'
 import type { LoomDensityMode, PressureOverlaySeries } from '../types/view'
 import { formatPopulationCompact } from '../lib/format'
 import { getReleaseLabel } from '../lib/loom-data'
+import { getPublicPeriodSummary } from '../lib/public-copy'
 
 interface LoomCanvasProps {
   periods: Period[]
@@ -265,7 +266,7 @@ export function LoomCanvas({
                         : 'border-white/10 text-stone-400 hover:border-white/20 hover:text-stone-200'
                     }`}
                   >
-                    {series.label}
+                    {series.publicLabel ?? series.label}
                   </button>
                 )
               })}
@@ -555,7 +556,7 @@ export function LoomCanvas({
               <div>
                 <p className="eyebrow">Population</p>
                 <p className="mt-1 text-sm leading-6 text-stone-400">
-                  The scale of life across the whole field
+                  The scale of life across this history
                 </p>
               </div>
               <div className="text-right">
@@ -702,7 +703,7 @@ export function LoomCanvas({
                             compactStack ? 'mt-2 max-h-[3.7rem] overflow-hidden' : 'mt-3'
                           }`}
                         >
-                          {period.summary}
+                          {getPublicPeriodSummary(period)}
                         </p>
                       ) : null}
                     </div>

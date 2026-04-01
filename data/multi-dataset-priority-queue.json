@@ -67,6 +67,11 @@
       "status": "done"
     },
     {
+      "id": "md-task-14",
+      "label": "Codify dataset acquisition, assembly, validation, and repeatable promotion so future dataset work does not depend on project memory",
+      "status": "done"
+    },
+    {
       "id": "md-task-10b",
       "label": "Review the internal Britain, France, and cross-dataset packs to decide which structural cousins and echo-support signals are honest enough for later public release",
       "status": "done"

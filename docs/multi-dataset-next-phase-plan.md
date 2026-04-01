@@ -16,6 +16,12 @@ The product now has:
 - dataset switching in the live app
 - shared pressure concepts across all three
 - lived voice present across all three
+- a repeatable dataset production baseline:
+  - scaffold command
+  - validation command
+  - registry-driven data paths
+  - operator runbook
+  - editorial review checklist
 
 That is enough to prove the system works.
 It is not yet enough to claim the datasets are fully trusted or cross-comparable.

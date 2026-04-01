@@ -1,0 +1,333 @@
+{
+  "datasetId": "germany-1815-2025",
+  "datasetLabel": "Germany",
+  "publicStatus": "internal",
+  "generation": {
+    "version": "v1",
+    "method": "stats-first-derived-insights",
+    "generatedAt": "2026-03-31T20:52:19.399Z"
+  },
+  "periodClusters": [
+    {
+      "id": "germany-1815-2025-cluster-1-de-p03",
+      "periodId": "de-p03",
+      "clusterId": "germany-1815-2025-cluster-1",
+      "clusterLabel": "reconstruction settlement",
+      "publicLabel": "Order rebuilt after crisis",
+      "strength": 1,
+      "confidence": "strong",
+      "summary": "Division, Reconstruction, and Reunified Strain sits inside the reconstruction settlement family, with information acceleration and institutional legitimacy most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when information rush and public trust stand out most clearly.",
+      "topSignals": [
+        "Information Acceleration",
+        "Institutional Legitimacy",
+        "Individual Autonomy"
+      ],
+      "publicTopSignals": [
+        "Information rush",
+        "Public trust",
+        "Personal freedom"
+      ]
+    },
+    {
+      "id": "germany-1815-2025-cluster-2-de-p01",
+      "periodId": "de-p01",
+      "clusterId": "germany-1815-2025-cluster-2",
+      "clusterLabel": "Technological Disruption family",
+      "publicLabel": "Recurring pattern",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Confederation, Industrial Take-off, and Unification Pressure sits inside the Technological Disruption family family, with technological disruption and militarization most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when tech disruption and militarisation stand out most clearly.",
+      "topSignals": [
+        "Technological Disruption",
+        "Militarization",
+        "Elite Competition"
+      ],
+      "publicTopSignals": [
+        "Tech disruption",
+        "Militarisation",
+        "Power struggle"
+      ]
+    },
+    {
+      "id": "germany-1815-2025-cluster-2-de-p02",
+      "periodId": "de-p02",
+      "clusterId": "germany-1815-2025-cluster-2",
+      "clusterLabel": "Technological Disruption family",
+      "publicLabel": "Recurring pattern",
+      "strength": 0.55,
+      "confidence": "experimental",
+      "summary": "Empire, Breakdown, and Total Catastrophe sits inside the Technological Disruption family family, with technological disruption and militarization most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when tech disruption and militarisation stand out most clearly.",
+      "topSignals": [
+        "Technological Disruption",
+        "Militarization",
+        "Elite Competition"
+      ],
+      "publicTopSignals": [
+        "Tech disruption",
+        "Militarisation",
+        "Power struggle"
+      ]
+    }
+  ],
+  "pressureRelationships": [
+    {
+      "id": "germany-1815-2025-inequality-socialCohesion-lag0",
+      "sourcePressureId": "inequality",
+      "sourceLabel": "Inequality",
+      "publicSourceLabel": "Inequality",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
+      "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from social bonds",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Inequality and social cohesion repeatedly pull apart here.",
+      "publicSummary": "Inequality and social bonds often pull in opposite directions across this history."
+    },
+    {
+      "id": "germany-1815-2025-inequality-economicPrecarity-lag0",
+      "sourcePressureId": "inequality",
+      "sourceLabel": "Inequality",
+      "publicSourceLabel": "Inequality",
+      "targetPressureId": "economicPrecarity",
+      "targetLabel": "Economic Precarity",
+      "publicTargetLabel": "Economic insecurity",
+      "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with economic insecurity",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Inequality and economic precarity repeatedly rise together here.",
+      "publicSummary": "Inequality and economic insecurity often rise together across this history."
+    },
+    {
+      "id": "germany-1815-2025-eliteCompetition-institutionalLegitimacy-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
+      "targetPressureId": "institutionalLegitimacy",
+      "targetLabel": "Institutional Legitimacy",
+      "publicTargetLabel": "Public trust",
+      "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from public trust",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here.",
+      "publicSummary": "Power struggle and public trust often pull in opposite directions across this history."
+    },
+    {
+      "id": "germany-1815-2025-eliteCompetition-militarization-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
+      "targetPressureId": "militarization",
+      "targetLabel": "Militarization",
+      "publicTargetLabel": "Militarisation",
+      "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with militarisation",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Elite Competition and militarization repeatedly rise together here.",
+      "publicSummary": "Power struggle and militarisation often rise together across this history."
+    },
+    {
+      "id": "germany-1815-2025-eliteCompetition-moralCertainty-lag0",
+      "sourcePressureId": "eliteCompetition",
+      "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
+      "targetPressureId": "moralCertainty",
+      "targetLabel": "Moral Certainty",
+      "publicTargetLabel": "Moral certainty",
+      "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with moral certainty",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Elite Competition and moral certainty repeatedly rise together here.",
+      "publicSummary": "Power struggle and moral certainty often rise together across this history."
+    },
+    {
+      "id": "germany-1815-2025-institutionalLegitimacy-socialCohesion-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
+      "targetPressureId": "socialCohesion",
+      "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
+      "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with social bonds",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here.",
+      "publicSummary": "Public trust and social bonds often rise together across this history."
+    },
+    {
+      "id": "germany-1815-2025-institutionalLegitimacy-militarization-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
+      "targetPressureId": "militarization",
+      "targetLabel": "Militarization",
+      "publicTargetLabel": "Militarisation",
+      "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from militarisation",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Institutional Legitimacy and militarization repeatedly pull apart here.",
+      "publicSummary": "Public trust and militarisation often pull in opposite directions across this history."
+    },
+    {
+      "id": "germany-1815-2025-institutionalLegitimacy-publicHope-lag0",
+      "sourcePressureId": "institutionalLegitimacy",
+      "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
+      "targetPressureId": "publicHope",
+      "targetLabel": "Public Hope",
+      "publicTargetLabel": "Shared hope",
+      "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with shared hope",
+      "lag": 0,
+      "strength": 1,
+      "confidence": "strong",
+      "supportingPeriods": [
+        "de-p01",
+        "de-p02",
+        "de-p03"
+      ],
+      "summary": "Institutional Legitimacy and public hope repeatedly rise together here.",
+      "publicSummary": "Public trust and shared hope often rise together across this history."
+    }
+  ],
+  "outliers": [
+    {
+      "id": "germany-1815-2025-outlier-de-p03",
+      "periodId": "de-p03",
+      "outlierType": "high-strain-high-order",
+      "strength": 0.918,
+      "confidence": "strong",
+      "explanationLabel": "High strain and strong order coexist",
+      "publicLabel": "Heavy strain, but the centre still holds",
+      "summary": "Division, Reconstruction, and Reunified Strain is unusual because heavy strain coexists with unusually resilient stabilisers.",
+      "publicSummary": "This era carries heavy pressure, but the centre still holds more firmly than you might expect.",
+      "topSignals": [
+        "Elite Competition",
+        "Individual Autonomy",
+        "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Power struggle",
+        "Personal freedom",
+        "Tech disruption"
+      ]
+    },
+    {
+      "id": "germany-1815-2025-outlier-de-p02",
+      "periodId": "de-p02",
+      "outlierType": "unexpected-profile",
+      "strength": 0.869,
+      "confidence": "strong",
+      "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
+      "summary": "Empire, Breakdown, and Total Catastrophe sits outside the field’s usual pattern, shaped unusually strongly by public hope and moral certainty.",
+      "publicSummary": "This era stands out from the rest because shared hope and moral certainty are unusually strong here.",
+      "topSignals": [
+        "Public Hope",
+        "Moral Certainty",
+        "Social Cohesion"
+      ],
+      "publicTopSignals": [
+        "Shared hope",
+        "Moral certainty",
+        "Social bonds"
+      ]
+    },
+    {
+      "id": "germany-1815-2025-outlier-de-p01",
+      "periodId": "de-p01",
+      "outlierType": "cluster-edge",
+      "strength": 0.425,
+      "confidence": "experimental",
+      "explanationLabel": "Cluster-edge period",
+      "publicLabel": "This era sits at the edge of the usual pattern",
+      "summary": "Confederation, Industrial Take-off, and Unification Pressure sits outside the field’s usual pattern, shaped unusually strongly by information acceleration and ecological strain.",
+      "publicSummary": "This era stands out from the rest because information rush and environmental strain are unusually strong here.",
+      "topSignals": [
+        "Information Acceleration",
+        "Ecological Strain",
+        "Public Hope"
+      ],
+      "publicTopSignals": [
+        "Information rush",
+        "Environmental strain",
+        "Shared hope"
+      ]
+    }
+  ],
+  "echoSupport": [
+    {
+      "id": "germany-1815-2025-echo-support-de-x01",
+      "echoId": "de-x01",
+      "sourcePeriodId": "de-p01",
+      "targetPeriodId": "de-p03",
+      "supportStatus": "weak",
+      "similarityScore": -0.345,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    },
+    {
+      "id": "germany-1815-2025-echo-support-de-x02",
+      "echoId": "de-x02",
+      "sourcePeriodId": "de-p02",
+      "targetPeriodId": "de-p03",
+      "supportStatus": "weak",
+      "similarityScore": -0.888,
+      "confidence": "experimental",
+      "notes": "The authored echo is weaker structurally than it appears narratively."
+    }
+  ],
+  "prompts": []
+}

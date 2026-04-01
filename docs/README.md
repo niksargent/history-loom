@@ -106,12 +106,16 @@ history-loom/
     insights-lab-brief.md
     insight-visual-grammar.md
     public-language-guide.md
+    public-language-remediation-inventory.md
     usa-insight-pilot-plan.md
     dataset-authoring-workflow.md
     dataset-authoring-standards.md
+    dataset-editorial-review-checklist.md
+    dataset-production-runbook.md
     multi-dataset-strategy.md
     research-notes.md
   data/
+    public-copy.json
     datasets.json
     themes.json
     geographies.json
@@ -141,6 +145,9 @@ history-loom/
     events.json
     snapshots.json
     meta.json
+  scripts/
+    scaffold-dataset.mjs
+    validate-datasets.mjs
 ```
 
 ## Current starter dataset
@@ -193,6 +200,7 @@ Implemented now:
 In progress:
 - Britain selective validation rather than open-ended expansion
 - repeatable research and collation workflow for future datasets
+- repeatable dataset scaffolding and validation commands now exist, so future dataset work no longer depends only on memory
 - USA dataset has reached a first usable draft baseline with a first plain-language snapshot uplift completed
 - the USA lived-voice / vox-pop style content pass is now implemented
 - the Britain lived-voice / vox-pop style content pass is now implemented

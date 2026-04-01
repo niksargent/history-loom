@@ -25,6 +25,7 @@ export interface Period {
   scope: string
   geography: string[]
   summary: string
+  publicSummary?: string
   dominantValues: string[]
   socialMood: string[]
   materialCondition: string
@@ -53,6 +54,8 @@ export interface Period {
   themeIds?: string[]
   geographyIds?: string[]
   pressureSummary: string
+  publicPressureSummary?: string
+  publicReading?: string
   releaseType: string
   pressureScores: Record<string, number>
   eventIds: string[]
@@ -68,6 +71,7 @@ export interface Event {
   scope: string
   geography: string
   summary: string
+  publicSummary?: string
   type: string
   periodIds: string[]
   pressureDrivers: string[]
@@ -83,7 +87,9 @@ export interface Event {
 export interface PressureSeries {
   id: string
   label: string
+  publicLabel?: string
   description: string
+  publicDescription?: string
   category: string
   polarity: PressurePolarity
   valuesByPeriod: Record<string, number>
@@ -111,10 +117,13 @@ export interface EchoLink {
   sourcePeriodId: string
   targetPeriodId: string
   similarityLabel: string
+  publicSimilarityLabel?: string
   similarityReasons: string[]
+  publicSimilarityReasons?: string[]
   dimensions: string[]
   confidence: number
   notes: string
+  publicNotes?: string
 }
 
 export interface LivedVoice {
@@ -122,21 +131,30 @@ export interface LivedVoice {
   label: string
   voiceMode?: 'personal' | 'street-level' | 'household' | 'worker' | 'civic'
   speakerFrame?: string
+  publicSpeakerFrame?: string
   prompt?: string
+  publicPrompt?: string
   response: string
+  publicResponse?: string
 }
 
 export interface HumanSnapshot {
   id: string
   periodId: string
   title: string
+  publicTitle?: string
   scale: Scale
   summary: string
+  publicSummary?: string
   dailyReality: string
+  publicDailyReality?: string
   voiceMode?: 'personal' | 'street-level' | 'household' | 'worker' | 'civic'
   speakerFrame?: string
+  publicSpeakerFrame?: string
   prompt?: string
+  publicPrompt?: string
   response?: string
+  publicResponse?: string
   voices?: LivedVoice[]
   sourcesOrRationale: string
 }
@@ -166,6 +184,7 @@ export interface DatasetVisualTheme {
 
 export interface DatasetRegistryEntry {
   id: string
+  dataPath: string
   label: string
   scope: string
   startYear: number
@@ -177,6 +196,7 @@ export interface DatasetRegistryEntry {
   supportedThemeIds: string[]
   supportedGeographyIds: string[]
   notes: string
+  insightVisibility?: 'public' | 'internal'
   hasPopulationCoverage?: boolean
   populationConfidence?: 'strong' | 'moderate' | 'exploratory'
   visualTheme?: DatasetVisualTheme

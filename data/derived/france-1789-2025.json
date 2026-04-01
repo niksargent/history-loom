@@ -5,7 +5,7 @@
   "generation": {
     "version": "v1",
     "method": "stats-first-derived-insights",
-    "generatedAt": "2026-03-26T18:22:44.407Z"
+    "generatedAt": "2026-03-31T20:52:19.396Z"
   },
   "periodClusters": [
     {
@@ -13,13 +13,20 @@
       "periodId": "fr-p09",
       "clusterId": "france-1789-2025-cluster-1",
       "clusterLabel": "accelerated transition",
+      "publicLabel": "Fast transition",
       "strength": 1,
       "confidence": "strong",
       "summary": "European Integration, Identity Strain, and Fragmented Legitimacy sits inside the accelerated transition family, with information acceleration and technological disruption most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when information rush and tech disruption stand out most clearly.",
       "topSignals": [
         "Information Acceleration",
         "Technological Disruption",
         "Elite Competition"
+      ],
+      "publicTopSignals": [
+        "Information rush",
+        "Tech disruption",
+        "Power struggle"
       ]
     },
     {
@@ -27,13 +34,20 @@
       "periodId": "fr-p05",
       "clusterId": "france-1789-2025-cluster-2",
       "clusterLabel": "high-hope settlement",
+      "publicLabel": "Confidence holds things together",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Third Republic, Secular Nation-Building, and Industrial Society sits inside the high-hope settlement family, with institutional legitimacy and public hope most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when public trust and shared hope stand out most clearly.",
       "topSignals": [
         "Institutional Legitimacy",
         "Public Hope",
         "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Public trust",
+        "Shared hope",
+        "Tech disruption"
       ]
     },
     {
@@ -41,13 +55,20 @@
       "periodId": "fr-p08",
       "clusterId": "france-1789-2025-cluster-2",
       "clusterLabel": "high-hope settlement",
+      "publicLabel": "Confidence holds things together",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Fifth Republic, Decolonization, and Technocratic Order sits inside the high-hope settlement family, with institutional legitimacy and public hope most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when public trust and shared hope stand out most clearly.",
       "topSignals": [
         "Institutional Legitimacy",
         "Public Hope",
         "Technological Disruption"
+      ],
+      "publicTopSignals": [
+        "Public trust",
+        "Shared hope",
+        "Tech disruption"
       ]
     },
     {
@@ -55,12 +76,19 @@
       "periodId": "fr-p01",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.55,
       "confidence": "experimental",
       "summary": "Revolution and Radical Refounding sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     },
@@ -69,12 +97,19 @@
       "periodId": "fr-p02",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.649,
       "confidence": "experimental",
       "summary": "Consulate, Empire, and Continental War sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     },
@@ -83,12 +118,19 @@
       "periodId": "fr-p03",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.681,
       "confidence": "moderate",
       "summary": "Restoration, Monarchy, and Recurrent Rupture sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     },
@@ -97,12 +139,19 @@
       "periodId": "fr-p04",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.797,
       "confidence": "moderate",
       "summary": "Republic, Empire, and Defeat sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     },
@@ -111,12 +160,19 @@
       "periodId": "fr-p06",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.658,
       "confidence": "experimental",
       "summary": "War, Instability, and Republican Fracture sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     },
@@ -125,12 +181,19 @@
       "periodId": "fr-p07",
       "clusterId": "france-1789-2025-cluster-3",
       "clusterLabel": "militarised conviction",
+      "publicLabel": "Power hardens around belief",
       "strength": 0.755,
       "confidence": "moderate",
       "summary": "Occupation, Liberation, Fourth Republic, and Empire Crisis sits inside the militarised conviction family, with militarization and moral certainty most visible in the profile.",
+      "publicSummary": "This era belongs with other moments when militarisation and moral certainty stand out most clearly.",
       "topSignals": [
         "Militarization",
         "Moral Certainty",
+        "Inequality"
+      ],
+      "publicTopSignals": [
+        "Militarisation",
+        "Moral certainty",
         "Inequality"
       ]
     }
@@ -140,9 +203,12 @@
       "id": "france-1789-2025-institutionalLegitimacy-socialCohesion-lag0",
       "sourcePressureId": "institutionalLegitimacy",
       "sourceLabel": "Institutional Legitimacy",
+      "publicSourceLabel": "Public trust",
       "targetPressureId": "socialCohesion",
       "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with social bonds",
       "lag": 0,
       "strength": 0.979,
       "confidence": "strong",
@@ -157,15 +223,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here."
+      "summary": "Institutional Legitimacy and social cohesion repeatedly rise together here.",
+      "publicSummary": "Public trust and social bonds often rise together across this history."
     },
     {
       "id": "france-1789-2025-eliteCompetition-institutionalLegitimacy-lag0",
       "sourcePressureId": "eliteCompetition",
       "sourceLabel": "Elite Competition",
+      "publicSourceLabel": "Power struggle",
       "targetPressureId": "institutionalLegitimacy",
       "targetLabel": "Institutional Legitimacy",
+      "publicTargetLabel": "Public trust",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from public trust",
       "lag": 0,
       "strength": 0.967,
       "confidence": "strong",
@@ -180,15 +250,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here."
+      "summary": "Elite Competition and institutional legitimacy repeatedly pull apart here.",
+      "publicSummary": "Power struggle and public trust often pull in opposite directions across this history."
     },
     {
       "id": "france-1789-2025-inequality-socialCohesion-lag0",
       "sourcePressureId": "inequality",
       "sourceLabel": "Inequality",
+      "publicSourceLabel": "Inequality",
       "targetPressureId": "socialCohesion",
       "targetLabel": "Social Cohesion",
+      "publicTargetLabel": "Social bonds",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from social bonds",
       "lag": 0,
       "strength": 0.92,
       "confidence": "strong",
@@ -203,15 +277,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Inequality and social cohesion repeatedly pull apart here."
+      "summary": "Inequality and social cohesion repeatedly pull apart here.",
+      "publicSummary": "Inequality and social bonds often pull in opposite directions across this history."
     },
     {
       "id": "france-1789-2025-socialCohesion-economicPrecarity-lag0",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "economicPrecarity",
       "targetLabel": "Economic Precarity",
+      "publicTargetLabel": "Economic insecurity",
       "relationshipType": "inverse",
+      "publicRelationshipLine": "pulls away from economic insecurity",
       "lag": 0,
       "strength": 0.837,
       "confidence": "strong",
@@ -226,15 +304,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Social Cohesion and economic precarity repeatedly pull apart here."
+      "summary": "Social Cohesion and economic precarity repeatedly pull apart here.",
+      "publicSummary": "Social bonds and economic insecurity often pull in opposite directions across this history."
     },
     {
       "id": "france-1789-2025-technologicalDisruption-informationAcceleration-lag0",
       "sourcePressureId": "technologicalDisruption",
       "sourceLabel": "Technological Disruption",
+      "publicSourceLabel": "Tech disruption",
       "targetPressureId": "informationAcceleration",
       "targetLabel": "Information Acceleration",
+      "publicTargetLabel": "Information rush",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with information rush",
       "lag": 0,
       "strength": 0.837,
       "confidence": "strong",
@@ -249,15 +331,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Technological Disruption and information acceleration repeatedly rise together here."
+      "summary": "Technological Disruption and information acceleration repeatedly rise together here.",
+      "publicSummary": "Tech disruption and information rush often rise together across this history."
     },
     {
       "id": "france-1789-2025-technologicalDisruption-informationAcceleration-lag1",
       "sourcePressureId": "technologicalDisruption",
       "sourceLabel": "Technological Disruption",
+      "publicSourceLabel": "Tech disruption",
       "targetPressureId": "informationAcceleration",
       "targetLabel": "Information Acceleration",
+      "publicTargetLabel": "Information rush",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before information rush",
       "lag": 1,
       "strength": 0.833,
       "confidence": "strong",
@@ -271,15 +357,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Technological Disruption often intensifies before information acceleration does here."
+      "summary": "Technological Disruption often intensifies before information acceleration does here.",
+      "publicSummary": "Tech disruption often starts moving before information rush here."
     },
     {
       "id": "france-1789-2025-socialCohesion-ecologicalStrain-lag1",
       "sourcePressureId": "socialCohesion",
       "sourceLabel": "Social Cohesion",
+      "publicSourceLabel": "Social bonds",
       "targetPressureId": "ecologicalStrain",
       "targetLabel": "Ecological Strain",
+      "publicTargetLabel": "Environmental strain",
       "relationshipType": "lead-lag",
+      "publicRelationshipLine": "often moves before environmental strain",
       "lag": 1,
       "strength": 0.737,
       "confidence": "moderate",
@@ -293,15 +383,19 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Social Cohesion often intensifies before ecological strain does here."
+      "summary": "Social Cohesion often intensifies before ecological strain does here.",
+      "publicSummary": "Social bonds often starts moving before environmental strain here."
     },
     {
       "id": "france-1789-2025-inequality-economicPrecarity-lag0",
       "sourcePressureId": "inequality",
       "sourceLabel": "Inequality",
+      "publicSourceLabel": "Inequality",
       "targetPressureId": "economicPrecarity",
       "targetLabel": "Economic Precarity",
+      "publicTargetLabel": "Economic insecurity",
       "relationshipType": "co-movement",
+      "publicRelationshipLine": "rises with economic insecurity",
       "lag": 0,
       "strength": 0.72,
       "confidence": "moderate",
@@ -316,7 +410,8 @@
         "fr-p08",
         "fr-p09"
       ],
-      "summary": "Inequality and economic precarity repeatedly rise together here."
+      "summary": "Inequality and economic precarity repeatedly rise together here.",
+      "publicSummary": "Inequality and economic insecurity often rise together across this history."
     }
   ],
   "outliers": [
@@ -327,11 +422,18 @@
       "strength": 0.99,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "Revolution and Radical Refounding sits outside the field’s usual pattern, shaped unusually strongly by moral certainty and public hope.",
+      "publicSummary": "This era stands out from the rest because moral certainty and shared hope are unusually strong here.",
       "topSignals": [
         "Moral Certainty",
         "Public Hope",
         "Elite Competition"
+      ],
+      "publicTopSignals": [
+        "Moral certainty",
+        "Shared hope",
+        "Power struggle"
       ]
     },
     {
@@ -341,11 +443,18 @@
       "strength": 0.99,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "Fifth Republic, Decolonization, and Technocratic Order sits outside the field’s usual pattern, shaped unusually strongly by economic precarity and inequality.",
+      "publicSummary": "This era stands out from the rest because economic insecurity and inequality are unusually strong here.",
       "topSignals": [
         "Economic Precarity",
         "Inequality",
         "Institutional Legitimacy"
+      ],
+      "publicTopSignals": [
+        "Economic insecurity",
+        "Inequality",
+        "Public trust"
       ]
     },
     {
@@ -355,11 +464,18 @@
       "strength": 0.99,
       "confidence": "strong",
       "explanationLabel": "Unexpected structural profile",
+      "publicLabel": "This era behaves differently",
       "summary": "European Integration, Identity Strain, and Fragmented Legitimacy sits outside the field’s usual pattern, shaped unusually strongly by information acceleration and ecological strain.",
+      "publicSummary": "This era stands out from the rest because information rush and environmental strain are unusually strong here.",
       "topSignals": [
         "Information Acceleration",
         "Ecological Strain",
         "Individual Autonomy"
+      ],
+      "publicTopSignals": [
+        "Information rush",
+        "Environmental strain",
+        "Personal freedom"
       ]
     }
   ],
@@ -430,6 +546,7 @@
       "id": "fr-p01-prompt-outlier",
       "periodId": "fr-p01",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -439,6 +556,7 @@
       "id": "fr-p02-prompt-relationship",
       "periodId": "fr-p02",
       "text": "Inequality tends to rise with economic precarity here.",
+      "publicText": "Inequality often rises with economic insecurity here.",
       "insightKind": "relationship",
       "confidence": "moderate",
       "destinationSection": "relationships",
@@ -447,7 +565,8 @@
     {
       "id": "fr-p03-prompt-family",
       "periodId": "fr-p03",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -456,7 +575,8 @@
     {
       "id": "fr-p04-prompt-family",
       "periodId": "fr-p04",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -466,6 +586,7 @@
       "id": "fr-p05-prompt-relationship",
       "periodId": "fr-p05",
       "text": "Technological Disruption tends to rise with information acceleration here.",
+      "publicText": "Tech disruption often rises with information rush here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -475,6 +596,7 @@
       "id": "fr-p06-prompt-relationship",
       "periodId": "fr-p06",
       "text": "Technological Disruption tends to rise with information acceleration here.",
+      "publicText": "Tech disruption often rises with information rush here.",
       "insightKind": "relationship",
       "confidence": "strong",
       "destinationSection": "relationships",
@@ -483,7 +605,8 @@
     {
       "id": "fr-p07-prompt-family",
       "periodId": "fr-p07",
-      "text": "This era is one of the moments when power hardens around belief.",
+      "text": "This is one of the moments when power hardens around belief and conflict.",
+      "publicText": "This is one of the moments when power hardens around belief and conflict.",
       "insightKind": "family",
       "confidence": "moderate",
       "destinationSection": "families",
@@ -493,6 +616,7 @@
       "id": "fr-p08-prompt-outlier",
       "periodId": "fr-p08",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",
@@ -502,6 +626,7 @@
       "id": "fr-p09-prompt-outlier",
       "periodId": "fr-p09",
       "text": "This era is an outlier: unexpected structural profile.",
+      "publicText": "This era breaks the usual pattern: this era behaves differently.",
       "insightKind": "outlier",
       "confidence": "strong",
       "destinationSection": "outliers",

@@ -22,6 +22,11 @@ import type {
   GeoRegionId,
 } from '../types/view'
 import { clamp, formatYearRange, sentenceCase, titleCaseLabel } from './format'
+import {
+  getPublicPeriodPressureSummary,
+  getPublicPressureDescription,
+  getPublicPressureLabel,
+} from './public-copy'
 
 interface RawDataset {
   meta: Meta
@@ -31,6 +36,8 @@ interface RawDataset {
   echoes: EchoLink[]
   snapshots: HumanSnapshot[]
 }
+
+type JsonModuleLoader<T> = Record<string, () => Promise<{ default: T }>>
 
 function toRecord<T extends { id: string }>(items: T[]): Record<string, T> {
   return items.reduce<Record<string, T>>((record, item) => {
@@ -64,9 +71,11 @@ function buildPressureSnapshots(
       return {
         id,
         label: pressure.label,
+        publicLabel: getPublicPressureLabel(pressure),
         value,
         polarity: pressure.polarity,
         description: pressure.description,
+        publicDescription: getPublicPressureDescription(pressure),
       }
     })
     .sort((left, right) => right.value - left.value)
@@ -79,7 +88,7 @@ function deriveScaleSummaries(
 ): ScaleSummary[] {
   const hasGlobalEvent = events.some((event) => event.scalesAffected.includes('global'))
 
-  const personalHeadline = snapshot?.title ?? 'Lived experience'
+  const personalHeadline = snapshot?.publicTitle ?? snapshot?.title ?? 'Lived experience'
   const localHeadline = `Local worlds in ${period.rangeLabel}`
   const nationalHeadline = `${period.title} as a political order`
   const globalHeadline = hasGlobalEvent
@@ -90,7 +99,7 @@ function deriveScaleSummaries(
     {
       scale: 'personal',
       headline: personalHeadline,
-      body: snapshot?.summary ?? period.dailyLife,
+      body: snapshot?.publicSummary ?? snapshot?.summary ?? period.dailyLife,
     },
     {
       scale: 'local',
@@ -100,7 +109,7 @@ function deriveScaleSummaries(
     {
       scale: 'national',
       headline: nationalHeadline,
-      body: `${period.institutionalCondition} ${period.pressureSummary}`,
+      body: `${period.institutionalCondition} ${getPublicPeriodPressureSummary(period)}`,
     },
     {
       scale: 'global',
@@ -214,7 +223,9 @@ function buildPressureOverlaySeries(
   return pressures.map((pressure) => ({
     id: pressure.id,
     label: pressure.label,
+    publicLabel: getPublicPressureLabel(pressure),
     description: pressure.description,
+    publicDescription: getPublicPressureDescription(pressure),
     polarity: pressure.polarity,
     category: pressure.category,
     peaks: pressure.peakPeriods,
@@ -273,65 +284,56 @@ const cachedPressureByDatasetId: Record<string, Record<string, PressureSeries>> 
 const rawDatasetPromises: Partial<Record<string, Promise<RawDataset>>> = {}
 
 const datasetRegistry = datasetsJson as DatasetRegistryEntry[]
+const datasetRegistryById = toRecord(datasetRegistry)
 
-const rawDatasetLoaders: Record<string, () => Promise<RawDataset>> = {
-  'britain-1066-2025': async () => {
-    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
-      import('../../data/meta.json'),
-      import('../../data/periods.json'),
-      import('../../data/events.json'),
-      import('../../data/pressures.json'),
-      import('../../data/echoes.json'),
-      import('../../data/snapshots.json'),
-    ])
+const metaModules = {
+  ...import.meta.glob('../../data/meta.json'),
+  ...import.meta.glob('../../data/*/meta.json'),
+} as JsonModuleLoader<Meta>
 
-    return {
-      meta: meta.default as Meta,
-      periods: periods.default as Period[],
-      events: events.default as Event[],
-      pressures: pressures.default as PressureSeries[],
-      echoes: echoes.default as EchoLink[],
-      snapshots: snapshots.default as HumanSnapshot[],
-    }
-  },
-  'united-states-1776-2025': async () => {
-    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
-      import('../../data/usa/meta.json'),
-      import('../../data/usa/periods.json'),
-      import('../../data/usa/events.json'),
-      import('../../data/usa/pressures.json'),
-      import('../../data/usa/echoes.json'),
-      import('../../data/usa/snapshots.json'),
-    ])
+const periodModules = {
+  ...import.meta.glob('../../data/periods.json'),
+  ...import.meta.glob('../../data/*/periods.json'),
+} as JsonModuleLoader<Period[]>
 
-    return {
-      meta: meta.default as Meta,
-      periods: periods.default as Period[],
-      events: events.default as Event[],
-      pressures: pressures.default as PressureSeries[],
-      echoes: echoes.default as EchoLink[],
-      snapshots: snapshots.default as HumanSnapshot[],
-    }
-  },
-  'france-1789-2025': async () => {
-    const [meta, periods, events, pressures, echoes, snapshots] = await Promise.all([
-      import('../../data/france/meta.json'),
-      import('../../data/france/periods.json'),
-      import('../../data/france/events.json'),
-      import('../../data/france/pressures.json'),
-      import('../../data/france/echoes.json'),
-      import('../../data/france/snapshots.json'),
-    ])
+const eventModules = {
+  ...import.meta.glob('../../data/events.json'),
+  ...import.meta.glob('../../data/*/events.json'),
+} as JsonModuleLoader<Event[]>
 
-    return {
-      meta: meta.default as Meta,
-      periods: periods.default as Period[],
-      events: events.default as Event[],
-      pressures: pressures.default as PressureSeries[],
-      echoes: echoes.default as EchoLink[],
-      snapshots: snapshots.default as HumanSnapshot[],
-    }
-  },
+const pressureModules = {
+  ...import.meta.glob('../../data/pressures.json'),
+  ...import.meta.glob('../../data/*/pressures.json'),
+} as JsonModuleLoader<PressureSeries[]>
+
+const echoModules = {
+  ...import.meta.glob('../../data/echoes.json'),
+  ...import.meta.glob('../../data/*/echoes.json'),
+} as JsonModuleLoader<EchoLink[]>
+
+const snapshotModules = {
+  ...import.meta.glob('../../data/snapshots.json'),
+  ...import.meta.glob('../../data/*/snapshots.json'),
+} as JsonModuleLoader<HumanSnapshot[]>
+
+function buildDatasetFilePath(dataPath: string, fileName: string): string {
+  return dataPath === '.'
+    ? `../../data/${fileName}.json`
+    : `../../data/${dataPath}/${fileName}.json`
+}
+
+async function loadJsonFile<T>(
+  modules: JsonModuleLoader<T>,
+  path: string,
+  context: string,
+): Promise<T> {
+  const loader = modules[path]
+
+  if (!loader) {
+    throw new Error(`Missing dataset file "${path}" while resolving ${context}.`)
+  }
+
+  return (await loader()).default
 }
 
 export function getDatasetRegistry(): DatasetRegistryEntry[] {
@@ -343,13 +345,52 @@ async function loadRawDataset(datasetId: string): Promise<RawDataset> {
     return rawDatasetPromises[datasetId]
   }
 
-  const loader = rawDatasetLoaders[datasetId]
+  const entry = datasetRegistryById[datasetId]
 
-  if (!loader) {
+  if (!entry) {
     throw new Error(`Unknown dataset "${datasetId}".`)
   }
 
-  rawDatasetPromises[datasetId] = loader()
+  rawDatasetPromises[datasetId] = Promise.all([
+    loadJsonFile(
+      metaModules,
+      buildDatasetFilePath(entry.dataPath, 'meta'),
+      `meta for ${datasetId}`,
+    ),
+    loadJsonFile(
+      periodModules,
+      buildDatasetFilePath(entry.dataPath, 'periods'),
+      `periods for ${datasetId}`,
+    ),
+    loadJsonFile(
+      eventModules,
+      buildDatasetFilePath(entry.dataPath, 'events'),
+      `events for ${datasetId}`,
+    ),
+    loadJsonFile(
+      pressureModules,
+      buildDatasetFilePath(entry.dataPath, 'pressures'),
+      `pressures for ${datasetId}`,
+    ),
+    loadJsonFile(
+      echoModules,
+      buildDatasetFilePath(entry.dataPath, 'echoes'),
+      `echoes for ${datasetId}`,
+    ),
+    loadJsonFile(
+      snapshotModules,
+      buildDatasetFilePath(entry.dataPath, 'snapshots'),
+      `snapshots for ${datasetId}`,
+    ),
+  ]).then(([meta, periods, events, pressures, echoes, snapshots]) => ({
+    meta,
+    periods,
+    events,
+    pressures,
+    echoes,
+    snapshots,
+  }))
+
   return rawDatasetPromises[datasetId]
 }
 
@@ -360,11 +401,17 @@ export async function getLoomDataset(datasetId = 'britain-1066-2025'): Promise<L
 
   const rawDataset = await loadRawDataset(datasetId)
   const { meta, periods, events, pressures, echoes, snapshots } = rawDataset
+  const normalizedPressures = pressures.map((pressure) => ({
+    ...pressure,
+    publicLabel: pressure.publicLabel ?? getPublicPressureLabel(pressure),
+    publicDescription:
+      pressure.publicDescription ?? getPublicPressureDescription(pressure),
+  }))
 
-  validateDataset(periods, events, pressures, echoes, snapshots)
+  validateDataset(periods, events, normalizedPressures, echoes, snapshots)
 
   const eventsById = toRecord(events)
-  const pressuresById = toRecord(pressures)
+  const pressuresById = toRecord(normalizedPressures)
   const echoesById = toRecord(echoes)
   const snapshotsById = toRecord(snapshots)
 
@@ -388,8 +435,8 @@ export async function getLoomDataset(datasetId = 'britain-1066-2025'): Promise<L
     meta,
     lens,
     periods,
-    pressures,
-    pressureOverlaySeries: buildPressureOverlaySeries(periods, pressures),
+    pressures: normalizedPressures,
+    pressureOverlaySeries: buildPressureOverlaySeries(periods, normalizedPressures),
     selectedDetailsById: buildSelectedDetails(
       periods,
       eventsById,
@@ -433,6 +480,20 @@ export function getPressureLabel(
   const pressure = pressureById?.[pressureId]
 
   return pressure?.label ?? titleCaseLabel(pressureId)
+}
+
+export function getPublicPressureLabelForDataset(
+  pressureId: string,
+  datasetId = 'britain-1066-2025',
+): string {
+  const pressureById = cachedPressureByDatasetId[datasetId]
+  const pressure = pressureById?.[pressureId]
+
+  if (!pressure) {
+    return titleCaseLabel(pressureId)
+  }
+
+  return getPublicPressureLabel(pressure)
 }
 
 export function inferGeographyRegions(labels: string[]): GeoRegionId[] {
@@ -535,7 +596,9 @@ export function buildPressureCascade(
   return {
     pressureId,
     label: overlaySeries.label,
+    publicLabel: overlaySeries.publicLabel ?? overlaySeries.label,
     description: overlaySeries.description,
+    publicDescription: overlaySeries.publicDescription ?? overlaySeries.description,
     value: detail.period.pressureScores[pressureId] ?? 0,
     polarity: overlaySeries.polarity,
     matchedEvents,

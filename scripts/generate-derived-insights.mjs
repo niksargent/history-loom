@@ -7,27 +7,7 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const dataRoot = path.join(repoRoot, 'data')
 const derivedRoot = path.join(dataRoot, 'derived')
-
-const DATASET_CONFIGS = [
-  {
-    id: 'britain-1066-2025',
-    label: 'Britain',
-    visibility: 'public',
-    basePath: dataRoot,
-  },
-  {
-    id: 'united-states-1776-2025',
-    label: 'United States',
-    visibility: 'public',
-    basePath: path.join(dataRoot, 'usa'),
-  },
-  {
-    id: 'france-1789-2025',
-    label: 'France',
-    visibility: 'public',
-    basePath: path.join(dataRoot, 'france'),
-  },
-]
+const publicCopyPath = path.join(dataRoot, 'public-copy.json')
 
 const GENERATION_META = {
   version: 'v1',
@@ -42,6 +22,8 @@ const APPROVED_PUBLIC_COUSINS = [
       'These two eras both show fast-moving information, a more atomised public mood, and growing strain around trust, identity, and the centre.',
   },
 ]
+
+const publicCopy = JSON.parse(await readFile(publicCopyPath, 'utf8'))
 
 function round(value, digits = 3) {
   const factor = 10 ** digits
@@ -154,8 +136,66 @@ function lowerLabel(label) {
   return label.toLowerCase()
 }
 
+function publicPressureLabel(pressureId, fallbackLabel) {
+  return publicCopy.pressureCopy[pressureId]?.label ?? fallbackLabel
+}
+
+function publicPressureDescription(pressureId, fallbackDescription) {
+  return publicCopy.pressureCopy[pressureId]?.description ?? fallbackDescription
+}
+
+function publicFamilyCopy(label) {
+  return (
+    publicCopy.familyCopy[label] ?? {
+      label: 'Recurring pattern',
+      prompt: 'This era belongs to a recurring pattern.',
+    }
+  )
+}
+
+function publicOutlierLabel(outlierType, fallbackLabel) {
+  return publicCopy.outlierCopy[outlierType]?.label ?? fallbackLabel
+}
+
+function publicRelationshipLine(relationshipType, targetLabel) {
+  switch (relationshipType) {
+    case 'co-movement':
+      return `rises with ${targetLabel}`
+    case 'inverse':
+      return `pulls away from ${targetLabel}`
+    case 'lead-lag':
+      return `often moves before ${targetLabel}`
+    default:
+      return targetLabel
+  }
+}
+
+function publicRelationshipSummary(relationshipType, sourceLabel, targetLabel) {
+  switch (relationshipType) {
+    case 'co-movement':
+      return `${sourceLabel} and ${lowerLabel(targetLabel)} often rise together across this history.`
+    case 'inverse':
+      return `${sourceLabel} and ${lowerLabel(targetLabel)} often pull in opposite directions across this history.`
+    case 'lead-lag':
+      return `${sourceLabel} often starts moving before ${lowerLabel(targetLabel)} here.`
+    default:
+      return `${sourceLabel} and ${lowerLabel(targetLabel)} are linked here.`
+  }
+}
+
 function readJson(filePath) {
   return readFile(filePath, 'utf8').then((content) => JSON.parse(content))
+}
+
+async function loadDatasetConfigs() {
+  const registry = await readJson(path.join(dataRoot, 'datasets.json'))
+
+  return registry.map((entry) => ({
+    id: entry.id,
+    label: entry.scope,
+    visibility: entry.insightVisibility ?? 'internal',
+    basePath: entry.dataPath === '.' ? dataRoot : path.join(dataRoot, entry.dataPath),
+  }))
 }
 
 async function loadDataset(config) {
@@ -173,6 +213,12 @@ async function loadDataset(config) {
 function buildPressureVectors(dataset) {
   const pressureIds = Object.keys(dataset.periods[0]?.pressureScores ?? {})
   const labelsById = Object.fromEntries(dataset.pressures.map((pressure) => [pressure.id, pressure.label]))
+  const publicLabelsById = Object.fromEntries(
+    dataset.pressures.map((pressure) => [
+      pressure.id,
+      publicPressureLabel(pressure.id, pressure.label),
+    ]),
+  )
   const rawVectors = dataset.periods.map((period) =>
     pressureIds.map((pressureId) => period.pressureScores[pressureId] ?? 0),
   )
@@ -192,7 +238,7 @@ function buildPressureVectors(dataset) {
     }),
   )
 
-  return { pressureIds, labelsById, rawVectors, zVectors, means }
+  return { pressureIds, labelsById, publicLabelsById, rawVectors, zVectors, means }
 }
 
 function computeCentroid(indexes, vectors) {
@@ -299,27 +345,6 @@ function clusterLabelFromSignals(topSignals, periodTitles) {
   return `${topSignals[0] ?? 'mixed'} family`
 }
 
-function publicFamilyPrompt(label) {
-  switch (label) {
-    case 'mobilised settlement':
-      return 'This era is one of the moments when order is rebuilt under pressure.'
-    case 'high-hope settlement':
-      return 'This era is one of the moments when confidence helps hold things together.'
-    case 'fragmenting acceleration':
-      return 'This era is one of the moments when fast change starts to fray trust.'
-    case 'militarised conviction':
-      return 'This era is one of the moments when power hardens around belief.'
-    case 'accelerated transition':
-      return 'This era is one of the moments when change speeds up quickly.'
-    case 'brittle order':
-      return 'This era is one of the moments when order starts to crack.'
-    case 'reconstruction settlement':
-      return 'This era is one of the moments when order is rebuilt after crisis.'
-    default:
-      return 'This era belongs to a recurring pattern.'
-  }
-}
-
 function buildClusterAssignments(dataset, vectorInfo) {
   const clusterTargetCount = dataset.periods.length >= 9 ? 3 : 2
   const clusters = clusterPeriods(vectorInfo.zVectors, clusterTargetCount)
@@ -335,15 +360,17 @@ function buildClusterAssignments(dataset, vectorInfo) {
       .map((value, index) => ({
         pressureId: vectorInfo.pressureIds[index],
         label: vectorInfo.labelsById[vectorInfo.pressureIds[index]],
+        publicLabel: vectorInfo.publicLabelsById[vectorInfo.pressureIds[index]],
         value,
       }))
       .sort((left, right) => right.value - left.value)
       .slice(0, 3)
-      .map((item) => item.label)
+      .map((item) => ({ label: item.label, publicLabel: item.publicLabel }))
     const label = clusterLabelFromSignals(
-      topSignals,
+      topSignals.map((item) => item.label),
       cluster.indexes.map((index) => dataset.periods[index].title),
     )
+    const publicFamily = publicFamilyCopy(label)
 
     cluster.indexes.forEach((periodIndex) => {
       const distance = euclideanDistance(vectorInfo.zVectors[periodIndex], cluster.centroid)
@@ -357,10 +384,19 @@ function buildClusterAssignments(dataset, vectorInfo) {
         periodId: dataset.periods[periodIndex].id,
         clusterId: `${dataset.id}-cluster-${clusterIndex + 1}`,
         clusterLabel: label,
+        publicLabel: publicFamily.label,
         strength,
         confidence: confidenceFromStrength(strength),
-        summary: `${dataset.periods[periodIndex].title} sits inside the ${label} family, with ${topSignals.slice(0, 2).map(lowerLabel).join(' and ')} most visible in the profile.`,
-        topSignals,
+        summary: `${dataset.periods[periodIndex].title} sits inside the ${label} family, with ${topSignals
+          .slice(0, 2)
+          .map((item) => lowerLabel(item.label))
+          .join(' and ')} most visible in the profile.`,
+        publicSummary: `This era belongs with other moments when ${topSignals
+          .slice(0, 2)
+          .map((item) => lowerLabel(item.publicLabel))
+          .join(' and ')} stand out most clearly.`,
+        topSignals: topSignals.map((item) => item.label),
+        publicTopSignals: topSignals.map((item) => item.publicLabel),
       })
     })
   })
@@ -399,13 +435,22 @@ function buildPressureRelationships(dataset, vectorInfo) {
       )
 
       if (pressurePairIsRelated && Math.abs(zeroLagStrength) >= 0.65) {
+        const sourcePublicLabel = vectorInfo.publicLabelsById[vectorInfo.pressureIds[leftIndex]]
+        const targetPublicLabel = vectorInfo.publicLabelsById[vectorInfo.pressureIds[rightIndex]]
+        const relationshipType = zeroLagStrength >= 0 ? 'co-movement' : 'inverse'
         zeroLag.push({
           id: `${dataset.id}-${vectorInfo.pressureIds[leftIndex]}-${vectorInfo.pressureIds[rightIndex]}-lag0`,
           sourcePressureId: vectorInfo.pressureIds[leftIndex],
           sourceLabel: vectorInfo.labelsById[vectorInfo.pressureIds[leftIndex]],
+          publicSourceLabel: sourcePublicLabel,
           targetPressureId: vectorInfo.pressureIds[rightIndex],
           targetLabel: vectorInfo.labelsById[vectorInfo.pressureIds[rightIndex]],
-          relationshipType: zeroLagStrength >= 0 ? 'co-movement' : 'inverse',
+          publicTargetLabel: targetPublicLabel,
+          relationshipType,
+          publicRelationshipLine: publicRelationshipLine(
+            relationshipType,
+            lowerLabel(targetPublicLabel),
+          ),
           lag: 0,
           strength: round(Math.abs(zeroLagStrength)),
           confidence: confidenceFromStrength(Math.abs(zeroLagStrength)),
@@ -414,6 +459,11 @@ function buildPressureRelationships(dataset, vectorInfo) {
             zeroLagStrength >= 0
               ? `${vectorInfo.labelsById[vectorInfo.pressureIds[leftIndex]]} and ${lowerLabel(vectorInfo.labelsById[vectorInfo.pressureIds[rightIndex]])} repeatedly rise together here.`
               : `${vectorInfo.labelsById[vectorInfo.pressureIds[leftIndex]]} and ${lowerLabel(vectorInfo.labelsById[vectorInfo.pressureIds[rightIndex]])} repeatedly pull apart here.`,
+          publicSummary: publicRelationshipSummary(
+            relationshipType,
+            sourcePublicLabel,
+            targetPublicLabel,
+          ),
         })
       }
 
@@ -423,18 +473,31 @@ function buildPressureRelationships(dataset, vectorInfo) {
       )
 
       if (pressurePairIsRelated && Math.abs(lagStrength) >= 0.7) {
+        const sourcePublicLabel = vectorInfo.publicLabelsById[vectorInfo.pressureIds[leftIndex]]
+        const targetPublicLabel = vectorInfo.publicLabelsById[vectorInfo.pressureIds[rightIndex]]
         lagged.push({
           id: `${dataset.id}-${vectorInfo.pressureIds[leftIndex]}-${vectorInfo.pressureIds[rightIndex]}-lag1`,
           sourcePressureId: vectorInfo.pressureIds[leftIndex],
           sourceLabel: vectorInfo.labelsById[vectorInfo.pressureIds[leftIndex]],
+          publicSourceLabel: sourcePublicLabel,
           targetPressureId: vectorInfo.pressureIds[rightIndex],
           targetLabel: vectorInfo.labelsById[vectorInfo.pressureIds[rightIndex]],
+          publicTargetLabel: targetPublicLabel,
           relationshipType: 'lead-lag',
+          publicRelationshipLine: publicRelationshipLine(
+            'lead-lag',
+            lowerLabel(targetPublicLabel),
+          ),
           lag: 1,
           strength: round(Math.abs(lagStrength)),
           confidence: confidenceFromStrength(Math.abs(lagStrength)),
           supportingPeriods: dataset.periods.slice(1).map((period) => period.id),
           summary: `${vectorInfo.labelsById[vectorInfo.pressureIds[leftIndex]]} often intensifies before ${lowerLabel(vectorInfo.labelsById[vectorInfo.pressureIds[rightIndex]])} does here.`,
+          publicSummary: publicRelationshipSummary(
+            'lead-lag',
+            sourcePublicLabel,
+            targetPublicLabel,
+          ),
         })
       }
     }
@@ -459,6 +522,7 @@ function buildOutlierSignals(dataset, vectorInfo, clusterAssignments) {
       .map((value, index) => ({
         pressureId: vectorInfo.pressureIds[index],
         label: vectorInfo.labelsById[vectorInfo.pressureIds[index]],
+        publicLabel: vectorInfo.publicLabelsById[vectorInfo.pressureIds[index]],
         value,
       }))
       .sort((left, right) => Math.abs(right.value) - Math.abs(left.value))
@@ -494,6 +558,14 @@ function buildOutlierSignals(dataset, vectorInfo, clusterAssignments) {
           : outlierType === 'unexpected-profile'
             ? 'Unexpected structural profile'
             : 'Cluster-edge period',
+      publicLabel: publicOutlierLabel(
+        outlierType,
+        outlierType === 'high-strain-high-order'
+          ? 'High strain and strong order coexist'
+          : outlierType === 'unexpected-profile'
+            ? 'Unexpected structural profile'
+            : 'Cluster-edge period',
+      ),
       summary:
         outlierType === 'high-strain-high-order'
           ? `${period.title} is unusual because heavy strain coexists with unusually resilient stabilisers.`
@@ -501,7 +573,15 @@ function buildOutlierSignals(dataset, vectorInfo, clusterAssignments) {
               .slice(0, 2)
               .map((item) => lowerLabel(item.label))
               .join(' and ')}.`,
+      publicSummary:
+        outlierType === 'high-strain-high-order'
+          ? 'This era carries heavy pressure, but the centre still holds more firmly than you might expect.'
+          : `This era stands out from the rest because ${deviations
+              .slice(0, 2)
+              .map((item) => lowerLabel(item.publicLabel))
+              .join(' and ')} are unusually strong here.`,
       topSignals: deviations.map((item) => item.label),
+      publicTopSignals: deviations.map((item) => item.publicLabel),
       clusterLabel: clusterById[period.id]?.clusterLabel,
     }
   })
@@ -552,6 +632,10 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
         outlier.outlierType === 'high-strain-high-order'
           ? 'This era is unusual: heavy strain coexists with unexpectedly strong order.'
           : `This era is an outlier: ${outlier.explanationLabel.toLowerCase()}.`,
+      publicText:
+        outlier.outlierType === 'high-strain-high-order'
+          ? 'This era carries heavy pressure, but the centre still holds.'
+          : `This era breaks the usual pattern: ${lowerLabel(outlier.publicLabel ?? outlier.explanationLabel)}.`,
       insightKind: 'outlier',
       confidence: outlier.confidence,
       destinationSection: 'outliers',
@@ -564,7 +648,10 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
     return {
       id: `${period.id}-prompt-family`,
       periodId: period.id,
-      text: publicFamilyPrompt(cluster.clusterLabel),
+      text: publicFamilyCopy(cluster.clusterLabel).prompt,
+      publicText: cluster.publicLabel
+        ? publicFamilyCopy(cluster.clusterLabel).prompt
+        : 'This era belongs to a recurring pattern.',
       insightKind: 'family',
       confidence: cluster.confidence,
       destinationSection: 'families',
@@ -588,6 +675,12 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
           : topRelationship.relationshipType === 'inverse'
             ? `${topRelationship.sourceLabel} tends to pull away from ${lowerLabel(topRelationship.targetLabel)} here.`
             : `${topRelationship.sourceLabel} tends to rise with ${lowerLabel(topRelationship.targetLabel)} here.`,
+      publicText:
+        topRelationship.relationshipType === 'lead-lag'
+          ? `${topRelationship.publicSourceLabel ?? topRelationship.sourceLabel} often moves before ${lowerLabel(topRelationship.publicTargetLabel ?? topRelationship.targetLabel)} here.`
+          : topRelationship.relationshipType === 'inverse'
+            ? `${topRelationship.publicSourceLabel ?? topRelationship.sourceLabel} often pulls away from ${lowerLabel(topRelationship.publicTargetLabel ?? topRelationship.targetLabel)} here.`
+            : `${topRelationship.publicSourceLabel ?? topRelationship.sourceLabel} often rises with ${lowerLabel(topRelationship.publicTargetLabel ?? topRelationship.targetLabel)} here.`,
       insightKind: 'relationship',
       confidence: topRelationship.confidence,
       destinationSection: 'relationships',
@@ -603,6 +696,7 @@ function buildPromptForPeriod(period, clusterAssignments, relationships, outlier
       id: `${period.id}-prompt-echo`,
       periodId: period.id,
       text: 'One of this era’s echoes is strongly reinforced by its pressure profile.',
+      publicText: 'One of this era’s echoes looks especially strong.',
       insightKind: 'echo',
       confidence: supportedEcho.confidence,
       destinationSection: 'echoes',
@@ -743,12 +837,13 @@ function buildCrossDatasetAffinities(datasetPacks) {
           const sharedTopSignals = leftVectorInfo.zVectors[leftPeriodIndex]
             .map((value, index) => ({
               label: leftVectorInfo.labelsById[leftVectorInfo.pressureIds[index]],
+              publicLabel: leftVectorInfo.publicLabelsById[leftVectorInfo.pressureIds[index]],
               combined:
                 Math.abs(value) + Math.abs(rightVectorInfo.zVectors[rightPeriodIndex][index]),
             }))
             .sort((left, right) => right.combined - left.combined)
             .slice(0, 3)
-            .map((item) => item.label)
+            .map((item) => ({ label: item.label, publicLabel: item.publicLabel }))
 
           affinities.push({
             id: `${leftDataset.id}-${leftPeriod.id}-${rightDataset.id}-${rightPeriod.id}`,
@@ -763,9 +858,10 @@ function buildCrossDatasetAffinities(datasetPacks) {
             targetPeriodTitle: rightPeriod.title,
             targetPeriodRangeLabel: rightPeriod.rangeLabel,
             similarityScore,
-            sharedTopSignals,
+            sharedTopSignals: sharedTopSignals.map((item) => item.label),
             confidence: confidenceFromStrength(similarityScore),
             summary: `${leftPeriod.title} in ${leftDataset.label} forms a structural cousin pair with ${rightPeriod.title} in ${rightDataset.label}.`,
+            publicSharedTopSignals: sharedTopSignals.map((item) => item.publicLabel),
           })
         })
       })
@@ -787,6 +883,7 @@ function buildPublicCrossDatasetCousins(affinities) {
       ...affinity,
       headline: approved.headline,
       publicSummary: approved.publicSummary,
+      publicSharedTopSignals: affinity.publicSharedTopSignals ?? affinity.sharedTopSignals,
     }
   })
 }
@@ -817,7 +914,8 @@ function validateCrossDatasetPack(datasets, pack) {
 
 async function main() {
   await mkdir(derivedRoot, { recursive: true })
-  const datasets = await Promise.all(DATASET_CONFIGS.map(loadDataset))
+  const datasetConfigs = await loadDatasetConfigs()
+  const datasets = await Promise.all(datasetConfigs.map(loadDataset))
   const insightPacks = datasets.map(buildDatasetInsightPack)
 
   insightPacks.forEach((pack, index) => {

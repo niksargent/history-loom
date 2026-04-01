@@ -45,6 +45,11 @@
     "kind": "nation"
   },
   {
+    "id": "germany",
+    "label": "Germany",
+    "kind": "nation"
+  },
+  {
     "id": "europe",
     "label": "Europe",
     "kind": "continent"

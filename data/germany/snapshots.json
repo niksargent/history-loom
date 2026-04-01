@@ -1,0 +1,41 @@
+[
+  {
+    "id": "de-s01",
+    "periodId": "de-p01",
+    "title": "A railway worker in a half-made nation",
+    "scale": "personal",
+    "summary": "Industrial growth is changing distance, work, and expectation faster than the old political order can settle them.",
+    "dailyReality": "Work is harsher and more regular, travel is faster, and politics no longer feels remote from ordinary urban life.",
+    "voiceMode": "worker",
+    "speakerFrame": "Railway worker, mid-19th century German state",
+    "prompt": "How does this period feel in daily life?",
+    "response": "Everything is getting faster, and the men above us keep talking about Germany as if it already exists. The work is harder, the towns are louder, and you can feel that the old order is running out of room.",
+    "sourcesOrRationale": "Process rehearsal mini-seed snapshot used to test the end-to-end dataset pipeline."
+  },
+  {
+    "id": "de-s02",
+    "periodId": "de-p02",
+    "title": "A clerk inside a society of command and collapse",
+    "scale": "personal",
+    "summary": "Bureaucracy, propaganda, and war make the state feel total, but trust and safety keep falling away.",
+    "dailyReality": "Public life is saturated with command, fear, and pressure to conform while material security grows more brittle.",
+    "voiceMode": "civic",
+    "speakerFrame": "Urban clerk, interwar-to-dictatorship Germany",
+    "prompt": "How does this period feel in daily life?",
+    "response": "The state is everywhere now. It tells you what to believe, what to fear, and what silence is safest. Even when the streets look ordered, everything underneath feels dangerous.",
+    "sourcesOrRationale": "Process rehearsal mini-seed snapshot used to test the end-to-end dataset pipeline."
+  },
+  {
+    "id": "de-s03",
+    "periodId": "de-p03",
+    "title": "A reunified citizen in a stable but uneasy republic",
+    "scale": "personal",
+    "summary": "The democratic settlement is far stronger than before, but memory, adjustment, and new fractures still shape the mood.",
+    "dailyReality": "Life is more secure and free, yet people still argue about history, identity, and whether the centre is holding.",
+    "voiceMode": "civic",
+    "speakerFrame": "Citizen in reunified Germany",
+    "prompt": "How does this period feel in daily life?",
+    "response": "Life is steadier than it was for my grandparents, and the state feels mostly trustworthy. But the arguments never really stop. We still live with the past, and now the future feels less certain again too.",
+    "sourcesOrRationale": "Process rehearsal mini-seed snapshot used to test the end-to-end dataset pipeline."
+  }
+]

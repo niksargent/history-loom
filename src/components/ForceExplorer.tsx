@@ -171,7 +171,9 @@ function ForceLane({
               />
               <span className="relative flex h-full items-center justify-between gap-3 px-4">
                 <span className="min-w-0">
-                  <span className="block truncate text-sm text-stone-100">{series.label}</span>
+                  <span className="block truncate text-sm text-stone-100">
+                    {series.publicLabel ?? series.label}
+                  </span>
                 </span>
                 <span
                   className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${
@@ -217,7 +219,7 @@ export function ForceExplorer({
         <div>
           <p className="eyebrow">Force Explorer</p>
           <h2 className="font-display text-2xl text-stone-100">
-            Watch one force move through the field
+            Watch one force move across time
           </h2>
         </div>
         <button
@@ -233,13 +235,12 @@ export function ForceExplorer({
         <aside className="space-y-6">
           <div className="rounded-[1.4rem] bg-white/[0.025] px-4 py-4">
             <p className="text-sm leading-6 text-stone-400">
-              Pick a force, then step across the trace to switch periods and watch the order and
-              flashpoints realign.
+              Pick a force, then step across time to switch periods and watch the story realign.
             </p>
           </div>
 
           <ForceLane
-            title="Stress"
+            title="Pressure"
             items={stressSeries}
             activePressureId={activePressureId}
             currentPeriodScores={currentPeriodScores}
@@ -247,7 +248,7 @@ export function ForceExplorer({
           />
 
           <ForceLane
-            title="Stabiliser"
+            title="Support"
             items={stabiliserSeries}
             activePressureId={activePressureId}
             currentPeriodScores={currentPeriodScores}
@@ -261,14 +262,18 @@ export function ForceExplorer({
               <div className="max-w-2xl pr-2">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${activeTone.activeChip}`}>
-                    {activeSeries.polarity}
+                    {activeSeries.polarity === 'stress' ? 'pressure' : 'support'}
                   </span>
                   <span className="rounded-full bg-white/[0.05] px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-stone-400">
                     {getIntensityLabel(activeValue)}
                   </span>
                 </div>
-                <h3 className="mt-2 text-xl text-stone-100">{activeSeries.label}</h3>
-                <p className="mt-3 text-sm leading-6 text-stone-300">{activeSeries.description}</p>
+                <h3 className="mt-2 text-xl text-stone-100">
+                  {activeSeries.publicLabel ?? activeSeries.label}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-stone-300">
+                  {activeSeries.publicDescription ?? activeSeries.description}
+                </p>
               </div>
 
               <div className="shrink-0 text-right md:justify-self-end">

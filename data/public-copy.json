@@ -1,0 +1,108 @@
+{
+  "bannedPublicTerms": [
+    "settlement",
+    "structural",
+    "derived",
+    "field",
+    "causation"
+  ],
+  "approvedReplacements": {
+    "field": ["history", "across time", "across this history"],
+    "legitimacy": ["public trust", "faith in institutions", "confidence in the system"],
+    "settlement": ["order", "new order", "shared arrangement", "rules people accept"],
+    "structural": ["deeper", "underlying", "recurring"],
+    "derived": ["noticed", "spotted", "found"],
+    "causation": ["cause and effect"]
+  },
+  "pressureCopy": {
+    "inequality": {
+      "label": "Inequality",
+      "description": "How unevenly power, wealth, and advantage are shared."
+    },
+    "eliteCompetition": {
+      "label": "Power struggle",
+      "description": "How much the people at the top are fighting each other."
+    },
+    "institutionalLegitimacy": {
+      "label": "Public trust",
+      "description": "How much people trust the system, its rules, and the people running it."
+    },
+    "socialCohesion": {
+      "label": "Social bonds",
+      "description": "How strongly people feel they belong together and can pull in the same direction."
+    },
+    "technologicalDisruption": {
+      "label": "Tech disruption",
+      "description": "How quickly new technology upends work, war, daily life, and institutions."
+    },
+    "informationAcceleration": {
+      "label": "Information rush",
+      "description": "How fast news, rumours, messages, and arguments spread."
+    },
+    "ecologicalStrain": {
+      "label": "Environmental strain",
+      "description": "Pressure from disease, harvest failure, climate, resource use, or environmental damage."
+    },
+    "militarization": {
+      "label": "Militarisation",
+      "description": "How strongly war and military thinking shape society and the state."
+    },
+    "moralCertainty": {
+      "label": "Moral certainty",
+      "description": "How strongly a society treats its beliefs or ideology as beyond question."
+    },
+    "publicHope": {
+      "label": "Shared hope",
+      "description": "How strongly people feel the future can be made better."
+    },
+    "individualAutonomy": {
+      "label": "Personal freedom",
+      "description": "How much room people have to shape their own lives instead of staying in inherited roles."
+    },
+    "economicPrecarity": {
+      "label": "Economic insecurity",
+      "description": "How exposed people are to insecurity in work, prices, and everyday survival."
+    }
+  },
+  "familyCopy": {
+    "high-hope settlement": {
+      "label": "Confidence holds things together",
+      "prompt": "This is one of the moments when shared confidence helps hold things together."
+    },
+    "mobilised settlement": {
+      "label": "Order rebuilt under pressure",
+      "prompt": "This is one of the moments when a shaken system is pulled back together under pressure."
+    },
+    "fragmenting acceleration": {
+      "label": "Fast change, fraying trust",
+      "prompt": "This is one of the moments when fast change starts pulling trust and everyday life apart."
+    },
+    "militarised conviction": {
+      "label": "Power hardens around belief",
+      "prompt": "This is one of the moments when power hardens around belief and conflict."
+    },
+    "accelerated transition": {
+      "label": "Fast transition",
+      "prompt": "This is one of the moments when change speeds up and older habits struggle to keep up."
+    },
+    "brittle order": {
+      "label": "Order starting to crack",
+      "prompt": "This is one of the moments when order still stands, but the cracks are getting harder to miss."
+    },
+    "reconstruction settlement": {
+      "label": "Order rebuilt after crisis",
+      "prompt": "This is one of the moments when people try to rebuild order after a major break."
+    }
+  },
+  "outlierCopy": {
+    "high-strain-high-order": {
+      "label": "Heavy strain, but the centre still holds"
+    },
+    "unexpected-profile": {
+      "label": "This era behaves differently"
+    },
+    "cluster-edge": {
+      "label": "This era sits at the edge of the usual pattern"
+    }
+  }
+}

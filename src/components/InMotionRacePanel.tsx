@@ -544,7 +544,7 @@ export function InMotionRacePanel({
               </h2>
               <p className="mt-3 text-sm leading-6 text-stone-300">
                 Watch forces re-rank through time, trace their recent movement, and pin one thread
-                to follow it across the whole field.
+                to follow it across this history.
               </p>
             </div>
 
@@ -567,7 +567,7 @@ export function InMotionRacePanel({
             <section className="rounded-[1.8rem] bg-black/18 px-5 py-5 shadow-[0_24px_48px_rgba(0,0,0,0.2)]">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <p className="eyebrow">Live field</p>
+                  <p className="eyebrow">Live history</p>
                   <h3 ref={titleTextRef} className="mt-2 font-display text-2xl text-stone-100">
                     {getActivePeriod(periods, initialIndex)?.title}
                   </h3>
@@ -626,7 +626,9 @@ export function InMotionRacePanel({
                         }}
                       >
                         <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: tone.dot }} />
-                        <span className="min-w-0 flex-1 truncate text-sm">{series.label}</span>
+                        <span className="min-w-0 flex-1 truncate text-sm">
+                          {series.publicLabel ?? series.label}
+                        </span>
                         <span
                           ref={(node) => {
                             scoreRefs.current[series.id] = node
