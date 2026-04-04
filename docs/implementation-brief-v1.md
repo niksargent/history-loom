@@ -71,17 +71,20 @@ Current refinement focus:
 - the first solid-readiness review is now complete: Britain, USA, and France all remain below `solid`, but none is blocking lower-claim product extension
 - Force Explorer is now implemented as the first real feature-leap after the bounded UI pass, replacing the weaker detail-panel force explanation with a dedicated relationship surface, direct period selection from the field trace, and a more readable full-width flashpoint layout
 - the first `In motion` implementation now exists as an expansive Race modal, using autoplay, interpolated movement, force trails, scrubbing, family filtering, and pinned-force emphasis for a single dataset
+- Race has now also been viewed on a second machine and appears performant enough in live use; no default frame cap is planned unless later evidence shows a clear battery or thermal benefit
 - population is now recognised as the next major data-model extension, with the first live pass now implemented in schema, detail, and compare
+- population now also has a live optional Loom tide-line overlay
+- Compare now also has a dedicated full-width population band showing raw totals, growth shape, and selected-period markers
 - derived insight and data science are now recognised as the next insight-layer extension, so the tool can surface clusters, co-movement, and candidate force relationships rather than only curated readings
 - the first derived-insight implementation is now in place:
   - offline insight generation pipeline
   - checked-in derived JSON packs
-  - public USA pilot prompts
+  - public prompts across Britain, USA, and France
   - separate `Insights Lab` page
-  - internal cross-dataset affinity generation held back from public release
+  - one bounded public cross-dataset cousin
+  - wider internal cross-dataset affinity generation held back from public release
 - a new whole-product accessibility rule is now in effect: public-facing labels and explanations should be understandable to a non-specialist teenager and should lean on visuals before technical explanation
-- the next immediate UI refinement is now a header-adjacent pass: distinguish the top header as entry/setup, move `Structural fingerprint` and `Pressure balance` below the Loom, and stop selected-force highlighting from rewriting the period reading
-- that pass now also explicitly separates field setup from live Loom readout, so dataset/lens/echo setup sits in the right-hand entry rail while selected-period context lives with the Loom itself
+- the header-adjacent refinement is now implemented: field setup sits in the right-hand entry rail while selected-period context lives with the Loom itself
 - geography is now constrained to Britain until the other datasets have real map treatments rather than a misleading reused inset
 - hold off on more structural expansion unless lived use reveals real weak spots
 - keep dataset maturity, registry metadata, and future multi-dataset behavior aligned with the real code path
@@ -93,14 +96,11 @@ Current refinement focus:
 - every pilot must also declare its path forward, so it is either promoted deliberately or retired explicitly rather than being left to drift
 - extend the live schema and dataset plans to support population as a first-class contextual series
 - the first population pass is now live: Britain, USA, and France carry one population value per period, and the app shows population in detail and compare as contextual scale
-- the next population design decision is chart placement, with Compare now the preferred first future chart surface and `In motion` the stronger later storytelling surface
+- the first dedicated Compare population chart is now live, so the next population design decision is whether any secondary refinement is needed before population expands to `In motion` or another surface
 - plan a derived-insight layer that can support clustering, correlation, and lead-lag style prompts without overstating causation
-- review and selectively sharpen the generated insight output before expanding public surfacing beyond USA
-- the derived-insight pilot now has an explicit path forward:
-  - keep USA public
-  - review Britain and France against the same standard
-  - promote the approved public surfaces across all live datasets before any public cross-dataset cousin release
-- translate internal analytical language into clearer public wording across the app, starting with Insights Lab and other interpretive surfaces
+- review and selectively sharpen the generated insight output before any wider cross-dataset release
+- the derived-insight public surfaces are now promoted across all live datasets, while wider cousin and echo-support release stays selective
+- the first whole-product public-language remediation pass is now live, and a public-copy audit exists to catch visible leaks
 - dataset production is now codified more operationally:
   - registry-driven `dataPath` loading
   - a scaffold script for new dataset folders and planning docs
@@ -135,17 +135,11 @@ The next quality threshold is interpretive clarity, not feature count:
 
 ## Recommended next sequence
 
-1. complete the bounded exhibit UI refinement pass
-2. keep Britain in selective validation mode and move USA into validation-and-quality review
-3. establish the repeatable authoring workflow, standards, and review process
-4. treat Britain, USA, and France as live fields that now need selective validation toward a `solid` threshold
-5. delay cross-dataset compare until at least two datasets are solid enough
-6. discuss geography before further map tuning or placement changes
-7. use the current dataset baseline to add one lower-claim post-MVP expansion feature, most likely an `In motion` view, while keeping cross-dataset compare off
-8. keep population as a contextual scale layer first, and decide later whether it belongs in compare insight, `In motion`, or any main-page overlay
-9. review the first derived-insight rollout, especially USA prompt quality and internal cross-dataset affinities
-10. decide when public cross-dataset cousins are honest enough to surface
-11. complete the first public-language and visual-grammar pass across the app
+1. keep Britain, USA, and France in targeted validation toward `solid`, but only where live use exposes a real weakness
+2. keep Race as the current motion mode unless evidence shows a frame cap or a second mode is needed
+3. keep the public-language system in maintenance mode through audits and live review rather than another broad rewrite
+4. review the Compare population band in live use before adding toggles or another population surface
+5. stay selective about any further public cross-dataset cousin release
 
 ## Product intent
 

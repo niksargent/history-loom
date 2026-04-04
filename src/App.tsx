@@ -1333,7 +1333,12 @@ function App() {
         {compareSourceDetail && compareDetail ? (
           <Suspense fallback={<PanelFallback label="Compare periods" />}>
             <ComparePanel
-              model={{ source: compareSourceDetail, target: compareDetail }}
+              model={{
+                source: compareSourceDetail,
+                target: compareDetail,
+                sourcePeriods: dataset.periods,
+                targetPeriods: dataset.periods,
+              }}
               selectedPressureId={selectedPressureId}
               selectedPressureLabel={
                 selectedPressureSeries?.publicLabel ?? selectedPressureSeries?.label ?? null

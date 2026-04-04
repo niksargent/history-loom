@@ -99,6 +99,8 @@ export interface PressureCascadeModel {
 export interface ComparePanelModel {
   source: SelectedPeriodDetail
   target: SelectedPeriodDetail
+  sourcePeriods: Period[]
+  targetPeriods: Period[]
 }
 
 export interface SelectedPeriodDetail {

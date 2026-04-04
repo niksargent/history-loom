@@ -197,14 +197,14 @@ Implemented now:
 - USA lived-voice content now exists as optional snapshot fields and renders in the detail panel
 - Britain lived-voice content now exists as optional snapshot fields and renders in the detail panel
 
-In progress:
+Current active work:
 - Britain selective validation rather than open-ended expansion
 - repeatable research and collation workflow for future datasets
 - repeatable dataset scaffolding and validation commands now exist, so future dataset work no longer depends only on memory
 - USA dataset has reached a first usable draft baseline with a first plain-language snapshot uplift completed
 - the USA lived-voice / vox-pop style content pass is now implemented
 - the Britain lived-voice / vox-pop style content pass is now implemented
-- the exhibit UI refinement pass is now in progress, with header simplification, copy reduction, stronger lived-voice presentation, and more purposeful reveal/trace motion now implemented
+- the exhibit UI refinement pass has now landed in the live product, including header simplification, stronger lived-voice presentation, more purposeful reveal/trace motion, and a silhouette-led header treatment
 - the next data phase is now USA validation-and-quality review rather than further open-ended expansion
 - the period-by-period USA quality review is now complete, with the remaining watchlist concentrated in `us-p01`, `us-p02`, and `us-p07`
 - authoring standards are now being tightened so France starts from a clearer content method than either Britain or early USA did
@@ -225,13 +225,16 @@ In progress:
 - Force Explorer is now implemented on the main page as the primary force relationship surface, with clickable period nodes on the trace, padded edge periods, a stable top-right score/date read, and a selected date-range marker replacing the ambiguous `current` label
 - Force Explorer flashpoints now read as full-width event cards with summary first and metadata underneath, rather than competing text and pill columns
 - `In motion` now has its first live implementation: a `Race` modal opened from the header, showing ranked force pills, autoplay with interpolated movement, trails, scrubbing, family filtering, and pinned-force emphasis for one dataset at a time
+- Race has now also been checked on a second machine and appears performant enough in live use; there is no default 30fps cap planned unless later evidence shows a clear benefit
 - population is now recognised as a major missing structural series, and the first live pass is now implemented across Britain, USA, and France in schema, detail, and compare
-- the next population question is not whether it matters, but where a population growth chart belongs; Compare is now the preferred first candidate, with `In motion` reserved for a later stronger reveal
+- population is now also available on the Loom as an optional tide-line overlay
+- Compare now also has a dedicated full-width population band showing raw totals, growth shape, and selected-period markers
 - derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
-- the first derived-insight implementation is now live: offline-generated insight packs, a public USA pilot, a new Insights Lab page, and one restrained main-page prompt tied to the selected period
-- derived insight remains public only for USA at this stage; Britain, France, and cross-dataset cousins stay internal while the signal quality is reviewed
-- the current promotion path is now explicit: keep USA public, review Britain and France to the same standard, then promote the same public insight surfaces across all live datasets before opening any public cross-dataset cousin reveal
+- the first derived-insight implementation is now live: offline-generated insight packs, public prompts across Britain, USA, and France, a new Insights Lab page, and one bounded public cross-dataset cousin
+- wider cross-dataset cousins and echo-support signals still remain selective and mostly internal
 - a new whole-product rule now applies: public-facing language should pass a `16-year-old` comprehension test, with internal analytical labels translated into clearer public wording and supported by stronger visual grammar
+- the first public-language remediation pass is now live across the visible app shell, insights, periods, events, echoes, and snapshot prose
+- a public-copy usage audit now exists so visible surfaces can be checked for leaks systematically
 - a new delivery rule now also applies: every change must declare whether it is whole-system, all-live-datasets, pilot, or internal-only, and every pilot must have an explicit path to promotion or retirement
 - geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
@@ -265,17 +268,11 @@ Deferred:
 ## What next
 
 The next delivery sequence should be:
-1. treat Britain as template dataset 1 rather than an active expansion target
-2. complete the bounded exhibit UI refinement pass documented in `docs/exhibit-ui-refinement-plan.md`
-3. keep Britain in selective validation mode rather than open-ended enrichment
-4. move Britain, USA, and France from `usable draft` toward `solid` through selective validation rather than broad enrichment
-5. hold cross-dataset compare until at least two datasets are solid enough to support it honestly
-6. discuss geography before doing any further tuning or placement changes
-7. move next into a lower-claim extension such as an `In motion` view while continuing only targeted validation toward `solid`
-8. keep population as a contextual metric first, and decide later whether it belongs in compare insight, `In motion`, or any main-page overlay
-9. define a derived-insight layer so the product can surface clusters, co-movement, and candidate relationships without overstating causation
-10. review and sharpen the generated insight labels and prompts before broadening the public rollout beyond USA
-11. run a whole-tool public-language and visual-grammar pass so the product reads less like an academic console and more like a visual discovery tool
+1. keep Britain, USA, and France in targeted validation toward `solid`, but only where live use exposes a real weakness
+2. keep Race as the current motion mode unless evidence shows a frame cap or a second mode is needed
+3. keep the public-language system in maintenance mode through audits and live review rather than another broad rewrite
+4. review the Compare population band in live use before adding toggles or another population surface
+5. remain selective about any further public cross-dataset cousin release
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect

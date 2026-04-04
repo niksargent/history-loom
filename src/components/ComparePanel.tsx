@@ -7,6 +7,7 @@ import {
   getPublicPeriodSummary,
 } from '../lib/public-copy'
 import type { ComparePanelModel } from '../types/view'
+import { PopulationComparisonBand } from './PopulationComparisonBand'
 
 interface ComparePanelProps {
   model: ComparePanelModel
@@ -567,6 +568,8 @@ export function ComparePanel({
               selectedPressureLabel={selectedPressureLabel}
             />
           </div>
+
+          <PopulationComparisonBand model={model} />
 
           <div className="mt-6 grid gap-3 xl:grid-cols-3">
             <InsightCard

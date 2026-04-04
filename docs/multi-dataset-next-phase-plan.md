@@ -42,8 +42,9 @@ Population is now also an approved extension track inside that phase:
 
 Status:
 - the first population pass is now live in schema, data, detail, and compare
-- the next population question is interpretive: where scale should matter next without cluttering the product
-- the best future chart candidate is now likely a compact population chart in Compare before any main Loom use
+- a population tide line is now also live on the main Loom as a separate optional scale overlay
+- the first dedicated Compare population chart is now also live as a full-width band below the two summary cards
+- the next population question is no longer placement but refinement: whether the Compare band needs any secondary adjustment before population expands to another surface
 
 Data science is now also an approved extension track:
 - use derived analysis to surface clusters, co-movement, and candidate relationships
@@ -204,6 +205,8 @@ Status:
 - the architecture should be prepared for later same-time-range dataset comparison without turning cross-dataset compare on yet
 - the concrete v1 Race spec now exists in `docs/in-motion-race-spec.md`
 - the first live Race modal is now implemented for one dataset at a time
+- live use on a second machine now suggests Race is performant enough for current purposes
+- no default frame cap is planned at this stage; any cap should be evidence-led, not speculative
 
 ### 6. Population as scale context
 
@@ -218,7 +221,9 @@ Approved direction:
 Status:
 - the planning layer exists in `docs/population-extension-plan.md`
 - the first implementation pass is now complete
-- the next question is whether population belongs in compare insight, `In motion`, or a later cross-dataset scale read
+- population now also appears on the Loom as an optional tide-line scale overlay
+- Compare now also carries a dedicated full-width population band for growth shape and selected-period scale
+- the next question is whether population should later gain a second surface in `In motion` or `Insights Lab`
 
 ### 7. Derived insight and data science
 
@@ -259,7 +264,9 @@ This applies across the whole tool, not just Insights Lab.
 
 Status:
 - the issue is now recognised as whole-product, not page-local
-- the next bounded pass should start with Insights Lab and the most visible interpretive surfaces
+- the first public-language remediation pass is now live across the main public surfaces
+- phase 2 visible prose now also covers events, echoes, and snapshot text across Britain, USA, and France
+- a public-copy usage audit now exists so visible surfaces can be checked for leaks systematically
 
 ## What stays off
 
@@ -286,21 +293,11 @@ They belong after the current three datasets are stronger and the multi-dataset 
 
 ## Immediate sequence
 
-1. close the France planning milestone by marking the multi-dataset phase active
-2. add dataset-specific atmospheric theming
-3. define lived voice v2 standards
-4. selectively validate datasets toward `solid`
-5. build Force Explorer
-6. define `In motion` as the next lower-claim extension
-7. define the single-dataset Race mode in detail
-8. build `Race` first before deciding the exact Tension visual
-9. review Race in live use before deciding whether Tension or same-time-range dataset comparison should come next
-10. extend the live datasets and schema to support population as a contextual series
-11. implement the first derived-insight schema, public USA pilot, and internal cross-dataset pass
-12. review generated insight quality before any public cross-dataset release
-13. run the first public-language and visual-grammar pass across the tool, starting with Insights Lab
-14. review internal cross-dataset cousin candidates editorially before any wider public release
-15. decide whether the USA insight pilot now promotes into the full three-dataset live system
+1. keep the current three live datasets aligned and selectively validate only where a real weakness still shows in use
+2. keep Race under review, but do not force a frame cap or second motion mode without evidence from real use
+3. keep the public-language pass in maintenance mode through live QA and public-copy audits rather than broad new rewrites
+4. review the live Compare population band before adding toggles or another population surface
+5. hold wider cross-dataset cousin or echo-support release unless a second reveal adds genuinely new public value
 
 ## Higher-reasoning steps
 

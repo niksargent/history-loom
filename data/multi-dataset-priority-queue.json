@@ -82,6 +82,11 @@
       "status": "done"
     },
     {
+      "id": "md-task-09a",
+      "label": "Build the first compact population chart for Compare so scale change becomes visible and startling without cluttering the main Loom",
+      "status": "done"
+    },
+    {
       "id": "md-task-10d",
       "label": "Reopen cousin and echo-support release only if a second reveal adds genuinely new public value rather than repeating the first pattern",
       "status": "parked"
@@ -89,34 +94,28 @@
   ],
   "next": [
     {
-      "id": "md-task-07b",
-      "label": "Review the first live Race modal in use and decide what it teaches before locking the Tension mode or same-time-range dataset comparison layout",
-      "priority": "high",
-      "reason": "Race now exists as the first motion surface, so the next useful step is to learn from it before deciding the exact Tension chart or future comparison view."
-    },
-    {
-      "id": "md-task-10a",
-      "label": "Review and sharpen the generated USA insight prompts, family labels, and surfaced relationship wording so the first public pilot feels genuinely editorial rather than merely computational",
-      "priority": "high",
-      "reason": "The first derived-insight layer is live, but its public value now depends on editorial quality, not just on the presence of statistics."
-    },
-    {
-      "id": "md-task-11a",
-      "label": "Apply the first public-language and visual-grammar pass across Insights Lab, the detail-panel insight hook, Compare, and the most visible entry labels",
-      "priority": "high",
-      "reason": "The product now needs public-facing clarity and visual gestalt more urgently than more analytical depth."
-    },
-    {
-      "id": "md-task-09a",
-      "label": "Design the first compact population chart for Compare so scale change becomes visible and startling without cluttering the main Loom",
-      "priority": "high",
-      "reason": "Population is now in the data model and compare is the best first chart surface for making scale growth feel revealing rather than decorative."
-    },
-    {
       "id": "md-task-08",
       "label": "Run selective validation only where a concrete blocker is keeping Britain, USA, or France below the `solid` threshold",
+      "priority": "high",
+      "reason": "Validation should now be targeted and evidence-led rather than broad and open-ended, especially after the public-language and insight passes."
+    },
+    {
+      "id": "md-task-07b",
+      "label": "Keep the first live Race modal under review, but only revisit frame caps or follow-on motion modes if evidence from real use shows a clear need",
       "priority": "medium",
-      "reason": "Validation should now be targeted and evidence-led rather than broad and open-ended."
+      "reason": "Race is now performing well on at least one second machine and is not an urgent bottleneck. Further motion work should be led by evidence, not by speculative optimisation."
+    },
+    {
+      "id": "md-task-15",
+      "label": "Keep the planning and status docs in sync with the live product so future work does not start from stale assumptions",
+      "priority": "medium",
+      "reason": "The project has now moved quickly through insights, population, public-language, and process codification. The docs need ongoing maintenance or they will start misleading the next phase."
+    },
+    {
+      "id": "md-task-09b",
+      "label": "Review the live Compare population band in use and decide whether any secondary refinement is needed before population moves into another surface",
+      "priority": "medium",
+      "reason": "The first Compare population chart is now live. The next useful step is to learn from real use before adding toggles, normalization, or a second population surface."
     }
   ]
 }

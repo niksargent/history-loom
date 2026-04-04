@@ -100,8 +100,9 @@ That means the product can begin to show not just changing pressure, but changin
 1. extend schema to support population cleanly
 2. add period-level population coverage for Britain, USA, and France
 3. expose population in the detail and compare surfaces
-4. plan population use inside `In motion`
-5. only later decide whether population belongs as a main-page overlay
+4. add a first compact Compare population chart
+5. plan population use inside `In motion`
+6. only later decide whether population needs any further main-page role
 
 ## Constraint
 
@@ -117,12 +118,16 @@ The first live population pass is now complete:
 - schema support exists in the live type system
 - Britain, USA, and France now carry one population value per period
 - the app now shows population first as contextual scale in the detail and compare surfaces
+- the app now also shows population on the main Loom as an optional tide-line overlay
+- Compare now has a dedicated full-width population band below the two summary cards
+- that band shows raw population totals, whole-history growth shape, and selected-period markers
 
 Still deferred:
 - finer-grain anchor points inside periods
 - urbanisation display
-- main Loom population overlay
 - population use in `In motion`
+- normalized population comparison modes
+- cross-country population comparison inside Compare itself
 
 ## Future chart placement
 
@@ -130,8 +135,8 @@ Population growth is likely to be one of the most revealing simple lines in the 
 
 Recommended future placement order:
 1. `Compare`
-   - a compact mirrored population chart below the two summary cards
-   - strongest immediate value, because scale difference between periods is often startling
+   - now implemented as a full-width population band below the two summary cards
+   - it uses raw totals, growth shape, and selected-period markers on one shared exhibit surface
 2. `Insights Lab`
    - a population sparkline or growth strip inside a future scale-oriented insight card
    - useful when population helps explain why a force profile feels more intense
@@ -139,9 +144,6 @@ Recommended future placement order:
    - a dedicated scale track or companion ribbon, not a main Loom overlay
    - strongest long-term storytelling value because the growth curve can feel dramatic in motion
 
-Not recommended yet:
-- a default population line in the main Loom
-
-Reason:
-- the growth curve is revealing, but the main Loom is already carrying period selection, forces, and echoes
-- population should add scale, not compete with the primary field grammar
+Current rule:
+- keep raw totals as the default population comparison mode
+- do not add normalized growth toggles until real use shows they are needed
