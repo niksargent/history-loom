@@ -4,7 +4,10 @@
     "structural",
     "derived",
     "field",
-    "causation"
+    "causation",
+    "obedience",
+    "refounding",
+    "sovereignty"
   ],
   "approvedReplacements": {
     "field": ["history", "across time", "across this history"],
@@ -12,7 +15,24 @@
     "settlement": ["order", "new order", "shared arrangement", "rules people accept"],
     "structural": ["deeper", "underlying", "recurring"],
     "derived": ["noticed", "spotted", "found"],
-    "causation": ["cause and effect"]
+    "causation": ["cause and effect"],
+    "obedience": ["submission", "being told to obey", "tighter control"],
+    "refounding": ["starting again", "rebuilding from the top", "new beginning"],
+    "sovereignty": ["who really rules", "who should be in charge", "who gets the final say"]
+  },
+  "publicPhraseOverrides": {
+    "monarchical restoration as a serious default": "bringing back monarchy as the obvious answer",
+    "stable monarchical restoration": "monarchy could make things stable",
+    "constitutional federal union": "a stronger federal union",
+    "imperial constitutional settlement": "the old imperial rules",
+    "monarchical authority in the colonies": "royal rule in the colonies",
+    "slaveholders' constitutional settlement": "the old slaveholding order",
+    "durable constitutional stability": "stable rules of government",
+    "constitutional bargaining": "bargaining over the rules",
+    "civic distrust of unstable settlement": "public distrust of shaky rule",
+    "citizen sovereignty": "the people should rule",
+    "europe-linked sovereignty debates": "arguments over how much power should stay in France",
+    "media-saturated legitimacy crisis": "a trust crisis amplified by nonstop media"
   },
   "pressureCopy": {
     "inequality": {

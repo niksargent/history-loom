@@ -19,6 +19,7 @@ const familyCopyById = publicCopy.familyCopy as Record<
   { label: string; prompt: string }
 >
 const outlierCopyById = publicCopy.outlierCopy as Record<string, { label: string }>
+const publicPhraseOverrides = (publicCopy.publicPhraseOverrides ?? {}) as Record<string, string>
 
 export const bannedPublicTerms = publicCopy.bannedPublicTerms
 
@@ -111,4 +112,35 @@ export function getPublicVoicePrompt(voice: LivedVoice) {
 
 export function getPublicVoiceResponse(voice: LivedVoice) {
   return voice.publicResponse ?? voice.response
+}
+
+export function getPublicConceptPhrase(rawPhrase: string) {
+  const trimmed = rawPhrase.trim()
+
+  if (!trimmed) {
+    return trimmed
+  }
+
+  const lower = trimmed.toLowerCase()
+  const exactOverride = publicPhraseOverrides[lower]
+
+  if (exactOverride) {
+    return exactOverride
+  }
+
+  return trimmed
+    .replace(/\bconstitutional crisis\b/gi, 'crisis over the rules of government')
+    .replace(/\bconstitutional change\b/gi, 'change in the rules of government')
+    .replace(/\bconstitutional redesign\b/gi, 'new rules of government')
+    .replace(/\bconstitutional monarchy\b/gi, 'monarchy with lasting limits')
+    .replace(/\bconstitutional order\b/gi, 'rules of government')
+    .replace(/\bconstitutional space\b/gi, 'room to act politically')
+    .replace(/\bconstitutional restraint\b/gi, 'lasting limits on rulers')
+    .replace(/\bsovereignty\b/gi, 'who really rules')
+    .replace(/\blegitimacy\b/gi, 'public trust')
+    .replace(/\bmonarchical\b/gi, 'monarchy')
+    .replace(/\brestoration\b/gi, 'return of monarchy')
+    .replace(/\bauthority\b/gi, 'power')
+    .replace(/\bcivic\b/gi, 'public')
+    .replace(/\bobedience\b/gi, 'being told to obey')
 }

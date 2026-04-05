@@ -102,6 +102,7 @@ history-loom/
     lived-voice-v2.md
     population-extension-plan.md
     data-science-insight-plan.md
+    compare-redesign-plan.md
     derived-insight-schema.md
     insights-lab-brief.md
     insight-visual-grammar.md
@@ -188,7 +189,7 @@ Implemented now:
 - echo reveal
 - focused echo journey flow with counterpart selection, jump-to-period, and compare actions
 - side-by-side compare mode with explicit source/target color ownership and direct exit
-- compare insight cards that surface shared pull, main separation, and pressure relationship
+- compare now leads with an echo-story hero when a curated echo exists, with shared forces and lower evidence sections supporting the explanation
 - deeper material treatment and restrained reveal/glow motion across the Loom, detail panel, and compare overlay
 - cleaner compare/detail copy, with less internal-memo language and clearer source/comparison/shared reading
 - a denser, more data-led top section with live current-focus context and a compact visual summary strip
@@ -229,6 +230,14 @@ Current active work:
 - population is now recognised as a major missing structural series, and the first live pass is now implemented across Britain, USA, and France in schema, detail, and compare
 - population is now also available on the Loom as an optional tide-line overlay
 - Compare now also has a dedicated full-width population band showing raw totals, growth shape, and selected-period markers
+- Compare now also uses an echo-story-first layout, with a bridge visual at the top and shared forces treated as the main evidence layer
+- the detail panel now also carries a `What life feels like here` lens inside `Lived voice`, using four compact public dimensions:
+  - safety
+  - freedom
+  - pressure
+  - future
+- these dimensions are not a separate sentiment model; they are a public-facing read built from the period pressure profile and the existing lived-condition fields
+- `Start compare` and `Reveal echoes` have now moved out of the detail panel and into the Loom control row beside the other field-level toggles
 - derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
 - the first derived-insight implementation is now live: offline-generated insight packs, public prompts across Britain, USA, and France, a new Insights Lab page, and one bounded public cross-dataset cousin
 - wider cross-dataset cousins and echo-support signals still remain selective and mostly internal
@@ -238,6 +247,7 @@ Current active work:
 - a new delivery rule now also applies: every change must declare whether it is whole-system, all-live-datasets, pilot, or internal-only, and every pilot must have an explicit path to promotion or retirement
 - geography is now handled honestly: the inset map is shown only for Britain until USA and France have their own real map treatments
 - lived voice now leads the right-hand detail flow as the human entry into a period before the more analytical read
+- the lived-voice quote remains the emotional centre of that card; the new experiential lens is support, not replacement
 - the page background has been rebalanced toward a lighter, more atmospheric exhibit field rather than a near-black shell
 - dataset backgrounds are now allowed to vary by field using flag-derived atmospheric palettes rather than one hardcoded global background
 - those palettes should now be treated as richer atmospheric syntheses rather than simple two-color gradients, so each field reads differently at first glance
@@ -271,8 +281,10 @@ The next delivery sequence should be:
 1. keep Britain, USA, and France in targeted validation toward `solid`, but only where live use exposes a real weakness
 2. keep Race as the current motion mode unless evidence shows a frame cap or a second mode is needed
 3. keep the public-language system in maintenance mode through audits and live review rather than another broad rewrite
-4. review the Compare population band in live use before adding toggles or another population surface
-5. remain selective about any further public cross-dataset cousin release
+4. review the live Compare story hero, bridge visual, and shared-force evidence layer before making further compare changes
+5. review the Compare population band in live use before adding toggles or another population surface
+6. remain selective about any further public cross-dataset cousin release
+7. review the new `What life feels like here` lens in live use and refine only if it improves human connection without turning the card into a mini dashboard
 
 The important change is this:
 - Britain should no longer be treated as a project to perfect

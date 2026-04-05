@@ -230,7 +230,7 @@
       "British Isles"
     ],
     "summary": "Monarchy, law, and representative institutions thickened together as the realm sought workable order after charter crisis.",
-    "publicSummary": "Monarchy, law, and early representative politics grew together as the realm tried to build workable order after crisis.",
+    "publicSummary": "Monarchy, law, and early representative politics grew together as the realm tried to rebuild stable rule after crisis.",
     "dominantValues": [
       "order",
       "custom",
@@ -394,7 +394,7 @@
       "some assumptions of fixed rank relations"
     ],
     "pressureSummary": "Catastrophe shattered demographic balance and forced renegotiation of labour and authority.",
-    "publicPressureSummary": "Disaster broke the old demographic balance and forced society to renegotiate work, power, and obedience.",
+    "publicPressureSummary": "Disaster broke the old balance and forced people to fight over work, power, and survival.",
     "releaseType": "upheaval",
     "pressureScores": {
       "inequality": 72,
@@ -501,7 +501,7 @@
       "illusions of effortless order"
     ],
     "pressureSummary": "Weak legitimacy and elite rivalry exposed how much order depended on accepted succession.",
-    "publicPressureSummary": "Rival power blocs and weak public trust showed how much order still depended on accepted succession.",
+    "publicPressureSummary": "Rival power blocs and weak public trust showed how much peace still depended on people accepting the next ruler.",
     "releaseType": "succession-crisis",
     "pressureScores": {
       "inequality": 74,
@@ -554,7 +554,7 @@
       "British Isles"
     ],
     "summary": "Stronger monarchy, dynastic repair, administrative centralisation, and the break with Rome transformed crown, church, and obedience.",
-    "publicSummary": "The Tudors rebuilt royal power, centralised government, and broke with Rome, changing crown, church, and obedience.",
+    "publicSummary": "The Tudors pulled power tighter into the crown, broke with Rome, and changed how church and government worked.",
     "dominantValues": [
       "order",
       "dynasty",
@@ -663,7 +663,7 @@
       "British Isles"
     ],
     "summary": "Confessional struggle, dynastic complexity, overseas expansion, and contested sovereignty defined a tense but creative age.",
-    "publicSummary": "Religious conflict, dynastic tension, overseas expansion, and arguments over sovereignty made this a creative but unstable age.",
+    "publicSummary": "Religious conflict, dynastic tension, overseas expansion, and arguments over who really ruled made this a creative but unstable age.",
     "dominantValues": [
       "belief",
       "discipline",
@@ -773,7 +773,7 @@
       "British Isles"
     ],
     "summary": "Crown-Parliament conflict, civil war, regicide, republic, restoration, and the 1688–89 settlement reworked sovereignty and rights.",
-    "publicSummary": "Conflict between crown and Parliament led to civil war, regicide, restoration, and a new constitutional order.",
+    "publicSummary": "Conflict between crown and Parliament led to civil war, the execution of a king, the return of monarchy, and new political limits.",
     "dominantValues": [
       "liberty",
       "order",
@@ -828,7 +828,7 @@
       "the aura of unquestioned dynastic right"
     ],
     "pressureSummary": "Acute legitimacy conflict broke the old frame and yielded a more constitutional but more politicised order.",
-    "publicPressureSummary": "A fight over who should rule broke the old frame and produced a more constitutional but more politicised order.",
+    "publicPressureSummary": "A fight over who should rule broke the old frame and left Britain more argument-driven and less settled than before.",
     "releaseType": "settlement",
     "pressureScores": {
       "inequality": 75,

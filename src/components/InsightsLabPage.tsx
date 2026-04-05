@@ -1,7 +1,9 @@
+import { useMemo, useState } from 'react'
 import type { Period } from '../types/domain'
 import type {
   CrossDatasetInsightPack,
   DatasetInsightPack,
+  PeriodClusterAssignment,
   InsightDestinationSection,
 } from '../types/insights'
 
@@ -93,6 +95,96 @@ function ConfidenceRail({
   )
 }
 
+function EraStrip({
+  periods,
+  highlightedPeriodIds,
+  basePeriodId,
+  tone,
+}: {
+  periods: Period[]
+  highlightedPeriodIds: string[]
+  basePeriodId: string
+  tone: InsightCardTone
+}) {
+  const highlightedSet = new Set(highlightedPeriodIds)
+  const activeIndices = periods
+    .map((period, index) => (highlightedSet.has(period.id) ? index : -1))
+    .filter((index) => index >= 0)
+
+  const firstActive = activeIndices[0] ?? -1
+  const lastActive = activeIndices[activeIndices.length - 1] ?? -1
+  const accent =
+    tone === 'family'
+      ? 'rgba(243,177,91,0.9)'
+      : tone === 'relationship'
+        ? 'rgba(121,219,194,0.9)'
+        : 'rgba(251,113,133,0.9)'
+
+  if (!periods.length) {
+    return null
+  }
+
+  return (
+    <div className="mt-4 space-y-2">
+      <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-stone-500">
+        <span>Where it appears</span>
+        <span>
+          {highlightedSet.size} era{highlightedSet.size === 1 ? '' : 's'}
+        </span>
+      </div>
+      <div className="rounded-[1.1rem] border border-white/5 bg-white/[0.04] px-3 pt-3 pb-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.025),0_0_24px_rgba(243,177,91,0.05)]">
+        <div className="flex items-center gap-2">
+          {periods.map((period, index) => {
+            const isActive = highlightedSet.has(period.id)
+            const isFirstActive = index === firstActive
+            const isLastActive = index === lastActive
+            const isBasePeriod = period.id === basePeriodId
+
+            return (
+              <div key={period.id} className="flex min-w-0 flex-1 items-center gap-2">
+                <div className="flex min-w-0 flex-1 items-center gap-2">
+                  <div className="relative flex-1">
+                    <div
+                      className={`h-3 rounded-full transition ${
+                        isBasePeriod
+                          ? 'animate-[pulse_3.2s_ease-in-out_infinite] shadow-[0_0_18px_rgba(255,232,166,0.2)]'
+                          : isActive
+                            ? 'shadow-[0_0_0_1px_rgba(255,255,255,0.05)]'
+                            : ''
+                      }`}
+                      style={{
+                        background: isBasePeriod
+                          ? 'linear-gradient(90deg, rgba(255,239,184,0.98), rgba(243,177,91,0.92))'
+                          : isActive
+                            ? accent
+                            : 'rgba(255,255,255,0.1)',
+                        opacity: isActive || isBasePeriod ? 1 : 0.42,
+                      }}
+                    />
+                    {isFirstActive || isLastActive ? (
+                      <span
+                        className={`absolute top-5 hidden text-[9px] uppercase tracking-[0.14em] text-stone-400 ${
+                          isFirstActive && isLastActive
+                            ? 'left-1/2 -translate-x-1/2'
+                            : isFirstActive
+                              ? 'left-0'
+                              : 'right-0'
+                        } md:block`}
+                      >
+                        {period.rangeLabel}
+                      </span>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function InsightsLabPage({
   datasetLabel,
   datasetId,
@@ -107,48 +199,115 @@ export function InsightsLabPage({
   onInspectCrossDatasetPeriod,
   onInspectForce,
 }: InsightsLabPageProps) {
+  const [activeFamilyLabel, setActiveFamilyLabel] = useState<string | null>(null)
   const selectedPeriod = periods.find((period) => period.id === selectedPeriodId) ?? periods[0] ?? null
   const prompt = insightPack?.prompts.find((item) => item.periodId === selectedPeriodId) ?? null
   const periodById = Object.fromEntries(periods.map((period) => [period.id, period]))
   const publicPilot = insightPack?.publicStatus === 'public'
-  const familyGroups = insightPack
-    ? Object.values(
-        insightPack.periodClusters.reduce<
-          Record<
-            string,
-            {
-              clusterId: string
-              clusterLabel: string
-              publicLabel?: string
-              topSignals: string[]
-              publicTopSignals?: string[]
-              strongestStrength: number
-              periods: typeof insightPack.periodClusters
-            }
-          >
-        >((groups, assignment) => {
-          if (!groups[assignment.clusterId]) {
-            groups[assignment.clusterId] = {
-              clusterId: assignment.clusterId,
-              clusterLabel: assignment.clusterLabel,
-              publicLabel: assignment.publicLabel,
-              topSignals: assignment.topSignals,
-              publicTopSignals: assignment.publicTopSignals,
-              strongestStrength: assignment.strength,
-              periods: [],
-            }
+  const familyGroups = useMemo(() => {
+    if (!insightPack) {
+      return []
+    }
+
+    const byCluster = Object.values(
+      insightPack.periodClusters.reduce<
+        Record<
+          string,
+          {
+            clusterId: string
+            clusterLabel: string
+            publicLabel?: string
+            summary: string
+            publicSummary?: string
+            topSignals: string[]
+            publicTopSignals?: string[]
+            strongestStrength: number
+            periods: PeriodClusterAssignment[]
           }
+        >
+      >((groups, assignment) => {
+        if (!groups[assignment.clusterId]) {
+          groups[assignment.clusterId] = {
+            clusterId: assignment.clusterId,
+            clusterLabel: assignment.clusterLabel,
+            publicLabel: assignment.publicLabel,
+            summary: assignment.summary,
+            publicSummary: assignment.publicSummary,
+            topSignals: assignment.topSignals,
+            publicTopSignals: assignment.publicTopSignals,
+            strongestStrength: assignment.strength,
+            periods: [],
+          }
+        }
 
-          groups[assignment.clusterId].periods.push(assignment)
-          groups[assignment.clusterId].strongestStrength = Math.max(
-            groups[assignment.clusterId].strongestStrength,
-            assignment.strength,
-          )
+        groups[assignment.clusterId].periods.push(assignment)
+        groups[assignment.clusterId].strongestStrength = Math.max(
+          groups[assignment.clusterId].strongestStrength,
+          assignment.strength,
+        )
 
-          return groups
-        }, {}),
-      ).sort((left, right) => right.strongestStrength - left.strongestStrength)
-    : []
+        return groups
+      }, {}),
+    )
+
+    return Object.values(
+      byCluster.reduce<
+        Record<
+          string,
+          {
+            key: string
+            title: string
+            strongestStrength: number
+            clusters: typeof byCluster
+            periods: PeriodClusterAssignment[]
+            topSignals: string[]
+          }
+        >
+      >((groups, cluster) => {
+        const title = cluster.publicLabel ?? 'Recurring pattern'
+        const key = title.toLowerCase()
+
+        if (!groups[key]) {
+          groups[key] = {
+            key,
+            title,
+            strongestStrength: cluster.strongestStrength,
+            clusters: [],
+            periods: [],
+            topSignals: [],
+          }
+        }
+
+        groups[key].clusters.push(cluster)
+        groups[key].periods.push(...cluster.periods)
+        groups[key].strongestStrength = Math.max(
+          groups[key].strongestStrength,
+          cluster.strongestStrength,
+        )
+
+        const mergedSignals = [
+          ...groups[key].topSignals,
+          ...((cluster.publicTopSignals ?? cluster.topSignals) ?? []),
+        ]
+        groups[key].topSignals = Array.from(new Set(mergedSignals)).slice(0, 4)
+
+        return groups
+      }, {}),
+    ).sort((left, right) => right.strongestStrength - left.strongestStrength)
+  }, [insightPack])
+
+  const highlightedFamilyGroup =
+    focusSection === 'families'
+      ? familyGroups.find((group) =>
+          group.periods.some((assignment) => assignment.id === focusTargetId),
+        ) ?? null
+      : null
+  const resolvedActiveFamilyLabel =
+    activeFamilyLabel && familyGroups.some((group) => group.title === activeFamilyLabel)
+      ? activeFamilyLabel
+      : highlightedFamilyGroup?.title ?? familyGroups[0]?.title ?? null
+  const activeFamilyGroup =
+    familyGroups.find((group) => group.title === resolvedActiveFamilyLabel) ?? familyGroups[0] ?? null
   const publicCousins =
     crossDatasetPack?.publicCousins.filter(
       (cousin) =>
@@ -229,34 +388,48 @@ export function InsightsLabPage({
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-4">
-                  {familyGroups.map((group) => (
+                {activeFamilyGroup ? (
+                  <>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {familyGroups.map((group) => {
+                        const isActive = group.title === activeFamilyGroup.title
+
+                        return (
+                          <button
+                            key={group.key}
+                            type="button"
+                            onClick={() => setActiveFamilyLabel(group.title)}
+                            className={`ui-action rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.18em] transition ${
+                              isActive
+                                ? 'border-amber-300/32 bg-amber-300/10 text-amber-100'
+                                : 'border-white/10 bg-white/4 text-stone-300 hover:border-white/18 hover:text-stone-100'
+                            }`}
+                          >
+                            {group.title}
+                          </button>
+                        )
+                      })}
+                    </div>
+
                     <article
-                      key={group.clusterId}
-                      className={`rounded-[1.45rem] border p-5 ${sectionShell(false, 'family')}`}
+                      key={activeFamilyGroup.key}
+                      className="rounded-[1.45rem] border border-amber-200/10 bg-[rgba(243,177,91,0.04)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]"
                     >
                       <div className="flex flex-wrap items-start justify-between gap-4">
                         <div className="max-w-3xl">
                           <p className="text-sm uppercase tracking-[0.18em] text-amber-100">
-                            {group.publicLabel ?? 'Recurring pattern'}
-                          </p>
-                          <p className="mt-3 text-sm leading-6 text-stone-300">
-                            This pattern shows up in {group.periods.length} era{group.periods.length === 1 ? '' : 's'} here,
-                            with {(group.publicTopSignals ?? group.topSignals)
-                              .slice(0, 2)
-                              .join(' and ')
-                              .toLowerCase()} most visible across the group.
+                            {activeFamilyGroup.title}
                           </p>
                         </div>
                         <div className="min-w-[10rem]">
-                          <ConfidenceRail strength={group.strongestStrength} tone="family" />
+                          <ConfidenceRail strength={activeFamilyGroup.strongestStrength} tone="family" />
                         </div>
                       </div>
 
                       <div className="mt-4 flex flex-wrap gap-2">
-                        {(group.publicTopSignals ?? group.topSignals).map((signal) => (
+                        {activeFamilyGroup.topSignals.map((signal) => (
                           <span
-                            key={`${group.clusterId}-${signal}`}
+                            key={`${activeFamilyGroup.key}-${signal}`}
                             className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
                           >
                             {signal}
@@ -264,35 +437,83 @@ export function InsightsLabPage({
                         ))}
                       </div>
 
-                      <div className="mt-5 grid gap-3 md:grid-cols-2">
-                        {group.periods.map((assignment) => {
-                          const period = periodById[assignment.periodId]
-                          const highlighted =
-                            focusSection === 'families' && focusTargetId === assignment.id
+                      <EraStrip
+                        periods={periods}
+                        highlightedPeriodIds={activeFamilyGroup.periods.map((assignment) => assignment.periodId)}
+                        basePeriodId={selectedPeriodId}
+                        tone="family"
+                      />
+
+                      <div className="mt-5 space-y-4">
+                        {activeFamilyGroup.clusters.map((cluster, clusterIndex) => {
+                          const clusterSignals = cluster.publicTopSignals ?? cluster.topSignals
+                          const showSubLabel = activeFamilyGroup.clusters.length > 1
 
                           return (
-                            <div
-                              key={assignment.id}
-                              className={`rounded-[1.2rem] border px-4 py-4 ${sectionShell(highlighted, 'family')}`}
+                            <section
+                              key={cluster.clusterId}
+                              className="rounded-[1.25rem] border border-white/6 bg-white/[0.035] px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)]"
                             >
-                              <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
-                                {period?.rangeLabel ?? assignment.periodId}
-                              </p>
-                              <h3 className="mt-2 text-base text-stone-100">{period?.title}</h3>
-                              <button
-                                type="button"
-                                onClick={() => onInspectPeriod(assignment.periodId)}
-                                className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
-                              >
-                                See this period
-                              </button>
-                            </div>
+                              <div className="flex flex-wrap items-start justify-between gap-4">
+                                <div className="max-w-3xl">
+                                  {showSubLabel ? (
+                                    <p className="text-[10px] uppercase tracking-[0.2em] text-amber-100/78">
+                                      Pattern {clusterIndex + 1}
+                                    </p>
+                                  ) : null}
+                                  <p className={`${showSubLabel ? 'mt-2' : ''} text-sm leading-6 text-stone-300`}>
+                                    {cluster.publicSummary ?? cluster.summary}
+                                  </p>
+                                </div>
+                                <div className="min-w-[10rem]">
+                                  <ConfidenceRail strength={cluster.strongestStrength} tone="family" />
+                                </div>
+                              </div>
+
+                              <div className="mt-4 flex flex-wrap gap-2">
+                                {clusterSignals.map((signal) => (
+                                  <span
+                                    key={`${cluster.clusterId}-${signal}`}
+                                    className="rounded-full border border-white/8 bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
+                                  >
+                                    {signal}
+                                  </span>
+                                ))}
+                              </div>
+
+                              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                                {cluster.periods.map((assignment) => {
+                                  const period = periodById[assignment.periodId]
+                                  const highlighted =
+                                    focusSection === 'families' && focusTargetId === assignment.id
+
+                                  return (
+                                    <div
+                                      key={assignment.id}
+                                      className={`rounded-[1.2rem] border px-4 py-4 ${sectionShell(highlighted, 'family')}`}
+                                    >
+                                      <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                                        {period?.rangeLabel ?? assignment.periodId}
+                                      </p>
+                                      <h3 className="mt-2 text-base text-stone-100">{period?.title}</h3>
+                                      <button
+                                        type="button"
+                                        onClick={() => onInspectPeriod(assignment.periodId)}
+                                        className="ui-action mt-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-stone-200"
+                                      >
+                                        See this period
+                                      </button>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            </section>
                           )
                         })}
                       </div>
                     </article>
-                  ))}
-                </div>
+                  </>
+                ) : null}
               </section>
 
               {publicCousins.length ? (

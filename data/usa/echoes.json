@@ -99,7 +99,7 @@
     "sourcePeriodId": "us-p01",
     "targetPeriodId": "us-p03",
     "similarityLabel": "Founding contradictions return as constitutional rupture",
-    "publicSimilarityLabel": "Founding contradictions return in constitutional crisis",
+    "publicSimilarityLabel": "The founding argument returns in war and crisis",
     "similarityReasons": [
       "Both periods force the republic to define whether its universal claims can survive exclusionary practice.",
       "Both make legitimacy depend on whether constitutional principle can be defended in moments of existential strain."
@@ -111,7 +111,7 @@
     "dimensions": ["institutionalLegitimacy", "inequality", "militarization"],
     "confidence": 0.78,
     "notes": "This is not repetition in form. It is a structural return: unresolved founding contradictions reappear as war, emancipation, and constitutional crisis.",
-    "publicNotes": "This is not the founding happening again. It is the return of unresolved founding contradictions as war, emancipation, and constitutional crisis."
+    "publicNotes": "The Civil War era does not repeat the founding, but it forces the country to face the same broken promise from a far more dangerous place."
   },
   {
     "id": "us-x07",

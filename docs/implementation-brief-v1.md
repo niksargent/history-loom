@@ -27,7 +27,7 @@ The first interactive prototype now exists in code and has moved beyond proof-of
 - pressure overlays and curated echo reveal are implemented
 - a geographic inset built on real topojson geometry is implemented in the detail flow
 - compare mode is implemented from echoes and second-period selection and now opens as an overlay with explicit source/target roles
-- compare mode now includes an interpretive insight strip for overlap, separation, and pressure relationship
+- compare mode now leads with an echo-story hero when a curated echo exists, using a bridge visual and shared forces as the main evidence layer
 - echoes now support a more explicit route through the dataset, with focused counterpart selection plus jump and compare actions
 - a first motion/material pass is now in place, with deeper surfaces, stronger compare staging, and restrained reveal/glow behavior
 - compare and detail copy have been tightened so the interface sounds less like an internal memo
@@ -75,6 +75,13 @@ Current refinement focus:
 - population is now recognised as the next major data-model extension, with the first live pass now implemented in schema, detail, and compare
 - population now also has a live optional Loom tide-line overlay
 - Compare now also has a dedicated full-width population band showing raw totals, growth shape, and selected-period markers
+- the detail panel now also includes a compact experiential lens inside `Lived voice`, showing:
+  - safety
+  - freedom
+  - pressure
+  - future
+- this lens is now part of the public reading surface and is driven from the existing period model rather than a separate sentiment schema
+- `Start compare` and `Reveal echoes` now live in the Loom control row instead of the detail panel, because they are field-level actions rather than detail-only actions
 - derived insight and data science are now recognised as the next insight-layer extension, so the tool can surface clusters, co-movement, and candidate force relationships rather than only curated readings
 - the first derived-insight implementation is now in place:
   - offline insight generation pipeline
@@ -97,6 +104,7 @@ Current refinement focus:
 - extend the live schema and dataset plans to support population as a first-class contextual series
 - the first population pass is now live: Britain, USA, and France carry one population value per period, and the app shows population in detail and compare as contextual scale
 - the first dedicated Compare population chart is now live, so the next population design decision is whether any secondary refinement is needed before population expands to `In motion` or another surface
+- Compare has now also been reworked to explain curated echoes directly instead of leading with overlap taxonomy, with lower evidence sections supporting the main story
 - plan a derived-insight layer that can support clustering, correlation, and lead-lag style prompts without overstating causation
 - review and selectively sharpen the generated insight output before any wider cross-dataset release
 - the derived-insight public surfaces are now promoted across all live datasets, while wider cousin and echo-support release stays selective
@@ -127,8 +135,9 @@ The following interaction grammar is now established:
 The next quality threshold is interpretive clarity, not feature count:
 - the opening screen should feel like the true front door of the product, not a header above it
 - the detail panel should feel more like guided historical reading and less like a structured dossier
+- the new experiential lens in `Lived voice` should stay subordinate to the quote; if it starts to feel like a dashboard, reduce it rather than expanding it
 - the next interpretive gains should come from intelligent framing and better visual analysis, not from more explanatory text
-- compare should only receive careful incremental polish where clarity is still weak
+- compare should now be treated as an echo-explanation surface first, with any further changes focused on live-use clarity rather than more taxonomy
 - the geography card should not be changed further until its role and placement are discussed
 - structural-force controls should become more legible and more user-directable without increasing clutter
 - UI copy and control language should be audited so the interface stops sounding like an internal design note
@@ -138,8 +147,9 @@ The next quality threshold is interpretive clarity, not feature count:
 1. keep Britain, USA, and France in targeted validation toward `solid`, but only where live use exposes a real weakness
 2. keep Race as the current motion mode unless evidence shows a frame cap or a second mode is needed
 3. keep the public-language system in maintenance mode through audits and live review rather than another broad rewrite
-4. review the Compare population band in live use before adding toggles or another population surface
-5. stay selective about any further public cross-dataset cousin release
+4. review the live Compare story hero, bridge visual, and shared-force evidence layer before making further compare changes
+5. review the Compare population band in live use before adding toggles or another population surface
+6. stay selective about any further public cross-dataset cousin release
 
 ## Product intent
 

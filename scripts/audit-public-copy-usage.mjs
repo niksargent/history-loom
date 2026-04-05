@@ -27,8 +27,18 @@ const checks = [
     mustInclude: [
       'getPublicPeriodSummary(',
       'getPublicEventSummary(',
+      'buildCompareStory(',
+      'CompareEchoHero',
+      'CompareSharedPressureMix',
+    ],
+    mustNotInclude: [],
+  },
+  {
+    file: 'src/lib/compare-story.ts',
+    mustInclude: [
       'getPublicEchoSimilarityLabel(',
       'getPublicEchoSimilarityReasons(',
+      'getPublicEchoNotes(',
     ],
     mustNotInclude: [],
   },

@@ -32,6 +32,7 @@ A period is good enough when it is:
 - grounded by meaningful events
 - connected by at least one worthwhile echo
 - supported by a snapshot and lived voice
+- supported by strong lived-condition fields that can feed the public experiential lens
 
 A period should not be judged by word count.
 It should be judged by whether a user can understand:
@@ -48,6 +49,11 @@ Each period should have:
 - at least 1 lived-voice response
 - at least 1 echo
 - a pressure profile that is not purely abstract
+- usable entries for:
+  - `insecurityExposure`
+  - `autonomyVsObligation`
+  - `opportunityVsPrecarity`
+  - `senseOfFuture`
 
 ### Preferred standard
 
@@ -55,6 +61,32 @@ Each period should have:
 - 3 anchor events where that materially improves interpretation
 - at least one strong echo, not just an available echo
 - enough human texture that the period feels inhabited
+
+### Experiential-lens rule
+
+The public `Lived voice` card now includes a compact experiential lens built from:
+- safety
+- freedom
+- pressure
+- future
+
+Those dimensions are driven from the period model, especially:
+- `insecurityExposure`
+- `autonomyVsObligation`
+- `opportunityVsPrecarity`
+- `senseOfFuture`
+
+Those fields must therefore be:
+- concrete
+- plain-language
+- distinct from one another
+- useful to a non-specialist reader without further decoding
+
+Bad pattern:
+- four fields that all say the same thing in slightly different abstract language
+
+Good pattern:
+- each field clarifies a different part of lived experience and helps the quote feel grounded
 
 ## 2. Event standard
 
@@ -137,6 +169,7 @@ Each lived-voice item should:
 - translate structure into everyday stakes
 - imply a real social position, household role, or civic vantage rather than a generic narrator
 - sound like a person describing consequences in daily life, not like an analyst summarising the period in first person
+- work with the experiential lens rather than duplicating it word-for-word
 
 ### Stronger persona standard
 
@@ -156,6 +189,7 @@ Avoid:
 - melodrama
 - over-specific fictional biography
 - modern editorial commentary disguised as a voice
+- repeating directly what the lens fields already explain more clearly
 
 ## 5. Pressure-grounding standard
 

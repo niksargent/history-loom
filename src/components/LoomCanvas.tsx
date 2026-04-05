@@ -2,7 +2,7 @@ import type { Period } from '../types/domain'
 import type { LoomDensityMode, PressureOverlaySeries } from '../types/view'
 import { formatPopulationCompact } from '../lib/format'
 import { getReleaseLabel } from '../lib/loom-data'
-import { getPublicPeriodSummary } from '../lib/public-copy'
+import { getPublicConceptPhrase, getPublicPeriodSummary } from '../lib/public-copy'
 
 interface LoomCanvasProps {
   periods: Period[]
@@ -24,6 +24,8 @@ interface LoomCanvasProps {
   onDensityChange: (density: LoomDensityMode) => void
   onTogglePressureOverlay: () => void
   onTogglePopulation: () => void
+  onToggleEchoes: () => void
+  onToggleCompare: () => void
   onPressureSelect: (pressureId: string | null) => void
 }
 
@@ -157,6 +159,8 @@ export function LoomCanvas({
   onDensityChange,
   onTogglePressureOverlay,
   onTogglePopulation,
+  onToggleEchoes,
+  onToggleCompare,
   onPressureSelect,
 }: LoomCanvasProps) {
   const selectedSeries =
@@ -297,6 +301,30 @@ export function LoomCanvas({
               }`}
             >
               {showPopulation ? 'Hide population' : 'Show population'}
+            </button>
+            <button
+              type="button"
+              onClick={onToggleEchoes}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                showEchoes
+                  ? 'border-cyan-300/35 bg-cyan-300/10 text-cyan-100'
+                  : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              {showEchoes ? 'Hide echoes' : 'Reveal echoes'}
+            </button>
+            <button
+              type="button"
+              onClick={onToggleCompare}
+              className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition ${
+                compareActive
+                  ? 'border-rose-300/35 bg-rose-300/10 text-rose-100'
+                  : comparePicking
+                    ? 'border-amber-300/35 bg-amber-300/10 text-amber-100'
+                    : 'text-stone-300 hover:text-stone-100'
+              }`}
+            >
+              {compareActive ? 'Exit compare' : comparePicking ? 'Cancel compare' : 'Start compare'}
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -718,7 +746,7 @@ export function LoomCanvas({
                                 key={value}
                                 className="rounded-full border border-[rgba(214,211,209,0.08)] bg-white/6 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-stone-300"
                               >
-                                {value}
+                                {getPublicConceptPhrase(value)}
                               </span>
                             ))}
                         </div>

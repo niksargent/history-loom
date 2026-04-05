@@ -458,7 +458,7 @@
     "themeIds": ["information", "technology", "inequality", "fracture"],
     "geographyIds": ["united-states", "global"],
     "pressureSummary": "Security shock, economic fragility, and networked media have fused into a more surveilled, more visible, and less cohesive public order.",
-    "publicPressureSummary": "Security shock, economic fragility, and networked media created a more watched, more visible, and less cohesive public order.",
+    "publicPressureSummary": "Security shock, economic fragility, and networked media made the country feel more watched, more exposed, and less held together.",
     "releaseType": "fragmentation",
     "pressureScores": {
       "inequality": 84,

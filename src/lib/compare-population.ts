@@ -141,7 +141,7 @@ export function buildPopulationComparisonModel(
         ? `These moments sit in the same broad growth phase, even though they land at different scale.`
         : `These moments sit in different parts of the same growth story: one ${sourceMoment}, the other ${targetMoment}.`
   } else if (scaleRatio >= 1.8) {
-    interpretation = `These periods rhyme in pressure, but not in scale. ${largerScope} is much larger here.`
+    interpretation = `These periods feel similar in pressure, but not in scale. ${largerScope} is much larger here.`
   } else {
     interpretation = `These periods are closer in scale than their different histories might suggest.`
   }
@@ -179,4 +179,3 @@ export function buildPopulationAreaPath(points: PopulationChartPoint[]) {
 
   return `${linePath} L ${last.x} ${CHART_HEIGHT - PADDING_BOTTOM} L ${first.x} ${CHART_HEIGHT - PADDING_BOTTOM} Z`
 }
-

@@ -35,14 +35,14 @@
     "dimensions": ["institutionalLegitimacy", "publicHope", "socialCohesion"],
     "confidence": 0.71,
     "notes": "Revolution and liberation are morally distinct, but both feel like moments when the polity must be rebuilt because the old order has become untenable.",
-    "publicNotes": "Revolution and liberation are morally different, but both feel like moments when France has to rebuild because the old order can no longer hold."
+    "publicNotes": "Revolution and liberation are morally different, but both feel like moments when France has to rebuild because the old system can no longer hold."
   },
   {
     "id": "fr-x03",
     "sourcePeriodId": "fr-p03",
     "targetPeriodId": "fr-p08",
     "similarityLabel": "Legitimacy repaired through stronger constitutional order",
-    "publicSimilarityLabel": "Public trust is repaired through a stronger constitutional order",
+    "publicSimilarityLabel": "A stronger constitution brings trust back",
     "similarityReasons": [
       "Both periods respond to instability by trying to make authority more governable.",
       "The later period succeeds more durably because it solves the executive weakness the earlier period never resolved."
@@ -54,7 +54,7 @@
     "dimensions": ["institutionalLegitimacy", "socialCohesion", "publicHope"],
     "confidence": 0.74,
     "notes": "This echo is comparative rather than repetitive: what the Restoration could not stabilize, the Fifth Republic stabilizes more successfully.",
-    "publicNotes": "This is not a repeated story. It is a comparison between one order that could not stabilise France and another that did so more successfully."
+    "publicNotes": "The first system never really steadied France. The later one does."
   },
   {
     "id": "fr-x04",
@@ -99,7 +99,7 @@
     "sourcePeriodId": "fr-p06",
     "targetPeriodId": "fr-p09",
     "similarityLabel": "Fear and fragmentation weaken confidence in the national settlement",
-    "publicSimilarityLabel": "Fear and fragmentation weaken confidence in the national order",
+    "publicSimilarityLabel": "Fear and fragmentation weaken confidence in the country itself",
     "similarityReasons": [
       "Both periods are marked by insecurity, ideological hardening, and weaker trust in the political center.",
       "Both make the republic feel more brittle than its formal institutions suggest."

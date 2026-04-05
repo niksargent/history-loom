@@ -494,7 +494,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "A Protestant settlement sought political stability while retaining coercive control.",
-    "publicSummary": "A Protestant religious order tried to steady politics while still using coercion.",
+    "publicSummary": "A Protestant religious order tried to steady politics while still using force and pressure.",
     "type": "religious",
     "periodIds": [
       "p07"
@@ -1053,7 +1053,7 @@
     "scope": "United Kingdom",
     "geography": "United Kingdom",
     "summary": "The referendum and withdrawal from the EU exposed sovereignty conflict, regional difference, and long-running legitimacy strain.",
-    "publicSummary": "The Brexit vote and EU withdrawal exposed deep arguments over sovereignty, region, and trust in the system.",
+    "publicSummary": "The Brexit vote and EU withdrawal exposed deep arguments over who should decide Britain's future, regional difference, and trust in the system.",
     "type": "political",
     "periodIds": [
       "p12"
@@ -1529,7 +1529,7 @@
     "scope": "England",
     "geography": "England",
     "summary": "The crown tried to hold wages down and restrict labour movement after the Black Death, turning post-plague scarcity into a sharper struggle over work, status, and coercion.",
-    "publicSummary": "After the Black Death, the crown tried to hold wages down and restrict labour movement, sharpening the struggle over work and coercion.",
+    "publicSummary": "After the Black Death, the crown tried to hold wages down and restrict labour movement, sharpening the struggle over work and tighter control.",
     "type": "economic",
     "periodIds": [
       "p04"

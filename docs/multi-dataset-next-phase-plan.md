@@ -45,6 +45,7 @@ Status:
 - a population tide line is now also live on the main Loom as a separate optional scale overlay
 - the first dedicated Compare population chart is now also live as a full-width band below the two summary cards
 - the next population question is no longer placement but refinement: whether the Compare band needs any secondary adjustment before population expands to another surface
+- Compare itself now also leads with an echo-story hero when a curated echo exists, with shared forces treated as the main evidence layer rather than a hidden support list
 
 Data science is now also an approved extension track:
 - use derived analysis to surface clusters, co-movement, and candidate relationships
@@ -153,6 +154,12 @@ This remains a higher-reasoning content step because weak persona work will feel
 Status:
 - the first lived voice v2 pass is now implemented across Britain, USA, and France
 - the detail panel now supports multiple voices per period through tabs
+- the detail panel now also includes a compact `What life feels like here` lens beneath the quote, using:
+  - safety
+  - freedom
+  - pressure
+  - future
+- those dimensions are derived from the existing period model rather than a separate sentiment system
 - later refinement should focus on selective quality, not a second schema rewrite
 
 ### 3. Multi-dataset atmosphere
@@ -181,6 +188,7 @@ Status:
 - Force Explorer is now implemented
 - the old detail-panel force card has been retired
 - geography now follows the honest rule: Britain map only until other datasets have real map treatments
+- `Start compare` and `Reveal echoes` now also live in the Loom control row, because they are field-level actions rather than detail-only controls
 
 ### 5. Motion and alternate views
 
@@ -268,6 +276,17 @@ Status:
 - phase 2 visible prose now also covers events, echoes, and snapshot text across Britain, USA, and France
 - a public-copy usage audit now exists so visible surfaces can be checked for leaks systematically
 
+### 8a. Compare as echo explanation
+
+Compare is now explicitly an echo-explanation surface first.
+
+That means:
+- the top of Compare should explain why two periods belong together
+- curated echo text should lead whenever it exists
+- the bridge visual should replace taxonomy-led top cards
+- shared force mix should do the main evidence work
+- lower bucket sections should support the story, not dominate it
+
 ## What stays off
 
 Still deferred:
@@ -296,8 +315,9 @@ They belong after the current three datasets are stronger and the multi-dataset 
 1. keep the current three live datasets aligned and selectively validate only where a real weakness still shows in use
 2. keep Race under review, but do not force a frame cap or second motion mode without evidence from real use
 3. keep the public-language pass in maintenance mode through live QA and public-copy audits rather than broad new rewrites
-4. review the live Compare population band before adding toggles or another population surface
-5. hold wider cross-dataset cousin or echo-support release unless a second reveal adds genuinely new public value
+4. review the live Compare story hero, bridge visual, and shared-force evidence layer before making further compare changes
+5. review the live Compare population band before adding toggles or another population surface
+6. hold wider cross-dataset cousin or echo-support release unless a second reveal adds genuinely new public value
 
 ## Higher-reasoning steps
 

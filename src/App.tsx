@@ -234,7 +234,7 @@ function buildPatternEntries(dataset: LoomDataset) {
     },
     {
       id: 'pattern-rhyme',
-      title: 'Distant rhyme',
+      title: 'Distant echo',
       body: 'A period with strong echoes reaching into another time.',
       periodId: rhyme?.period.id ?? dataset.periods[0]?.id ?? '',
       pressureId: null,
@@ -886,7 +886,7 @@ function App() {
                 The History Loom
               </h1>
               <h2 className="font-display mt-5 max-w-3xl text-2xl leading-tight text-[rgba(246,205,148,0.92)] md:text-4xl">
-                Does history repeat itself, or do pressures, moods, and institutions only rhyme?
+                Does history repeat itself, or do pressures, moods, and institutions return in new forms?
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-7 text-stone-300 md:text-lg">
                 A way to see {dataset.meta.scope} from {dataset.meta.startYear} to{' '}
@@ -1215,6 +1215,8 @@ function App() {
               onDensityChange={setLoomDensity}
               onTogglePressureOverlay={() => setShowPressureOverlay((current) => !current)}
               onTogglePopulation={() => setShowPopulation((current) => !current)}
+              onToggleEchoes={() => setShowEchoes((current) => !current)}
+              onToggleCompare={handleStartComparePick}
               onPressureSelect={(pressureId) => {
                 setSelectedPressureId(pressureId)
                 setShowPressureOverlay(true)
@@ -1315,16 +1317,12 @@ function App() {
             showEchoes={showEchoes}
             selectedPressureId={selectedPressureId}
             selectedPressureSeries={selectedPressureSeries}
-            comparePicking={comparePicking && compareAnchoredToSelected}
-            compareActive={compareActive && compareAnchoredToSelected}
             activeEchoLinkId={activeEchoLinkId}
             viewMode={detailMode}
             onToggleOpen={() => setIsDetailOpen((current) => !current)}
-            onToggleEchoes={() => setShowEchoes((current) => !current)}
             onFocusEcho={handleFocusEcho}
             onFollowEcho={handleFollowEcho}
             onOpenInsights={openInsights}
-            onStartComparePick={handleStartComparePick}
             onCompareToPeriod={handleCompareToPeriod}
             onViewModeChange={setDetailMode}
           />

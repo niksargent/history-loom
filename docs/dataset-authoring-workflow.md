@@ -79,6 +79,15 @@ For each period:
 - verify at least one human snapshot
 - improve lived texture where the derived read is too generic
 - decide whether additional scale-specific authored material is needed
+- make sure the period-level lived-condition fields are strong enough to support the public experiential lens:
+  - `insecurityExposure`
+  - `autonomyVsObligation`
+  - `opportunityVsPrecarity`
+  - `senseOfFuture`
+
+These are no longer quiet background fields.
+They now drive visible public reading in the `Lived voice` card.
+They should not be filled with generic analyst prose.
 
 ## 6. Echo curation
 

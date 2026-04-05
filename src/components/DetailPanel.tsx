@@ -12,6 +12,7 @@ import {
   getReleaseLabel,
 } from '../lib/loom-data'
 import {
+  getPublicConceptPhrase,
   getPublicEchoNotes,
   getPublicEchoSimilarityLabel,
   getPublicEchoSimilarityReasons,
@@ -26,7 +27,7 @@ import {
   getPublicVoiceResponse,
   getPublicVoiceSpeakerFrame,
 } from '../lib/public-copy'
-import type { LivedVoice, Scale } from '../types/domain'
+import type { LivedVoice, Period, Scale } from '../types/domain'
 import type { InsightPrompt } from '../types/insights'
 import type {
   DetailViewMode,
@@ -88,21 +89,160 @@ function buildPeriodReading(detail: SelectedPeriodDetail) {
 
   const valueLead = detail.period.dominantValues
     .slice(0, 2)
-    .map((value) => sentenceCase(value))
+    .map((value) => sentenceCase(getPublicConceptPhrase(value)))
     .join(' and ')
   const moodLead = detail.period.socialMood
     .slice(0, 2)
-    .map((mood) => sentenceCase(mood))
-    .join(' / ')
+    .map((mood) => sentenceCase(getPublicConceptPhrase(mood)))
+    .join(' and ')
   const leadPressure =
     detail.allPressureSnapshots[0]?.publicLabel ?? detail.allPressureSnapshots[0]?.label ?? null
-  const releaseLabel = getReleaseLabel(detail.period.releaseType).toLowerCase()
 
   if (leadPressure) {
-    return `${detail.period.title} feels like a ${releaseLabel} moment: ${valueLead || 'its main values'} sit close to the surface, the mood leans ${moodLead || 'mixed'}, and one of the biggest pressures is ${leadPressure.toLowerCase()}.`
+    return `${detail.period.title} is a time of ${moodLead || 'mixed feeling'}. ${valueLead || 'Its main values'} sit close to the surface, and ${leadPressure.toLowerCase()} is shaping both daily life and political power.`
   }
 
-  return `${detail.period.title} feels like a ${releaseLabel} moment shaped by ${valueLead || 'its main values'}, with a mood of ${moodLead || 'mixed feeling'}.`
+  return `${detail.period.title} is shaped by ${valueLead || 'its main values'}, with a mood of ${moodLead || 'mixed feeling'}.`
+}
+
+interface EverydayLensMetric {
+  id: string
+  label: string
+  value: number
+  descriptor: string
+  explanation: string
+  accentClass: string
+  fillClass: string
+  glowClass: string
+  shellClass: string
+}
+
+function clampScore(value: number) {
+  return Math.max(0, Math.min(100, Math.round(value)))
+}
+
+function average(values: number[]) {
+  return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0
+}
+
+function describeBand(
+  value: number,
+  bands: [number, string][],
+) {
+  for (const [threshold, label] of bands) {
+    if (value <= threshold) {
+      return label
+    }
+  }
+
+  return bands[bands.length - 1]?.[1] ?? ''
+}
+
+function buildEverydayLens(period: Period): EverydayLensMetric[] {
+  const pressure = period.pressureScores
+  const safety = clampScore(
+    average([
+      100 - (pressure.economicPrecarity ?? 50),
+      100 - (pressure.militarization ?? 50),
+      100 - (pressure.ecologicalStrain ?? 50),
+      pressure.socialCohesion ?? 50,
+      pressure.institutionalLegitimacy ?? 50,
+    ]),
+  )
+  const freedom = clampScore(
+    average([
+      pressure.individualAutonomy ?? 50,
+      100 - (pressure.moralCertainty ?? 50),
+      100 - (pressure.militarization ?? 50),
+    ]),
+  )
+  const strain = clampScore(
+    average([
+      pressure.economicPrecarity ?? 50,
+      pressure.inequality ?? 50,
+      pressure.informationAcceleration ?? 50,
+      pressure.militarization ?? 50,
+      pressure.ecologicalStrain ?? 50,
+    ]),
+  )
+  const future = clampScore(
+    average([
+      pressure.publicHope ?? 50,
+      pressure.institutionalLegitimacy ?? 50,
+      100 - (pressure.economicPrecarity ?? 50),
+    ]),
+  )
+
+  return [
+    {
+      id: 'safety',
+      label: 'Safety',
+      value: safety,
+      descriptor: describeBand(safety, [
+        [25, 'precarious'],
+        [45, 'fragile'],
+        [65, 'uneven'],
+        [85, 'mostly secure'],
+        [100, 'secure'],
+      ]),
+      explanation: period.insecurityExposure,
+      accentClass: 'text-cyan-100',
+      fillClass: 'from-cyan-300/95 via-cyan-200/60 to-cyan-100/10',
+      glowClass: 'bg-cyan-300/10',
+      shellClass: 'border-[rgba(103,232,249,0.16)] bg-[rgba(103,232,249,0.05)]',
+    },
+    {
+      id: 'freedom',
+      label: 'Freedom',
+      value: freedom,
+      descriptor: describeBand(freedom, [
+        [25, 'tightly limited'],
+        [45, 'restricted'],
+        [65, 'partial'],
+        [85, 'widening'],
+        [100, 'broad'],
+      ]),
+      explanation: period.autonomyVsObligation,
+      accentClass: 'text-emerald-100',
+      fillClass: 'from-emerald-300/95 via-emerald-200/60 to-emerald-100/10',
+      glowClass: 'bg-emerald-300/10',
+      shellClass: 'border-[rgba(110,231,183,0.16)] bg-[rgba(110,231,183,0.05)]',
+    },
+    {
+      id: 'pressure',
+      label: 'Pressure',
+      value: strain,
+      descriptor: describeBand(strain, [
+        [25, 'light'],
+        [45, 'present'],
+        [65, 'heavy'],
+        [85, 'intense'],
+        [100, 'crushing'],
+      ]),
+      explanation: period.opportunityVsPrecarity,
+      accentClass: 'text-amber-100',
+      fillClass: 'from-amber-300/95 via-amber-200/65 to-amber-100/10',
+      glowClass: 'bg-amber-300/10',
+      shellClass: 'border-[rgba(243,177,91,0.16)] bg-[rgba(243,177,91,0.06)]',
+    },
+    {
+      id: 'future',
+      label: 'Future',
+      value: future,
+      descriptor: describeBand(future, [
+        [25, 'dim'],
+        [45, 'guarded'],
+        [65, 'uncertain'],
+        [85, 'open'],
+        [100, 'hopeful'],
+      ]),
+      explanation: period.senseOfFuture,
+      accentClass: 'text-fuchsia-100',
+      fillClass: 'from-fuchsia-300/95 via-fuchsia-200/60 to-fuchsia-100/10',
+      glowClass: 'bg-fuchsia-300/10',
+      shellClass: 'border-[rgba(217,70,239,0.16)] bg-[rgba(217,70,239,0.05)]',
+    },
+  ]
 }
 
 interface SectionDisclosureProps {
@@ -150,11 +290,14 @@ function SectionDisclosure({
 function LivedVoiceCard({
   title,
   voices,
+  period,
 }: {
   title: string
   voices: LivedVoice[]
+  period: Period
 }) {
   const [activeVoiceId, setActiveVoiceId] = useState(voices[0]?.id ?? '')
+  const everydayLens = useMemo(() => buildEverydayLens(period), [period])
 
   const activeVoice =
     voices.find((voice) => voice.id === activeVoiceId) ?? voices[0] ?? null
@@ -207,6 +350,38 @@ function LivedVoiceCard({
         <p className="mt-4 max-w-3xl text-base leading-7 text-stone-50 md:text-lg">
           “{getPublicVoiceResponse(activeVoice)}”
         </p>
+        <div className="mt-5 rounded-[1.25rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] p-4">
+          <p className="eyebrow">What life feels like here</p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            {everydayLens.map((metric) => (
+              <article
+                key={metric.id}
+                className={`rounded-[1.15rem] border p-4 ${metric.shellClass}`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <p className={`text-[10px] uppercase tracking-[0.2em] ${metric.accentClass}`}>
+                    {metric.label}
+                  </p>
+                  <span className="text-[10px] uppercase tracking-[0.16em] text-stone-500">
+                    {metric.descriptor}
+                  </span>
+                </div>
+                <div className="mt-4 flex items-start gap-4">
+                  <div className={`relative h-20 w-4 shrink-0 overflow-hidden rounded-full bg-white/6 ${metric.glowClass}`}>
+                    <div
+                      className={`absolute inset-x-0 bottom-0 rounded-full bg-gradient-to-t ${metric.fillClass}`}
+                      style={{ height: `${metric.value}%` }}
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-lg text-stone-100">{metric.value}</p>
+                    <p className="mt-2 text-sm leading-6 text-stone-300">{metric.explanation}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </article>
   )
@@ -309,7 +484,7 @@ function DetailSections({
             </h3>
             <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
               {period.whatEmerged.concat(period.newPossibilities).slice(0, 5).map((item) => (
-                <li key={item}>{sentenceCase(item)}</li>
+                <li key={item}>{sentenceCase(getPublicConceptPhrase(item))}</li>
               ))}
             </ul>
           </div>
@@ -319,7 +494,7 @@ function DetailSections({
             </h3>
             <ul className="mt-3 space-y-2 text-sm leading-6 text-stone-300">
               {period.whatFaded.concat(period.whatBroke).slice(0, 5).map((item) => (
-                <li key={item}>{sentenceCase(item)}</li>
+                <li key={item}>{sentenceCase(getPublicConceptPhrase(item))}</li>
               ))}
             </ul>
           </div>
@@ -583,16 +758,12 @@ interface DetailPanelProps {
   showEchoes: boolean
   selectedPressureId: string | null
   selectedPressureSeries: PressureOverlaySeries | null
-  comparePicking: boolean
-  compareActive: boolean
   activeEchoLinkId: string | null
   viewMode: DetailViewMode
   onToggleOpen: () => void
-  onToggleEchoes: () => void
   onFocusEcho: (echoId: string) => void
   onFollowEcho: (periodId: string) => void
   onOpenInsights: (section: InsightPrompt['destinationSection'], targetId: string) => void
-  onStartComparePick: () => void
   onCompareToPeriod: (periodId: string) => void
   onViewModeChange: (viewMode: DetailViewMode) => void
 }
@@ -605,16 +776,12 @@ export function DetailPanel({
   showEchoes,
   selectedPressureId,
   selectedPressureSeries,
-  comparePicking,
-  compareActive,
   activeEchoLinkId,
   viewMode,
   onToggleOpen,
-  onToggleEchoes,
   onFocusEcho,
   onFollowEcho,
   onOpenInsights,
-  onStartComparePick,
   onCompareToPeriod,
   onViewModeChange,
 }: DetailPanelProps) {
@@ -700,37 +867,12 @@ export function DetailPanel({
                 key={mood}
                 className="rounded-full border border-white/8 bg-white/5 px-2.5 py-1 text-[11px] uppercase tracking-[0.18em] text-stone-300"
               >
-                {mood}
+                {sentenceCase(getPublicConceptPhrase(mood))}
               </span>
             ))}
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={onStartComparePick}
-                className="ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/45"
-              >
-                {compareActive
-                  ? 'Exit compare'
-                  : comparePicking
-                    ? 'Cancel compare'
-                    : 'Start compare'}
-              </button>
-              <button
-                type="button"
-                onClick={onToggleEchoes}
-                className={`ui-action rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.2em] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45 ${
-                  showEchoes
-                    ? 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100'
-                    : 'text-stone-300 hover:text-stone-100'
-                }`}
-              >
-                {showEchoes ? 'Hide echoes' : 'Reveal echoes'}
-              </button>
-            </div>
-
+          <div className="mt-5 flex flex-wrap items-center justify-end gap-3">
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
@@ -756,12 +898,6 @@ export function DetailPanel({
               </button>
             </div>
           </div>
-
-          {comparePicking ? (
-            <p className="mt-4 text-sm leading-6 text-amber-100/90">
-              Choose the second period.
-            </p>
-          ) : null}
         </div>
 
         {isOpen ? (
@@ -771,6 +907,7 @@ export function DetailPanel({
                 key={snapshot?.id ?? period.id}
                 title={snapshot ? getPublicSnapshotTitle(snapshot) : period.title}
                 voices={livedVoices}
+                period={period}
               />
             ) : null}
 
