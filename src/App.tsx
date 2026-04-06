@@ -834,6 +834,7 @@ function App() {
           periods={dataset.periods}
           selectedPeriodId={resolvedSelectedPeriodId}
           insightPack={insightPack}
+          pressureSeries={dataset.pressureOverlaySeries}
           crossDatasetPack={crossDatasetInsightPack}
           focusSection={route.section}
           focusTargetId={route.targetId}

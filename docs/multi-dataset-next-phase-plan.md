@@ -287,6 +287,35 @@ That means:
 - shared force mix should do the main evidence work
 - lower bucket sections should support the story, not dominate it
 
+### 8b. Insights Lab as visual discovery
+
+Insights Lab is now explicitly being redesigned as a visual discovery surface rather than a card wall.
+
+Phase 1:
+- replace family-card-first layout with full-width pattern-band rows
+- show contiguous eras as one long run
+- show broken appearances as returns after a gap
+- keep subgroup variants only in active-row detail
+
+Later phases:
+- replace relationship cards with force choreography
+- replace outlier cards with a stronger anomaly visual
+
+Colour rule:
+- internal analytics-led sections should not borrow echo blue
+- blue stays reserved for cross-country cousin material
+
+IA warning:
+- the page currently mixes whole-history analytics with selected-period investigation
+- some actions still require bouncing back to the Loom, which makes the lab feel structurally unresolved
+- after the visual redesign is in place, revisit whether Insights Lab should stay mixed or be split more explicitly by mode
+
+IA decision now taken:
+- Insights Lab should be whole-history first
+- the selected period should survive only as entry context, not as the organising focus of the page
+- remove `focus this era` style actions from the main lab stations
+- `Open in Loom` should remain optional and secondary, not the main way to complete an interaction
+
 ## What stays off
 
 Still deferred:

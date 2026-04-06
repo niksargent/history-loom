@@ -240,6 +240,10 @@ Current active work:
 - `Start compare` and `Reveal echoes` have now moved out of the detail panel and into the Loom control row beside the other field-level toggles
 - derived insight and data science are now recognised as a separate next-layer track for clusters, correlations, lead-lag relationships, and stronger `aha` prompts
 - the first derived-insight implementation is now live: offline-generated insight packs, public prompts across Britain, USA, and France, a new Insights Lab page, and one bounded public cross-dataset cousin
+- Insights Lab now has its own redesign brief:
+  - the page should become a visual discovery surface rather than a card wall
+  - Phase 1 focuses on pattern-band rows that distinguish long runs from returns after gaps
+  - later phases will replace relationship and outlier cards with stronger analytic visuals
 - wider cross-dataset cousins and echo-support signals still remain selective and mostly internal
 - a new whole-product rule now applies: public-facing language should pass a `16-year-old` comprehension test, with internal analytical labels translated into clearer public wording and supported by stronger visual grammar
 - the first public-language remediation pass is now live across the visible app shell, insights, periods, events, echoes, and snapshot prose

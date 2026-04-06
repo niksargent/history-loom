@@ -105,6 +105,13 @@ Current refinement focus:
 - the first population pass is now live: Britain, USA, and France carry one population value per period, and the app shows population in detail and compare as contextual scale
 - the first dedicated Compare population chart is now live, so the next population design decision is whether any secondary refinement is needed before population expands to `In motion` or another surface
 - Compare has now also been reworked to explain curated echoes directly instead of leading with overlap taxonomy, with lower evidence sections supporting the main story
+- Insights Lab is now entering a dedicated redesign track:
+  - Phase 1 replaces the family-card-first section with full-width pattern-band rows
+  - contiguous eras should read as one long run rather than many isolated cards
+  - interrupted appearances should read as returns after a gap
+  - subgroup variants stay available in the active detail view instead of flattening the overview
+  - internal analytics-led sections should avoid blue, which is reserved for cross-country cousin material
+  - the page is now committed to whole-history IA: selected period is entry context only, not the organising focus of the page
 - plan a derived-insight layer that can support clustering, correlation, and lead-lag style prompts without overstating causation
 - review and selectively sharpen the generated insight output before any wider cross-dataset release
 - the derived-insight public surfaces are now promoted across all live datasets, while wider cousin and echo-support release stays selective
@@ -138,6 +145,7 @@ The next quality threshold is interpretive clarity, not feature count:
 - the new experiential lens in `Lived voice` should stay subordinate to the quote; if it starts to feel like a dashboard, reduce it rather than expanding it
 - the next interpretive gains should come from intelligent framing and better visual analysis, not from more explanatory text
 - compare should now be treated as an echo-explanation surface first, with any further changes focused on live-use clarity rather than more taxonomy
+- Insights Lab should now be treated as a discovery surface first, with pattern bands, force choreography, and outlier visuals gradually replacing card-heavy reading
 - the geography card should not be changed further until its role and placement are discussed
 - structural-force controls should become more legible and more user-directable without increasing clutter
 - UI copy and control language should be audited so the interface stops sounding like an internal design note
@@ -150,6 +158,7 @@ The next quality threshold is interpretive clarity, not feature count:
 4. review the live Compare story hero, bridge visual, and shared-force evidence layer before making further compare changes
 5. review the Compare population band in live use before adding toggles or another population surface
 6. stay selective about any further public cross-dataset cousin release
+7. deliver the Phase 1 Insights Lab pattern-band build before redesigning force relationships and outliers there
 
 ## Product intent
 
