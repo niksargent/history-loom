@@ -1,0 +1,356 @@
+{
+  "checked": "2026-09-08T14:04:31.388Z",
+  "note": "HTTP reachability is not historical verification. Some publishers block automated requests; review content separately.",
+  "results": [
+    {
+      "title": "British Museum · How to write cuneiform",
+      "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
+      "status": 403,
+      "finalUrl": "https://www.britishmuseum.org/blog/how-write-cuneiform",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Sacred City of Caral-Supe",
+      "url": "https://whc.unesco.org/en/list/1269/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1269/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Memphis and its Necropolis",
+      "url": "https://whc.unesco.org/en/list/86",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/86",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · The Chang’an–Tianshan Silk Roads",
+      "url": "https://whc.unesco.org/en/list/1442",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1442",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Aksum",
+      "url": "https://whc.unesco.org/en/list/15",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/15",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Tiwanaku",
+      "url": "https://whc.unesco.org/en/list/567/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/567/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Encyclopaedia Britannica · Baghdad: History",
+      "url": "https://www.britannica.com/place/Baghdad/History",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/place/Baghdad/History",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Borobudur Temple Compounds",
+      "url": "https://whc.unesco.org/en/list/592/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/592/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "British Library · The Diamond Sutra",
+      "url": "https://idp.bl.uk/blog/the-diamond-sutra/",
+      "status": 403,
+      "finalUrl": "https://idp.bl.uk/blog/the-diamond-sutra/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Angkor",
+      "url": "https://whc.unesco.org/en/list/668/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/668/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "The Met · Great Zimbabwe",
+      "url": "https://www.metmuseum.org/essays/great-zimbabwe",
+      "status": 429,
+      "finalUrl": "https://www.metmuseum.org/essays/great-zimbabwe",
+      "pageTitle": "Vercel Security Checkpoint"
+    },
+    {
+      "title": "UNESCO · Rock-Hewn Churches, Lalibela",
+      "url": "https://whc.unesco.org/en/list/18",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/18",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "The National Archives · Magna Carta",
+      "url": "https://www.nationalarchives.gov.uk/explore-the-collection/explore-by-time-period/medieval/magna-carta/",
+      "status": 200,
+      "finalUrl": "https://www.nationalarchives.gov.uk/explore-the-collection/explore-by-time-period/medieval/magna-carta/",
+      "pageTitle": "Magna Carta - The National Archives"
+    },
+    {
+      "title": "UNESCO · Kilwa Kisiwani and Songo Mnara",
+      "url": "https://whc.unesco.org/en/list/144/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/144/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Encyclopaedia Britannica · Mūsā I of Mali",
+      "url": "https://www.britannica.com/biography/Musa-I-of-Mali",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/biography/Musa-I-of-Mali",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "The National Archives · Living in the 14th century",
+      "url": "https://www.nationalarchives.gov.uk/currency-converter/living-in-the-14th-century/",
+      "status": 200,
+      "finalUrl": "https://www.nationalarchives.gov.uk/currency-converter/living-in-the-14th-century/",
+      "pageTitle": "Living in the 14th century - Currency converter"
+    },
+    {
+      "title": "UNESCO · Jikji, Memory of the World",
+      "url": "https://www.unesco.org/en/memory-world/baegun-hwasang-chorok-buljo-jikji-simche-yojeol-volii-second-volume-anthology-great-buddhist-priests?hub=915",
+      "status": 200,
+      "finalUrl": "https://www.unesco.org/en/memory-world/baegun-hwasang-chorok-buljo-jikji-simche-yojeol-volii-second-volume-anthology-great-buddhist-priests?hub=915",
+      "pageTitle": "Baegun hwasang chorok buljo jikji simche yojeol (vol.II), the second volume of &quot;Anthology of Great Buddhist Priests&#039; Zen Teachings&quot; - Memory of the World"
+    },
+    {
+      "title": "UNESCO · Chan Chan Archaeological Zone",
+      "url": "https://whc.unesco.org/en/list/366/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/366/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Historic Sanctuary of Machu Picchu",
+      "url": "https://whc.unesco.org/en/list/274",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/274",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Library of Congress · Gutenberg Bible",
+      "url": "https://www.loc.gov/exhibits/bibles/the-gutenberg-bible.html",
+      "status": 403,
+      "finalUrl": "https://www.loc.gov/exhibits/bibles/the-gutenberg-bible.html",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Library of Congress · 1492: An Ongoing Voyage",
+      "url": "https://www.loc.gov/exhibits/1492/",
+      "status": 403,
+      "finalUrl": "https://www.loc.gov/exhibits/1492/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Encyclopaedia Britannica · Reformation",
+      "url": "https://www.britannica.com/event/Reformation",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/event/Reformation",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Taj Mahal",
+      "url": "https://whc.unesco.org/en/list/252/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/252/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Science Museum · Watt’s separate condenser",
+      "url": "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/",
+      "status": 200,
+      "finalUrl": "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser/",
+      "pageTitle": "James Watt and the separate condenser - Science Museum Blog"
+    },
+    {
+      "title": "US National Archives · Declaration of Independence",
+      "url": "https://www.archives.gov/founding-docs/declaration",
+      "status": 200,
+      "finalUrl": "https://www.archives.gov/founding-docs/declaration",
+      "pageTitle": "The Declaration of Independence | National Archives"
+    },
+    {
+      "title": "Encyclopaedia Britannica · French Revolution",
+      "url": "https://www.britannica.com/event/French-Revolution",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/event/French-Revolution",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Office of the Historian · The Haitian Revolution",
+      "url": "https://history.state.gov/milestones/1784-1800/haitian-rev",
+      "status": 200,
+      "finalUrl": "https://history.state.gov/milestones/1784-1800/haitian-rev",
+      "pageTitle": "Milestones in the History of U.S. Foreign Relations - Office of the Historian"
+    },
+    {
+      "title": "WHO · History of smallpox vaccination",
+      "url": "https://www.who.int/news-room/spotlight/history-of-vaccination/history-of-smallpox-vaccination",
+      "status": 200,
+      "finalUrl": "https://www.who.int/news-room/spotlight/history-of-vaccination/history-of-smallpox-vaccination",
+      "pageTitle": "History of smallpox vaccination"
+    },
+    {
+      "title": "Encyclopaedia Britannica · Battle of Boyacá",
+      "url": "https://www.britannica.com/event/Battle-of-Boyaca",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/event/Battle-of-Boyaca",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "NZ History · The Treaty in brief",
+      "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
+      "status": 403,
+      "finalUrl": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "NZ History · Differences between the texts",
+      "url": "https://nzhistory.govt.nz/page/differences-between-texts",
+      "status": 403,
+      "finalUrl": "https://nzhistory.govt.nz/page/differences-between-texts",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Science Museum · The first transatlantic telegraph cable",
+      "url": "https://blog.sciencemuseum.org.uk/sending-messages-across-the-atlantic-156-years-on-from-the-first-transatlantic-cable/",
+      "status": 200,
+      "finalUrl": "https://blog.sciencemuseum.org.uk/sending-messages-across-the-atlantic-156-years-on-from-the-first-transatlantic-cable/",
+      "pageTitle": "Sending messages across the Atlantic - Science Museum Blog"
+    },
+    {
+      "title": "US National Park Service · Slavery: Cause and Catalyst",
+      "url": "https://www.nps.gov/civilwar/causes.htm",
+      "status": 200,
+      "finalUrl": "https://www.nps.gov/civilwar/causes.htm",
+      "pageTitle": "Causes - The Civil War (U.S. National Park Service)"
+    },
+    {
+      "title": "Encyclopaedia Britannica · Meiji Restoration",
+      "url": "https://www.britannica.com/event/Meiji-Restoration",
+      "status": 403,
+      "finalUrl": "https://www.britannica.com/event/Meiji-Restoration",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "NZ History · Women and the vote",
+      "url": "https://nzhistory.govt.nz/politics/womens-suffrage",
+      "status": 403,
+      "finalUrl": "https://nzhistory.govt.nz/politics/womens-suffrage",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "CDC · 1918 Pandemic",
+      "url": "https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-pandemic-h1n1.html",
+      "status": 200,
+      "finalUrl": "https://archive.cdc.gov/www_cdc_gov/flu/pandemic-resources/1918-pandemic-h1n1.html",
+      "pageTitle": "1918 Pandemic (H1N1 virus)  | Pandemic Influenza (Flu) | CDC"
+    },
+    {
+      "title": "Federal Reserve History · The Great Depression",
+      "url": "https://www.federalreservehistory.org/essays/great-depression",
+      "status": 200,
+      "finalUrl": "https://www.federalreservehistory.org/essays/great-depression",
+      "pageTitle": "The Great Depression | Federal Reserve History"
+    },
+    {
+      "title": "United Nations · History of the United Nations",
+      "url": "https://www.un.org/en/about-us/history-of-the-un",
+      "status": 200,
+      "finalUrl": "https://www.un.org/en/about-us/history-of-the-un",
+      "pageTitle": "History of the United Nations | United Nations"
+    },
+    {
+      "title": "National Army Museum · Independence and Partition",
+      "url": "https://www.nam.ac.uk/explore/independence-and-partition-1947",
+      "status": 200,
+      "finalUrl": "https://www.nam.ac.uk/explore/independence-and-partition-1947",
+      "pageTitle": "Independence and Partition, 1947 | National Army Museum"
+    },
+    {
+      "title": "Office of the Historian · Ghana",
+      "url": "https://history.state.gov/countries/ghana",
+      "status": 200,
+      "finalUrl": "https://history.state.gov/countries/ghana",
+      "pageTitle": "Ghana - Countries - Office of the Historian"
+    },
+    {
+      "title": "NZ History · Towards independence",
+      "url": "https://nzhistory.govt.nz/page/towards-independence",
+      "status": 403,
+      "finalUrl": "https://nzhistory.govt.nz/page/towards-independence",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "National Museum of Australia · Indigenous referendum",
+      "url": "https://www.nma.gov.au/defining-moments/resources/indigenous-referendum",
+      "status": 403,
+      "finalUrl": "https://www.nma.gov.au/defining-moments/resources/indigenous-referendum",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "NASA · Apollo 11",
+      "url": "https://www.nasa.gov/mission/apollo-11/",
+      "status": 200,
+      "finalUrl": "https://www.nasa.gov/mission/apollo-11/",
+      "pageTitle": "Apollo 11 - NASA"
+    },
+    {
+      "title": "WHO · Smallpox",
+      "url": "https://www.who.int/emergencies/situations/smallpox/",
+      "status": 200,
+      "finalUrl": "https://www.who.int/emergencies/situations/smallpox/",
+      "pageTitle": "Smallpox"
+    },
+    {
+      "title": "The Wall Museum · The fall of the Berlin Wall",
+      "url": "https://thewallmuseum.com/en/about-the-wall/",
+      "status": 200,
+      "finalUrl": "https://thewallmuseum.com/en/about-the-wall/",
+      "pageTitle": "Over the wall - Wall Museum"
+    },
+    {
+      "title": "National Museum of Australia · Mabo decision",
+      "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision",
+      "status": 403,
+      "finalUrl": "https://www.nma.gov.au/defining-moments/resources/mabo-decision",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "CERN · The birth of the Web",
+      "url": "https://home.cern/science/computing/the-birth-of-the-web/",
+      "status": 200,
+      "finalUrl": "https://home.cern/science/computing/the-birth-of-the-web/",
+      "pageTitle": "The birth of the Web &#8211; Home | CERN"
+    },
+    {
+      "title": "Nelson Mandela Foundation · Democracy",
+      "url": "https://www.nelsonmandela.org/democracy",
+      "status": 200,
+      "finalUrl": "https://www.nelsonmandela.org/democracy",
+      "pageTitle": "Democracy – Nelson Mandela Foundation"
+    },
+    {
+      "title": "Federal Reserve History · The Great Recession",
+      "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+      "status": 200,
+      "finalUrl": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+      "pageTitle": "The Great Recession and Its Aftermath | Federal Reserve History"
+    },
+    {
+      "title": "WHO · Coronavirus disease (COVID-19) pandemic",
+      "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019",
+      "status": 200,
+      "finalUrl": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019",
+      "pageTitle": "Coronavirus disease (COVID-19)"
+    }
+  ]
+}

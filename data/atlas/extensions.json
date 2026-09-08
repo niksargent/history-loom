@@ -1,0 +1,293 @@
+[
+  {
+    "id": "caral",
+    "year": -2600,
+    "approximate": true,
+    "title": "A city before the familiar empires",
+    "place": "Caral · Peru",
+    "region": "South America",
+    "coordinates": [-77.52, -10.89],
+    "theme": "power",
+    "tags": ["cities", "infrastructure", "institutions"],
+    "hook": "Long before the Inca, people were building on a grand scale.",
+    "story": "In the Supe Valley, communities built monumental platforms and sunken courts. Caral formed part of a network of settlements with complex shared ceremonial life.",
+    "consequence": "People organised labour and resources to create a lasting urban landscape.",
+    "caution": "This is an approximate anchor within a site history spanning roughly 3000–1800 BCE. A large monument does not tell us exactly how its builders experienced their society.",
+    "sources": [
+      {
+        "title": "UNESCO · Sacred City of Caral-Supe",
+        "url": "https://whc.unesco.org/en/list/1269/"
+      }
+    ]
+  },
+  {
+    "id": "giza",
+    "year": -2500,
+    "approximate": true,
+    "title": "Making power outlast a lifetime",
+    "place": "Giza · Egypt",
+    "region": "Africa",
+    "coordinates": [31.13, 29.98],
+    "theme": "power",
+    "tags": ["cities", "infrastructure", "institutions"],
+    "hook": "How do people turn belief into a mountain of stone?",
+    "story": "Egypt’s pyramid fields grew through the work of skilled builders and large systems of organisation. Royal burial monuments expressed religious beliefs and the reach of state power.",
+    "consequence": "Architecture made political and religious authority visible across generations.",
+    "caution": "This approximate date represents the Old Kingdom pyramid landscape, not a precise completion date for every monument.",
+    "sources": [
+      {
+        "title": "UNESCO · Memphis and its Necropolis",
+        "url": "https://whc.unesco.org/en/list/86"
+      }
+    ]
+  },
+  {
+    "id": "aksum",
+    "year": 300,
+    "approximate": true,
+    "title": "An African kingdom in stone",
+    "place": "Aksum · Ethiopia",
+    "region": "Africa",
+    "coordinates": [38.72, 14.13],
+    "theme": "power",
+    "tags": ["cities", "institutions", "exchange"],
+    "hook": "Towering monuments preserve the outline of a powerful world.",
+    "story": "Aksum was the centre of a major kingdom in the Ethiopian highlands. Its stelae, tombs, and palace remains reveal a society with wealth, skilled craftspeople, and far-reaching influence.",
+    "consequence": "Monuments preserved traces of a major African political centre.",
+    "caution": "The kingdom lasted for centuries. This approximate anchor does not date all its monuments or reduce its history to one ruler.",
+    "sources": [
+      { "title": "UNESCO · Aksum", "url": "https://whc.unesco.org/en/list/15" }
+    ]
+  },
+  {
+    "id": "tiwanaku",
+    "year": 600,
+    "approximate": true,
+    "title": "Power on the high plateau",
+    "place": "Tiwanaku · Bolivia",
+    "region": "South America",
+    "coordinates": [-68.67, -16.55],
+    "theme": "power",
+    "tags": ["cities", "infrastructure", "institutions"],
+    "hook": "A city nearly four kilometres above the sea shapes a wider world.",
+    "story": "Near Lake Titicaca, Tiwanaku became a major spiritual and political centre. Its monumental buildings reflect an influential Andean society distinct from the later Inca world.",
+    "consequence": "A highland centre projected influence across a much wider region.",
+    "caution": "The date sits within its period of major influence, approximately 500–900 CE. The exact nature of its political control is debated.",
+    "sources": [
+      {
+        "title": "UNESCO · Tiwanaku",
+        "url": "https://whc.unesco.org/en/list/567/"
+      }
+    ]
+  },
+  {
+    "id": "borobudur",
+    "year": 800,
+    "approximate": true,
+    "title": "A story you can walk through",
+    "place": "Borobudur · Java",
+    "region": "Asia",
+    "coordinates": [110.2, -7.61],
+    "theme": "ideas",
+    "tags": ["knowledge", "exchange", "infrastructure"],
+    "hook": "What if a building could guide your thoughts?",
+    "story": "Builders in Java created a vast Buddhist monument around a hill. Terraces, carved reliefs, and stupas turned ideas about spiritual life into a place people could move through.",
+    "consequence": "Architecture became a powerful medium for sharing belief.",
+    "caution": "Construction belongs broadly to the eighth and ninth centuries. The monument expresses a particular Buddhist tradition, not all beliefs across Asia.",
+    "sources": [
+      {
+        "title": "UNESCO · Borobudur Temple Compounds",
+        "url": "https://whc.unesco.org/en/list/592/"
+      }
+    ]
+  },
+  {
+    "id": "angkor",
+    "year": 1100,
+    "approximate": true,
+    "title": "The city that worked with water",
+    "place": "Angkor · Cambodia",
+    "region": "Asia",
+    "coordinates": [103.87, 13.43],
+    "theme": "power",
+    "tags": ["cities", "infrastructure", "institutions"],
+    "hook": "Beyond the temples lies a world of reservoirs and canals.",
+    "story": "Successive Khmer capitals formed a vast landscape of temples, roads, settlements, and water structures. Engineering and belief were woven into the life of the city.",
+    "consequence": "Shared infrastructure helped sustain a large and complex urban world.",
+    "caution": "Angkor developed between the ninth and fifteenth centuries. This date is a viewing point in that long history, not the construction date of Angkor Wat.",
+    "sources": [
+      {
+        "title": "UNESCO · Angkor",
+        "url": "https://whc.unesco.org/en/list/668/"
+      }
+    ]
+  },
+  {
+    "id": "lalibela",
+    "year": 1200,
+    "approximate": true,
+    "title": "A sacred world carved downward",
+    "place": "Lalibela · Ethiopia",
+    "region": "Africa",
+    "coordinates": [39.04, 12.03],
+    "theme": "ideas",
+    "tags": ["knowledge", "exchange", "infrastructure"],
+    "hook": "Instead of stacking stones, builders remove the mountain.",
+    "story": "At Lalibela, churches were carved into rock and connected by passages and trenches. The complex became an important place of Ethiopian Christian pilgrimage.",
+    "consequence": "A religious vision became an extraordinary built landscape.",
+    "caution": "The churches’ chronology is not fully settled. Their creation is traditionally associated with King Lalibela around the twelfth and thirteenth centuries.",
+    "sources": [
+      {
+        "title": "UNESCO · Rock-Hewn Churches, Lalibela",
+        "url": "https://whc.unesco.org/en/list/18"
+      }
+    ]
+  },
+  {
+    "id": "kilwa",
+    "year": 1300,
+    "approximate": true,
+    "title": "An ocean at the doorstep",
+    "place": "Kilwa Kisiwani · Tanzania",
+    "region": "Africa",
+    "coordinates": [39.52, -8.96],
+    "theme": "connection",
+    "tags": ["trade", "cities", "exchange"],
+    "hook": "A Swahili port brings faraway worlds to the same shore.",
+    "story": "Kilwa prospered through Indian Ocean trade. Its merchants exchanged goods from the African interior alongside ceramics and other objects from distant parts of Asia.",
+    "consequence": "Coastal communities helped connect inland Africa with ocean-spanning networks.",
+    "caution": "This approximate anchor marks a period of prosperity, not the beginning of the settlement. Trade also involved unequal power and human exploitation.",
+    "sources": [
+      {
+        "title": "UNESCO · Kilwa Kisiwani and Songo Mnara",
+        "url": "https://whc.unesco.org/en/list/144/"
+      }
+    ]
+  },
+  {
+    "id": "jikji",
+    "year": 1377,
+    "title": "Metal letters before Gutenberg",
+    "place": "Cheongju · Korea",
+    "region": "Asia",
+    "coordinates": [127.49, 36.64],
+    "theme": "ideas",
+    "tags": ["information", "networks", "technology"],
+    "hook": "An old book changes the usual story of invention.",
+    "story": "The Buddhist text Jikji was printed with movable metal type at Heungdeok Temple. Its surviving second volume is evidence of Korean metal-type printing before Gutenberg’s Bible.",
+    "consequence": "A surviving object reveals a broader geography of technological innovation.",
+    "caution": "This does not prove that Gutenberg copied Korean methods. Similar technologies can have different histories of development and use.",
+    "sources": [
+      {
+        "title": "UNESCO · Jikji, Memory of the World",
+        "url": "https://www.unesco.org/en/memory-world/baegun-hwasang-chorok-buljo-jikji-simche-yojeol-volii-second-volume-anthology-great-buddhist-priests?hub=915"
+      }
+    ]
+  },
+  {
+    "id": "chan-chan",
+    "year": 1400,
+    "approximate": true,
+    "title": "A city shaped from earth",
+    "place": "Chan Chan · Peru",
+    "region": "South America",
+    "coordinates": [-79.07, -8.1],
+    "theme": "power",
+    "tags": ["cities", "infrastructure", "institutions"],
+    "hook": "You do not need stone to build a great capital.",
+    "story": "The Chimú capital contained large walled compounds, workshops, and systems for managing water. Its layout made social and political divisions part of the city itself.",
+    "consequence": "Urban design organised resources—and reflected who held power.",
+    "caution": "This date is an approximate anchor near the kingdom’s high point. Archaeological layouts reveal structure more easily than the thoughts of ordinary residents.",
+    "sources": [
+      {
+        "title": "UNESCO · Chan Chan Archaeological Zone",
+        "url": "https://whc.unesco.org/en/list/366/"
+      }
+    ]
+  },
+  {
+    "id": "taj",
+    "year": 1632,
+    "endYear": 1653,
+    "title": "Memory made monumental",
+    "place": "Agra · Mughal India",
+    "region": "Asia",
+    "coordinates": [78.04, 27.18],
+    "theme": "ideas",
+    "tags": ["infrastructure", "exchange", "knowledge"],
+    "hook": "A memorial becomes a meeting of craft traditions.",
+    "story": "Shah Jahan commissioned the Taj Mahal complex in memory of Mumtaz Mahal. Architects and craftspeople brought together design, calligraphy, stonework, gardens, and water.",
+    "consequence": "A court’s resources enabled an enduring work of architecture.",
+    "caution": "Different parts were completed at different times. The celebrated monument was a collective achievement, not the work of one pair of hands.",
+    "sources": [
+      {
+        "title": "UNESCO · Taj Mahal",
+        "url": "https://whc.unesco.org/en/list/252/"
+      }
+    ]
+  },
+  {
+    "id": "waitangi",
+    "year": 1840,
+    "title": "Two texts, different promises",
+    "place": "Waitangi · Aotearoa New Zealand",
+    "region": "Oceania",
+    "coordinates": [174.08, -35.27],
+    "theme": "power",
+    "tags": ["rights", "institutions", "resistance"],
+    "hook": "What happens when the same agreement does not say the same thing?",
+    "story": "Māori rangatira and representatives of the British Crown signed Te Tiriti o Waitangi and the Treaty of Waitangi. Important differences between the Māori and English texts shaped later disagreement.",
+    "consequence": "The agreement became central to continuing struggles over authority, land, and rights.",
+    "caution": "Almost all rangatira signed the Māori text. Translating its promises simply as surrendering sovereignty obscures a central issue.",
+    "sources": [
+      {
+        "title": "NZ History · The Treaty in brief",
+        "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief"
+      },
+      {
+        "title": "NZ History · Differences between the texts",
+        "url": "https://nzhistory.govt.nz/page/differences-between-texts"
+      }
+    ]
+  },
+  {
+    "id": "samoa",
+    "year": 1962,
+    "title": "An island nation chooses its future",
+    "place": "Apia · Samoa",
+    "region": "Oceania",
+    "coordinates": [-171.75, -13.83],
+    "theme": "freedom",
+    "tags": ["rights", "resistance", "institutions"],
+    "hook": "The story of decolonisation reaches far beyond large continents.",
+    "story": "Western Samoa became independent from New Zealand administration on 1 January 1962. Independence followed a long history of Samoan resistance and political organisation.",
+    "consequence": "A Pacific nation regained control of its own government.",
+    "caution": "The history concerns Western Samoa, now Samoa, and should not be confused with the different political history of American Samoa.",
+    "sources": [
+      {
+        "title": "NZ History · Towards independence",
+        "url": "https://nzhistory.govt.nz/page/towards-independence"
+      }
+    ]
+  },
+  {
+    "id": "mabo",
+    "year": 1992,
+    "title": "The land was never empty",
+    "place": "Mer · Torres Strait",
+    "region": "Oceania",
+    "coordinates": [144.06, -9.92],
+    "theme": "freedom",
+    "tags": ["rights", "resistance", "institutions"],
+    "hook": "A community’s relationship with land challenges a legal fiction.",
+    "story": "The High Court of Australia recognised the Meriam people’s native title in the Mabo decision. The case rejected the idea that Australia had belonged to no one before British colonisation.",
+    "consequence": "Australian law recognised a basis for Indigenous native title.",
+    "caution": "The decision did not automatically return all land or settle every claim. The map locates the community’s island, not the court.",
+    "sources": [
+      {
+        "title": "National Museum of Australia · Mabo decision",
+        "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision"
+      }
+    ]
+  }
+]

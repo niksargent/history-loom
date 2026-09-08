@@ -5,6 +5,11 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/history-loom/' : '/',
   cacheDir: '.cache/vite',
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: { original: 'index.html', atlas: 'atlas.html' },
+    },
+  },
   server: {
     host: '127.0.0.1',
   },
