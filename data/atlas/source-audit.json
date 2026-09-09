@@ -1,7 +1,21 @@
 {
-  "checked": "2026-09-08T14:04:31.388Z",
+  "checked": "2026-09-08T21:11:20.659Z",
   "note": "HTTP reachability is not historical verification. Some publishers block automated requests; review content separately.",
   "results": [
+    {
+      "title": "UNESCO · Kuk Early Agricultural Site",
+      "url": "https://whc.unesco.org/en/list/887/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/887/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Budj Bim Cultural Landscape",
+      "url": "https://whc.unesco.org/en/list/1577",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1577",
+      "pageTitle": "Just a moment..."
+    },
     {
       "title": "British Museum · How to write cuneiform",
       "url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
@@ -24,6 +38,13 @@
       "pageTitle": "Just a moment..."
     },
     {
+      "title": "UNESCO · Dujiangyan Irrigation System",
+      "url": "https://whc.unesco.org/en/list/1001",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1001",
+      "pageTitle": "Just a moment..."
+    },
+    {
       "title": "UNESCO · The Chang’an–Tianshan Silk Roads",
       "url": "https://whc.unesco.org/en/list/1442",
       "status": 403,
@@ -31,10 +52,24 @@
       "pageTitle": "Just a moment..."
     },
     {
+      "title": "UNESCO · Shushtar Historical Hydraulic System",
+      "url": "https://whc.unesco.org/en/list/1315/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1315/",
+      "pageTitle": "Just a moment..."
+    },
+    {
       "title": "UNESCO · Aksum",
       "url": "https://whc.unesco.org/en/list/15",
       "status": 403,
       "finalUrl": "https://whc.unesco.org/en/list/15",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Nalanda Mahavihara",
+      "url": "https://whc.unesco.org/en/list/1502",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1502",
       "pageTitle": "Just a moment..."
     },
     {
@@ -63,6 +98,13 @@
       "url": "https://idp.bl.uk/blog/the-diamond-sutra/",
       "status": 403,
       "finalUrl": "https://idp.bl.uk/blog/the-diamond-sutra/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Rani-ki-Vav, the Queen's Stepwell",
+      "url": "https://whc.unesco.org/en/list/922/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/922/",
       "pageTitle": "Just a moment..."
     },
     {
@@ -136,6 +178,20 @@
       "pageTitle": "Just a moment..."
     },
     {
+      "title": "Museo Larco · Inca Quipus",
+      "url": "https://www.museolarco.org/en/exhibition/permanent-exhibition/online-exhibition/textiles-from-ancient-peru/inca-quipus/",
+      "status": 200,
+      "finalUrl": "https://www.museolarco.org/en/exhibition/permanent-exhibition/online-exhibition/textiles-from-ancient-peru/inca-quipus/",
+      "pageTitle": "Inca Quipus &#8211; Museo Larco"
+    },
+    {
+      "title": "UNESCO · Qhapaq Ñan, Andean Road System",
+      "url": "https://whc.unesco.org/en/list/1459/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/1459/",
+      "pageTitle": "Just a moment..."
+    },
+    {
       "title": "Library of Congress · Gutenberg Bible",
       "url": "https://www.loc.gov/exhibits/bibles/the-gutenberg-bible.html",
       "status": 403,
@@ -147,6 +203,13 @@
       "url": "https://www.loc.gov/exhibits/1492/",
       "status": 403,
       "finalUrl": "https://www.loc.gov/exhibits/1492/",
+      "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "UNESCO · Timbuktu",
+      "url": "https://whc.unesco.org/en/list/119/",
+      "status": 403,
+      "finalUrl": "https://whc.unesco.org/en/list/119/",
       "pageTitle": "Just a moment..."
     },
     {
@@ -206,6 +269,13 @@
       "pageTitle": "Just a moment..."
     },
     {
+      "title": "RNIB · Feeling Our History",
+      "url": "https://www.rnib.org.uk/documents/990/RNIBFeelingOurHistory.pdf",
+      "status": 200,
+      "finalUrl": "https://media.rnib.org.uk/documents/RNIBFeelingOurHistory.pdf",
+      "pageTitle": ""
+    },
+    {
       "title": "NZ History · The Treaty in brief",
       "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
       "status": 403,
@@ -218,6 +288,20 @@
       "status": 403,
       "finalUrl": "https://nzhistory.govt.nz/page/differences-between-texts",
       "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "National Park Service · Report of the Woman's Rights Convention",
+      "url": "https://home.nps.gov/wori/learn/historyculture/report-of-the-womans-rights-convention.htm",
+      "status": 200,
+      "finalUrl": "https://home.nps.gov/wori/learn/historyculture/report-of-the-womans-rights-convention.htm",
+      "pageTitle": "Report of the Woman's Rights Convention - Women's Rights National Historical Park (U.S. National Park Service)"
+    },
+    {
+      "title": "Historical review · John Snow, Cholera, the Broad Street Pump",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7150208/",
+      "status": 200,
+      "finalUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7150208/",
+      "pageTitle": "Checking your browser - reCAPTCHA"
     },
     {
       "title": "Science Museum · The first transatlantic telegraph cable",
@@ -239,6 +323,20 @@
       "status": 403,
       "finalUrl": "https://www.britannica.com/event/Meiji-Restoration",
       "pageTitle": "Just a moment..."
+    },
+    {
+      "title": "Universal Postal Union · History",
+      "url": "https://www.upu.int/en/universal-postal-union/about-upu/history",
+      "status": 500,
+      "finalUrl": "https://www.upu.int/en/universal-postal-union/about-upu/history",
+      "pageTitle": "Index and length must refer to a location within the string.<br>Parameter name: length"
+    },
+    {
+      "title": "BIPM · Metre Convention",
+      "url": "https://www.bipm.org/en/metre-convention",
+      "status": 200,
+      "finalUrl": "https://www.bipm.org/en/metre-convention",
+      "pageTitle": "Metre Convention - BIPM"
     },
     {
       "title": "NZ History · Women and the vote",
@@ -276,6 +374,20 @@
       "pageTitle": "Independence and Partition, 1947 | National Army Museum"
     },
     {
+      "title": "Nobel Prize · Scientific background, Physics 2000",
+      "url": "https://www.nobelprize.org/uploads/2018/06/advanced-physicsprize2000-3.pdf",
+      "status": 200,
+      "finalUrl": "https://www.nobelprize.org/uploads/2018/06/advanced-physicsprize2000-3.pdf",
+      "pageTitle": ""
+    },
+    {
+      "title": "National Park Service · The Montgomery Bus Boycott",
+      "url": "https://home.nps.gov/articles/montgomery-bus-boycott.htm",
+      "status": 200,
+      "finalUrl": "https://home.nps.gov/articles/montgomery-bus-boycott.htm",
+      "pageTitle": "The Montgomery Bus Boycott (U.S. National Park Service)"
+    },
+    {
       "title": "Office of the Historian · Ghana",
       "url": "https://history.state.gov/countries/ghana",
       "status": 200,
@@ -304,11 +416,32 @@
       "pageTitle": "Apollo 11 - NASA"
     },
     {
+      "title": "Polynesian Voyaging Society · Hōkūleʻa's 1976 voyage",
+      "url": "https://hokulea.com/polynesian-voyaging-society-honors-the-50th-anniversary-of-hokule%CA%BBas-1976-maiden-voyage-to-tahiti/",
+      "status": 200,
+      "finalUrl": "https://hokulea.com/polynesian-voyaging-society-honors-the-50th-anniversary-of-hokule%CA%BBas-1976-maiden-voyage-to-tahiti/",
+      "pageTitle": "Polynesian Voyaging Society Honors the 50th Anniversary of Hōkūleʻa&#039;s 1976 Maiden Voyage to Tahiti. - Hōkūleʻa"
+    },
+    {
+      "title": "Nobel Prize · Wangari Maathai",
+      "url": "https://www.nobelprize.org/prizes/peace/2004/maathai/",
+      "status": 200,
+      "finalUrl": "https://www.nobelprize.org/prizes/peace/2004/maathai/facts/",
+      "pageTitle": "Wangari Maathai &#8211; Facts - NobelPrize.org"
+    },
+    {
       "title": "WHO · Smallpox",
       "url": "https://www.who.int/emergencies/situations/smallpox/",
       "status": 200,
       "finalUrl": "https://www.who.int/emergencies/situations/smallpox/",
       "pageTitle": "Smallpox"
+    },
+    {
+      "title": "UNEP Ozone Secretariat · Montreal Protocol",
+      "url": "https://ozone.unep.org/treaties/montreal-protocol",
+      "status": 200,
+      "finalUrl": "https://ozone.unep.org/treaties/montreal-protocol",
+      "pageTitle": "The Montreal Protocol on Substances that Deplete the Ozone Layer | Ozone Secretariat"
     },
     {
       "title": "The Wall Museum · The fall of the Berlin Wall",
@@ -337,6 +470,13 @@
       "status": 200,
       "finalUrl": "https://www.nelsonmandela.org/democracy",
       "pageTitle": "Democracy – Nelson Mandela Foundation"
+    },
+    {
+      "title": "Nobel Prize · Leymah Gbowee, biography",
+      "url": "https://www.nobelprize.org/prizes/peace/2011/gbowee/biographical/",
+      "status": 200,
+      "finalUrl": "https://www.nobelprize.org/prizes/peace/2011/gbowee/biographical/",
+      "pageTitle": "Leymah Gbowee &#8211; Biographical - NobelPrize.org"
     },
     {
       "title": "Federal Reserve History · The Great Recession",

@@ -1,5 +1,6 @@
 import type { Journey, Moment, Source, Theme } from './types'
 import extensions from '../../data/atlas/extensions.json' with { type: 'json' }
+import trancheTwo from '../../data/atlas/tranche-two.json' with { type: 'json' }
 
 const source = (title: string, url: string): Source => ({ title, url })
 const s = {
@@ -729,9 +730,114 @@ export const moments: Moment[] = [
   ),
 ]
   .concat(extensions as Moment[])
+  .concat(trancheTwo as Moment[])
   .sort((a, b) => a.year - b.year)
 
 export const journeys: Journey[] = [
+  {
+    id: 'water-worlds',
+    title: 'Living with water',
+    subtitle: 'Eel channels, river works, and a well carved like a temple.',
+    theme: 'survival',
+    stops: ['budj-bim', 'dujiangyan', 'rani-vav'],
+    art: 'survival',
+    question: 'What links these very different landscapes?',
+    options: [
+      'People shaped water systems around local needs',
+      'All used the same engineering design',
+      'Every system was built by an empire',
+    ],
+    answer: 0,
+    explanation:
+      'Each place reveals knowledge of water built into a landscape. Their designs and social arrangements were different.',
+    rhyme:
+      'Water management joins observation, shared work and ways of organising daily life.',
+    difference:
+      'Gunditjmara eel husbandry, Chinese river irrigation and an Indian royal stepwell served different needs. These are comparisons, not evidence of direct transmission.',
+  },
+  {
+    id: 'knowledge-keepers',
+    title: 'How knowledge survives',
+    subtitle: 'A place to study, a city of manuscripts, an ocean voyage.',
+    theme: 'ideas',
+    stops: ['nalanda', 'timbuktu-learning', 'hokulea'],
+    art: 'networks',
+    question: 'What keeps knowledge alive beyond one generation?',
+    options: [
+      'Writing it down is always enough',
+      'People learning, practising and passing it on',
+      'Keeping every tradition unchanged',
+    ],
+    answer: 1,
+    explanation:
+      'Institutions, manuscripts and embodied skills all depend on people who keep them in use.',
+    rhyme:
+      'Knowledge survives through communities that teach, preserve and renew it.',
+    difference:
+      'Buddhist study, West African Islamic scholarship and Pacific wayfinding are distinct traditions. Written records are not the only form of sophisticated knowledge.',
+  },
+  {
+    id: 'everyday-power',
+    title: 'The power of doing things together',
+    subtitle: 'Bus journeys, tree planting, and a movement for peace.',
+    theme: 'freedom',
+    stops: ['montgomery', 'green-belt', 'liberia-peace'],
+    art: 'voices',
+    question: 'Where did these movements get some of their strength?',
+    options: [
+      'A fixed eighty-year rhythm',
+      'Exactly the same political demands',
+      'Networks that made sustained participation possible',
+    ],
+    answer: 2,
+    explanation:
+      'Organisation made individual actions part of a public demand. It did not make success automatic.',
+    rhyme:
+      'People with limited formal power can build influence through repeated, coordinated action.',
+    difference:
+      'Desegregation, environmental rights and ending a civil war require different strategies. Courts, institutions and wider political conditions also mattered.',
+  },
+  {
+    id: 'shared-rules',
+    title: 'The agreements behind everyday life',
+    subtitle: 'Post, measurement, and the atmosphere we share.',
+    theme: 'connection',
+    stops: ['postal-union', 'metre-convention', 'montreal'],
+    art: 'networks',
+    question: 'What do these agreements have in common?',
+    options: [
+      'They made cooperation possible across borders',
+      'They removed all disagreements',
+      'They solved their problems on signing day',
+    ],
+    answer: 0,
+    explanation:
+      'Common rules allow separate participants to work together. Institutions and continued implementation make those rules useful.',
+    rhyme: 'Some problems become easier when people agree on a shared system.',
+    difference:
+      'Moving letters, comparing measurements and controlling chemicals involve different costs and interests. A successful agreement in one area is not proof that every agreement will work.',
+  },
+  {
+    id: 'ways-to-record',
+    title: 'Knowledge takes different shapes',
+    subtitle: 'Clay marks, knotted cords, and raised dots.',
+    theme: 'ideas',
+    stops: ['writing', 'quipu', 'braille'],
+    art: 'sparks',
+    question: 'What does this comparison help us notice?',
+    options: [
+      'All records use an alphabet',
+      'The material form of information changes who can use it',
+      'One system is best for every purpose',
+    ],
+    answer: 1,
+    explanation:
+      'A record depends on its material, its conventions and the people who know how to use it.',
+    rhyme:
+      'People give information a lasting, shareable form—but access depends on skills and design.',
+    difference:
+      'Cuneiform writing, numerical quipus and Braille are not interchangeable systems. Braille represents existing languages; quipus served different kinds of record-keeping.',
+  },
   {
     id: 'built-worlds',
     title: 'The cities we make',

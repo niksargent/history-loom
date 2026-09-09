@@ -16,8 +16,8 @@ Open the printed local server URL followed by `/atlas.html`. The footer links ba
 ## What is here
 
 - A cinematic imagined harbor, animated illustrated journeys, an interactive atlas, thematic connections, a continuous historical timeline, and search.
-- 49 sourced moments across six inhabited continents, from approximately 3200 BCE to 2020; eight three-stop journeys with a short discovery question and a comparison of similarities and differences.
-- Three experiments: observed life-expectancy estimates, the original app's editorial pressure scores, and an event-selection experiment about the 80-year idea.
+- 69 sourced moments across six inhabited continents, from approximately 4500 BCE to 2020; thirteen three-stop journeys with a short discovery question and a comparison of similarities and differences.
+- Three experiments: observed life-expectancy estimates, the original app's editorial pressure fingerprints, and a constellation grouping all 32 original eras by their scores, with their closest comparisons placed on a timeline.
 - 19,425 annual estimates for 236 countries and territories plus World, covering 1800–2023. Coverage varies by country and year; missing values remain missing.
 - Equally considered light and dark palettes, responsive layouts, keyboard controls, reduced-motion support, native modal focus handling, optional narration and ambient sound.
 - Saved moments and completed journeys stored locally in the browser. No login, remote account, tracking, or server is required.

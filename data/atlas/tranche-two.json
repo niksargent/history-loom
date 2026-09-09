@@ -1,0 +1,413 @@
+[
+  {
+    "id": "kuk",
+    "title": "A wetland becomes a garden",
+    "year": -4500,
+    "approximate": true,
+    "place": "Kuk · Papua New Guinea",
+    "region": "Oceania",
+    "coordinates": [144.332, -5.784],
+    "theme": "survival",
+    "tags": ["water", "food", "engineering", "adaptation"],
+    "hook": "Agriculture had more than one beginning.",
+    "story": "In the New Guinea highlands, people cultivated plants and reshaped wet ground with mounds and drainage channels. Kuk preserves evidence of an independent agricultural tradition, including the cultivation of bananas and other crops.",
+    "consequence": "A landscape that looks natural can hold thousands of years of careful human work.",
+    "caution": "The date is an approximate anchor for evidence of developed agriculture around 6,500 years ago, not a single invention. Earlier activity and later drainage belong to different phases.",
+    "sources": [
+      {
+        "title": "UNESCO · Kuk Early Agricultural Site",
+        "url": "https://whc.unesco.org/en/list/887/"
+      }
+    ]
+  },
+  {
+    "id": "budj-bim",
+    "title": "An eel harvest built into the landscape",
+    "year": -4000,
+    "approximate": true,
+    "place": "Budj Bim · Gunditjmara Country, Australia",
+    "region": "Oceania",
+    "coordinates": [141.88, -38.08],
+    "theme": "survival",
+    "tags": ["water", "food", "engineering", "knowledge"],
+    "hook": "Stone channels could turn flowing water into a reliable food supply.",
+    "story": "Gunditjmara people built channels, weirs and dams through a volcanic landscape to trap, hold and harvest kooyang, or short-finned eels. Knowledge of the water and its living systems supported a long-lasting way of life.",
+    "consequence": "The landscape challenges a simple division between people who farmed and people who gathered food.",
+    "caution": "This approximate date represents the aquaculture tradition's six-millennia timescale, not the age of every channel. Gunditjmara relationships with Country extend far beyond this dated anchor and continue today.",
+    "sources": [
+      {
+        "title": "UNESCO · Budj Bim Cultural Landscape",
+        "url": "https://whc.unesco.org/en/list/1577"
+      }
+    ]
+  },
+  {
+    "id": "dujiangyan",
+    "title": "Giving a river room to work",
+    "year": -250,
+    "approximate": true,
+    "place": "Dujiangyan · China",
+    "region": "Asia",
+    "coordinates": [103.61, 31.0],
+    "theme": "survival",
+    "tags": ["water", "engineering", "food", "infrastructure"],
+    "hook": "A river could be guided without simply blocking its path.",
+    "story": "Builders divided and channelled the Min River's flow to irrigate the Chengdu plain and manage floods. The Dujiangyan system used the landscape and the movement of water as parts of its design.",
+    "consequence": "Water management helped support farming and settlement across a much wider area.",
+    "caution": "Construction began in the third century BCE; this is an approximate anchor. Continued operation depends on maintenance and rebuilding, not on an untouched ancient structure.",
+    "sources": [
+      {
+        "title": "UNESCO · Dujiangyan Irrigation System",
+        "url": "https://whc.unesco.org/en/list/1001"
+      }
+    ]
+  },
+  {
+    "id": "shushtar",
+    "title": "One river, many kinds of work",
+    "year": 250,
+    "approximate": true,
+    "place": "Shushtar · Iran",
+    "region": "Asia",
+    "coordinates": [48.836, 32.019],
+    "theme": "survival",
+    "tags": ["water", "engineering", "infrastructure", "exchange"],
+    "hook": "The same water could feed fields, supply a city and turn a mill.",
+    "story": "At Shushtar, canals, tunnels, dams and mills became an interconnected water system. Its major third-century form drew on older engineering traditions and on skills exchanged across the ancient world.",
+    "consequence": "Infrastructure could serve several needs together, linking a city's life to its surrounding farmland.",
+    "caution": "The third century CE marks the system's main development, with earlier foundations. Surviving structures include later repairs; similarities with other waterworks do not establish a single line of invention.",
+    "sources": [
+      {
+        "title": "UNESCO · Shushtar Historical Hydraulic System",
+        "url": "https://whc.unesco.org/en/list/1315/"
+      }
+    ]
+  },
+  {
+    "id": "nalanda",
+    "title": "Learning becomes a place to live",
+    "year": 450,
+    "approximate": true,
+    "place": "Nalanda · India",
+    "region": "Asia",
+    "coordinates": [85.443, 25.136],
+    "theme": "ideas",
+    "tags": ["knowledge", "education", "networks", "belief"],
+    "hook": "What changes when students and teachers share a home?",
+    "story": "Nalanda developed into a major Buddhist centre of study with residential buildings, shrines and spaces for teaching. Its long life connected learning with a community that could preserve and pass on knowledge.",
+    "consequence": "An institution could carry ideas across generations rather than leaving them dependent on one teacher.",
+    "caution": "This approximate fifth-century anchor refers to the monastic teaching institution, not the earliest remains on the site. Calling it a university can be helpful, but it was unlike a modern university.",
+    "sources": [
+      {
+        "title": "UNESCO · Nalanda Mahavihara",
+        "url": "https://whc.unesco.org/en/list/1502"
+      }
+    ]
+  },
+  {
+    "id": "rani-vav",
+    "title": "A stairway down to water",
+    "year": 1050,
+    "approximate": true,
+    "place": "Patan · Gujarat, India",
+    "region": "Asia",
+    "coordinates": [72.102, 23.859],
+    "theme": "survival",
+    "tags": ["water", "engineering", "belief", "architecture"],
+    "hook": "A water store could also be a place of extraordinary beauty.",
+    "story": "Rani-ki-Vav was built as a richly carved stepwell, with descending levels leading towards water. Its architecture joined the practical task of access and storage with religious imagery and remembrance.",
+    "consequence": "Everyday infrastructure could become a shared cultural place as well as an engineering solution.",
+    "caution": "The date is an approximate eleventh-century anchor. A royal commemorative stepwell is not evidence that everyone had equal access to water, nor a model suited to every climate.",
+    "sources": [
+      {
+        "title": "UNESCO · Rani-ki-Vav, the Queen's Stepwell",
+        "url": "https://whc.unesco.org/en/list/922/"
+      }
+    ]
+  },
+  {
+    "id": "timbuktu-learning",
+    "title": "Books cross the desert too",
+    "year": 1500,
+    "approximate": true,
+    "place": "Timbuktu · Mali",
+    "region": "Africa",
+    "coordinates": [-3.008, 16.773],
+    "theme": "ideas",
+    "tags": ["knowledge", "education", "trade", "networks"],
+    "hook": "A trading city could also be a meeting place for scholars.",
+    "story": "During Timbuktu's fifteenth- and sixteenth-century flourishing, Islamic scholarship grew alongside its trading networks. Mosques, teachers and manuscript collections made the city an important centre of learning.",
+    "consequence": "The movement of people and goods also sustained places where knowledge could be taught and debated.",
+    "caution": "The date marks a period of flourishing, not a founding year. Timbuktu's teaching communities should not be reduced to a single modern-style university or a romantic story of a lost city.",
+    "sources": [
+      {
+        "title": "UNESCO · Timbuktu",
+        "url": "https://whc.unesco.org/en/list/119/"
+      }
+    ]
+  },
+  {
+    "id": "quipu",
+    "title": "An empire remembers in knots",
+    "year": 1450,
+    "approximate": true,
+    "place": "Cusco · Inca world, Peru",
+    "region": "South America",
+    "coordinates": [-71.97, -13.52],
+    "theme": "ideas",
+    "tags": ["information", "knowledge", "administration", "technology"],
+    "hook": "A record did not have to be written on a page.",
+    "story": "Inca specialists used knotted cords called quipus to record quantities and categories. Knot positions, colours and cord arrangements helped organise information about people, work and resources.",
+    "consequence": "A state could keep complex records through a material system very different from alphabetic writing.",
+    "caution": "This is an approximate Inca-period anchor, not the invention of knotted records. Numerical uses are established; the full range of meanings remains debated. Cusco anchors a much wider practice.",
+    "sources": [
+      {
+        "title": "Museo Larco · Inca Quipus",
+        "url": "https://www.museolarco.org/en/exhibition/permanent-exhibition/online-exhibition/textiles-from-ancient-peru/inca-quipus/"
+      }
+    ]
+  },
+  {
+    "id": "andean-roads",
+    "title": "A network across impossible ground",
+    "year": 1450,
+    "approximate": true,
+    "place": "Andes · Cusco anchor, Peru",
+    "region": "South America",
+    "coordinates": [-72.0, -13.55],
+    "theme": "connection",
+    "tags": ["networks", "infrastructure", "exchange", "power"],
+    "hook": "Mountains were part of the network, not its edge.",
+    "story": "The Inca expanded older routes into the Qhapaq Ñan, linking Andean settlements across mountains, deserts and valleys. Roads, bridges and supporting sites helped move people, goods and instructions through the empire.",
+    "consequence": "Connecting distant places strengthened both exchange and the reach of imperial authority.",
+    "caution": "The date represents fifteenth-century expansion, not the origin of all the roads. The network served administration and conquest as well as connection, and spans six present-day countries.",
+    "sources": [
+      {
+        "title": "UNESCO · Qhapaq Ñan, Andean Road System",
+        "url": "https://whc.unesco.org/en/list/1459/"
+      }
+    ]
+  },
+  {
+    "id": "braille",
+    "title": "Reading moves to the fingertips",
+    "year": 1825,
+    "approximate": true,
+    "place": "Paris · France",
+    "region": "Europe",
+    "coordinates": [2.35, 48.85],
+    "theme": "ideas",
+    "tags": ["information", "education", "access", "technology"],
+    "hook": "A teenager helped change who could read and write for themselves.",
+    "story": "In the 1820s, Louis Braille developed a compact system of raised dots that could be read by touch. It gave blind readers a way to work directly with written language and to create their own text.",
+    "consequence": "Access to knowledge depends on how information is designed, as well as how widely it is shared.",
+    "caution": "The date is an approximate anchor for a developing system, not instant adoption. Braille spread through later teaching, publishing and advocacy; it is one of several ways blind people access information.",
+    "sources": [
+      {
+        "title": "RNIB · Feeling Our History",
+        "url": "https://www.rnib.org.uk/documents/990/RNIBFeelingOurHistory.pdf"
+      }
+    ]
+  },
+  {
+    "id": "seneca-falls",
+    "title": "A declaration asks who was left out",
+    "year": 1848,
+    "place": "Seneca Falls · United States",
+    "region": "North America",
+    "coordinates": [-76.8, 42.91],
+    "theme": "freedom",
+    "tags": ["rights", "participation", "organising", "information"],
+    "hook": "Familiar words about equality became a challenge to familiar exclusions.",
+    "story": "At the Seneca Falls convention, campaigners debated women's civil, social and religious rights. Their Declaration of Sentiments used the language of the American Declaration of Independence to expose unequal laws and customs.",
+    "consequence": "A public meeting and a printed declaration helped give a rights campaign a shared set of demands.",
+    "caution": "This was an important convention, not the beginning of all women's resistance. Its demands did not immediately become law, and later suffrage movements included deep racial exclusions.",
+    "sources": [
+      {
+        "title": "National Park Service · Report of the Woman's Rights Convention",
+        "url": "https://home.nps.gov/wori/learn/historyculture/report-of-the-womans-rights-convention.htm"
+      }
+    ]
+  },
+  {
+    "id": "snow",
+    "title": "A neighbourhood becomes evidence",
+    "year": 1854,
+    "place": "Soho · London, England",
+    "region": "Europe",
+    "coordinates": [-0.137, 51.513],
+    "theme": "survival",
+    "tags": ["health", "water", "knowledge", "evidence"],
+    "hook": "The question was not only who was ill, but where they got their water.",
+    "story": "During a cholera outbreak, John Snow investigated deaths and water supplies around Broad Street. Household evidence and comparisons between water sources helped him argue that contaminated water carried the disease.",
+    "consequence": "Patterns in ordinary places could challenge an accepted explanation of illness.",
+    "caution": "The famous pump-handle removal did not single-handedly end the outbreak; it was already declining. Snow's case rested on investigation and wider comparisons, not a map alone.",
+    "sources": [
+      {
+        "title": "Historical review · John Snow, Cholera, the Broad Street Pump",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7150208/"
+      }
+    ]
+  },
+  {
+    "id": "postal-union",
+    "title": "A letter gets a common set of rules",
+    "year": 1874,
+    "place": "Bern · Switzerland",
+    "region": "Europe",
+    "coordinates": [7.447, 46.948],
+    "theme": "connection",
+    "tags": ["networks", "cooperation", "standards", "information"],
+    "hook": "Crossing a border should not mean starting the postal journey again.",
+    "story": "The Treaty of Bern created the General Postal Union, later renamed the Universal Postal Union. Shared arrangements replaced a tangled set of separate agreements for exchanging international mail.",
+    "consequence": "A network became more useful when its participants agreed how to connect.",
+    "caution": "The union began with a limited membership. Common rules did not remove unequal literacy, cost, imperial power or access to postal services.",
+    "sources": [
+      {
+        "title": "Universal Postal Union · History",
+        "url": "https://www.upu.int/en/universal-postal-union/about-upu/history"
+      }
+    ]
+  },
+  {
+    "id": "metre-convention",
+    "title": "Agreeing what a measurement means",
+    "year": 1875,
+    "place": "Paris · France",
+    "region": "Europe",
+    "coordinates": [2.22, 48.83],
+    "theme": "connection",
+    "tags": ["standards", "cooperation", "knowledge", "infrastructure"],
+    "hook": "A shared measurement is a small agreement with enormous reach.",
+    "story": "The Metre Convention established a permanent framework for countries to cooperate on measurement. It created the International Bureau of Weights and Measures to support that shared work.",
+    "consequence": "Science and exchange became easier when measurements could be compared across borders.",
+    "caution": "The treaty did not invent the metre or make every country adopt identical everyday units. Standards require continuing maintenance, agreement and access to measurement tools.",
+    "sources": [
+      {
+        "title": "BIPM · Metre Convention",
+        "url": "https://www.bipm.org/en/metre-convention"
+      }
+    ]
+  },
+  {
+    "id": "transistor",
+    "title": "A smaller switch opens a larger world",
+    "year": 1947,
+    "place": "Murray Hill · United States",
+    "region": "North America",
+    "coordinates": [-74.405, 40.684],
+    "theme": "ideas",
+    "tags": ["technology", "information", "networks", "innovation"],
+    "hook": "A tiny electronic device could change the scale of a machine.",
+    "story": "At Bell Laboratories, research into semiconductors produced the transistor effect. Transistors could amplify or switch electrical signals, opening a path towards smaller electronic devices.",
+    "consequence": "Later refinements helped make modern computing and communications possible.",
+    "caution": "The 1947 breakthrough was not a modern microchip. Manufacturing, circuit design and many later inventions were needed before today's electronics could exist.",
+    "sources": [
+      {
+        "title": "Nobel Prize · Scientific background, Physics 2000",
+        "url": "https://www.nobelprize.org/uploads/2018/06/advanced-physicsprize2000-3.pdf"
+      }
+    ]
+  },
+  {
+    "id": "montgomery",
+    "title": "A city changes when people stop riding",
+    "year": 1955,
+    "endYear": 1956,
+    "place": "Montgomery · Alabama, United States",
+    "region": "North America",
+    "coordinates": [-86.3, 32.377],
+    "theme": "freedom",
+    "tags": ["rights", "organising", "resistance", "participation"],
+    "hook": "An everyday journey became a way to challenge segregation.",
+    "story": "After Rosa Parks's arrest, Black residents organised a sustained boycott of Montgomery's buses. Carpools, walking, meetings and legal action supported a campaign against segregated transport.",
+    "consequence": "Collective action could turn many small daily decisions into lasting pressure for change.",
+    "caution": "The boycott relied on years of organising and many participants. Court action mattered alongside protest; bus desegregation did not end racial discrimination.",
+    "sources": [
+      {
+        "title": "National Park Service · The Montgomery Bus Boycott",
+        "url": "https://home.nps.gov/articles/montgomery-bus-boycott.htm"
+      }
+    ]
+  },
+  {
+    "id": "hokulea",
+    "title": "An ocean remembered without a compass",
+    "year": 1976,
+    "place": "Hawaiʻi to Tahiti · Papeʻete anchor",
+    "region": "Oceania",
+    "coordinates": [-149.57, -17.54],
+    "theme": "connection",
+    "tags": ["knowledge", "networks", "navigation", "renewal"],
+    "hook": "Stars, swells and winds could make the ocean legible.",
+    "story": "Hōkūleʻa sailed from Hawaiʻi to Tahiti with master navigator Mau Piailug guiding the canoe without modern navigational instruments. The voyage helped renew interest in Pacific wayfinding and voyaging traditions.",
+    "consequence": "A living practice could challenge assumptions about the past while helping a new generation recover knowledge.",
+    "caution": "Mau's knowledge came from Satawal in Micronesia. The voyage demonstrated navigational capability, not the exact route or circumstances of every ancient migration. Papeʻete marks the arrival.",
+    "sources": [
+      {
+        "title": "Polynesian Voyaging Society · Hōkūleʻa's 1976 voyage",
+        "url": "https://hokulea.com/polynesian-voyaging-society-honors-the-50th-anniversary-of-hokule%CA%BBas-1976-maiden-voyage-to-tahiti/"
+      }
+    ]
+  },
+  {
+    "id": "green-belt",
+    "title": "Planting trees becomes a public voice",
+    "year": 1977,
+    "place": "Kenya · Nairobi anchor",
+    "region": "Africa",
+    "coordinates": [36.82, -1.29],
+    "theme": "freedom",
+    "tags": ["organising", "environment", "participation", "renewal"],
+    "hook": "Care for the land could also become a demand to be heard.",
+    "story": "Wangari Maathai began the Green Belt Movement, encouraging women to plant trees in response to environmental pressures on daily life. The work connected local livelihoods with women's participation and democratic rights.",
+    "consequence": "A practical community activity could grow into a wider movement for public change.",
+    "caution": "The movement was built by many women and communities, not one person alone. Tree planting is not a substitute for protecting ecosystems or addressing unequal control of land.",
+    "sources": [
+      {
+        "title": "Nobel Prize · Wangari Maathai",
+        "url": "https://www.nobelprize.org/prizes/peace/2004/maathai/"
+      }
+    ]
+  },
+  {
+    "id": "montreal",
+    "title": "Countries agree to protect an invisible shield",
+    "year": 1987,
+    "place": "Montreal · Canada",
+    "region": "North America",
+    "coordinates": [-73.567, 45.502],
+    "theme": "survival",
+    "tags": ["cooperation", "environment", "evidence", "institutions"],
+    "hook": "Damage above everyone's heads required action across borders.",
+    "story": "The Montreal Protocol set countries on a path to phase out chemicals that damage the ozone layer. Scientific evidence was translated into an international agreement, with controls strengthened over time.",
+    "consequence": "A shared environmental problem could become a sustained programme of coordinated action.",
+    "caution": "Signing in 1987 was the beginning of implementation, not instant recovery. Ozone depletion and climate change involve different chemicals and political challenges; one treaty does not guarantee another's success.",
+    "sources": [
+      {
+        "title": "UNEP Ozone Secretariat · Montreal Protocol",
+        "url": "https://ozone.unep.org/treaties/montreal-protocol"
+      }
+    ]
+  },
+  {
+    "id": "liberia-peace",
+    "title": "Women make peace impossible to ignore",
+    "year": 2003,
+    "place": "Monrovia · Liberia",
+    "region": "Africa",
+    "coordinates": [-10.8, 6.3],
+    "theme": "freedom",
+    "tags": ["organising", "participation", "peace", "resistance"],
+    "hook": "People excluded from power could still organise to influence it.",
+    "story": "A women's peace movement, with Leymah Gbowee among its leaders, brought Christian and Muslim women together against Liberia's war. Public protest and pressure around negotiations helped push for an end to the conflict.",
+    "consequence": "Working across religious divisions could strengthen demands for peace and women's participation.",
+    "caution": "The movement was one part of a wider political and military process. The end of fighting did not immediately repair the harm of war or secure equal power for women.",
+    "sources": [
+      {
+        "title": "Nobel Prize · Leymah Gbowee, biography",
+        "url": "https://www.nobelprize.org/prizes/peace/2011/gbowee/biographical/"
+      }
+    ]
+  }
+]

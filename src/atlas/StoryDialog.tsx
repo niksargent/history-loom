@@ -252,8 +252,8 @@ export function JourneyDialog({
             <div className="journey-bottom">
               <span>
                 {step < stops.length - 1
-                  ? `${yearDistance(moment.year, stops[step + 1].year).toLocaleString()} years later…`
-                  : 'Three moments. One unexpected thread.'}
+                  ? `${moment.approximate || stops[step + 1].approximate ? 'About ' : ''}${yearDistance(moment.year, stops[step + 1].year).toLocaleString()} years later…`
+                  : 'Compare these moments.'}
               </span>
               <button
                 className="primary-button"
@@ -268,9 +268,8 @@ export function JourneyDialog({
           </>
         ) : (
           <>
-            <span className="eyebrow">PAUSE. NOTICE. CONNECT.</span>
+            <span className="eyebrow">THE CONNECTION</span>
             <h3>{journey.question}</h3>
-            <p className="quiet">Take a guess. Curiosity is the point.</p>
             <div className="answer-options">
               {journey.options.map((option, i) => (
                 <button

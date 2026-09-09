@@ -49,15 +49,21 @@ export function filterMoments(
   theme: Theme | 'all',
   until: number,
 ) {
-  const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
+  const searchable = (value: string) =>
+    value
+      .normalize('NFKD')
+      .replace(/\p{M}/gu, '')
+      .replace(/['’ʻʼ]/g, '')
+      .toLocaleLowerCase()
+  const terms = searchable(query).trim().split(/\s+/).filter(Boolean)
   return moments.filter(
     (m) =>
       m.year <= until &&
       (theme === 'all' || m.theme === theme) &&
       terms.every((term) =>
-        `${m.title} ${m.place} ${m.region} ${m.hook} ${m.tags.join(' ')}`
-          .toLocaleLowerCase()
-          .includes(term),
+        searchable(
+          `${m.id} ${m.title} ${m.place} ${m.region} ${m.hook} ${m.story} ${m.tags.join(' ')}`,
+        ).includes(term),
       ),
   )
 }

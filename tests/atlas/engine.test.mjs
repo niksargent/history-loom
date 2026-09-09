@@ -14,6 +14,105 @@ import {
 } from '../../src/atlas/engine.ts'
 import { validateMoment, validateCorpus } from '../../scripts/atlas-schema.mjs'
 import { readFile } from 'node:fs/promises'
+import {
+  clusterEras,
+  nearestEras,
+  pressureEras,
+  scoreDistance,
+} from '../../src/atlas/pressureModel.ts'
+
+test('pressure groups cover each era exactly once and ignore its date and country', () => {
+  const groups = clusterEras(pressureEras)
+  assert.equal(groups.length, 4)
+  const membership = (gs) =>
+    gs
+      .map((g) => g.members.map((p) => p.key).sort())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+  const keys = groups.flatMap((g) => g.members.map((p) => p.key))
+  assert.equal(keys.length, pressureEras.length)
+  assert.equal(new Set(keys).size, pressureEras.length)
+  assert.deepEqual(
+    membership(groups),
+    membership(
+      clusterEras(
+        [...pressureEras].reverse().map((p, i) => ({
+          ...p,
+          startYear: 100 + i,
+          endYear: 101 + i,
+          country: 'Changed',
+        })),
+      ),
+    ),
+  )
+  for (const group of groups)
+    group.center.forEach((v, d) =>
+      assert.ok(
+        Math.abs(
+          v -
+            group.members.reduce((s, p) => s + p.scores[d], 0) /
+              group.members.length,
+        ) < 1e-8,
+      ),
+    )
+})
+
+test('closest pressure comparisons match the fingerprint metric and respect country scope', () => {
+  const selected = pressureEras.find((p) => p.country === 'France')
+  const matches = nearestEras(selected, pressureEras, true)
+  assert.ok(
+    matches.every(
+      (m) => m.era.country !== selected.country && m.era.key !== selected.key,
+    ),
+  )
+  assert.equal(matches[0].era.key, 'gb-p02')
+  matches.forEach((m, i) => {
+    assert.equal(m.distance, scoreDistance(selected.scores, m.era.scores))
+    if (i) assert.ok(matches[i - 1].distance <= m.distance)
+  })
+  const same = {
+    ...selected,
+    key: 'same-scores',
+    country: 'Elsewhere',
+    startYear: 1100,
+  }
+  assert.equal(nearestEras(selected, [selected, same], true)[0].distance, 0)
+})
+
+test('pressure grouping handles a single shared profile without empty invented groups', () => {
+  assert.deepEqual(clusterEras([]), [])
+  const same = pressureEras
+    .slice(0, 3)
+    .map((p) => ({ ...p, scores: [50, 50, 50, 50, 50, 50] }))
+  assert.equal(clusterEras(same).length, 1)
+})
+
+test('new knowledge, water and civic histories have sources and reachable journey stops', () => {
+  for (const id of [
+    'kuk',
+    'budj-bim',
+    'nalanda',
+    'quipu',
+    'braille',
+    'hokulea',
+    'green-belt',
+    'montreal',
+    'liberia-peace',
+  ]) {
+    assert.ok(momentById[id].sources.length)
+    assert.ok(relatedMoments(momentById[id], moments).length >= 3)
+  }
+  for (const id of [
+    'water-worlds',
+    'knowledge-keepers',
+    'everyday-power',
+    'shared-rules',
+    'ways-to-record',
+  ]) {
+    const journey = journeys.find((j) => j.id === id)
+    assert.ok(journey)
+    assert.ok(journey.stops.every((id) => momentById[id]))
+  }
+})
 
 test('historical arithmetic has no year zero and works in both directions', () => {
   assert.equal(yearDistance(-1, 1), 1)
@@ -21,6 +120,25 @@ test('historical arithmetic has no year zero and works in both directions', () =
   assert.equal(yearDistance(-130, 1993), 2122)
   assert.equal(yearDistance(1929, 2008), 79)
   assert.equal(yearDistance(-3200, -130), 3070)
+})
+
+test('new stories can be found by personal names and unaccented spellings', () => {
+  assert.ok(
+    filterMoments(moments, 'Louis Braille', 'ideas', 2020).some(
+      (m) => m.id === 'braille',
+    ),
+  )
+  assert.ok(
+    filterMoments(moments, 'Hokulea', 'connection', 2020).some(
+      (m) => m.id === 'hokulea',
+    ),
+  )
+  assert.ok(
+    filterMoments(moments, 'Wangari Maathai', 'freedom', 2020).some(
+      (m) => m.id === 'green-belt',
+    ),
+  )
+  assert.equal(filterMoments(moments, 'Louis Braille', 'ideas', 1800).length, 0)
 })
 test('timeline moves continuously across BCE/CE in either direction', () => {
   assert.equal(axisToYear(yearToAxis(-1) + 1), 1)
@@ -39,7 +157,10 @@ test('search combines terms, theme, and time rather than ignoring active filters
     filterMoments(moments, 'a word that is absent', 'all', 2020).length,
     0,
   )
-  assert.equal(filterMoments(moments, '', 'all', -3200).length, 1)
+  assert.deepEqual(
+    filterMoments(moments, '', 'all', -3200).map((m) => m.id),
+    ['kuk', 'budj-bim', 'writing'],
+  )
   assert.ok(
     filterMoments(moments, 'Africa', 'all', 2020).every(
       (m) => m.region === 'Africa',
@@ -62,7 +183,7 @@ test('echo ranking excludes self, requires actual shared tags, and is determinis
   assert.deepEqual(related, relatedMoments(momentById.diamond, moments))
   assert.ok(related.find((r) => r.moment.id === 'jikji')?.score === 1)
 })
-test('the 80-year experiment calculates actual irregular intervals', () => {
+test('historical intervals are calculated from dates, without rounding to cycles', () => {
   assert.deepEqual(
     consecutiveGaps([2008, 1776, 1929, 1861, 1776]).map((g) => g.gap),
     [85, 68, 79],

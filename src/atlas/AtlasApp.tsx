@@ -53,7 +53,9 @@ function JourneyCard({
     >
       <div className="journey-card-art">
         <ThreadArt kind={journey.art} />
-        <span className="journey-card-number">0{index + 1}</span>
+        <span className="journey-card-number">
+          {String(index + 1).padStart(2, '0')}
+        </span>
         <span className="journey-card-category">
           {completed ? (
             <>
@@ -539,10 +541,8 @@ export default function AtlasApp() {
             <section className="journeys-section">
               <div className="section-heading">
                 <div>
-                  <span className="eyebrow">
-                    A LITTLE CURIOSITY GOES A LONG WAY
-                  </span>
-                  <h2>Get wonderfully lost.</h2>
+                  <span className="eyebrow">GUIDED JOURNEYS</span>
+                  <h2>Journeys through history.</h2>
                 </div>
                 <button
                   className="text-button"
@@ -576,8 +576,8 @@ export default function AtlasApp() {
                 <span className="eyebrow">NOT EVERYTHING REPEATS</span>
                 <h2>Some things change everything.</h2>
                 <p>
-                  Explore the data behind longer lives—and put the 80-year
-                  theory to the test.
+                  Explore longer lives and compare the pressures shaping
+                  different eras.
                 </p>
               </div>
               <button
@@ -593,7 +593,7 @@ export default function AtlasApp() {
         {page === 'journeys' && (
           <section className="journeys-page page-enter">
             <div className="page-intro">
-              <span className="eyebrow">SMALL JOURNEYS. BIG PERSPECTIVES.</span>
+              <span className="eyebrow">GUIDED JOURNEYS</span>
               <h1>
                 History takes
                 <br />

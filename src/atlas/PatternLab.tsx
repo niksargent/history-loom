@@ -9,10 +9,9 @@ export default function PatternLab() {
     <section className="pattern-lab page-enter">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">FOLLOW YOUR CURIOSITY FURTHER</span>
+          <span className="eyebrow">PATTERN LAB</span>
           <h1>Look beneath the story.</h1>
         </div>
-        <p>Less guesswork. More discovery.</p>
       </div>
       <div className="lab-tabs" role="tablist" aria-label="Pattern experiments">
         {[
@@ -22,7 +21,7 @@ export default function PatternLab() {
             icon: 'network',
             name: 'History’s fingerprints',
           },
-          { id: 'cycles', icon: 'route', name: 'The 80-year idea' },
+          { id: 'cycles', icon: 'network', name: 'Echoes across time' },
         ].map((t) => (
           <button
             key={t.id}

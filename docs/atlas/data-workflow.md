@@ -2,7 +2,7 @@
 
 ## Add sourced moments
 
-Use `data/atlas/extensions.json` for new records. The 35 initial records are in `src/atlas/content.ts`; 14 additional records already demonstrate the extension pipeline. Copy one extension record to a draft JSON file and give it a new, permanent, lowercase ID. A draft can contain one object or an array.
+Use `data/atlas/extensions.json` for new records. The 35 initial records are in `src/atlas/content.ts`; 14 records demonstrate the extension pipeline, and 20 further reviewed records live in `data/atlas/tranche-two.json`. All three are combined before validation, so duplicate detection also covers the new tranche. Copy one record to a draft JSON file and give it a new, permanent, lowercase ID. A draft can contain one object or an array.
 
 Every record needs `id`, `title`, `year`, `place`, `region`, `[longitude, latitude]` coordinates, `theme`, at least two distinct `tags`, `hook`, `story`, `consequence`, `caution`, and a `sources` array of `{title, url}`. Optional `approximate` and `endYear` describe uncertain dates or spans. Use negative years for BCE, never zero. Regions are the six inhabited continents; themes are `ideas`, `connection`, `power`, `freedom`, and `survival`.
 
@@ -37,4 +37,4 @@ The endpoint is deliberately fixed at 2023 to exclude projections. To extend it,
 
 ## Source reachability
 
-`npm run audit:atlas-sources` writes `data/atlas/source-audit.json`. On 8 September 2026, 21 of 50 sources were directly reachable by the script; 28 returned access-protection responses (403), and one returned a rate limit (429). This is a reachability audit, not a historical review. Do not delete useful institutional evidence simply because automated requests receive 403. Check it in a normal browser and distinguish access failure from a missing page.
+`npm run audit:atlas-sources` writes `data/atlas/source-audit.json`. The second-tranche audit on 8 September 2026 reached 32 of 70 sources directly; 36 returned access protection (403), one a rate limit (429), and the UPU history page a server error (500). UPU's content was also available through web retrieval during research. This is a reachability audit, not a historical review. Do not delete useful institutional evidence simply because automated requests fail. Check it in a normal browser and distinguish access failure from a missing page.
