@@ -6,6 +6,6 @@ Production brief: a cinematic painterly timeless harbor at twilight; ancient sto
 
 `ThreadArt.tsx` supplies original SVG illustrations for networks, voices, cities, survival, and discovery. `WorldMap.tsx` uses public-domain Natural Earth coastlines through the existing world-atlas package. Connections are editorial relationships, not geographical reconstructions.
 
-Local variable WOFF2 fonts are Cormorant Garamond and the interface fonts declared in `public/atlas/fonts/fonts.css`. Latin and Latin Extended subsets are bundled. Their OFL license files remain beside them; `data/atlas/fonts-source.css` records the provider CSS. Run `node scripts/fetch-atlas-fonts.mjs` to reproduce downloads.
+Local variable WOFF2 fonts are Cormorant Garamond and the interface fonts declared in `public/atlas/fonts/fonts.css`. Latin and Latin Extended subsets are bundled. Their OFL license files remain beside them; `data/atlas/fonts-source.css` records the provider CSS. Run `node tools/data/fetch-atlas-fonts.mjs` to reproduce downloads.
 
 Ambient sound is a quiet original Web Audio synthesis, enabled only on request. Narration uses browser speech synthesis, with visible unavailable-voice handling. No paid speech API was called and no historic person is impersonated.

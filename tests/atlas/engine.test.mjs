@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { moments, journeys, momentById } from '../../src/atlas/content.ts'
+import { moments, journeys, momentById } from '../../apps/atlas/src/content.ts'
 import {
   yearDistance,
   yearLabel,
@@ -11,15 +11,15 @@ import {
   consecutiveGaps,
   observationAt,
   chartSegments,
-} from '../../src/atlas/engine.ts'
-import { validateMoment, validateCorpus } from '../../scripts/atlas-schema.mjs'
+} from '../../apps/atlas/src/engine.ts'
+import { validateMoment, validateCorpus } from '../../tools/data/atlas-schema.mjs'
 import { readFile } from 'node:fs/promises'
 import {
   clusterEras,
   nearestEras,
   pressureEras,
   scoreDistance,
-} from '../../src/atlas/pressureModel.ts'
+} from '../../apps/atlas/src/pressureModel.ts'
 
 test('pressure groups cover each era exactly once and ignore its date and country', () => {
   const groups = clusterEras(pressureEras)

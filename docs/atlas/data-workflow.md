@@ -2,7 +2,7 @@
 
 ## Add sourced moments
 
-Use `data/atlas/extensions.json` for new records. The 35 initial records are in `src/atlas/content.ts`; 14 records demonstrate the extension pipeline, and 20 further reviewed records live in `data/atlas/tranche-two.json`. All three are combined before validation, so duplicate detection also covers the new tranche. Copy one record to a draft JSON file and give it a new, permanent, lowercase ID. A draft can contain one object or an array.
+Use `data/atlas/extensions.json` for new records. The 35 initial records are in `apps/atlas/src/content.ts`; 14 records demonstrate the extension pipeline, and 20 further reviewed records live in `data/atlas/tranche-two.json`. All three are combined before validation, so duplicate detection also covers the new tranche. Copy one record to a draft JSON file and give it a new, permanent, lowercase ID. A draft can contain one object or an array.
 
 Every record needs `id`, `title`, `year`, `place`, `region`, `[longitude, latitude]` coordinates, `theme`, at least two distinct `tags`, `hook`, `story`, `consequence`, `caution`, and a `sources` array of `{title, url}`. Optional `approximate` and `endYear` describe uncertain dates or spans. Use negative years for BCE, never zero. Regions are the six inhabited continents; themes are `ideas`, `connection`, `power`, `freedom`, and `survival`.
 

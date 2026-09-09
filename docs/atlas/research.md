@@ -1,6 +1,6 @@
 # Does history rhyme?
 
-The original British collection explicitly divides 1066–2025 into twelve fixed 80-year periods: see `docs/research-notes.md`. It is therefore unsuitable as independent evidence that crises recur every 80 years. Its pressure scores are editorial interpretations, not measurements from an independently coded historical panel.
+The original British collection explicitly divides 1066–2025 into twelve fixed 80-year periods: see `docs/classic/research-notes.md`. It is therefore unsuitable as independent evidence that crises recur every 80 years. Its pressure scores are editorial interpretations, not measurements from an independently coded historical panel.
 
 Strauss and Howe's Fourth Turning proposes a roughly 80–100-year generational rhythm, principally through an Anglo-American lens. The atlas treats this as a hypothesis to question. The original event-selection demo has been replaced by **Echoes across time**, which gives each comparison a basis in the six editorial pressure scores. Four deterministic k-means groups organise all 32 original eras; dates and country are excluded from the grouping features. Four groups are a display choice, not a claim that history has four natural classes. Ring positions are for readability and do not encode distance.
 

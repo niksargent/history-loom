@@ -11,7 +11,7 @@ The final production preview was rebuilt and reloaded under `/history-loom/atlas
 ## Automated checks
 
 - TypeScript project build passed.
-- ESLint passed for `src/atlas` using the repository's existing configuration.
+- ESLint passed for `apps/atlas/src` using the repository's existing configuration.
 - All 11 atlas tests passed: BCE/CE arithmetic, continuous slider conversion, combined filtering, deterministic shared-tag ranking, irregular cycle intervals, exact observations, missing-year chart breaks, complete corpus references, malformed extension rejection, duplicate/broken journey rejection, and numerical snapshot provenance.
 - Atlas validation passed: 49 moments, eight journeys, 237 series, 19,425 observations.
 - Original data validation passed for all four registered histories and their derived insight packs.

@@ -22,7 +22,7 @@
 
 ## Voice sample
 
-Run `node scripts/video-voice-test.mjs` from the repository root. Requires a Node version supporting `process.loadEnvFile`.
+Run `node tools/video/video-voice-test.mjs` from the repository root. Requires a Node version supporting `process.loadEnvFile`.
 The script makes one paid generation request and saves MP3, alignment and nonsecret generation settings in `.cache/video/voice-test/`.
 An existing sample is reused without further generation. A timeout is not automatically retried because it may already have consumed credits.
 
@@ -31,7 +31,7 @@ The user approved the Multilingual v2 audition. Retain voice `k8dq4mJpbfobhAWpYe
 ## Capture pilot and script
 
 - Seven-scene script: `docs/atlas/video-script.md`, 288 spoken words plus visual pauses.
-- Pilot driver: `scripts/video-capture-pilot.mjs`. Requires `VIDEO_PLAYWRIGHT_PATH` pointing to an installed `playwright/index.mjs`, Edge and FFmpeg installed with `npm install --prefix .cache/video/tools --no-audit --no-fund ffmpeg-static`.
+- Pilot driver: `tools/video/video-capture-pilot.mjs`. Requires `VIDEO_PLAYWRIGHT_PATH` pointing to an installed `playwright/index.mjs`, Edge and FFmpeg installed with `npm install --prefix .cache/video/tools --no-audit --no-fund ffmpeg-static`.
 - Captures an isolated browser at 1920 × 1080. Browser frame timestamps determine duration; unchanged frames are held and the final encode is constant 30 fps.
 - Initial encoded pilot passed a complete decode: H.264, 1920 × 1080, 30 fps, 444 frames. No browser errors. Framing review found that the larger charts require deliberate scrolling; the pilot now includes that movement and the 80-year guide.
 - The pilot is silent technical footage, not the finished film. It does not yet include cursor choreography, narration sync or sound design.
@@ -39,12 +39,12 @@ The user approved the Multilingual v2 audition. Retain voice `k8dq4mJpbfobhAWpYe
 
 ## Production pipeline
 
-- `node scripts/video-audio.mjs`: generates seven narration clips with timestamps and two sound assets. Requests are cached by script/settings hash; the key is never logged.
+- `node tools/video/video-audio.mjs`: generates seven narration clips with timestamps and two sound assets. Requests are cached by script/settings hash; the key is never logged.
 - Set `VIDEO_PLAYWRIGHT_PATH` to the installed `playwright/index.mjs`. Optionally set `VIDEO_APP_URL` to the production preview URL.
-- `node scripts/video-capture-film.mjs --rehearse`: checks all scene interactions and saves framing screenshots without recording.
-- `node scripts/video-capture-film.mjs`: records the timed scenes. Existing takes are reused. After changing narration or shot directions, explicitly recapture affected scenes with `--scene=04` (or the relevant ID).
-- `node scripts/video-assemble.mjs`: applies transitions, assembles narration, ducks ambience, mixes accents, builds captions and exports clean/captioned H.264 films.
-- `node scripts/video-verify.mjs`: verifies caption timing, visual cue timing, browser errors, complete file decoding, resolution, frame rate and measured loudness.
+- `node tools/video/video-capture-film.mjs --rehearse`: checks all scene interactions and saves framing screenshots without recording.
+- `node tools/video/video-capture-film.mjs`: records the timed scenes. Existing takes are reused. After changing narration or shot directions, explicitly recapture affected scenes with `--scene=04` (or the relevant ID).
+- `node tools/video/video-assemble.mjs`: applies transitions, assembles narration, ducks ambience, mixes accents, builds captions and exports clean/captioned H.264 films.
+- `node tools/video/video-verify.mjs`: verifies caption timing, visual cue timing, browser errors, complete file decoding, resolution, frame rate and measured loudness.
 - All generated media lives in `.cache/video/film/`; final deliverables are in its `delivery` subdirectory. Raw captures, API response alignments, clean audio stems and cue manifests are retained.
 - The filmed app includes pre-existing uncommitted Atlas/data expansion work on top of Git revision `9b4fe728728821c8f00be8d286dd2895697c7d9d`. Video production changes are confined to tooling and documentation; they do not modify app behaviour.
 

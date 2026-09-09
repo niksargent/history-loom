@@ -1,0 +1,13 @@
+.loom-experience-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--line, #ffffff30); border-radius: 999px; width: fit-content; flex-shrink: 0; font-family: inherit; font-size: 11px; line-height: 1.4; }
+.loom-experience-switch a { display: block; padding: 5px 10px; border-radius: inherit; color: var(--muted, #d5d8dc); text-decoration: none; white-space: nowrap; }
+.loom-experience-switch a[aria-current='page'] { background: var(--accent-soft, #eed4a822); color: var(--accent, #eed4a8); }
+.loom-experience-switch a:hover { color: var(--text, white); }
+.loom-experience-switch a:focus-visible { outline: 2px solid var(--accent, #eed4a8); outline-offset: 2px; }
+.loom-experience-switch--classic { --line: #ffffff30; --muted: #d5d8dc; --accent: #eed4a8; --accent-soft: #eed4a822; }
+.atlas-brand-group { display: flex; align-items: center; gap: 18px; }
+.classic-experience-nav { display: flex; justify-content: flex-end; position: relative; z-index: 1; margin-bottom: 12px; }
+@media (max-width: 1300px) {
+  .atlas-brand-group { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .atlas-brand-group .loom-experience-switch { font-size: 10px; padding: 1px; }
+  .atlas-brand-group .loom-experience-switch a { padding: 3px 10px; }
+}

@@ -1,17 +1,17 @@
 # History Loom · The living atlas
 
-A separate, visual-first experience alongside the original History Loom. The original remains at `index.html`; the new app is at `atlas.html`. No original historical datasets or application components were replaced.
+A separate, visual-first experience alongside History Loom Classic. Atlas is the default at `/history-loom/`; Classic lives at `/history-loom/classic/`. The header switch connects them, and old `atlas.html` links redirect to Atlas. See the [repository guide](../../README.md) for the application and data boundaries.
 
 ## Run
 
-Use Node 22.18 or later (the data tools import TypeScript directly).
+Use Node 24 (the data tools import TypeScript directly).
 
 ```sh
-npm install
+npm ci
 npm run dev:atlas
 ```
 
-Open the printed local server URL followed by `/atlas.html`. The footer links back to the original app. Run `npm run build` for both entries, then `npm run preview`; the production path is `/history-loom/atlas.html` to match the existing hosting configuration. If a restricted Windows environment prevents Vite's config bundler from spawning, use `node node_modules/vite/bin/vite.js --configLoader native` or the corresponding `build --configLoader native` command.
+Open the printed local server URL. Run `npm run build` for both experiences, then `npm run preview`; the production path is `/history-loom/`. If a restricted Windows environment prevents Vite's config bundler from spawning, use `node node_modules/vite/bin/vite.js --configLoader native` or the corresponding `build --configLoader native` command.
 
 ## What is here
 
@@ -26,7 +26,7 @@ Narration currently uses the device's speech synthesis voices. Voice quality and
 
 ## Maintain
 
-`src/atlas/AtlasApp.tsx` owns navigation and discovery state. `WorldMap`, `StoryDialog`, and the three independently loaded lab components own their respective experiences. `engine.ts` holds the pure historical/filtering calculations. `content.ts` combines curated stories and the validated extension file. The data snapshot is fetched locally only when the life chart opens. Styling and fonts are isolated to the atlas entry.
+`apps/atlas/src/AtlasApp.tsx` owns navigation and discovery state. `WorldMap`, `StoryDialog`, and the three independently loaded lab components own their respective experiences. `engine.ts` holds the pure historical/filtering calculations. `content.ts` combines curated stories and the validated extension file. The data snapshot is fetched locally only when the life chart opens. Styling and fonts are isolated to the atlas entry.
 
 ```sh
 npm run test:atlas
